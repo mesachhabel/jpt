@@ -3,6 +3,8 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataKaryawanController;
 use App\Http\Controllers\AbsensiDataKaryawanController;
+use App\Http\Controllers\TerimaPotongController;
+use App\Http\Controllers\TerimaPotongControllerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +27,8 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::get('/datakaryawan', [DataKaryawanController::class, 'index']);
 Route::get('/create-datakaryawan', [DataKaryawanController::class, 'create']);
 
-
 Route::get('/absensidatakaryawan', [AbsensiDataKaryawanController::class, 'index']);
 Route::get('/create-absensidatakaryawan', [AbsensiDataKaryawanController::class, 'create']);
+
+Route::get('/terimapotong', [TerimaPotongController::class, 'index']);
+Route::get('/create-terimapotong', [TerimaPotongController::class, 'create']);

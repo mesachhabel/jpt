@@ -13,7 +13,7 @@ class TerimaPotongController extends Controller
      */
     public function index()
     {
-        //
+        return view('TerimaPotong.TerimaPotongs');
     }
 
     /**
@@ -23,7 +23,7 @@ class TerimaPotongController extends Controller
      */
     public function create()
     {
-        //
+        return view('TerimaPotong.CreateTerimaPotongs');
     }
 
     /**

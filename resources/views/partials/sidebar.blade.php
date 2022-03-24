@@ -76,7 +76,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="layouts-blank.html" class="menu-link">
+                    <a href="{{url('terimapotong')}}" class="menu-link">
                         <div data-i18n="Without navbar">Penerimaan dan Potongan Lain</div>
                     </a>
                 </li>

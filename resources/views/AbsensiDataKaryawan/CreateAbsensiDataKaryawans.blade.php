@@ -62,13 +62,13 @@
                         <tr>
                             <td><i class="fab fa-react fa-lg text-info me-3 "></i> <strong>10000</strong></td>
                             <td>2022</td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -84,13 +84,13 @@
                         <tr>
                             <td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>10000</strong></td>
                             <td>2022</td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -108,13 +108,13 @@
                                 <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>10000</strong>
                             </td>
                             <td>2022</td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
-                            <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                            <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

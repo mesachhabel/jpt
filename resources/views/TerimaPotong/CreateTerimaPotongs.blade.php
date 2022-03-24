@@ -3,208 +3,38 @@
 @section('container')
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Pemeliharaan Data / Data Karyawan /</span> Tambah Data Karyawan
+        <span class="text-muted fw-light">Transaksi Data / Penerimaan dan Potongan Lain /</span> Tambah Data
     </h4>
-
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-4">
-                <h5 class="card-header">Profile Details</h5>
+                <h5 class="card-header">Data Karyawan</h5>
                 <!-- Account -->
-                <div class="card-body">
-                    <div class="d-flex align-items-start align-items-sm-center gap-4">
-                        <img src="../assets/img/avatars/1.png" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
-                        <div class="button-wrapper">
-                            <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-                                <span class="d-none d-sm-block">Upload new photo</span>
-                                <i class="bx bx-upload d-block d-sm-none"></i>
-                                <input type="file" id="upload" class="account-file-input" hidden accept="image/png, image/jpeg" />
-                            </label>
-                            <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-                                <i class="bx bx-reset d-block d-sm-none"></i>
-                                <span class="d-none d-sm-block">Reset</span>
-                            </button>
-
-                            <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
-                        </div>
-                    </div>
-                </div>
-                <hr class="my-0" />
-                <div class="card-body">
-                    <form id="formAccountSettings" method="POST" onsubmit="return false">
-                        <div class="row">
-                            <div class="mb-3 col-md-4">
-                                <label for="NIK" class="form-label">NIK</label>
-                                <input class="form-control" type="text" id="NIK" name="NIK" value="10001" autofocus />
-                            </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="Nama" class="form-label">Nama Lengkap</label>
-                                <input class="form-control" type="text" name="Nama" id="Nama" value="Dwi Suprihatiningsih, SE" />
-                            </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="NPP" class="form-label">NPP Instansi</label>
-                                <input class="form-control" type="text" id="NPP" name="NPP" value="01600" />
-                            </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="defaultSelect" class="form-label">Jenis Kelamin</label>
-                                <select id="defaultSelect" class="form-select">
-                                    <option>-- Pilih Jenis Kelamin --</option>
-                                    <option value="1">Laki Laki</option>
-                                    <option value="2">Perempuan</option>
-                                    <option value="3">Lain Lain ..</option>
-                                </select>
-                            </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="defaultSelect" class="form-label">Agama</label>
-                                <select id="defaultSelect" class="form-select">
-                                    <option>-- Pilih Agama --</option>
-                                    <option value="1">Islam</option>
-                                    <option value="2">Kristen Protestan</option>
-                                    <option value="3">Kristen Katholik</option>
-                                    <option value="4">Buddha</option>
-                                    <option value="5">Hindu</option>
-                                    <option value="6">Konghuchu</option>
-                                </select>
-                            </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="defaultSelect" class="form-label">Status Keluarga</label>
-                                <select id="defaultSelect" class="form-select">
-                                    <option>-- Pilih Status Keluarga --</option>
-                                    <option value="1">Belum Kawin</option>
-                                    <option value="2">Kawin</option>
-                                    <option value="3">Janda</option>
-                                    <option value="4">Duda</option>
-                                </select>
-                            </div>
-                        </div>
-                </div>
                 <hr class="my-0" />
                 <div class="card-body">
                     <form id="formAccountSettings" method="POST" onsubmit="return false">
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label for="defaultSelect" class="form-label">Instansi Asal</label>
-                                <select id="defaultSelect" class="form-select">
-                                    <option>-- Pilih Instansi Asal --</option>
-                                    <option value="1">PT. Jasamarga Pandaan Tol</option>
-                                    <option value="2">PT. Jasamarga (Persero) TBK</option>
-                                    <option value="3">PT. Trans Optima Luhur</option>
-                                    <option value="4">PT. Entrada Utama</option>
-                                    <option value="5">PT. Jalan Tol Kabupaten Pasuruan</option>
-                                </select>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="defaultSelect" class="form-label">Golongan Instansi</label>
-                                <select id="defaultSelect" class="form-select">
-                                    <option>-- Pilih Golongan Instansi --</option>
-                                    <option value="1">01</option>
-                                    <option value="2">02</option>
-                                    <option value="3">03</option>
-                                    <option value="4">04</option>
-                                    <option value="5">.....</option>
-                                </select>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="NPWP" class="form-label">NPWP</label>
-                                <input class="form-control" type="text" id="NPWP" name="NPWP" value="47.664.977.7-609.000" autofocus />
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="NoKTP" class="form-label">Nomor KTP</label>
-                                <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="-" />
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="NoBPJST" class="form-label">Nomor BPJS Ketenagakerjaan</label>
-                                <input class="form-control" type="text" id="NoBPJST" name="NoBPJST" value="83J82011368" autofocus />
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="NoBPJSK" class="form-label">Nomor BPJS Kesehatan</label>
-                                <input class="form-control" type="text" name="NoBPJSK" id="NoBPJSK" value="-" />
-                            </div>
-                        </div>
-                </div>
-                <hr class="my-0" />
-                <div class="card-body">
-                    <form id="formAccountSettings" method="POST" onsubmit="return false">
-                        <div class="row">
-                            <div class="mb-3 col-md-4">
-                                <label for="html5-date-input" class="form-label">Tanggal Masuk Kerja</label>
+                                <label for="html5-month-input" class="form-label">Bulan - Tahun</label>
                                 <div class="col-md-12">
-                                    <input class="form-control" type="date" value="2021-06-18" id="html5-date-input" />
+                                    <input class="form-control" type="month" value="2021-06" id="html5-month-input" />
                                 </div>
                             </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="defaultSelect" class="form-label">Status Karyawan</label>
+                            <div class="mb-3 col-md-6">
+                                <label for="defaultSelect" class="form-label">NIK</label>
                                 <select id="defaultSelect" class="form-select">
-                                    <option>-- Pilih Status Karyawan --</option>
-                                    <option value="1">[DR] Direksi</option>
-                                    <option value="2">[KM] Komisaris</option>
-                                    <option value="3">[OP] Operasional</option>
-                                    <option value="4">[OS] Outsourcing</option>
-                                    <option value="5">[TP] Karyawan Tetap</option>
-                                    <option value="6">[TX] PKWT Jasamarga</option>
-                                    <option value="7">[TY] PKWT Eksternal</option>
-                                    <option value="8">[TZ] Tenaga Ahli</option>
-                                </select>
-                            </div>
-                            <div class="mb-3 col-md-4">
-                                <label for="defaultSelect" class="form-label">Jabatan</label>
-                                <select id="defaultSelect" class="form-select">
-                                    <option>-- Pilih Jabatan --</option>
+                                    <option>-- Pilih NIK --</option>
                                     <option value="1">.....</option>
                                     <option value="2">.....</option>
                                 </select>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label for="NPWP" class="form-label">NPWP</label>
+                                <label for="NPWP" class="form-label">Jabatan</label>
                                 <input class="form-control" type="text" id="NPWP" name="NPWP" value="47.664.977.7-609.000" autofocus />
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label for="NoKTP" class="form-label">Nomor KTP</label>
-                                <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="-" />
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="NoBPJST" class="form-label">Nomor BPJS Ketenagakerjaan</label>
-                                <input class="form-control" type="text" id="NoBPJST" name="NoBPJST" value="83J82011368" autofocus />
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="NoBPJSK" class="form-label">Nomor BPJS Kesehatan</label>
-                                <input class="form-control" type="text" name="NoBPJSK" id="NoBPJSK" value="-" />
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!-- /Account -->
-            </div>
-
-            <div class="card mb-4">
-                <h5 class="card-header">Data Jasamarga</h5>
-                <!-- Account -->
-                <div class="card-body">
-                    <form id="formAccountSettings" method="POST" onsubmit="return false">
-                        <div class="row">
-                            <div class="mb-3 col-md-3">
-                                <label for="NPP" class="form-label">NPP Instansi</label>
-                                <input class="form-control" type="text" id="NPP" name="NPP" value="01600" />
-                            </div>
-                            <div class="mb-3 col-md-3">
-                                <label for="Gol" class="form-label">Gol Instansi</label>
-                                <input class="form-control" type="text" id="Gol" name="Gol" value="1C" />
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="PhDP" class="form-label">PhDP</label>
-                                <input class="form-control" type="text" id="PhDP" name="PhDP" value="8.134.245" autofocus />
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="UpahJSMR" class="form-label">Upah JSMR</label>
-                                <input class="form-control" type="text" id="UpahJSMR" name="UpahJSMR" value="21.784.439" autofocus />
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <label for="PhDA" class="form-label">PhDA</label>
-                                <input class="form-control" type="text" id="PhDA" name="PhDA" value="19.784.439" autofocus />
-                            </div>
-                            <div class="mt-3">
-                                <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                                <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                                <label for="NoKTP" class="form-label">Nama</label>
+                                <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="Siapa aja" />
                             </div>
                         </div>
                     </form>
@@ -212,9 +42,266 @@
                 <!-- /Account -->
             </div>
         </div>
+        <!-- / Content -->
     </div>
-</div>
-<!-- / Content -->
+    <hr class="my-4" />
+
+    <div class="row">
+        <!-- Basic Badges -->
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <h5 class="card-header">Data Penerimaan</h5>
+                <hr class="my-0" />
+                <div class="card-body">
+                    <div class="mb-3 col-md-12">
+                        <label for="defaultSelect" class="form-label">Kode Penerimaan</label>
+                        <select id="defaultSelect" class="form-select">
+                            <option>-- Pilih Penerimaan --</option>
+                            <option value="1">.....</option>
+                            <option value="2">.....</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="NoKTP" class="form-label">Uraian Penerimaan</label>
+                        <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="Siapa aja" />
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="NoKTP" class="form-label">Jumlah Penerimaan</label>
+                        <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="Siapa aja" />
+                    </div>
+                </div>
+                <hr class="my-0" />
+                <div class="card-body">
+                    <div class="mt-0">
+                        <button type="submit" class="btn btn-primary me-2">Save</button>
+                        <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Label Badges -->
+        <div class="col-md-9">
+            <div class="card mb-4">
+                <h5 class="card-header">Rincian Penerimaan Lain-lain</h5>
+                <hr class="my-0" />
+                <div class="card-body">
+                    <div class="card">
+                        <div class="table-responsive text-nowrap">
+                            <table class="table table-bordered">
+                                <thead class="text-center" style="vertical-align:middle;">
+                                    <tr>
+                                        <th>Kode</th>
+                                        <th>Uraian</th>
+                                        <th>Jumlah</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-border-bottom-0">
+                                    <tr>
+                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>10000</strong></td>
+                                        <td>Bayu Rezky Ramadhan Rezky Ramadhan</td>
+                                        <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-detail me-1"></i> Detail</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fab fa-react fa-lg text-info me-3 "></i> <strong>10000</strong></td>
+                                        <td>2022</td>
+                                        <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>10000</strong></td>
+                                        <td>2022</td>
+                                        <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>10000</strong>
+                                        </td>
+                                        <td>2022</td>
+                                        <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="my-4" />
+
+    <div class="row">
+        <!-- Label Badges -->
+        <div class="col-md-9">
+            <div class="card mb-4">
+                <h5 class="card-header">Rincian Potongan Lain-lain</h5>
+                <hr class="my-0" />
+                <div class="card-body">
+                    <div class="card">
+                        <div class="table-responsive text-nowrap">
+                            <table class="table table-bordered">
+                                <thead class="text-center" style="vertical-align:middle;">
+                                    <tr>
+                                        <th>Kode</th>
+                                        <th>Uraian</th>
+                                        <th>Jumlah</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-border-bottom-0">
+                                    <tr>
+                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>10000</strong></td>
+                                        <td>Bayu Rezky Ramadhan Rezky Ramadhan</td>
+                                        <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-detail me-1"></i> Detail</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fab fa-react fa-lg text-info me-3 "></i> <strong>10000</strong></td>
+                                        <td>2022</td>
+                                        <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>10000</strong></td>
+                                        <td>2022</td>
+                                        <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>10000</strong>
+                                        </td>
+                                        <td>2022</td>
+                                        <td><input class="form-control text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Basic Badges -->
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <h5 class="card-header">Data Potongan</h5>
+                <hr class="my-0" />
+                <div class="card-body">
+                    <div class="mb-3 col-md-12">
+                        <label for="defaultSelect" class="form-label">Kode Potongan</label>
+                        <select id="defaultSelect" class="form-select">
+                            <option>-- Pilih Potongan --</option>
+                            <option value="1">.....</option>
+                            <option value="2">.....</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="NoKTP" class="form-label">Uraian Potongan</label>
+                        <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="Siapa aja" />
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="NoKTP" class="form-label">Jumlah Potongan</label>
+                        <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="Siapa aja" />
+                    </div>
+                </div>
+                <hr class="my-0" />
+                <div class="card-body">
+                    <div class="mt-0">
+                        <button type="submit" class="btn btn-primary me-2">Save</button>
+                        <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <!--/ Striped Rows -->
 <hr class="my-5" />

@@ -38,7 +38,7 @@
                     <tbody class="table-border-bottom-0">
                         <tr>
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>10000</strong></td>
-                            <td>Bayu Rezky Ramadhan Bayu Rezky Ramadhan</td>
+                            <td>Bayu Rezky Ramadhan Rezky Ramadhan</td>
                             <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
                             <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>
                             <td><input class="form-control absen text-center" style="border:none" type="text" id="NIK" name="NIK" value="1" /></td>

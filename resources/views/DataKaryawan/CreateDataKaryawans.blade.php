@@ -155,21 +155,77 @@
                                 </select>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label for="NPWP" class="form-label">Golongan Jabatan</label>
-                                <input class="form-control" type="text" id="NPWP" name="NPWP" value="47.664.977.7-609.000" autofocus />
+                                <label for="GOLJAB" class="form-label">Golongan Jabatan</label>
+                                <input class="form-control" type="text" id="GOLJAB" name="GOLJAB" value="Blabla" autofocus />
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label for="NoKTP" class="form-label">Baris Golongan</label>
-                                <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="-" />
+                                <label for="Barjab" class="form-label">Baris Golongan</label>
+                                <input class="form-control" type="text" name="Barjab" id="Barjab" value="-" />
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label for="NoBPJST" class="form-label">Anggota Serikat</label>
-                                <input class="form-control" type="text" id="NoBPJST" name="NoBPJST" value="83J82011368" autofocus />
+                                <label for="defaultSelect" class="form-label">Anggota Serikat</label>
+                                <select id="defaultSelect" class="form-select">
+                                    <option>-- Pilih Serikat --</option>
+                                    <option value="1">.....</option>
+                                    <option value="2">.....</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 col-md-3">
+                                <label for="Uker" class="form-label">Unit Kerja</label>
+                                <input class="form-control" type="text" id="Uker" name="Uker" value="blabla" autofocus />
+                            </div>
+                            <div class="mb-3 col-md-3">
+                                <label for="AUker" class="form-label">Anaknya Unit Kerja</label>
+                                <input class="form-control" type="text" id="AUker" name="AUker" value="blabla" autofocus />
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label for="NoBPJSK" class="form-label">Unit Kerja</label>
-                                <input class="form-control" type="text" name="NoBPJSK" id="NoBPJSK" value="-" />
+                                <label for="defaultSelect" class="form-label">Struktur Organisasi</label>
+                                <select id="defaultSelect" class="form-select">
+                                    <option>-- Struktur --</option>
+                                    <option value="1">.....</option>
+                                    <option value="2">.....</option>
+                                </select>
                             </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="Jab" class="form-label">Jabatan</label>
+                                <input class="form-control" type="text" id="Jab" name="Jab" value="Kok Jabatannya ada 2?" autofocus readonly />
+                            </div>
+                            <div class="mb-3 col-md-3">
+                                <label for="defaultSelect" class="form-label">Bank</label>
+                                <select id="defaultSelect" class="form-select">
+                                    <option>-- Pilih Bank --</option>
+                                    <option value="1">.....</option>
+                                    <option value="2">.....</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 col-md-3">
+                                <label for="Rek" class="form-label">No Rekening</label>
+                                <input class="form-control" type="text" id="Rek" name="Rek" value="no rekening" autofocus/>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="AtNa" class="form-label">Atas Nama</label>
+                                <input class="form-control" type="text" id="AtNa" name="AtNa" value="Nama yang punya rekening" autofocus/>
+                            </div>
+                            <div class="mb-3 col-md-3">
+                                <input type="checkbox"  id="iuranpen" name="iuranpen">
+                                <label for="iuranpen" class="form-label">Iuran Pensiun</label>
+                                
+                            </div>
+                            <div class="mb-3 col-md-3">
+                                <label for="defaultSelect" class="form-label">Status Karyawan</label>
+                                <select id="defaultSelect" class="form-select">
+                                    <option>-- Bukan status keluarga --</option>
+                                    <option value="1">Aktif</option>
+                                    <option value="2">Non-Aktif</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="html5-date-input" class="form-label">Tanggal Berhenti</label>
+                                <div class="col-md-12">
+                                    <input class="form-control" type="date" value="2021-06-18" id="html5-date-input" />
+                                </div>
+                            </div>
+                        </label>
                         </div>
                     </form>
                 </div>

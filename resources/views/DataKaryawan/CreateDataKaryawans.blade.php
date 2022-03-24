@@ -155,19 +155,19 @@
                                 </select>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label for="NPWP" class="form-label">NPWP</label>
+                                <label for="NPWP" class="form-label">Golongan Jabatan</label>
                                 <input class="form-control" type="text" id="NPWP" name="NPWP" value="47.664.977.7-609.000" autofocus />
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label for="NoKTP" class="form-label">Nomor KTP</label>
+                                <label for="NoKTP" class="form-label">Baris Golongan</label>
                                 <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="-" />
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label for="NoBPJST" class="form-label">Nomor BPJS Ketenagakerjaan</label>
+                                <label for="NoBPJST" class="form-label">Anggota Serikat</label>
                                 <input class="form-control" type="text" id="NoBPJST" name="NoBPJST" value="83J82011368" autofocus />
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label for="NoBPJSK" class="form-label">Nomor BPJS Kesehatan</label>
+                                <label for="NoBPJSK" class="form-label">Unit Kerja</label>
                                 <input class="form-control" type="text" name="NoBPJSK" id="NoBPJSK" value="-" />
                             </div>
                         </div>

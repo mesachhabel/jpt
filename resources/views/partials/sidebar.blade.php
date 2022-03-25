@@ -169,7 +169,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="forms-basic-inputs.html" class="menu-link">
+                    <a href="{{url('tabelreferensi')}}" class="menu-link">
                         <div data-i18n="Without navbar">Tabel Referensi</div>
                     </a>
                 </li>

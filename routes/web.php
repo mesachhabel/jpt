@@ -4,7 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataKaryawanController;
 use App\Http\Controllers\AbsensiDataKaryawanController;
 use App\Http\Controllers\TerimaPotongController;
-use App\Http\Controllers\TerimaPotongControllerController;
+use App\Http\Controllers\DataLemburController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +32,6 @@ Route::get('/create-absensidatakaryawan', [AbsensiDataKaryawanController::class,
 
 Route::get('/terimapotong', [TerimaPotongController::class, 'index']);
 Route::get('/create-terimapotong', [TerimaPotongController::class, 'create']);
+
+Route::get('/datalembur', [DataLemburController::class, 'index']);
+Route::get('/create-datalembur', [DataLemburController::class, 'create']);

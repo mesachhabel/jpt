@@ -81,7 +81,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="layouts-blank.html" class="menu-link">
+                    <a href="{{url('datalembur')}}" class="menu-link">
                         <div data-i18n="Container">Lembur Karyawan</div>
                     </a>
                 </li>

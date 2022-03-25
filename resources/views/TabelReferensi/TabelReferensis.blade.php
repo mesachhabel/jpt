@@ -90,7 +90,7 @@
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Jabatan</strong></td>
                         <td>
                             <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
-                            <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
+                            <a href="{{url('edit-kodejabatan')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
                             <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
                         </td>
                     </tr>

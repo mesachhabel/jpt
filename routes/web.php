@@ -7,6 +7,7 @@ use App\Http\Controllers\TerimaPotongController;
 use App\Http\Controllers\DataLemburController;
 use App\Http\Controllers\TabelReferensiController;
 use App\Http\Controllers\TRKeteranganSlipGajiController;
+use App\Http\Controllers\TRKodeJabatanController;
 use App\Http\Controllers\TRKodeStrukturController;
 use App\Http\Controllers\TRKodeUnitKerjaController;
 use App\Http\Controllers\TRSkalaGajiController;
@@ -46,6 +47,8 @@ Route::get('/tabelreferensi', [TabelReferensiController::class, 'index']);
 // Tabel Referensi
 Route::get('/edit-skalagaji', [TRSkalaGajiController::class, 'index']);
 
+Route::get('/edit-kodeunitkerja', [TRKodeUnitKerjaController::class, 'index']);
+
 Route::get('/edit-kodestruktur', [TRKodeStrukturController::class, 'index']);
 
-Route::get('/edit-kodeunitkerja', [TRKodeUnitKerjaController::class, 'index']);
+Route::get('/edit-kodejabatan', [TRKodeJabatanController::class, 'index']);

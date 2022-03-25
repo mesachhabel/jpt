@@ -3,9 +3,14 @@
 @section('container')
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Transaksi Data /</span> Penerimaan dan Potongan Lain
+        <span class="text-muted fw-light">Transaksi Data /</span> Lembur Karyawan
     </h4>
-    <a href="{{url('create-terimapotong')}}" class="btn btn-primary mb-3">+ Tambah Data<i class="fas fa-print"></i></a>
+
+    <a href="{{url('create-datalembur')}}" class="btn btn-primary mb-3">+ Tambah Data<i class="fas fa-print"></i></a>
+    
+
+
+    
     <!-- Striped Rows -->
     <div class="card">
         <!-- <h5 class="card-header">Striped rows</h5> -->

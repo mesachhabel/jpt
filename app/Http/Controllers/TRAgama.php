@@ -13,7 +13,7 @@ class TRAgama extends Controller
      */
     public function index()
     {
-        //
+        return view('TabelReferensi.TR.Agama');
     }
 
     /**

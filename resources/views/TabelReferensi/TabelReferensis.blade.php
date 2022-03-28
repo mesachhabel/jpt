@@ -94,6 +94,38 @@
                             <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
                         </td>
                     </tr>
+                    <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Jenis Penerimaan</strong></td>
+                        <td>
+                            <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
+                            <a href="{{url('edit-jenisterima')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
+                            <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Jenis Potongan</strong></td>
+                        <td>
+                            <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
+                            <a href="{{url('edit-jenispotong')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
+                            <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Keterangan Slip Gaji</strong></td>
+                        <td>
+                            <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
+                            <a href="{{url('edit-keteranganslipgaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
+                            <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Agama</strong></td>
+                        <td>
+                            <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
+                            <a href="{{url('edit-agama')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
+                            <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

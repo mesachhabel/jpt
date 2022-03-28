@@ -11,6 +11,9 @@ use App\Http\Controllers\TRKodeJabatanController;
 use App\Http\Controllers\TRKodeStrukturController;
 use App\Http\Controllers\TRKodeUnitKerjaController;
 use App\Http\Controllers\TRSkalaGajiController;
+use App\Http\Controllers\TRTerimaController;
+use App\Http\Controllers\TRPotongController;
+use App\Http\Controllers\TRAgama;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,3 +55,11 @@ Route::get('/edit-kodeunitkerja', [TRKodeUnitKerjaController::class, 'index']);
 Route::get('/edit-kodestruktur', [TRKodeStrukturController::class, 'index']);
 
 Route::get('/edit-kodejabatan', [TRKodeJabatanController::class, 'index']);
+
+Route::get('/edit-jenisterima', [TRTerimaController::class, 'index']);
+
+Route::get('/edit-jenispotong', [TRPotongController::class, 'index']);
+
+Route::get('/edit-keteranganslipgaji', [TRKeteranganSlipGajiController::class, 'index']);
+
+Route::get('/edit-agama', [TRAgama::class, 'index']);

@@ -132,20 +132,20 @@
         <!-- Basic Badges -->
         <div class="col-md-3">
             <div class="card mb-4">
-                <h5 class="card-header">Input Data Intensif</h5>
+                <h5 class="card-header">Input Data Insentif</h5>
                 <hr class="my-0" />
                 <div class="card-body">
                     <div class="mb-3 col-md-12">
                         <label for="jumlahinsentif" class="form-label">Jumlah</label>
-                        <input class="form-control" type="text" name="jumlahinsentif" id="jumlahinsentif" value="2" />
+                        <input class="form-control" type="text" name="jumlah" id="jumlah" placeholder="Jumlah Insentif"  onkeyup="lembur();" />
                     </div>
                     <div class="mb-3 col-md-12">
                         <label for="rpinsentif" class="form-label">Rp. Insentif</label>
-                        <input class="form-control" type="text" name="rpinsentif" id="rpinsentif" value="10000" />
+                        <input class="form-control" type="text" name="insentif" id="insentif" placeholder="Nilai PerInsentif"  onkeyup="lembur();"/>
                     </div>
                     <div class="mb-3 col-md-12">
                         <label for="totalinsentif" class="form-label">Total Insentif</label>
-                        <input class="form-control" type="text" name="totalinsentif" id="totalinsentif" value="20000" />
+                        <input class="form-control" type="text" name="total" id="total" placeholder="Total Insentif" disabled/>
                     </div>
                 </div>
                 <hr class="my-0" />
@@ -204,4 +204,5 @@
     </div>
 <!--/ Striped Rows -->
 <hr class="my-5" />
+<script src="../assets/js/lembur.js"></script>
 @endsection

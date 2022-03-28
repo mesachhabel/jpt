@@ -3,7 +3,7 @@
 @section('container')
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Pemeliharaan Data / Tabel Referensi /</span> Kode Unit Kerja
+        <span class="text-muted fw-light">Pemeliharaan Data / Tabel Referensi /</span> Jenis Potongan Lain
     </h4>
 
     <div class="col-lg-4 col-md-6">
@@ -18,27 +18,39 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="modalCenterTitle">Tambah Data Unit Kerja</h5>
+                            <h5 class="modal-title" id="modalCenterTitle">Tambah Data Potongan Lain</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="row g-2">
                                 <div class="col mb-0">
-                                    <label for="emailWithTitle" class="form-label">Kode Unit</label>
+                                    <label for="emailWithTitle" class="form-label">Kode Potongan</label>
                                     <input type="text" id="emailWithTitle" class="form-control" placeholder="Kode Unit" />
                                 </div>
+                            </div>
+                            <div class="row mt-2">
                                 <div class="col mb-0">
-                                    <label for="dobWithTitle" class="form-label">Kode Sub-Unit</label>
+                                    <label for="dobWithTitle" class="form-label">Keterangan Potongan Lain</label>
                                     <input type="text" id="dobWithTitle" class="form-control" placeholder="Kode Sub-Unit" />
                                 </div>
                             </div>
-                            <div class="row g-2 mt-2">
+                            <hr class="my-3" />
+                            <h6 class="modal-title mt-3" id="modalCenterTitle">Alamat Transfer</h6>
+                            <div class="row mt-2">
                                 <div class="col mb-0">
-                                    <label for="emailWithTitle" class="form-label">Keterangan Unit</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <label for="dobWithTitle" class="form-label">Nama Bank</label>
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
                                 </div>
+                            </div>
+                            <div class="row mt-2">
                                 <div class="col mb-0">
-                                    <label for="dobWithTitle" class="form-label">Keterangan Sub-Unit</label>
+                                    <label for="dobWithTitle" class="form-label">No. Rekening</label>
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col mb-0">
+                                    <label for="dobWithTitle" class="form-label">Atas Nama</label>
                                     <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
                                 </div>
                             </div>
@@ -61,19 +73,24 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Kode Unit</th>
-                        <th>Kode Sub-Unit</th>
-                        <th>Keterangan Unit</th>
-                        <th>Keterangan Sub-Unit</th>
-                        <th>Actions</th>
+                        <th rowspan="2">Kode Potongan</th>
+                        <th rowspan="2">Keterangan Potongan Lain</th>
+                        <th colspan="3">Alamat Transfer</th>
+                        <th rowspan="2">Actions</th>
+                    </tr>
+                    <tr>
+                        <th>Bank</th>
+                        <th>No. Rekening</th>
+                        <th>Atas Nama</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>000</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>1</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>AAA</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>K0</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>KM</strong></td>
                         <td>
                             <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
                             <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
@@ -81,10 +98,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Unit Kerja</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Unit Kerja</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Unit Kerja</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Unit Kerja</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>AAA</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>K0</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>KM</strong></td>
                         <td>
                             <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
                             <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
@@ -92,10 +110,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Struktur</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Struktur</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Struktur</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Struktur</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>AAA</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>K0</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>KM</strong></td>
                         <td>
                             <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
                             <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
@@ -103,10 +122,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Jabatan</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Jabatan</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Jabatan</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Jabatan</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>AAA</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>K0</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>KM</strong></td>
                         <td>
                             <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
                             <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>

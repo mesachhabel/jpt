@@ -13,7 +13,7 @@ class TRSkalaGajiController extends Controller
      */
     public function index()
     {
-        //
+        return view('TabelReferensi.TR.SkalaGaji');
     }
 
     /**

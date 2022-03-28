@@ -6,6 +6,14 @@ use App\Http\Controllers\AbsensiDataKaryawanController;
 use App\Http\Controllers\TerimaPotongController;
 use App\Http\Controllers\DataLemburController;
 use App\Http\Controllers\TabelReferensiController;
+use App\Http\Controllers\TRKeteranganSlipGajiController;
+use App\Http\Controllers\TRKodeJabatanController;
+use App\Http\Controllers\TRKodeStrukturController;
+use App\Http\Controllers\TRKodeUnitKerjaController;
+use App\Http\Controllers\TRSkalaGajiController;
+use App\Http\Controllers\TRTerimaController;
+use App\Http\Controllers\TRPotongController;
+use App\Http\Controllers\TRAgama;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,3 +46,20 @@ Route::get('/datalembur', [DataLemburController::class, 'index']);
 Route::get('/create-datalembur', [DataLemburController::class, 'create']);
 
 Route::get('/tabelreferensi', [TabelReferensiController::class, 'index']);
+
+// Tabel Referensi
+Route::get('/edit-skalagaji', [TRSkalaGajiController::class, 'index']);
+
+Route::get('/edit-kodeunitkerja', [TRKodeUnitKerjaController::class, 'index']);
+
+Route::get('/edit-kodestruktur', [TRKodeStrukturController::class, 'index']);
+
+Route::get('/edit-kodejabatan', [TRKodeJabatanController::class, 'index']);
+
+Route::get('/edit-jenisterima', [TRTerimaController::class, 'index']);
+
+Route::get('/edit-jenispotong', [TRPotongController::class, 'index']);
+
+Route::get('/edit-keteranganslipgaji', [TRKeteranganSlipGajiController::class, 'index']);
+
+Route::get('/edit-agama', [TRAgama::class, 'index']);

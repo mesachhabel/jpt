@@ -13,7 +13,7 @@ class TRKeteranganSlipGajiController extends Controller
      */
     public function index()
     {
-        //
+        return view('TabelReferensi.TR.KeteranganSlipGaji');
     }
 
     /**

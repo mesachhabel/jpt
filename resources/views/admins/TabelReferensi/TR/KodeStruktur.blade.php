@@ -14,6 +14,8 @@
             </button>
 
             <!-- Modal -->
+            <form id="formAccountSettings" method="POST" action="{{ route('admin.add-kodestruktur') }}">
+                @csrf
             <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -25,13 +27,13 @@
                             <div class="row">
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">Kode Struktur</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Kode Struktur" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Kode Struktur" name="kode"/>
                                 </div>
                             </div>
                             <div class="row mt-2">
                                 <div class="col mb-0">
                                     <label for="dobWithTitle" class="form-label">Keterangan Struktur Organisasi</label>
-                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Struktur" />
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Struktur" name="uraian"/>
                                 </div>
                             </div>
                         </div>
@@ -39,11 +41,12 @@
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 Close
                             </button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 
@@ -59,46 +62,26 @@
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
+                    @foreach ($kodestrukturs as $kodestruktur)
                     <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>A000</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                            <strong>{{ $kodestruktur->kode }}</strong>
+                        </td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                            <strong>{{ $kodestruktur->uraian }}</strong>
+                        </td>
                         <td>
-                            <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
                             <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
                             <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Unit Kerja</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Unit Kerja</strong></td>
-                        <td>
-                            <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
-                            <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
-                            <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Struktur</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Struktur</strong></td>
-                        <td>
-                            <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
-                            <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
-                            <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Jabatan</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Jabatan</strong></td>
-                        <td>
-                            <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
-                            <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
-                            <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
+        
     </div>
+    <ul class="pagination justify-content-center mt-3">{{ $kodestrukturs->links('pagination::bootstrap-4') }} </ul>
     <!--/ Hoverable Table rows -->
 </div>
 <hr class="my-5" />

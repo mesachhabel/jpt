@@ -74,12 +74,7 @@
                     </div>
                 </div>
                 <hr class="my-0" />
-                <div class="card-body">
-                    <div class="mt-0">
-                        <button type="submit" class="btn btn-primary me-2">Save</button>
-                        <button type="reset" class="btn btn-outline-secondary">Cancel</button>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <!-- Label Badges -->

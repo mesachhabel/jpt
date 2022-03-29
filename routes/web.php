@@ -14,6 +14,11 @@ use App\Http\Controllers\Admin\TabelRefrensi\TRSkalaGajiController;
 use App\Http\Controllers\Admin\TabelRefrensi\TRTerimaController;
 use App\Http\Controllers\Admin\TabelRefrensi\TRPotongController;
 use App\Http\Controllers\Admin\TabelRefrensi\TRAgama;
+use App\Http\Controllers\Admin\TabelRefrensi\TRNilaiBaku;
+use App\Http\Controllers\Admin\TabelRefrensi\TRPenandatangan;
+use App\Http\Controllers\Admin\TabelRefrensi\TRBankTransfer;
+use App\Http\Controllers\Admin\TabelRefrensi\TRStatusPegawai;
+use App\Http\Controllers\Admin\TabelRefrensi\TRStatusTugas;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,10 +39,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth']],function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], function () {
 
     //Tabel Karyawan 
-    Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('datakaryawan', [DataKaryawanController::class, 'index'])->name('admin.datakaryawan');
     Route::get('create-datakaryawan', [DataKaryawanController::class, 'create'])->name('admin.create-datakaryawan');
     Route::post('add-datakaryawan', [DatakaryawanController::class, 'store'])->name('admin.add-datakaryawan');
@@ -58,6 +63,11 @@ Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth']],function(){
     Route::get('edit-jenispotong', [TRPotongController::class, 'index'])->name('admin.edit-jenispotong');
     Route::get('edit-keteranganslipgaji', [TRKeteranganSlipGajiController::class, 'index'])->name('admin.edit-keteranganslipgaji');
     Route::get('edit-agama', [TRAgama::class, 'index'])->name('admin.edit-agama');
+    Route::get('edit-nilaibaku', [TRNilaiBaku::class, 'index'])->name('admin.edit-nilaibaku');
+    Route::get('edit-penandatangan', [TRPenandatangan::class, 'index'])->name('admin.edit-penandatangan');
+    Route::get('edit-banktransfer', [TRBankTransfer::class, 'index'])->name('admin.edit-banktransfer');
+    Route::get('edit-statuspegawai', [TRStatusPegawai::class, 'index'])->name('admin.edit-statuspegawai');
+    Route::get('edit-statustugas', [TRStatusTugas::class, 'index'])->name('admin.edit-statustugas');
 });
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

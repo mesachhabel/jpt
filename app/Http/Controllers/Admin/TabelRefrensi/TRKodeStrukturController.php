@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_kodestruktur;
 
 class TRKodeStrukturController extends Controller
 {
@@ -13,7 +15,8 @@ class TRKodeStrukturController extends Controller
      */
     public function index()
     {
-        return view('admins.TabelReferensi.TR.KodeStruktur');
+        $kodestrukturs = tr_kodestruktur::paginate(5);
+        return view('admins.TabelReferensi.TR.KodeStruktur', compact('kodestrukturs'));
     }
 
     /**
@@ -34,7 +37,8 @@ class TRKodeStrukturController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tr_kodestruktur::create($request->all());
+        return redirect()->route('admin.show-kodestruktur');
     }
 
     /**

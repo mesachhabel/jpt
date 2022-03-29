@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
 
-class DataLemburController extends Controller
+class TRKodeUnitKerjaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class DataLemburController extends Controller
      */
     public function index()
     {
-        return view('DataLembur.DataLemburs');
+        return view('admins.TabelReferensi.TR.KodeUnitKerja');
     }
 
     /**
@@ -23,7 +23,7 @@ class DataLemburController extends Controller
      */
     public function create()
     {
-        return view('DataLembur.CreateDataLemburs');
+        //
     }
 
     /**

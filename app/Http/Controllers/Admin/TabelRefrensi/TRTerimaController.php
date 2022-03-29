@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
 
-class TRStatusTugas extends Controller
+class TRTerimaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class TRStatusTugas extends Controller
      */
     public function index()
     {
-        //
+        return view('admins.TabelReferensi.TR.JenisTerima');
     }
 
     /**

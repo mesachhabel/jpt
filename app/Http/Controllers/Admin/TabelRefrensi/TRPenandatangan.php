@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
 
-class TRNilaiBaku extends Controller
+class TRPenandatangan extends Controller
 {
     /**
      * Display a listing of the resource.

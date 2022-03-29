@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\TerimaPotong;
 
 use App\Http\Controllers\Controller;
 
-class TRPenandatangan extends Controller
+class TerimaPotongController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class TRPenandatangan extends Controller
      */
     public function index()
     {
-        //
+        return view('admins.TerimaPotong.TerimaPotongs');
     }
 
     /**
@@ -23,7 +23,7 @@ class TRPenandatangan extends Controller
      */
     public function create()
     {
-        //
+        return view('admins.TerimaPotong.CreateTerimaPotongs');
     }
 
     /**

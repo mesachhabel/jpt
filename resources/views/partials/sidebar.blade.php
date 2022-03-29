@@ -71,17 +71,17 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ url('absensidatakaryawan') }}" class="menu-link">
+                    <a href="{{ route('admin.absensidatakaryawan') }}" class="menu-link">
                         <div data-i18n="Without menu">Absensi / Kehadiran</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ url('terimapotong') }}" class="menu-link">
+                    <a href="{{ route('admin.terimapotong') }}" class="menu-link">
                         <div data-i18n="Without navbar">Penerimaan dan Potongan Lain</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ url('datalembur') }}" class="menu-link">
+                    <a href="{{ route('admin.datalembur') }}" class="menu-link">
                         <div data-i18n="Container">Lembur Karyawan</div>
                     </a>
                 </li>
@@ -169,7 +169,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ url('tabelreferensi') }}" class="menu-link">
+                    <a href="{{ route('admin.tabelreferensi') }}" class="menu-link">
                         <div data-i18n="Without navbar">Tabel Referensi</div>
                     </a>
                 </li>

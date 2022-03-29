@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
 
-class TRAgama extends Controller
+class TRSkalaGajiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class TRAgama extends Controller
      */
     public function index()
     {
-        return view('TabelReferensi.TR.Agama');
+        return view('admins.TabelReferensi.TR.SkalaGaji');
     }
 
     /**

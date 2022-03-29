@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\AbsensiDataKaryawan;
 
 use App\Http\Controllers\Controller;
 
-class TRKodeStrukturController extends Controller
+class AbsensiDataKaryawanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class TRKodeStrukturController extends Controller
      */
     public function index()
     {
-        return view('TabelReferensi.TR.KodeStruktur');
+        return view('admins.AbsensiDataKaryawan.AbsensiDataKaryawans');
     }
 
     /**
@@ -23,7 +23,7 @@ class TRKodeStrukturController extends Controller
      */
     public function create()
     {
-        //
+        return view('admins.AbsensiDataKaryawan.CreateAbsensiDataKaryawans');
     }
 
     /**

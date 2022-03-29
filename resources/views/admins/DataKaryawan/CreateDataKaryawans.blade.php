@@ -221,8 +221,8 @@
                                         placeholder="Nama yang punya rekening" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-3">
-                                    <input type="checkbox" id="iuranpen">
-                                    <label for="iuranpen" name="ia" class="form-label">Iuran Pensiun</label>
+                                    <input type="checkbox" name="ia" id="iuranpen">
+                                    <label for="iuranpen" class="form-label">Iuran Pensiun</label>
 
                                 </div>
                                 <div class="mb-3 col-md-3">

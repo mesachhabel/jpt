@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\DataLembur;
 
 use App\Http\Controllers\Controller;
 
-class TRSkalaGajiController extends Controller
+class DataLemburController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class TRSkalaGajiController extends Controller
      */
     public function index()
     {
-        return view('TabelReferensi.TR.SkalaGaji');
+        return view('admins.DataLembur.DataLemburs');
     }
 
     /**
@@ -23,7 +23,7 @@ class TRSkalaGajiController extends Controller
      */
     public function create()
     {
-        //
+        return view('admins.DataLembur.CreateDataLemburs');
     }
 
     /**

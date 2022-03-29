@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
 
-class TerimaPotongController extends Controller
+class TRKeteranganSlipGajiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class TerimaPotongController extends Controller
      */
     public function index()
     {
-        return view('TerimaPotong.TerimaPotongs');
+        return view('admins.TabelReferensi.TR.KeteranganSlipGaji');
     }
 
     /**
@@ -23,7 +23,7 @@ class TerimaPotongController extends Controller
      */
     public function create()
     {
-        return view('TerimaPotong.CreateTerimaPotongs');
+        //
     }
 
     /**

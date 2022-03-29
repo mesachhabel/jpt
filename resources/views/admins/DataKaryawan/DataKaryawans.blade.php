@@ -66,7 +66,10 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="pagination justify-content-center mt-3"> {{ $data_karyawans->links() }}</div>
             </div>
         </div>
-        <ul class="pagination justify-content-center mt-3"> {{ $data_karyawans->links() }}</ul>
+        
+</div>
+        
     @endsection

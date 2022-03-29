@@ -39,17 +39,17 @@
                             <div class="row">
                                 <div class="mb-3 col-md-4">
                                     <label for="NIK" class="form-label">NIK</label>
-                                    <input class="form-control" type="text" id="NIK" name="nik" placeholder="10001"
+                                    <input class="form-control" type="text" id="NIK" name="nik" placeholder="NIK"
                                         autofocus />
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="Nama" class="form-label">Nama Lengkap</label>
                                     <input class="form-control" type="text" name="nama" id="Nama"
-                                        placeholder="Dwi Suprihatiningsih, SE" />
+                                        placeholder="Nama Lengkap" />
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="NPP" class="form-label">NPP Instansi</label>
-                                    <input class="form-control" type="text" id="NPP" name="nppi" placeholder="01600" />
+                                    <input class="form-control" type="text" id="NPP" name="nppi" placeholder="NPP" />
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="defaultSelect" class="form-label">Jenis Kelamin</label>
@@ -113,20 +113,20 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="NPWP" class="form-label">NPWP</label>
                                     <input class="form-control" type="text" id="NPWP" name="npwp"
-                                        placeholder="47.664.977.7-609.000" autofocus />
+                                        placeholder="NPWP" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="NoKTP" class="form-label">Nomor KTP</label>
-                                    <input class="form-control" type="text" name="nktp" id="NoKTP" placeholder="-" />
+                                    <input class="form-control" type="text" name="nktp" id="NoKTP" placeholder="Nomor KTP" />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="NoBPJST" class="form-label">Nomor BPJS Ketenagakerjaan</label>
                                     <input class="form-control" type="text" id="NoBPJST" name="nbpkt"
-                                        placeholder="83J82011368" autofocus />
+                                        placeholder="BPJS Ketenagakerjaan" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="NoBPJSK" class="form-label">Nomor BPJS Kesehatan</label>
-                                    <input class="form-control" type="text" name="nbpks" id="NoBPJSK" placeholder="-" />
+                                    <input class="form-control" type="text" name="nbpks" id="NoBPJSK" placeholder="BPJS Kesehatan" />
                                 </div>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                                 <div class="mb-3 col-md-4">
                                     <label for="html5-date-input" class="form-label">Tanggal Masuk Kerja</label>
                                     <div class="col-md-12">
-                                        <input class="form-control" type="date" placeholder="2021-06-18" name="tmk"
+                                        <input class="form-control" type="date" placeholder="Tanggal Masuk Kerja" name="tmk"
                                             id="html5-date-input" />
                                     </div>
                                 </div>
@@ -164,12 +164,12 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="GOLJAB" class="form-label">Golongan Jabatan</label>
-                                    <input class="form-control" type="text" id="GOLJAB" name="gj" placeholder="Blabla"
+                                    <input class="form-control" type="text" id="GOLJAB" name="gj" placeholder="Golongan Jabatan"
                                         autofocus />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="Barjab" class="form-label">Baris Golongan</label>
-                                    <input class="form-control" type="text" name="bg" id="Barjab" placeholder="-" />
+                                    <input class="form-control" type="text" name="bg" id="Barjab" placeholder="Baris Golongan" />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Anggota Serikat</label>
@@ -181,12 +181,12 @@
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="Uker" class="form-label">Unit Kerja</label>
-                                    <input class="form-control" type="text" id="Uker" name="uk" placeholder="blabla"
+                                    <input class="form-control" type="text" id="Uker" name="uk" placeholder="Unit Kerja"
                                         autofocus />
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="AUker" class="form-label">Anaknya Unit Kerja</label>
-                                    <input class="form-control" type="text" id="AUker" name="auk" placeholder="blabla"
+                                    <input class="form-control" type="text" id="AUker" name="auk" placeholder="anaknya Unit Kerja"
                                         autofocus />
                                 </div>
                                 <div class="mb-3 col-md-6">
@@ -218,7 +218,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="AtNa" class="form-label">Atas Nama</label>
                                     <input class="form-control" type="text" id="AtNa" name="an"
-                                        placeholder="Nama yang punya rekening" autofocus />
+                                        placeholder="Nama Pemegang Rekening" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <input type="checkbox" name="ip" id="iuranpen">
@@ -226,17 +226,16 @@
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="defaultSelect" class="form-label">Status Karyawan</label>
-                                    <select name="sky" id="defaultSelect" class="form-select">
+                                    <select name="sky" id="defaultSelect" class="form-select" onChange="statuskar(this.value)">
                                         <option>-- Bukan status keluarga --</option>
                                         <option value="1">Aktif</option>
                                         <option value="2">Non-Aktif</option>
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="html5-date-input" class="form-label">Tanggal Berhenti</label>
+                                    <label for="tb" class="form-label">Tanggal Berhenti</label>
                                     <div class="col-md-12">
-                                        <input name="tb" class="form-control" type="date" placeholder="2021-06-18"
-                                            id="html5-date-input" />
+                                        <input name="tb" class="form-control" type="date" id="tb"/>
                                     </div>
                                 </div>
                                 </label>
@@ -252,26 +251,26 @@
                             <div class="row">
                                 <div class="mb-3 col-md-3">
                                     <label for="NPP" class="form-label">NPP Instansi</label>
-                                    <input class="form-control" type="text" id="NPP" name="nppin" placeholder="01600" />
+                                    <input class="form-control" type="text" id="NPP" name="nppin" placeholder="NPP" />
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="Gol" class="form-label">Gol Instansi</label>
-                                    <input class="form-control" type="text" id="Gol" name="goli" placeholder="1C" />
+                                    <input class="form-control" type="text" id="Gol" name="goli" placeholder="Golongan Instansi" />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="PhDP" class="form-label">PhDP</label>
-                                    <input class="form-control" type="text" id="PhDP" name="phdp" placeholder="8.134.245"
+                                    <input class="form-control" type="text" id="PhDP" name="phdp" placeholder="PhDP"
                                         autofocus />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="UpahJSMR" class="form-label">Upah JSMR</label>
                                     <input class="form-control" type="text" id="UpahJSMR" name="ujsm"
-                                        placeholder="21.784.439" autofocus />
+                                        placeholder="Upah JSMR" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="PhDA" class="form-label">PhDA</label>
                                     <input class="form-control" type="text" id="PhDA" name="phda"
-                                        placeholder="19.784.439" autofocus />
+                                        placeholder="PhDA" autofocus />
                                 </div>
                                 <div class="mt-3">
                                     <button type="submit" class="btn btn-primary me-2">Save changes</button>

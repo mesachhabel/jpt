@@ -68,5 +68,3 @@ Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth']],function(){
     Route::get('show-agama', [TRAgama::class, 'index'])->name('admin.show-agama');
     Route::post('add-agama', [TRAgama::class, 'store'])->name('admin.add-agama');
 });
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

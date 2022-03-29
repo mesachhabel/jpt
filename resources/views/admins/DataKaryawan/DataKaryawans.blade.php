@@ -60,16 +60,15 @@
                                     @endif
                                 </td>
                                 <td>
-                                <td><img width="150px" src="{{ url('images/' . $datakaryawan->image) }}"></td>
+                                <td><img src="images/{{ Session::get('image') }}"></td>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-                <div class="pagination justify-content-center mt-3"> {{ $data_karyawans->links() }}</div>
             </div>
         </div>
-        
-</div>
-        
-    @endsection
+    </div>
+    <ul class="pagination justify-content-center mt-3">{{ $data_karyawans->links('pagination::bootstrap-4') }}
+    </ul>
+@endsection

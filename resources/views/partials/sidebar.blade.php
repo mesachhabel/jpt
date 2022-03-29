@@ -71,17 +71,17 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{url('absensidatakaryawan')}}" class="menu-link">
+                    <a href="{{ url('absensidatakaryawan') }}" class="menu-link">
                         <div data-i18n="Without menu">Absensi / Kehadiran</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{url('terimapotong')}}" class="menu-link">
+                    <a href="{{ url('terimapotong') }}" class="menu-link">
                         <div data-i18n="Without navbar">Penerimaan dan Potongan Lain</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{url('datalembur')}}" class="menu-link">
+                    <a href="{{ url('datalembur') }}" class="menu-link">
                         <div data-i18n="Container">Lembur Karyawan</div>
                     </a>
                 </li>
@@ -164,12 +164,12 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{url('datakaryawan')}}" class="menu-link">
+                    <a href="{{ route('admin.datakaryawan') }}" class="menu-link">
                         <div data-i18n="Without menu">Data Karyawan</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{url('tabelreferensi')}}" class="menu-link">
+                    <a href="{{ url('tabelreferensi') }}" class="menu-link">
                         <div data-i18n="Without navbar">Tabel Referensi</div>
                     </a>
                 </li>
@@ -433,13 +433,15 @@
         <!-- Misc -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
         <li class="menu-item">
-            <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank" class="menu-link">
+            <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank"
+                class="menu-link">
                 <i class="menu-icon tf-icons bx bx-support"></i>
                 <div data-i18n="Support">Support</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank" class="menu-link">
+            <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank"
+                class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Documentation">Documentation</div>
             </a>

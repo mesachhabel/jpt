@@ -8,3 +8,7 @@ selectElement.addEventListener('change', (event) => {
     selectElement.value = selectElement.checked ? 1 : 0;
     alert(selectElement.value); //unkomen ini untuk melihat value
 });
+
+function statuskar(value) {
+    document.getElementById("tb").disabled = value != "2";
+}

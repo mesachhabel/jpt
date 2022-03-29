@@ -55,10 +55,10 @@
                             </div>
                             <div class="buttons wow fadeInUp">
                                 <a class="btn btn-primary btn-customized scroll-link" href="#section-1" role="button">
-                                    <i class="fas fa-book-open"></i> Learn More
+                                    <i class="fas fa-pencil-alt"></i> Bisnis Perusahaan
                                 </a>
-                                <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-3" role="button">
-                                    <i class="fas fa-pencil-alt"></i> Our Projects
+                                <a class="btn btn-primary btn-customized-2 scroll-link" href="#section-2" role="button">
+                                    <i class="fas fa-book-open"></i> Profil Perusahaan
                                 </a>
                             </div>
                         </div>

@@ -102,7 +102,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Golongan Instansi</label>
                                     <select name="gi" id="defaultSelect" class="form-select">
-                                        <option>-- Pilih Golongan Instansi --</option>
+                                        <option disabled selected>-- Pilih Golongan Instansi --</option>
                                         <option value="1">01</option>
                                         <option value="2">02</option>
                                         <option value="3">03</option>
@@ -217,13 +217,12 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="AtNa" class="form-label">Atas Nama</label>
-                                    <input class="form-control" type="text" id="AtNa" name="as"
+                                    <input class="form-control" type="text" id="AtNa" name="an"
                                         placeholder="Nama yang punya rekening" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-3">
-                                    <input type="checkbox" name="ia" id="iuranpen">
+                                    <input type="checkbox" name="ip" id="iuranpen">
                                     <label for="iuranpen" class="form-label">Iuran Pensiun</label>
-
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="defaultSelect" class="form-label">Status Karyawan</label>
@@ -292,4 +291,5 @@
     </div>
     <!--/ Striped Rows -->
     <hr class="my-5" />
+    <script src="assets/js/datakaryawan.js"></script>
 @endsection

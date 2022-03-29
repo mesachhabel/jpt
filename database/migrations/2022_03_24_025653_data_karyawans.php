@@ -15,7 +15,7 @@ class DataKaryawans extends Migration
     {
         Schema::create('data_karyawans', function (Blueprint $table) {
             $table->id();
-            $table->integer('uploads_id');
+            $table->integer('uploads_id')->nullable();
             $table->string('nik');
             $table->string('nama');
             $table->string('nppi');
@@ -40,7 +40,7 @@ class DataKaryawans extends Migration
             $table->string('bank')->nullable();
             $table->string('norek')->nullable();
             $table->string('an')->nullable();
-            $table->boolean('ip');
+            $table->boolean('ip')->default(0);
             $table->string('sky')->nullable();
             $table->string('tb')->nullable();
             //Data Jasa Marga

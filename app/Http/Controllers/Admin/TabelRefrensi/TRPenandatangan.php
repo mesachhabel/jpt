@@ -13,7 +13,7 @@ class TRPenandatangan extends Controller
      */
     public function index()
     {
-        //
+        return view('admins.TabelReferensi.TR.Penandatangan');
     }
 
     /**

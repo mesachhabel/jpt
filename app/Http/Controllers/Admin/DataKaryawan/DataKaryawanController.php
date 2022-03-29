@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin\DataKaryawan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\data_karyawan;
-use DB;
 use Auth;
 use Alert;
 
@@ -42,25 +41,16 @@ class DataKaryawanController extends Controller
     {
         $masuk = data_karyawan::create($request->all());
         
-        // //membuat validasi, jika tidak diisi maka akan menampilkan pesan error
-        // $this->validate($request, [
-        //     'image'          => 'required'
-        // ]);
+        $validatedData = $request->validate([
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+        ]);
+        $name = $request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->store('public/images');
+        $save = data_karyawan::find($masuk->id);
+        $save->name = $name;
+        $save->path = $path;
 
-        // //mengambil data file yang diupload
-        // $file           = $request->file('image');
-        // //mengambil nama file
-        // $nama_file      = $file->getClientOriginalName();
-
-        // //memindahkan file ke folder tujuan
-        // $file->move('images',$file->getClientOriginalName());
-
-
-        // $upload = new Upload;
-        // $upload->image= $nama_file;
-
-        // //menyimpan data ke database
-        // $upload->save();
+        $save->save();
 
         if($masuk){
             Alert::success('Data Berhasil Ditambahkan', 'Selamat');
@@ -69,9 +59,6 @@ class DataKaryawanController extends Controller
             Alert::error('Data Gagal Ditambahkan', 'Maaf');
             return redirect()->route('admin.datakaryawan');
         }
-        // Alert()->success('Data Berhasil Masuk', 'Sukses');
-        // Alert()->error('Data Gagal Masuk', 'Gagal');
-        // return redirect()->route('admin.datakaryawan');
     }
 
     /**

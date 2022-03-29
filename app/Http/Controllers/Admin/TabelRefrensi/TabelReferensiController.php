@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use App\Models\tabelrefrensi;
+use Illuminate\Http\Request;
 
 class TabelReferensiController extends Controller
 {
@@ -34,7 +36,8 @@ class TabelReferensiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tabelrefrensi::create($request->all());
+        return redirect()->route('admin.tabelreferensi');
     }
 
     /**

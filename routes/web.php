@@ -48,16 +48,25 @@ Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth']],function(){
     Route::get('datalembur', [DataLemburController::class, 'index'])->name('admin.datalembur');
     Route::get('create-datalembur', [DataLemburController::class, 'create'])->name('admin.create-datalembur');
     Route::get('tabelreferensi', [TabelReferensiController::class, 'index'])->name('admin.tabelreferensi');
+    Route::post('add-tabelreferensi', [TabelReferensiController::class, 'store'])->name('admin.add-tabelreferensi');
 
     // Tabel Referensi
-    Route::get('edit-skalagaji', [TRSkalaGajiController::class, 'index'])->name('admin.edit-skalagaji');
-    Route::get('edit-kodeunitkerja', [TRKodeUnitKerjaController::class, 'index'])->name('admin.edit-kodeunitkerja');
-    Route::get('edit-kodestruktur', [TRKodeStrukturController::class, 'index'])->name('admin.edit-kodestruktur');
-    Route::get('edit-kodejabatan', [TRKodeJabatanController::class, 'index'])->name('admin.edit-kodejabatan');
-    Route::get('edit-jenisterima', [TRTerimaController::class, 'index'])->name('admin.edit-jenisterima');
-    Route::get('edit-jenispotong', [TRPotongController::class, 'index'])->name('admin.edit-jenispotong');
-    Route::get('edit-keteranganslipgaji', [TRKeteranganSlipGajiController::class, 'index'])->name('admin.edit-keteranganslipgaji');
-    Route::get('edit-agama', [TRAgama::class, 'index'])->name('admin.edit-agama');
+    Route::get('show-skalagaji', [TRSkalaGajiController::class, 'index'])->name('admin.show-skalagaji');
+    Route::post('add-skalagaji', [TRSkalaGajiController::class, 'strore'])->name('admin.add-skalagaji');
+    Route::get('show-kodeunitkerja', [TRKodeUnitKerjaController::class, 'index'])->name('admin.show-kodeunitkerja');
+    Route::post('add-kodeunitkerja', [TRKodeUnitKerjaController::class, 'store'])->name('admin.add-kodeunitkerja');
+    Route::get('show-kodestruktur', [TRKodeStrukturController::class, 'index'])->name('admin.show-kodestruktur');
+    Route::post('add-kodestruktur', [TRKodeStrukturController::class, 'store'])->name('admin.add-kodestruktur');
+    Route::get('show-kodejabatan', [TRKodeJabatanController::class, 'index'])->name('admin.show-kodejabatan');
+    Route::post('add-kodejabatan', [TRKodeJabatanController::class, 'store'])->name('admin.add-kodejabatan');
+    Route::get('show-jenisterima', [TRTerimaController::class, 'index'])->name('admin.show-jenisterima');
+    Route::post('add-jenisterima', [TRTerimaController::class, 'store'])->name('admin.add-jenisterima');
+    Route::get('show-jenispotong', [TRPotongController::class, 'index'])->name('admin.show-jenispotong');
+    Route::post('add-jenispotong', [TRPotongController::class, 'store'])->name('admin.add-jenispotong');
+    Route::get('show-keteranganslipgaji', [TRKeteranganSlipGajiController::class, 'index'])->name('admin.show-keteranganslipgaji');
+    Route::post('add-keteranganslipgaji', [TRKeteranganSlipGajiController::class, 'store'])->name('admin.add-keteranganslipgaji');
+    Route::get('show-agama', [TRAgama::class, 'index'])->name('admin.show-agama');
+    Route::post('add-agama', [TRAgama::class, 'store'])->name('admin.add-agama');
 });
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

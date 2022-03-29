@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_kodeunitkerja;
 
 class TRKodeUnitKerjaController extends Controller
 {
@@ -13,7 +15,8 @@ class TRKodeUnitKerjaController extends Controller
      */
     public function index()
     {
-        return view('admins.TabelReferensi.TR.KodeUnitKerja');
+        $kodeunitkerjas = tr_kodeunitkerja::paginate(2);
+        return view('admins.TabelReferensi.TR.KodeUnitKerja',compact('kodeunitkerjas'));
     }
 
     /**
@@ -34,7 +37,8 @@ class TRKodeUnitKerjaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tr_kodeunitkerja::create($request->all());
+        return redirect()->route('admin.show-kodeunitkerja');
     }
 
     /**

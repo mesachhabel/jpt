@@ -43,6 +43,7 @@ class DataKaryawans extends Migration
             $table->boolean('ip')->default(0);
             $table->string('sky')->nullable();
             $table->string('tb')->nullable();
+            $table->string('image')->nullable();
             //Data Jasa Marga
             $table->string('nppin')->nullable();
             $table->string('goli')->nullable();

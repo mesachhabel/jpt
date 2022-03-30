@@ -42,8 +42,19 @@
                                     <label for="emailWithTitle" class="form-label">JKK</label>
                                     <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
                                 </div>
+                            </div>
+                            <hr class="my-3" />
+                            <div class="row g-2 mt-2">
                                 <div class="col mb-0">
-                                    <label for="dobWithTitle" class="form-label">JHT</label>
+                                    <label for="emailWithTitle" class="form-label">JHT</label>
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="emailWithTitle" class="form-label">JHT_PRS</label>
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="dobWithTitle" class="form-label">JHT_PEG</label>
                                     <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
                                 </div>
                             </div>
@@ -89,6 +100,7 @@
                                     <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
                                 </div>
                             </div>
+                            <hr class="my-3" />
                             <div class="row g-2 mt-2">
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">PajakJamsostek</label>
@@ -152,6 +164,8 @@
                         <th>JKM</th>
                         <th>JKK</th>
                         <th>JHT</th>
+                        <th>JHT_Prs</th>
+                        <th>JHT_Peg</th>
                         <th>JPK</th>
                         <th>JPK_Prs</th>
                         <th>JPK_Peg</th>
@@ -192,6 +206,8 @@
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>000</strong></td>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>1</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>

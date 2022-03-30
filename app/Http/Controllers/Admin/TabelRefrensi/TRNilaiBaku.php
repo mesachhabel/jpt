@@ -13,7 +13,7 @@ class TRNilaiBaku extends Controller
      */
     public function index()
     {
-        //
+        return view('admins.TabelReferensi.TR.NilaiBaku');
     }
 
     /**

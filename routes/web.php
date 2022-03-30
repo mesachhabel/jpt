@@ -34,10 +34,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth']],function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], function () {
 
     //Tabel Karyawan 
-    Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('datakaryawan', [DataKaryawanController::class, 'index'])->name('admin.datakaryawan');
     Route::get('create-datakaryawan', [DataKaryawanController::class, 'create'])->name('admin.create-datakaryawan');
     Route::post('add-datakaryawan', [DatakaryawanController::class, 'store'])->name('admin.add-datakaryawan');
@@ -50,7 +50,7 @@ Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth']],function(){
     Route::get('tabelreferensi', [TabelReferensiController::class, 'index'])->name('admin.tabelreferensi');
     Route::post('add-tabelreferensi', [TabelReferensiController::class, 'store'])->name('admin.add-tabelreferensi');
 
-    // Tabel Referensi
+
     Route::get('show-skalagaji', [TRSkalaGajiController::class, 'index'])->name('admin.show-skalagaji');
     Route::post('add-skalagaji', [TRSkalaGajiController::class, 'strore'])->name('admin.add-skalagaji');
     Route::get('show-kodeunitkerja', [TRKodeUnitKerjaController::class, 'index'])->name('admin.show-kodeunitkerja');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_keteranganslipgaji;
 
 class TRKeteranganSlipGajiController extends Controller
 {
@@ -13,7 +15,8 @@ class TRKeteranganSlipGajiController extends Controller
      */
     public function index()
     {
-        return view('admins.TabelReferensi.TR.KeteranganSlipGaji');
+        $keteranganslipgajis = tr_keteranganslipgaji::paginate(5);
+        return view('admins.TabelReferensi.TR.keteranganslipgaji', compact('keteranganslipgajis'));
     }
 
     /**
@@ -34,7 +37,8 @@ class TRKeteranganSlipGajiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tr_keteranganslipgaji::create($request->all());
+        return redirect()->route('admin.show-keteranganslipgaji');
     }
 
     /**

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_kodejabatan;
 
 class TRKodeJabatanController extends Controller
 {
@@ -13,7 +15,8 @@ class TRKodeJabatanController extends Controller
      */
     public function index()
     {
-        return view('admins.TabelReferensi.TR.KodeJabatan');
+        $kodejabatans = tr_kodejabatan::paginate(5);
+        return view('admins.TabelReferensi.TR.KodeJabatan',compact('kodejabatans'));
     }
 
     /**
@@ -34,7 +37,8 @@ class TRKodeJabatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tr_kodejabatan::create($request->all());
+        return redirect()->route('admin.show-kodejabatan');
     }
 
     /**

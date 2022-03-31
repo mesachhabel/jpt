@@ -14,6 +14,11 @@ use App\Http\Controllers\Admin\TabelRefrensi\TRSkalaGajiController;
 use App\Http\Controllers\Admin\TabelRefrensi\TRTerimaController;
 use App\Http\Controllers\Admin\TabelRefrensi\TRPotongController;
 use App\Http\Controllers\Admin\TabelRefrensi\TRAgama;
+use App\Http\Controllers\Admin\TabelRefrensi\TRNilaiBaku;
+use App\Http\Controllers\Admin\TabelRefrensi\TRPenandatangan;
+use App\Http\Controllers\Admin\TabelRefrensi\TRBankTransfer;
+use App\Http\Controllers\Admin\TabelRefrensi\TRStatusPegawai;
+use App\Http\Controllers\Admin\TabelRefrensi\TRStatusTugas;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,10 +39,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth']],function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], function () {
 
     //Tabel Karyawan 
-    Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('datakaryawan', [DataKaryawanController::class, 'index'])->name('admin.datakaryawan');
     Route::get('create-datakaryawan', [DataKaryawanController::class, 'create'])->name('admin.create-datakaryawan');
     Route::post('add-datakaryawan', [DatakaryawanController::class, 'store'])->name('admin.add-datakaryawan');
@@ -50,7 +55,7 @@ Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth']],function(){
     Route::get('tabelreferensi', [TabelReferensiController::class, 'index'])->name('admin.tabelreferensi');
     Route::post('add-tabelreferensi', [TabelReferensiController::class, 'store'])->name('admin.add-tabelreferensi');
 
-    // Tabel Referensi
+
     Route::get('show-skalagaji', [TRSkalaGajiController::class, 'index'])->name('admin.show-skalagaji');
     Route::post('add-skalagaji', [TRSkalaGajiController::class, 'strore'])->name('admin.add-skalagaji');
     Route::get('show-kodeunitkerja', [TRKodeUnitKerjaController::class, 'index'])->name('admin.show-kodeunitkerja');
@@ -67,4 +72,10 @@ Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth']],function(){
     Route::post('add-keteranganslipgaji', [TRKeteranganSlipGajiController::class, 'store'])->name('admin.add-keteranganslipgaji');
     Route::get('show-agama', [TRAgama::class, 'index'])->name('admin.show-agama');
     Route::post('add-agama', [TRAgama::class, 'store'])->name('admin.add-agama');
+
+    Route::get('edit-nilaibaku', [TRNilaiBaku::class, 'index'])->name('admin.edit-nilaibaku');
+    Route::get('edit-penandatangan', [TRPenandatangan::class, 'index'])->name('admin.edit-penandatangan');
+    Route::get('edit-banktransfer', [TRBankTransfer::class, 'index'])->name('admin.edit-banktransfer');
+    Route::get('edit-statuspegawai', [TRStatusPegawai::class, 'index'])->name('admin.edit-statuspegawai');
+    Route::get('edit-statustugas', [TRStatusTugas::class, 'index'])->name('admin.edit-statustugas');
 });

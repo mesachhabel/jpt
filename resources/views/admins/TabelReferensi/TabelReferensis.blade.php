@@ -28,7 +28,7 @@
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Kode Unit Kerja</strong>
                             </td>
                             <td>
-                                <a href="{{ route('admin.TabelReferensi.TR') }}" type="button"
+                                <a href="{{ route('admin.show-kodeunitkerja') }}" type="button"
                                     class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
                             </td>
                         </tr>

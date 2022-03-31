@@ -44,11 +44,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     //Tabel Karyawan 
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('datakaryawan', [DataKaryawanController::class, 'index'])->name('admin.datakaryawan');
-    // Route::resource('/data_karyawans', DataKaryawanController::class);
+    Route::resource('/data_karyawans', DataKaryawanController::class);
     Route::get('create-datakaryawan', [DataKaryawanController::class, 'create'])->name('admin.create-datakaryawan');
-    Route::get('edit-datakaryawan/{id}', [DatakaryawanController::class, 'edit'])->name('admin.edit-datakaryawan');
-    Route::post('update-datakaryawan/{id}', [DatakaryawanController::class, 'update'])->name('admin.update-datakaryawan');
-    Route::post('delete-datakaryawan/{id}', [DatakaryawanController::class, 'destroy'])->name('admin.delete-datakaryawan');
+    Route::get('edit-datakaryawan/{id}', [DataKaryawanController::class, 'edit'])->name('admin.edit-datakaryawan');
+    Route::post('update-datakaryawan/{id}', [DataKaryawanController::class, 'update'])->name('admin.update-datakaryawan');
+    Route::post('delete-datakaryawan/{id}', [DataKaryawanController::class, 'destroy'])->name('admin.delete-datakaryawan');
     
     //Tabel Absensi Karyawan
     Route::get('absensidatakaryawan', [AbsensiDataKaryawanController::class, 'index'])->name('admin.absensidatakaryawan');

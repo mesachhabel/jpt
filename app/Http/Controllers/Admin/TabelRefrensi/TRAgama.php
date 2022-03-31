@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_agama;
 
 class TRAgama extends Controller
 {
@@ -13,7 +15,8 @@ class TRAgama extends Controller
      */
     public function index()
     {
-        return view('admins.TabelReferensi.TR.Agama');
+        $agamas = tr_agama::paginate(5);
+        return view('admins.TabelReferensi.TR.agama', compact('agamas'));
     }
 
     /**
@@ -34,7 +37,8 @@ class TRAgama extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tr_agama::create($request->all());
+        return redirect()->route('admin.show-agama');
     }
 
     /**

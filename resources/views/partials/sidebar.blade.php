@@ -164,7 +164,7 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('admin.datakaryawan') }}" class="menu-link">
+                    <a href="{{ route('data_karyawans.index') }}" class="menu-link">
                         <div data-i18n="Without menu">Data Karyawan</div>
                     </a>
                 </li>

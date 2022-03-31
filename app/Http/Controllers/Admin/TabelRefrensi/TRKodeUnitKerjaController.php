@@ -15,7 +15,7 @@ class TRKodeUnitKerjaController extends Controller
      */
     public function index()
     {
-        $kodeunitkerjas = tr_kodeunitkerja::paginate(2);
+        $kodeunitkerjas = tr_kodeunitkerja::paginate(5);
         return view('admins.TabelReferensi.TR.KodeUnitKerja',compact('kodeunitkerjas'));
     }
 

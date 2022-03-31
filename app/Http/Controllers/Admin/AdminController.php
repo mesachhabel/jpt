@@ -14,17 +14,4 @@ class AdminController extends Controller
         return view('dashboard',compact('count'));
         // return view('dashboard');
     }
-    public function profile()
-    {
-        return view('dashboards.admins.profile');
-    }
-    public function settings()
-    {
-        return view('dashboards.admins.settings');
-    }
-    // public function registers(Request $request)
-    // {
-    //     \App\Models\User::create($request->all());
-    //     return view('auth.register');
-    // }
 }

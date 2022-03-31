@@ -37,8 +37,17 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-semibold d-block">John Doe</span>
-                                    <small class="text-muted">Admin</small>
+                                    <span class="fw-semibold d-block"
+                                        style="text-transform: capitalize">{{ Auth::user()->name }}</span>
+                                    <small class="text-muted">
+                                        @if (Auth::user()->role == '1')
+                                            <p>Admin</p>
+                                        @elseif (Auth::user()->role == '2')
+                                            <p>User</p>
+                                        @elseif (Auth::user()->role == '3')
+                                            <p>Editor</p>
+                                        @endif
+                                    </small>
                                 </div>
                             </div>
                         </a>

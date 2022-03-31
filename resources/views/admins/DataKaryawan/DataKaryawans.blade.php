@@ -22,48 +22,63 @@
                             <th>Unit Kerja</th>
                             <th>Status</th>
                             <th>Photo</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @foreach ($data_karyawans as $datakaryawan)
+                        @forelse ($data_karyawans as $post)
                             <tr>
                                 <td>
-                                    {{ $datakaryawan->id }}
+                                    {{ $post->id }}
                                 </td>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                    <strong>{{ $datakaryawan->nik }}</strong>
+                                    <strong>{{ $post->nik }}</strong>
                                 </td>
                                 <td>
-                                    {{ $datakaryawan->nama }}
+                                    {{ $post->nama }}
                                 </td>
                                 <td>
-                                    @if ($datakaryawan->jabatan == '1')
+                                    @if ($post->jabatan == '1')
                                         <p>Kepala Bagian</p>
-                                    @elseif ($datakaryawan->jabatan == '2')
+                                    @elseif ($post->jabatan == '2')
                                         <p>Kepala Sub Bagian</p>
-                                    @elseif ($datakaryawan->jabatan == '3')
+                                    @elseif ($post->jabatan == '3')
                                         <p>Kepala Divisi</p>
                                     @endif
                                 </td>
                                 <td>
-                                    <strong> {{ $datakaryawan->ska }}</strong>
+                                    <strong> {{ $post->ska }}</strong>
                                 </td>
                                 <td>
-                                    @if ($datakaryawan->skk == '1')
+                                    @if ($post->skk == '1')
                                         <span class="badge bg-label-primary me-1">Belum Kawin</span>
-                                    @elseif ($datakaryawan->skk == '2')
+                                    @elseif ($post->skk == '2')
                                         <span class="badge bg-label-warning me-2">Kawin</span>
-                                    @elseif ($datakaryawan->skk == '3')
+                                    @elseif ($post->skk == '3')
                                         <span class="badge bg-label-danger me-3">Janda</span>
-                                    @elseif ($datakaryawan->skk == '4')
+                                    @elseif ($post->skk == '4')
                                         <span class="badge bg-label-purple me-4">Duda</span>
                                     @endif
                                 </td>
                                 <td>
-                                <td><img src="images/{{ Session::get('image') }}"></td>
+                                    <img width="50" height="50" src="{{ Storage::url('public/posts/') . $post->image }}">
+                                </td>
+                                <td>
+                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                        action="{{ route('data_karyawans.destroy', $post->id) }}" method="POST">
+                                        <a href="{{ route('admin.edit-datakaryawan', $post->id) }}"
+                                            class="btn btn-sm btn-primary">Edit</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <div class="alert alert-danger">
+                                Data Karyawan Belum Ada.
+                            </div>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

@@ -7,8 +7,10 @@
                 <div class="d-flex align-items-end row">
                     <div class="col-sm-7">
                         <div class="card-body">
-                            <h5 class="card-title text-primary">Selamat datang Nama Karyawan!</h5>
-                            <p class="mb-4">
+                            <h5 class="card-title text-primary">Selamat datang <strong style="text-transform: capitalize">
+                                    {{ Auth::user()->name }}</strong>!
+                            </h5>
+                            <p class="   mb-4">
                                 Silahkan cek informasi terkait data karyawan anda.
                             </p>
                         </div>

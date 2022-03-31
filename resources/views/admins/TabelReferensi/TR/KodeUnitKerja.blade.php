@@ -43,7 +43,7 @@
                                         <td>
                                             <a href="{{ url('view-skalagaji') }}" type="button"
                                                 class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
-                                            <a href="{{ url('edit-skalagaji') }}" type="button"
+                                            <a href="{{ route('admin.show-kodeunitkerja', $student->id) }}" type="button"
                                                 class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
                                             <a href="{{ url('delete-skalagaji') }}" type="button"
                                                 class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>

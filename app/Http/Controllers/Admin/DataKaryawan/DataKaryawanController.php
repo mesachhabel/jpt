@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\DataKaryawan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\data_karyawan;
+use Illuminate\Support\Facades\Storage;
 use Auth;
 use Alert;
 
@@ -39,37 +40,54 @@ class DataKaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        $masuk = data_karyawan::create($request->all());
-        
-        $validatedData = $request->validate([
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+        //validate form
+        $this->validate($request, [
+            'image'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-        $name = $request->file('image')->getClientOriginalName();
-        $path = $request->file('image')->store('public/images');
-        $save = data_karyawan::find($masuk->id);
-        $save->name = $name;
-        $save->path = $path;
 
-        $save->save();
+        //upload image
+        $image = $request->file('image');
+        $image->storeAs('public/posts', $image->hashName());
+
+        //create post
+        $masuk = data_karyawan::create([
+            'image'     => $image->hashName(),
+            'nama'      => $request->nama,
+            'nik'       => $request->nik,
+            'nppi'      => $request->nppi,
+            'jk'        => $request->jk,
+            'agama'     => $request->agama,
+            'skk'       => $request->skk,
+            'ia'        => $request->ia,
+            'gi'        => $request->gi,
+            'npwp'      => $request->npwp,
+            'nktp'      => $request->nktp,
+            'nbpkt'     => $request->nbpkt,
+            'nbpks'     => $request->nbpks,
+            'tmk'       => $request->tmk,
+            'ska'       => $request->ska,
+            'jabatan'   => $request->jabatan,
+            'gj'        => $request->gj,
+            'bg'        => $request->bg,
+            'as'        => $request->as,
+            'uk'        => $request->uk,
+            'auk'       => $request->auk,
+            'so'        => $request->so,
+            'bank'      => $request->bank,
+            'norek'     => $request->norek,
+            'an'        => $request->an,
+            'ip'        => $request->ip,
+            'sky'       => $request->sky,
+            'tb'        => $request->tb,
+        ]);
 
         if($masuk){
             Alert::success('Data Berhasil Ditambahkan', 'Selamat');
-            return redirect()->route('admin.datakaryawan');
+            return redirect()->route('data_karyawans.index');
         }else{
             Alert::error('Data Gagal Ditambahkan', 'Maaf');
-            return redirect()->route('admin.datakaryawan');
+            return redirect()->route('data_karyawans.create');
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
-    
     }
 
     /**
@@ -80,7 +98,8 @@ class DataKaryawanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = data_karyawan::find($id);
+        return view('admins.DataKaryawan.EditDataKaryawans', compact('post'));
     }
 
     /**
@@ -90,9 +109,96 @@ class DataKaryawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, data_karyawan $post)
     {
-        //
+        //validate form
+        $this->validate($request, [
+            'image'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        //check if image is uploaded
+        if ($request->hasFile('image')) {
+
+            //upload new image
+            $image = $request->file('image');
+            $image->storeAs('public/posts', $image->hashName());
+
+            //delete old image
+            Storage::delete('public/posts/'.$post->image);
+
+            //update post with new image
+            $post->update([
+            'image'     => $image->hashName(),
+            'nama'      => $request->nama,
+            'nik'       => $request->nik,
+            'nppi'      => $request->nppi,
+            'jk'        => $request->jk,
+            'agama'     => $request->agama,
+            'skk'       => $request->skk,
+            'ia'        => $request->ia,
+            'gi'        => $request->gi,
+            'npwp'      => $request->npwp,
+            'nktp'      => $request->nktp,
+            'nbpkt'     => $request->nbpkt,
+            'nbpks'     => $request->nbpks,
+            'tmk'       => $request->tmk,
+            'ska'       => $request->ska,
+            'jabatan'   => $request->jabatan,
+            'gj'        => $request->gj,
+            'bg'        => $request->bg,
+            'as'        => $request->as,
+            'uk'        => $request->uk,
+            'auk'       => $request->auk,
+            'so'        => $request->so,
+            'bank'      => $request->bank,
+            'norek'     => $request->norek,
+            'an'        => $request->an,
+            'ip'        => $request->ip,
+            'sky'       => $request->sky,
+            'tb'        => $request->tb
+            ]);
+
+        } else {
+
+            //update post without image
+            $post->update([
+            'nama'      => $request->nama,
+            'nik'       => $request->nik,
+            'nppi'      => $request->nppi,
+            'jk'        => $request->jk,
+            'agama'     => $request->agama,
+            'skk'       => $request->skk,
+            'ia'        => $request->ia,
+            'gi'        => $request->gi,
+            'npwp'      => $request->npwp,
+            'nktp'      => $request->nktp,
+            'nbpkt'     => $request->nbpkt,
+            'nbpks'     => $request->nbpks,
+            'tmk'       => $request->tmk,
+            'ska'       => $request->ska,
+            'jabatan'   => $request->jabatan,
+            'gj'        => $request->gj,
+            'bg'        => $request->bg,
+            'as'        => $request->as,
+            'uk'        => $request->uk,
+            'auk'       => $request->auk,
+            'so'        => $request->so,
+            'bank'      => $request->bank,
+            'norek'     => $request->norek,
+            'an'        => $request->an,
+            'ip'        => $request->ip,
+            'sky'       => $request->sky,
+            'tb'        => $request->tb,
+            ]);
+        }
+        return redirect()->route('data_karyawans.index');
+        // if($post){
+        //     Alert::success('Data Berhasil Di Edit', 'Selamat');
+        //     return redirect()->route('data_karyawans.index');
+        // }else{
+        //     Alert::error('Data Gagal Di Edit', 'Maaf');
+        //     return redirect()->route('data_karyawans.edit');
+        // }
     }
 
     /**
@@ -101,8 +207,20 @@ class DataKaryawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(data_karyawan $post)
     {
-        //
+         //delete image
+         Storage::delete('public/posts/'. $post->image);
+
+         //delete post
+         $post->delete();
+
+         if($post){
+            Alert::success('Data Berhasil Di Hapus', 'Selamat');
+            return redirect()->route('data_karyawans.index');
+        }else{
+            Alert::error('Data Gagal Di Hapus', 'Maaf');
+            return redirect()->route('data_karyawans.index');
+        }
     }
 }

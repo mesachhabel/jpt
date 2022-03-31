@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_potong;
 
 class TRPotongController extends Controller
 {
@@ -13,7 +15,8 @@ class TRPotongController extends Controller
      */
     public function index()
     {
-        return view('admins.TabelReferensi.TR.JenisPotong');
+        $potongs = tr_potong::paginate(5);
+        return view('admins.TabelReferensi.TR.JenisPotong', compact('potongs'));
     }
 
     /**
@@ -34,7 +37,8 @@ class TRPotongController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tr_potong::create($request->all());
+        return redirect()->route('admin.show-jenispotong');
     }
 
     /**

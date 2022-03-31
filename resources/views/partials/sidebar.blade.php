@@ -3,7 +3,7 @@
     <div class="app-brand demo">
         <a href="index.html" class="app-brand-link">
             <!-- <span class="app-brand-logo demo"> -->
-            <img src="../assets/img/logo-jpt1.png" height="40" width="160" alt="Logo 1" />
+            <img src="../../assets/img/logo-jpt1.png" height="40" width="160" alt="Logo 1" />
             <!-- </span> -->
         </a>
 

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_bank;
 
-class TRBankTransfer extends Controller
+class TRBank extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class TRBankTransfer extends Controller
      */
     public function index()
     {
-        return view('admins.TabelReferensi.TR.BankTransfer');
+        $banks = tr_bank::paginate(5);
+        return view('admins.TabelReferensi.TR.bank', compact('banks'));
     }
 
     /**
@@ -34,7 +37,8 @@ class TRBankTransfer extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tr_bank::create($request->all());
+        return redirect()->route('admin.show-bank');
     }
 
     /**

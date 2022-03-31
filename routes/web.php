@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin\TabelRefrensi\TRPotongController;
 use App\Http\Controllers\Admin\TabelRefrensi\TRAgama;
 use App\Http\Controllers\Admin\TabelRefrensi\TRNilaiBaku;
 use App\Http\Controllers\Admin\TabelRefrensi\TRPenandatangan;
-use App\Http\Controllers\Admin\TabelRefrensi\TRBankTransfer;
+use App\Http\Controllers\Admin\TabelRefrensi\TRBank;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusPegawai;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusTugas;
 use Illuminate\Support\Facades\Route;
@@ -75,7 +75,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
 
     Route::get('edit-nilaibaku', [TRNilaiBaku::class, 'index'])->name('admin.edit-nilaibaku');
     Route::get('edit-penandatangan', [TRPenandatangan::class, 'index'])->name('admin.edit-penandatangan');
-    Route::get('edit-banktransfer', [TRBankTransfer::class, 'index'])->name('admin.edit-banktransfer');
+    //bank
+    Route::get('show-bank', [TRBank::class, 'index'])->name('admin.show-bank');
+    Route::post('add-bank', [TRBank::class, 'store'])->name('admin.add-bank');
+    Route::get('edit-bank', [TRBank::class, 'edit'])->name('admin.edit-bank');
+    
     Route::get('edit-statuspegawai', [TRStatusPegawai::class, 'index'])->name('admin.edit-statuspegawai');
     Route::get('edit-statustugas', [TRStatusTugas::class, 'index'])->name('admin.edit-statustugas');
 });

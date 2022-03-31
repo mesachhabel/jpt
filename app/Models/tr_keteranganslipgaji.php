@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class tr_keteranganslipgaji extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 }

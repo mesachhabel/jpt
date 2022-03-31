@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_jenispenerimaan;
 
 class TRTerimaController extends Controller
 {
@@ -13,7 +15,8 @@ class TRTerimaController extends Controller
      */
     public function index()
     {
-        return view('admins.TabelReferensi.TR.JenisTerima');
+        $jenispenerimaans = tr_jenispenerimaan::paginate(5);
+        return view('admins.TabelReferensi.TR.JenisTerima', compact('jenispenerimaans'));
     }
 
     /**
@@ -34,7 +37,8 @@ class TRTerimaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tr_jenispenerimaan::create($request->all());
+        return redirect()->route('admin.show-jenisterima');
     }
 
     /**

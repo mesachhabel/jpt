@@ -14,6 +14,8 @@
             </button>
 
             <!-- Modal -->
+            <form id="formAccountSettings" method="POST" action="{{ route('admin.add-kodejabatan') }}">
+                @csrf
             <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -25,27 +27,27 @@
                             <div class="row g-2">
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">Kode Jabatan</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Kode Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Kode Unit" name="kode"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="dobWithTitle" class="form-label">Golongan</label>
-                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Kode Sub-Unit" />
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Kode Sub-Unit" name="golongan"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">KLP</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="klp"/>
                                 </div>
                             </div>
                             <div class="row mt-2">
                                 <div class="col mb-0">
                                     <label for="dobWithTitle" class="form-label">Nama Jabatan</label>
-                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" name="uraianjabatan"/>
                                 </div>
                             </div>
                             <div class="row mt-2">
                                 <div class="col mb-0">
-                                    <label for="dobWithTitle" class="form-label">Nama Jabatan</label>
-                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
+                                    <label for="dobWithTitle" class="form-label">Sebutan Jabatan</label>
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" name="sebutanjabatan"/>
                                 </div>
                             </div>
                         </div>
@@ -53,11 +55,12 @@
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 Close
                             </button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
             </div>
+        </form>
         </div>
     </div>
 
@@ -76,58 +79,25 @@
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
+                @foreach ($kodejabatans as $kodejabatan)
                     <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>AAA</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>K0</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>KM</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $kodejabatan->kode }}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $kodejabatan->golongan }}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $kodejabatan->uraianjabatan }}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $kodejabatan->sebutanjabatan }}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $kodejabatan->klp }}</strong></td>
                         <td>
                             <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
                             <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
                             <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>AAA</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>K0</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>KM</strong></td>
-                        <td>
-                            <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
-                            <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
-                            <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>AAA</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>K0</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>KM</strong></td>
-                        <td>
-                            <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
-                            <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
-                            <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>AAA</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>K0</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Komisaris Utama</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>KM</strong></td>
-                        <td>
-                            <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
-                            <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
-                            <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
-                        </td>
-                    </tr>
+                    @endforeach  
                 </tbody>
             </table>
         </div>
     </div>
+    <ul class="pagination justify-content-center mt-3">{{ $kodejabatans->links('pagination::bootstrap-4') }} </ul>
     <!--/ Hoverable Table rows -->
 </div>
 <hr class="my-5" />

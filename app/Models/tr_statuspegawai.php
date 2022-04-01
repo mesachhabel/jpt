@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class tr_statuspegawai extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 }

@@ -303,5 +303,5 @@
     </div>
     <!--/ Striped Rows -->
     <hr class="my-5" />
-    <script src="../assets/js/datakaryawan.js"></script>
+    <script src="../../assets/js/datakaryawan.js"></script>
 @endsection

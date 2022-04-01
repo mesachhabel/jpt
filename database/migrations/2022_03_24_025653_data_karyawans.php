@@ -40,7 +40,7 @@ class DataKaryawans extends Migration
             $table->string('bank')->nullable();
             $table->string('norek')->nullable();
             $table->string('an')->nullable();
-            $table->boolean('ip')->nullable()->default(0);
+            $table->boolean('ip')->default(0);
             $table->string('sky')->nullable();
             $table->string('tb')->nullable();
             $table->string('image')->nullable();

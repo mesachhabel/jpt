@@ -32,7 +32,7 @@ class DataKaryawanController extends Controller
     {
         return view('admins.DataKaryawan.createdatakaryawans');
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -94,17 +94,6 @@ class DataKaryawanController extends Controller
             Alert::error('Data Gagal Ditambahkan', 'Maaf');
             return redirect()->route('karyawan.create');
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     public function edit(data_karyawan $karyawan)

@@ -80,6 +80,11 @@ class DataKaryawanController extends Controller
             'ip'        => $request->ip,
             'sky'       => $request->sky,
             'tb'        => $request->tb,
+            'nppin'     => $request->nppin,
+            'goli'        => $request->goli,
+            'phdp'        => $request->phdp,
+            'ujsm'       => $request->ujsm,
+            'phda'        => $request->phda
         ]);
 
         if($masuk){
@@ -160,7 +165,12 @@ class DataKaryawanController extends Controller
             'an'        => $request->an,
             'ip'        => $request->ip,
             'sky'       => $request->sky,
-            'tb'        => $request->tb
+            'tb'        => $request->tb,
+            'nppin'     => $request->nppin,
+            'goli'        => $request->goli,
+            'phdp'        => $request->phdp,
+            'ujsm'       => $request->ujsm,
+            'phda'        => $request->phda
             ]);
 
         } else {
@@ -194,6 +204,11 @@ class DataKaryawanController extends Controller
             'ip'        => $request->ip,
             'sky'       => $request->sky,
             'tb'        => $request->tb,
+            'nppin'     => $request->nppin,
+            'goli'        => $request->goli,
+            'phdp'        => $request->phdp,
+            'ujsm'       => $request->ujsm,
+            'phda'        => $request->phda
             ]);
         }
         return redirect()->route('karyawan.index');

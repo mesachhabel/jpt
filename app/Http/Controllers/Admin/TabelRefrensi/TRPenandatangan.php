@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_penandatangan;
 
 class TRPenandatangan extends Controller
 {
@@ -13,7 +15,8 @@ class TRPenandatangan extends Controller
      */
     public function index()
     {
-        return view('admins.TabelReferensi.TR.Penandatangan');
+        $penandatangans = tr_penandatangan::paginate(5);
+        return view('admins.TabelReferensi.TR.penandatangan', compact('penandatangans'));
     }
 
     /**
@@ -34,7 +37,8 @@ class TRPenandatangan extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tr_penandatangan::create($request->all());
+        return redirect()->route('penandatangan.index');
     }
 
     /**

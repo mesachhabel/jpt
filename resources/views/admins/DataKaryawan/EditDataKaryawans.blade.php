@@ -247,7 +247,11 @@
                                         id="AtNa" name="an" placeholder="Nama Pemegang Rekening" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-3">
-                                    <input type="checkbox" name="ip" id="iuranpen">
+                                    @if ($karyawan->ip == '1')
+                                        <input type="checkbox" name="ip" id="iuranpen" checked>
+                                    @elseif ($karyawan->ip == '0')
+                                        <input type="checkbox" name="ip" id="iuranpen" >
+                                    @endif
                                     <label for="iuranpen" class="form-label">Iuran Pensiun</label>
                                 </div>
                                 <div class="mb-3 col-md-3">

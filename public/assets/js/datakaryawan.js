@@ -6,7 +6,6 @@ selectElement.addEventListener('change', (event) => {
     // jika checked maka set value = 1
     // jika tidak ada atribut checked maka set value = 0
     selectElement.value = selectElement.checked ? 1 : 0;
-
 });
 
 function statuskar(value) {
@@ -19,3 +18,9 @@ inputImage.onchange = evt => {
         uploadedAvatar.src = URL.createObjectURL(file)
     }
 }
+
+// if (ip = 1) {
+//     document.getElementById("iuranpen").checked;
+// } else {
+//     document.getElementById("iuranpen").deactive;
+// }

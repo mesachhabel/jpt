@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\TabelRefrensi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tr_agama;
+use Alert;
 
 class TRAgama extends Controller
 {
@@ -37,8 +38,14 @@ class TRAgama extends Controller
      */
     public function store(Request $request)
     {
-        tr_agama::create($request->all());
-        return redirect()->route('admin.show-agama');
+        $masuk=tr_agama::create($request->all());
+        if($masuk){
+            Alert::success('Data Berhasil Ditambahkan', 'Selamat');
+            return redirect()->route('agama.index');
+        }else{
+            Alert::error('Data Gagal Ditambahkan', 'Maaf');
+            return redirect()->route('agama.index');
+        }
     }
 
     /**
@@ -81,8 +88,18 @@ class TRAgama extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_agama $agama)
     {
-        //
+        //delete post
+        $agama->delete();
+
+        //redirect to index
+        if($agama){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('agama.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('agama.index');
+        }
     }
 }

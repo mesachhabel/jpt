@@ -38,7 +38,7 @@ class TRPotongController extends Controller
      */
     public function store(Request $request)
     {
-        $masuk = tr_potong::create($request->all());
+        $masuk=tr_potong::create($request->all());
         if($masuk){
             Alert::success('Data Berhasil Ditambahkan', 'Selamat');
             return redirect()->route('potong.index');
@@ -90,7 +90,16 @@ class TRPotongController extends Controller
      */
     public function destroy(tr_potong $potong)
     {
+        //delete post
         $potong->delete();
-        return redirect()->route('potong.index');
+
+        //redirect to index
+        if($potong){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('potong.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('potong.index');
+        }
     }
 }

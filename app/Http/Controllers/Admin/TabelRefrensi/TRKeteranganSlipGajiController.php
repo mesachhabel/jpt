@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\TabelRefrensi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tr_keteranganslipgaji;
+use Alert;
 
 class TRKeteranganSlipGajiController extends Controller
 {
@@ -37,8 +38,14 @@ class TRKeteranganSlipGajiController extends Controller
      */
     public function store(Request $request)
     {
-        tr_keteranganslipgaji::create($request->all());
-        return redirect()->route('admin.show-keteranganslipgaji');
+        $masuk=tr_keteranganslipgaji::create($request->all());
+        if($masuk){
+            Alert::success('Data Berhasil Ditambahkan', 'Selamat');
+            return redirect()->route('keteranganslipgaji.index');
+        }else{
+            Alert::error('Data Gagal Ditambahkan', 'Maaf');
+            return redirect()->route('keteranganslipgaji.index');
+        }
     }
 
     /**
@@ -81,8 +88,18 @@ class TRKeteranganSlipGajiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_keteranganslipgaji $keteranganslipgaji)
     {
-        //
+        //delete post
+        $keteranganslipgaji->delete();
+
+        //redirect to index
+        if($keteranganslipgaji){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('keteranganslipgaji.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('keteranganslipgaji.index');
+        }
     }
 }

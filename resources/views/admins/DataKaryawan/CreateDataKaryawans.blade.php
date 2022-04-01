@@ -7,7 +7,7 @@
         </h4>
 
         <div class="row">
-            <form id="formAccountSettings" method="POST" action="{{ route('data_karyawans.store') }}"
+            <form id="formAccountSettings" method="POST" action="{{ route('karyawan.store') }}"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-12">
@@ -16,8 +16,8 @@
                         <!-- Account -->
                         <div class="card-body">
                             <div class="d-flex align-items-start align-items-sm-center gap-4">
-                                <img src="../assets/img/avatars/1.png" alt="user-avatar" class="d-block rounded" height="100"
-                                    width="100" id="uploadedAvatar" />
+                                <img src="../../assets/img/avatars/1.svg" alt="user-avatar" class="d-block rounded"
+                                    height="100" width="100" id="uploadedAvatar" />
                                 <div class="button-wrapper">
                                     <label for="inputImage" class="btn btn-primary me-2 mb-0" tabindex="0">
                                         <span class="d-none d-sm-block">Upload new photo</span>
@@ -25,12 +25,8 @@
                                         <input type="file" name="image" id="inputImage"
                                             class="form-control @error('image') is-invalid @enderror">
                                     </label>
-                                    {{-- <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-                                        <i class="bx bx-reset d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Reset</span>
-                                    </button> --}}
 
-                                    <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                                    <p class="text-muted mb-0">Allowed JPG, JPEG, GIF or PNG. Max size of 2MB</p>
                                 </div>
                             </div>
                         </div>
@@ -231,7 +227,7 @@
                                     <label for="defaultSelect" class="form-label">Status Karyawan</label>
                                     <select name="sky" id="defaultSelect" class="form-select"
                                         onChange="statuskar(this.value)">
-                                        <option>-- Bukan status keluarga --</option>
+                                        <option disabled selected>-- Bukan status keluarga --</option>
                                         <option value="1">Aktif</option>
                                         <option value="2">Non-Aktif</option>
                                     </select>
@@ -248,7 +244,6 @@
                         </div>
                         <!-- /Account -->
                     </div>
-
                     <div class="card mb-4">
                         <h5 class="card-header">Data Jasamarga</h5>
                         <!-- Account -->
@@ -280,9 +275,11 @@
                                 </div>
                                 <div class="mt-3">
                                     <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                                    {{-- <a href="{{ route('admin.datakaryawan') }}" class="btn btn-outline-secondary">Cancel</a> --}}
+                                    <a href="{{ route('karyawan.index') }}" class="btn btn-outline-secondary">Cancel</a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
             </form>
         </div>
         <!-- /Account -->
@@ -295,5 +292,5 @@
     </div>
     <!--/ Striped Rows -->
     <hr class="my-5" />
-    <script src="../assets/js/datakaryawan.js"></script>
+    <script src="../../../assets/js/datakaryawan.js"></script>
 @endsection

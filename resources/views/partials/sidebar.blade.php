@@ -3,7 +3,7 @@
     <div class="app-brand demo">
         <a href="index.html" class="app-brand-link">
             <!-- <span class="app-brand-logo demo"> -->
-            <img src="../../assets/img/logo-jpt1.png" height="40" width="160" alt="Logo 1" />
+            <img src="../../../assets/img/logo-jpt1.png" height="40" width="160" alt="Logo 1" />
             <!-- </span> -->
         </a>
 
@@ -164,7 +164,7 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('data_karyawans.index') }}" class="menu-link">
+                    <a href="{{ route('karyawan.index') }}" class="menu-link">
                         <div data-i18n="Without menu">Data Karyawan</div>
                     </a>
                 </li>

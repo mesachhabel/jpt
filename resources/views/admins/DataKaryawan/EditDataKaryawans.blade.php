@@ -247,9 +247,15 @@
                                         id="AtNa" name="an" placeholder="Nama Pemegang Rekening" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-3">
-                                    <input type="hidden" id="ip" name="ip" value="0">
-                                    <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
-                                        onchange="document.getElementById('ip').value = this.checked ? 1 : 0">
+                                    @if ($karyawan->ip == '1')
+                                        <input type="hidden" id="ip" name="ip" value="0" checked>
+                                        <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
+                                            onchange="document.getElementById('ip').value = this.checked ? 1 : 0" checked>
+                                    @elseif ($karyawan->ip == '0')
+                                        <input type="hidden" id="ip" name="ip" value="0">
+                                        <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
+                                            onchange="document.getElementById('ip').value = this.checked ? 1 : 0">
+                                    @endif
                                     <label for="ip" class="form-label">Iuran Pensiun</label>
                                 </div>
                                 <div class="mb-3 col-md-3">

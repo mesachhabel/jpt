@@ -6,7 +6,7 @@
     <h4 class="fw-bold py-3 mb-4">
         <span class="text-muted fw-light">Pemeliharaan Data /</span> Data Karyawan
     </h4>
-    <a href="{{ route('admin.create-datakaryawan') }}" class="btn btn-primary mb-3">+ Tambah Data<i class="fas fa-print"></i></a>
+    <a href="{{ route('karyawan.create') }}" class="btn btn-primary mb-3">+ Tambah Data<i class="fas fa-print"></i></a>
     <!-- Striped Rows -->
     <div class="card">
         <!-- <h5 class="card-header">Striped rows</h5> -->
@@ -25,18 +25,18 @@
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    @forelse ($data_karyawans as $post)
+                    @forelse ($karyawans as $post)
                     <tr>
-                        <td class="text-center">
+                        <td>
                             {{ $post->id }}
                         </td>
-                        <td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                             <strong>{{ $post->nik }}</strong>
                         </td>
                         <td>
                             {{ $post->nama }}
                         </td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-2,5"></i>
+                        <td>
                             @if ($post->jabatan == '1')
                             <p>Kepala Bagian</p>
                             @elseif ($post->jabatan == '2')
@@ -63,12 +63,13 @@
                             <img width="50" height="50" src="{{ Storage::url('public/posts/') . $post->image }}">
                         </td>
                         <td>
-                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('data_karyawans.destroy', $post->id) }}" method="POST">
-                                <a href="{{ route('admin.edit-datakaryawan', $post->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('karyawan.destroy', $post->id) }}" method="post">
+                                <a href="{{ route('karyawan.edit', $post->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                             </form>
+
                         </td>
                     </tr>
                     @empty
@@ -81,6 +82,6 @@
         </div>
     </div>
 </div>
-<ul class="pagination justify-content-center mt-3">{{ $data_karyawans->links('pagination::bootstrap-4') }}
+<ul class="pagination justify-content-center mt-3">{{ $karyawans->links('pagination::bootstrap-4') }}
 </ul>
 @endsection

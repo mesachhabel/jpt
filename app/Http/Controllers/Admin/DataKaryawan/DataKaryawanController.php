@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin\DataKaryawan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\data_karyawan;
-use Illuminate\Support\Facades\Storage;
-use Auth;
 use Alert;
+use Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DataKaryawanController extends Controller
 {
@@ -18,8 +18,9 @@ class DataKaryawanController extends Controller
      */
     public function index()
     {
-        $data_karyawans = data_karyawan::paginate(5);
-        return view('admins.DataKaryawan.DataKaryawans', compact('data_karyawans'));
+        $karyawans = data_karyawan::latest()->paginate(5);
+        return view('admins.DataKaryawan.datakaryawans', compact('karyawans'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -29,7 +30,7 @@ class DataKaryawanController extends Controller
      */
     public function create()
     {
-        return view('admins.DataKaryawan.CreateDataKaryawans');
+        return view('admins.DataKaryawan.createdatakaryawans');
     }
 
     /**
@@ -83,23 +84,27 @@ class DataKaryawanController extends Controller
 
         if($masuk){
             Alert::success('Data Berhasil Ditambahkan', 'Selamat');
-            return redirect()->route('data_karyawans.index');
+            return redirect()->route('karyawan.index');
         }else{
             Alert::error('Data Gagal Ditambahkan', 'Maaf');
-            return redirect()->route('data_karyawans.create');
+            return redirect()->route('karyawan.create');
         }
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function show($id)
     {
-        $post = data_karyawan::find($id);
-        return view('admins.DataKaryawan.EditDataKaryawans', compact('post'));
+        //
+    }
+
+    public function edit(data_karyawan $karyawan)
+    {
+        return view('admins.DataKaryawan.EditDataKaryawans', compact('karyawan'));
     }
 
     /**
@@ -109,11 +114,11 @@ class DataKaryawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, data_karyawan $post)
+    public function update(Request $request, data_karyawan $karyawan)
     {
         //validate form
         $this->validate($request, [
-            'image'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image'     => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         //check if image is uploaded
@@ -124,10 +129,10 @@ class DataKaryawanController extends Controller
             $image->storeAs('public/posts', $image->hashName());
 
             //delete old image
-            Storage::delete('public/posts/'.$post->image);
+            Storage::delete('public/posts/'.$karyawan->image);
 
             //update post with new image
-            $post->update([
+            $karyawan->update([
             'image'     => $image->hashName(),
             'nama'      => $request->nama,
             'nik'       => $request->nik,
@@ -161,7 +166,7 @@ class DataKaryawanController extends Controller
         } else {
 
             //update post without image
-            $post->update([
+            $karyawan->update([
             'nama'      => $request->nama,
             'nik'       => $request->nik,
             'nppi'      => $request->nppi,
@@ -191,7 +196,7 @@ class DataKaryawanController extends Controller
             'tb'        => $request->tb,
             ]);
         }
-        return redirect()->route('data_karyawans.index');
+        return redirect()->route('karyawan.index');
         // if($post){
         //     Alert::success('Data Berhasil Di Edit', 'Selamat');
         //     return redirect()->route('data_karyawans.index');
@@ -207,20 +212,15 @@ class DataKaryawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(data_karyawan $post)
+    public function destroy(data_karyawan $karyawan)
     {
-         //delete image
-         Storage::delete('public/posts/'. $post->image);
+        //delete image
+        Storage::delete('public/posts/'. $karyawan->image);
 
-         //delete post
-         $post->delete();
+        //delete post
+        $karyawan->delete();
 
-         if($post){
-            Alert::success('Data Berhasil Di Hapus', 'Selamat');
-            return redirect()->route('data_karyawans.index');
-        }else{
-            Alert::error('Data Gagal Di Hapus', 'Maaf');
-            return redirect()->route('data_karyawans.index');
-        }
+        //redirect to index
+        return redirect()->route('karyawan.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

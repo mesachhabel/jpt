@@ -14,8 +14,8 @@
         </div>
         <div class="container">
             <br>
-            <label for="uname" class="clue subclue"><b> <strong>E-mail Address</strong></b></label>
-            <input type="text" placeholder="Enter E-mail Address" name="email" required>
+            <label for="uname" class="clue subclue"><b> E-mail Address</b></label>
+            <input type="text" placeholder="Enter E-mail Address"  class="form-control" name="email" required>
             <span class="text-danger">
                 @error('email')
                 {{ $message }}

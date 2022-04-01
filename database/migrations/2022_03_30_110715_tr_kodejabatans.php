@@ -32,6 +32,6 @@ class Trkodejabatans extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tr_kodejabawans');
+        Schema::dropIfExists('tr_kodejabatans');
     }
 };

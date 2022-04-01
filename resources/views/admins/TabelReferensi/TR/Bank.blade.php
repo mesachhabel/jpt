@@ -14,7 +14,7 @@
             </button>
 
             <!-- Modal -->
-            <form id="formAccountSettings" method="POST" action="{{ route('admin.add-bank') }}">
+            <form id="formAccountSettings" method="POST" action="{{ route('bank.store') }}">
                 @csrf
             <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -54,13 +54,14 @@
         <div class="table-responsive text-nowrap">
             <table class="table table-hover">
                 <thead>
-                @foreach ($banks as $bank)
+                
                     <tr>
                         <th>Kode Bank</th>
                         <th>Nama Bank</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
+                @foreach ($banks as $bank)
                 <tbody class="table-border-bottom-0">
                     <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$bank->kode}}</strong></td>

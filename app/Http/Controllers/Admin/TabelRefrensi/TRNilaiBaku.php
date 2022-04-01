@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_nilaibaku;
 
 class TRNilaiBaku extends Controller
 {
@@ -13,7 +15,8 @@ class TRNilaiBaku extends Controller
      */
     public function index()
     {
-        return view('admins.TabelReferensi.TR.NilaiBaku');
+        $nilaibakus = tr_nilaibaku::paginate(5);
+        return view('admins.TabelReferensi.TR.nilaibaku', compact('nilaibakus'));
     }
 
     /**
@@ -34,7 +37,8 @@ class TRNilaiBaku extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tr_nilaibaku::create($request->all());
+        return redirect()->route('nilai.index');
     }
 
     /**

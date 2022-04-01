@@ -5,7 +5,7 @@
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light">Transaksi Data /</span> Penerimaan dan Potongan Lain
         </h4>
-        <a href="{{ route('admin.create-terimapotong') }}" class="btn btn-primary mb-3">+ Tambah Data<i
+        <a href="{{ route('terimapotong.create') }}" class="btn btn-primary mb-3">+ Tambah Data<i
                 class="fas fa-print"></i></a>
         <!-- Striped Rows -->
         <div class="card">

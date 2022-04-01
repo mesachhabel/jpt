@@ -25,7 +25,6 @@
                                         <input type="file" name="image" id="inputImage"
                                             class="form-control @error('image') is-invalid @enderror">
                                     </label>
-
                                     <p class="text-muted mb-0">Allowed JPG, JPEG, GIF or PNG. Max size of 2MB</p>
                                 </div>
                             </div>
@@ -220,8 +219,10 @@
                                         placeholder="Nama Pemegang Rekening" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-3">
-                                    <input type="checkbox" name="ip" id="iuranpen">
-                                    <label for="iuranpen" class="form-label">Iuran Pensiun</label>
+                                    <input type="hidden" id="ip" name="ip" value="0">
+                                    <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
+                                        onchange="document.getElementById('ip').value = this.checked ? 1 : 0">
+                                    <label for="ip" class="form-label">Iuran Pensiun</label>
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="defaultSelect" class="form-label">Status Karyawan</label>
@@ -285,7 +286,6 @@
         <!-- /Account -->
     </div>
     </div>
-    </form>
     </div>
     </div>
     <!-- / Content -->

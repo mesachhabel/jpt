@@ -65,14 +65,13 @@
                                 </td>
                                 <td>
                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                        action="{{ route('karyawan.destroy', $post->id) }}" method="post">
+                                        action="{{ route('karyawan.destroy', $post->id) }}" method="POST">
                                         <a href="{{ route('karyawan.edit', $post->id) }}"
-                                            class="btn btn-sm btn-primary">Edit</a>
+                                            class="btn btn-sm btn-secondary">Edit</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                     </form>
-
                                 </td>
                             </tr>
                         @empty

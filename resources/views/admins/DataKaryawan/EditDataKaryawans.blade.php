@@ -3,7 +3,7 @@
 @section('container')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">Pemeliharaan Data / Data Karyawan /</span> Tambah Data Karyawan
+            <span class="text-muted fw-light">Pemeliharaan Data / Data Karyawan /</span> Edit Data Karyawan
         </h4>
 
         <div class="row">
@@ -248,11 +248,15 @@
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     @if ($karyawan->ip == '1')
-                                        <input type="checkbox" name="ip" id="iuranpen" checked>
+                                        <input type="hidden" id="ip" name="ip" value="0" checked>
+                                        <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
+                                            onchange="document.getElementById('ip').value = this.checked ? 1 : 0" checked>
                                     @elseif ($karyawan->ip == '0')
-                                        <input type="checkbox" name="ip" id="iuranpen" >
+                                        <input type="hidden" id="ip" name="ip" value="0">
+                                        <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
+                                            onchange="document.getElementById('ip').value = this.checked ? 1 : 0">
                                     @endif
-                                    <label for="iuranpen" class="form-label">Iuran Pensiun</label>
+                                    <label for="ip" class="form-label">Iuran Pensiun</label>
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="defaultSelect" class="form-label">Status Karyawan</label>

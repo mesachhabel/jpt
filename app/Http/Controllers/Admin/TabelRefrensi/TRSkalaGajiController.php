@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_skalagaji;
 
 class TRSkalaGajiController extends Controller
 {
@@ -13,6 +15,7 @@ class TRSkalaGajiController extends Controller
      */
     public function index()
     {
+        // $skalagajis = tr_skalagaji::latest()->paginate(5);
         return view('admins.TabelReferensi.TR.SkalaGaji');
     }
 

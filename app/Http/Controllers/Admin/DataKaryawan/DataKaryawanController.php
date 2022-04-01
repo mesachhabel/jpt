@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\data_karyawan;
 use Alert;
-use Auth;
 use Illuminate\Support\Facades\Storage;
 
 class DataKaryawanController extends Controller
@@ -32,7 +31,7 @@ class DataKaryawanController extends Controller
     {
         return view('admins.DataKaryawan.createdatakaryawans');
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -94,17 +93,6 @@ class DataKaryawanController extends Controller
             Alert::error('Data Gagal Ditambahkan', 'Maaf');
             return redirect()->route('karyawan.create');
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     public function edit(data_karyawan $karyawan)
@@ -211,14 +199,13 @@ class DataKaryawanController extends Controller
             'phda'        => $request->phda
             ]);
         }
-        return redirect()->route('karyawan.index');
-        // if($post){
-        //     Alert::success('Data Berhasil Di Edit', 'Selamat');
-        //     return redirect()->route('data_karyawans.index');
-        // }else{
-        //     Alert::error('Data Gagal Di Edit', 'Maaf');
-        //     return redirect()->route('data_karyawans.edit');
-        // }
+        if($karyawan){
+            Alert::success('Data Berhasil Di Edit', 'Selamat');
+            return redirect()->route('karyawan.index');
+        }else{
+            Alert::error('Data Gagal Di Edit', 'Maaf');
+            return redirect()->route('karyawan.edit');
+        }
     }
 
     /**
@@ -236,6 +223,12 @@ class DataKaryawanController extends Controller
         $karyawan->delete();
 
         //redirect to index
-        return redirect()->route('karyawan.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        if($karyawan){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('karyawan.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('karyawan.index');
+        }
     }
 }

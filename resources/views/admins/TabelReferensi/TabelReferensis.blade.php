@@ -106,12 +106,8 @@
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Bank Transfer</strong>
                             </td>
                             <td>
-                                <a href="{{ url('view-skalagaji') }}" type="button" class="btn btn-sm btn-secondary"><i
-                                        class="bx bx-file"></i></a>
                                 <a href="{{ route('admin.edit-banktransfer') }}" type="button"
-                                    class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
-                                <a href="{{ url('delete-skalagaji') }}" type="button" class="btn btn-sm btn-danger"><i
-                                        class="bx bx-trash"></i></a>
+                                    class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>    
                             </td>
                         </tr>
                         <tr>

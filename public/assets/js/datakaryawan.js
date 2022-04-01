@@ -18,9 +18,3 @@ inputImage.onchange = evt => {
         uploadedAvatar.src = URL.createObjectURL(file)
     }
 }
-
-// if (ip = 1) {
-//     document.getElementById("iuranpen").checked;
-// } else {
-//     document.getElementById("iuranpen").deactive;
-// }

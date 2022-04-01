@@ -25,7 +25,6 @@
                                         <input type="file" name="image" id="inputImage"
                                             class="form-control @error('image') is-invalid @enderror">
                                     </label>
-
                                     <p class="text-muted mb-0">Allowed JPG, JPEG, GIF or PNG. Max size of 2MB</p>
                                 </div>
                             </div>

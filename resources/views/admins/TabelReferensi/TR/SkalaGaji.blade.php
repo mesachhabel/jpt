@@ -61,12 +61,15 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama Tabel Referensi</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php $no = 1; ?>
                         <tr>
+                            <td>{{ $no++ }}</td>
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Skala Gaji</strong></td>
                             <td>
                                 <a href="{{ url('view-skalagaji') }}" type="button" class="btn btn-sm btn-secondary"><i

@@ -70,6 +70,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Kode Agama</th>
                             <th>Nama Agama</th>
                             <th>Kode Kelompok</th>

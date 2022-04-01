@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\TabelRefrensi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tr_kodejabatan;
+use Alert;
 
 class TRKodeJabatanController extends Controller
 {
@@ -37,8 +38,14 @@ class TRKodeJabatanController extends Controller
      */
     public function store(Request $request)
     {
-        tr_kodejabatan::create($request->all());
-        return redirect()->route('admin.show-kodejabatan');
+        $masuk=tr_kodejabatan::create($request->all());
+        if($masuk){
+            Alert::success('Data Berhasil Ditambahkan', 'Selamat');
+            return redirect()->route('kodejabatan.index');
+        }else{
+            Alert::error('Data Gagal Ditambahkan', 'Maaf');
+            return redirect()->route('kodejabatan.index');
+        }
     }
 
     /**

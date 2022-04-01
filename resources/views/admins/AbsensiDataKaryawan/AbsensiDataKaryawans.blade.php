@@ -5,8 +5,7 @@
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light">Transaksi Data /</span> Absensi Data Karyawan
         </h4>
-        <a href="{{ route('admin.create-absensidatakaryawan') }}" class="btn btn-primary mb-3">+ Tambah Data<i
-                class="fas fa-print"></i></a>
+        <a href="{{ route('absensi.create') }}" class="btn btn-primary mb-3">+ Tambah Data<i class="fas fa-print"></i></a>
         <!-- Striped Rows -->
         <div class="card">
             <!-- <h5 class="card-header">Striped rows</h5> -->

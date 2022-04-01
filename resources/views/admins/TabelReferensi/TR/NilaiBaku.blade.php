@@ -14,6 +14,8 @@
             </button>
 
             <!-- Modal -->
+            <form id="formAccountSettings" method="POST" action="{{ route('nilai.store') }}">
+                @csrf
             <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -25,119 +27,119 @@
                             <div class="row g-2">
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">St_Peg</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Kode Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Kode Unit" name="st_peg"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="dobWithTitle" class="form-label">St_Tugas</label>
-                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Kode Sub-Unit" />
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Kode Sub-Unit" name="st_tugas"/>
                                 </div>
                             </div>
                             <hr class="my-3" />
                             <div class="row g-2 mt-2">
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">JKM</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="jkm"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">JKK</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="jkk"/>
                                 </div>
                             </div>
                             <hr class="my-3" />
                             <div class="row g-2 mt-2">
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">JHT</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="jht"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">JHT_Prs</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="jht_prs"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="dobWithTitle" class="form-label">JHT_Peg</label>
-                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" name="jht_peg"/>
                                 </div>
                             </div>
                             <div class="row g-2 mt-2">
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">JPK</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="jpk"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">JPK_Prs</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="jpk_prs"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="dobWithTitle" class="form-label">JPK_Peg</label>
-                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" name="jpk_peg"/>
                                 </div>
                             </div>
                             <div class="row g-2 mt-2">
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">JPP</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="jpp"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">JPP_Prs</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="jpp_prs"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="dobWithTitle" class="form-label">JPP_Peg</label>
-                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" name="jpp_peg"/>
                                 </div>
                             </div>
                             <div class="row g-2 mt-2">
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">Jamsostek</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="jamsostek"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">Jams_Prs</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="jams_prs"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="dobWithTitle" class="form-label">Jams_Peg</label>
-                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" name="jams_peg"/>
                                 </div>
                             </div>
                             <hr class="my-3" />
                             <div class="row g-2 mt-2">
                                 <div class="col mb-0">
-                                    <label for="emailWithTitle" class="form-label">PajakJamsostek</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <label for="emailWithTitle" class="form-label">Pajak Jamsostek</label>
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="pajak_jamsostek"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">Menit Telat</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="menit_telat"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="dobWithTitle" class="form-label">Hari Kerja</label>
-                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" name="hari_kerja"/>
                                 </div>
                             </div>
                             <div class="row g-2 mt-2">
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">PurnaJab_Dir</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="purnajab_dir"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">Purna Karya</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="purna_karya"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="dobWithTitle" class="form-label">Dana Pensiun</label>
-                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" name="dana_pensiun"/>
                                 </div>
                             </div>
                             <hr class="my-3" />
                             <div class="row g-2 mt-2">
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">Tarif 1</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" />
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Keterangan Unit" name="tarif_1"/>
                                 </div>
                                 <div class="col mb-0">
                                     <label for="dobWithTitle" class="form-label">Tarif 2</label>
-                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" />
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Keterangan Sub-Unit" name="tarif_2"/>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +147,7 @@
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 Close
                             </button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
@@ -186,40 +188,45 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
+                @foreach ($nilaibakus as $nilai)
                 <tbody class="table-border-bottom-0">
                     <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>000</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>1</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>000</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>1</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>000</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>1</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>000</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>1</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>000</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>1</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Kantor Pusat</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->st_peg}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->st_tugas}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jkm}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jkk}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jht}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jht_prs}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jht_peg}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jpk}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jpk_prs}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jpk_peg}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jpp}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jpp_prs}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jpp_peg}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->pajak_jamsostek}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jamsostek}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jams_prs}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->jams_peg}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->menit_telat}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->hari_kerja}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->purnajab_dir}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->purna_karya}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->dana_pensiun}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->tarif_1}}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nilai->tarif_2}}</strong></td>
                         <td>
                             <a href="{{url('view-skalagaji')}}" type="button" class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
                             <a href="{{url('edit-skalagaji')}}" type="button" class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
                             <a href="{{url('delete-skalagaji')}}" type="button" class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+    <ul class="pagination justify-content-center mt-3">{{ $nilaibakus->links('pagination::bootstrap-4') }} </ul>
     <!--/ Hoverable Table rows -->
 </div>
 <hr class="my-5" />

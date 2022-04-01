@@ -41,12 +41,16 @@
                                             <strong>{{ $kodeunitkerja->ksu }}</strong>
                                         </td>
                                         <td>
-                                            <a href="{{ url('view-skalagaji') }}" type="button"
-                                                class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
-                                            <a href="{{ route('admin.show-kodeunitkerja', $student->id) }}" type="button"
-                                                class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
-                                            <a href="{{ url('delete-skalagaji') }}" type="button"
-                                                class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                                action="{{ route('kodeunitkerja.destroy', $kodeunitkerja->id) }}"
+                                                method="post">
+                                                <button data-toggle="modal" data-target='#modalEdit' id="Edit"
+                                                    data-id="{{ $kodeunitkerja->id }}"
+                                                    class="btn btn-sm btn-secondary">Edit</button>
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -62,7 +66,7 @@
 
     <hr class="my-5" />
     <!-- Modal -->
-    <form id="formAccountSettings" method="POST" action="{{ route('admin.add-kodeunitkerja') }}">
+    <form id="formAccountSettings" method="POST" action="{{ route('kodeunitkerja.store') }}">
         @csrf
         <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">

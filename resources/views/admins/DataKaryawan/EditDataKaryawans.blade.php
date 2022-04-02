@@ -26,11 +26,6 @@
                                         <input type="file" name="image" id="inputImage"
                                             class="form-control @error('image') is-invalid @enderror">
                                     </label>
-                                    {{-- <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-                                        <i class="bx bx-reset d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Reset</span>
-                                    </button> --}}
-
                                     <p class="text-muted mb-0">Allowed JPG, JPEG, GIF or PNG. Max size of 2MB</p>
                                 </div>
                             </div>
@@ -286,7 +281,6 @@
                         </div>
                         <!-- /Account -->
                     </div>
-
                     <div class="card mb-4">
                         <h5 class="card-header">Data Jasamarga</h5>
                         <!-- Account -->
@@ -322,17 +316,12 @@
                                     <a href="{{ route('karyawan.index') }}" class="btn btn-outline-secondary">Cancel</a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
             </form>
         </div>
         <!-- /Account -->
     </div>
-    </div>
-    </form>
-    </div>
-    </div>
-    <!-- / Content -->
-    </div>
-    <!--/ Striped Rows -->
     <hr class="my-5" />
     <script src="../../../assets/js/datakaryawan.js"></script>
 @endsection

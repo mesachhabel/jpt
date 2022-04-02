@@ -18,7 +18,7 @@ class DataKaryawanController extends Controller
     public function index()
     {
         $karyawans = data_karyawan::latest()->paginate(5);
-        return view('admins.DataKaryawan.datakaryawans', compact('karyawans'))
+        return view('admins.DataKaryawan.DataKaryawans', compact('karyawans'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -29,7 +29,7 @@ class DataKaryawanController extends Controller
      */
     public function create()
     {
-        return view('admins.DataKaryawan.createdatakaryawans');
+        return view('admins.DataKaryawan.CreateDataKaryawans');
     }
     
     /**

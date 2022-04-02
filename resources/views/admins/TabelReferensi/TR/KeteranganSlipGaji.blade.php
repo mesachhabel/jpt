@@ -60,14 +60,17 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Kode Keterangan</th>
                             <th>Keterangan Slip Gaji</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php $no = 1; ?>
                         @forelse ($keteranganslipgajis as $ketslipgaji)
                             <tr>
+                                <td>{{ $no++ }}</td>
                                 <td>
                                     <strong>{{ $ketslipgaji->kode }}</strong>
                                 </td>

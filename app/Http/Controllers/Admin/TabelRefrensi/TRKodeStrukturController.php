@@ -88,8 +88,18 @@ class TRKodeStrukturController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_kodestruktur $kodestruktur)
     {
-        //
+        //delete post
+        $kodestruktur->delete();
+
+        //redirect to index
+        if($kodestruktur){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('kodestruktur.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('kodestruktur.index');
+        }
     }
 }

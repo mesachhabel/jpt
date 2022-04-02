@@ -84,6 +84,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th rowspan="2">No</th>
                             <th rowspan="2">Kode Potongan</th>
                             <th rowspan="2">Keterangan Potongan Lain</th>
                             <th colspan="3">Alamat Transfer</th>
@@ -96,8 +97,10 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php $no = 1; ?>
                         @forelse ($potongs as $potong)
                             <tr>
+                                <td>{{ $no++ }}</td>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                     <strong>{{ $potong->kode }}</strong>
                                 </td>

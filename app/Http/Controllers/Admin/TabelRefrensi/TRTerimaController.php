@@ -88,8 +88,18 @@ class TRTerimaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_jenispenerimaan $terima)
     {
-        //
+        //delete post
+        $terima->delete();
+
+        //redirect to index
+        if($terima){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('terima.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('terima.index');
+        }
     }
 }

@@ -15,8 +15,7 @@ class DataKaryawans extends Migration
     {
         Schema::create('data_karyawans', function (Blueprint $table) {
             $table->id();
-            $table->integer('uploads_id')->nullable();
-            $table->string('nik');
+            $table->integer('nik');
             $table->string('nama');
             $table->string('nppi');
             $table->string('jk');
@@ -25,9 +24,9 @@ class DataKaryawans extends Migration
             $table->string('ia');
             $table->string('gi');
             $table->string('npwp');
-            $table->string('nktp');
-            $table->string('nbpkt');
-            $table->string('nbpks');
+            $table->integer('nktp');
+            $table->integer('nbpkt');
+            $table->integer('nbpks');
             $table->string('tmk');
             $table->string('ska');
             $table->string('jabatan')->nullable();

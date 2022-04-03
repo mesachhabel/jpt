@@ -16,7 +16,7 @@ class TRPenandatangan extends Controller
     public function index()
     {
         $penandatangans = tr_penandatangan::paginate(5);
-        return view('admins.TabelReferensi.TR.penandatangan', compact('penandatangans'));
+        return view('admins.TabelReferensi.TR.Penandatangan', compact('penandatangans'));
     }
 
     /**

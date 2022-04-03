@@ -79,8 +79,10 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php $no = 1; ?>
                         @forelse ($agamas as $agama)
                             <tr>
+                                <td>{{ $no++ }}</td>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                     <strong>{{ $agama->kode }}</strong>
                                 </td>

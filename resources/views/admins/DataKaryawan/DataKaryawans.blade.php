@@ -22,6 +22,7 @@
                             <th>Unit Kerja</th>
                             <th>Status</th>
                             <th>Photo</th>
+                            <th>Agama</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -61,6 +62,9 @@
                                 </td>
                                 <td>
                                     <img width="50" height="50" src="{{ Storage::url('public/posts/') . $post->image }}">
+                                </td>
+                                <td>
+                                    {{-- <strong>{{ $post->tr_agamas->kode }}</strong> --}}
                                 </td>
                                 <td>
                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');"

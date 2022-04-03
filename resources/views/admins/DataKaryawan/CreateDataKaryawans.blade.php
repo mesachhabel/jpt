@@ -59,12 +59,11 @@
                                     <label for="defaultSelect" class="form-label">Agama</label>
                                     <select id="defaultSelect" name="agama" class="form-select">
                                         <option disabled selected>-- Pilih Agama --</option>
-                                        <option value="Islam">Islam</option>
-                                        <option value="Kristen Protestan">Kristen Protestan</option>
-                                        <option value="Kristen Katholik">Kristen Katholik</option>
-                                        <option value="Buddha">Buddha</option>
-                                        <option value="Hindu">Hindu</option>
-                                        <option value="Konghuchu">Konghuchu</option>
+                                        @foreach ($agamas as $agama)
+                                            <option value="{{ $agama->namaagama }}">
+                                                {{ $agama->namaagama }}</option>
+                                        @endforeach
+
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
@@ -204,8 +203,10 @@
                                     <label for="defaultSelect" class="form-label">Bank</label>
                                     <select name="bank" id="defaultSelect" class="form-select">
                                         <option disabled selected>-- Pilih Bank --</option>
-                                        <option value="1">.....</option>
-                                        <option value="2">.....</option>
+                                        @foreach ($banks as $bank)
+                                            <option value="{{ $bank->bank }}">[{{ $bank->kode }}] {{ $bank->bank }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-3">

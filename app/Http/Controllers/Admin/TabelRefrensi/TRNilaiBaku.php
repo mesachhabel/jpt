@@ -17,7 +17,7 @@ class TRNilaiBaku extends Controller
     public function index()
     {
         $nilaibakus = tr_nilaibaku::paginate(5);
-        return view('admins.TabelReferensi.TR.nilaibaku', compact('nilaibakus'));
+        return view('admins.TabelReferensi.TR.NilaiBaku', compact('nilaibakus'));
     }
 
     /**

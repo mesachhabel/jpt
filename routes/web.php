@@ -72,3 +72,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
             Route::resource('/statustugas', TRStatusTugas::class);
     //------------------End Tabel Refrensi----------------------------------
 });
+
+
+Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function () {
+    
+});
+Route::group(['prefix' => 'editor', 'middleware' => ['isEditor', 'auth']], function () {
+    
+});

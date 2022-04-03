@@ -17,7 +17,7 @@ class TRAgama extends Controller
     public function index()
     {
         $agamas = tr_agama::paginate(5);
-        return view('admins.TabelReferensi.TR.agama', compact('agamas'));
+        return view('admins.TabelReferensi.TR.Agama', compact('agamas'));
     }
 
     /**

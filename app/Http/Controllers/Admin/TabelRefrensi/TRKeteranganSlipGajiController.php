@@ -17,7 +17,7 @@ class TRKeteranganSlipGajiController extends Controller
     public function index()
     {
         $keteranganslipgajis = tr_keteranganslipgaji::paginate(5);
-        return view('admins.TabelReferensi.TR.keteranganslipgaji', compact('keteranganslipgajis'));
+        return view('admins.TabelReferensi.TR.KeteranganSlipGaji', compact('keteranganslipgajis'));
     }
 
     /**

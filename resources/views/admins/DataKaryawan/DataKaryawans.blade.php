@@ -15,22 +15,22 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Nomor</th>
+                            <th>No</th>
                             <th>NIK</th>
                             <th>Nama</th>
                             <th>Jabatan</th>
                             <th>Unit Kerja</th>
                             <th>Status</th>
                             <th>Photo</th>
+                            <th>Agama</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php $no = 1; ?>
                         @forelse ($karyawans as $post)
                             <tr>
-                                <td>
-                                    {{ $post->id }}
-                                </td>
+                                <td>{{ $no++ }}</td>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                     <strong>{{ $post->nik }}</strong>
                                 </td>
@@ -62,6 +62,9 @@
                                 </td>
                                 <td>
                                     <img width="50" height="50" src="{{ Storage::url('public/posts/') . $post->image }}">
+                                </td>
+                                <td>
+                                    {{-- <strong>{{ $post->tr_agamas->kode }}</strong> --}}
                                 </td>
                                 <td>
                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');"

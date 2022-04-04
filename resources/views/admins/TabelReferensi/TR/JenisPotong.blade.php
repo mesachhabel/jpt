@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
+    @include('sweetalert::alert')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light">Pemeliharaan Data / Tabel Referensi /</span> Jenis Potongan Lain
@@ -73,6 +74,7 @@
                             </div>
                         </div>
                     </div>
+                </form>
             </div>
         </div>
 
@@ -82,6 +84,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th rowspan="2">No</th>
                             <th rowspan="2">Kode Potongan</th>
                             <th rowspan="2">Keterangan Potongan Lain</th>
                             <th colspan="3">Alamat Transfer</th>
@@ -94,8 +97,10 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php $no = 1; ?>
                         @forelse ($potongs as $potong)
                             <tr>
+                                <td>{{ $no++ }}</td>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                     <strong>{{ $potong->kode }}</strong>
                                 </td>
@@ -117,7 +122,7 @@
                                         <a href="{{ route('potong.edit', $potong->id) }}"
                                             class="btn btn-sm btn-secondary">Edit</a>
                                         @csrf
-                                        @method('DELETE')
+                                        {{ method_field('delete') }}
                                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                     </form>
                                 </td>

@@ -88,8 +88,18 @@ class TRKodeJabatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_kodejabatan $kodejabatan)
     {
-        //
+        //delete post
+        $kodejabatan->delete();
+
+        //redirect to index
+        if($kodejabatan){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('kodejabatan.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('kodejabatan.index');
+        }
     }
 }

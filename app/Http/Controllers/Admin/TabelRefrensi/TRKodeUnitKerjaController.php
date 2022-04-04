@@ -95,10 +95,10 @@ class TRKodeUnitKerjaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tr_kodeunitkerja $tr_kodeunitkerja)
+    public function destroy(tr_kodeunitkerja $kodeunitkerja)
     {
-        $tr_kodeunitkerja->delete();
-        if($tr_kodeunitkerja){
+        $kodeunitkerja->delete();
+        if($kodeunitkerja){
             Alert::success('Data Berhasil Dihapus', 'Selamat');
             return redirect()->route('kodeunitkerja.index');
         }else{

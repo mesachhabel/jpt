@@ -16,7 +16,7 @@ class TRStatusPegawai extends Controller
     public function index()
     {
         $statuspegawais = tr_statuspegawai::paginate(5);
-        return view('admins.TabelReferensi.TR.statuspegawai', compact('statuspegawais'));
+        return view('admins.TabelReferensi.TR.StatusPegawai', compact('statuspegawais'));
     }
 
     /**

@@ -1,18 +1,17 @@
 @extends('layouts.main')
 
 @section('container')
-<div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Pemeliharaan Data / Tabel Referensi /</span> Status Tugas
-    </h4>
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4">
+            <span class="text-muted fw-light">Pemeliharaan Data / Tabel Referensi /</span> Status Tugas
+        </h4>
 
-    <div class="col-lg-4 col-md-6">
-        <div class="mt-3 mb-3">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
-                + Tambah Data
-            </button>
-
+        <div class="col-lg-4 col-md-6">
+            <div class="mt-3 mb-3">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
+                    + Tambah Data
+                </button>
             <!-- Modal -->
             <form id="formAccountSettings" method="POST" action="{{ route('statustugas.store') }}">
                 @csrf
@@ -67,8 +66,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
+        
     <!-- Hoverable Table rows -->
     <div class="card">
         <div class="table-responsive text-nowrap">
@@ -103,7 +101,9 @@
                 @endforeach
                 </tbody>
             </table>
+
         </div>
+        <!--/ Hoverable Table rows -->
     </div>
     <ul class="pagination justify-content-center mt-3">{{ $statustugass->links('pagination::bootstrap-4') }} </ul>
     <!--/ Hoverable Table rows -->

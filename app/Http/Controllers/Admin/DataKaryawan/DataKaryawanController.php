@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin\DataKaryawan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\data_karyawan;
+use App\Models\tr_agama;
+use App\Models\tr_bank;
 use Alert;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,7 +20,7 @@ class DataKaryawanController extends Controller
     public function index()
     {
         $karyawans = data_karyawan::latest()->paginate(5);
-        return view('admins.DataKaryawan.datakaryawans', compact('karyawans'))
+        return view('admins.DataKaryawan.DataKaryawans', compact('karyawans'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -29,7 +31,9 @@ class DataKaryawanController extends Controller
      */
     public function create()
     {
-        return view('admins.DataKaryawan.createdatakaryawans');
+        $agamas = tr_agama::all();
+        $banks = tr_bank::all();
+        return view('admins.DataKaryawan.CreateDataKaryawans',compact('agamas','banks'));
     }
     
     /**

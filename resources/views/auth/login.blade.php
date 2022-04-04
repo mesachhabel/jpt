@@ -16,7 +16,7 @@
             <div class="container">
                 <br>
                 <label for="uname" class="clue subclue"><b> E-mail Address</b></label>
-                <input type="text" placeholder="Enter E-mail Address" class="form-control" name="email" required>
+                <input type="text" placeholder="Enter E-mail Address" class="form-control" id="email" name="email" required>
                 <span class="text-danger">
                     @error('email')
                         {{ $message }}
@@ -34,8 +34,9 @@
                 <label class="clue subclue mb-2">
                     <input type="checkbox" name="remember"> Remember me
                 </label>
-                <button type="submit" class="btnlogin mb-3">Login</button>
+                <button type="submit" class="btnlogin mb-3" onclick="lsRememberMe()">Login</button>
             </div>
         </form>
     </div>
+    <script src="../../../assets/js/login.js"> </script>
 @endsection

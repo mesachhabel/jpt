@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class tr_statustugas extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+    
 }

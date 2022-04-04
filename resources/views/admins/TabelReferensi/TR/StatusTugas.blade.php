@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-        
+</div> 
     <!-- Hoverable Table rows -->
     <div class="card">
         <div class="table-responsive text-nowrap">

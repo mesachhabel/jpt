@@ -16,15 +16,15 @@ class AbsensiDataKaryawans extends Migration
         Schema::create('absensi_data_karyawans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('bulan');
-            $table->integer('nik');
-            $table->integer('nama');
-            $table->integer('telat');
-            $table->integer('plgcpt');
-            $table->integer('alpha');
-            $table->integer('ijin');
-            $table->integer('sakit');
-            $table->integer('dnsluar');
-            $table->integer('cuti');
+            $table->string('nik');
+            $table->string('nama');
+            $table->integer('telat')->default(0);
+            $table->integer('plgcpt')->default(0);
+            $table->integer('alpha')->default(0);
+            $table->integer('ijin')->default(0);
+            $table->integer('sakit')->default(0);
+            $table->integer('dnsluar')->default(0);
+            $table->integer('cuti')->default(0);
             $table->timestamps();
         });
     }

@@ -19,12 +19,16 @@ use App\Http\Controllers\Admin\TabelRefrensi\TRPenandatangan;
 use App\Http\Controllers\Admin\TabelRefrensi\TRBank;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusPegawai;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusTugas;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('auth.login');
 });
+route::get('daftar-ptjpt', [RegisterController::class,'showRegistrationForm'] );
+route::post('register', [RegisterController::class,'register'] );
+
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], function () {

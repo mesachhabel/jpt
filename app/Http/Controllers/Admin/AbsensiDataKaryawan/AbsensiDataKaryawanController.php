@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin\AbsensiDataKaryawan;
 
 use App\Http\Controllers\Controller;
-use App\Models\data_karyawan,absen_data_karyawan;
+use App\Models\data_karyawan;
+use App\Models\absensi_data_karyawan;
 use Illuminate\Http\Request;
+use Alert;
 
 class AbsensiDataKaryawanController extends Controller
 {
@@ -37,7 +39,7 @@ class AbsensiDataKaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        $masuk=absen_data_karyawan::create($request->all());
+        $masuk=absensi_data_karyawan::create($request->all());
         if($masuk){
             Alert::success('Data Berhasil Ditambahkan', 'Selamat');
             return redirect()->route('absensi.index');

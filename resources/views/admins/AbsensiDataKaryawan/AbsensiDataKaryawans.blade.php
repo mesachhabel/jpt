@@ -14,8 +14,6 @@
                     <thead>
                         <tr>
                             <th>Bulan</th>
-                            <th>Tahun</th>
-                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">

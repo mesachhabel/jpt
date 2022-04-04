@@ -16,7 +16,8 @@
             <div class="container">
                 <br>
                 <label for="uname" class="clue subclue"><b> E-mail Address</b></label>
-                <input type="text" placeholder="Enter E-mail Address" class="form-control" id="email" name="email" required>
+                <input type="text" placeholder="Enter E-mail Address" class="form-control" id="email" name="email"
+                    required>
                 <span class="text-danger">
                     @error('email')
                         {{ $message }}

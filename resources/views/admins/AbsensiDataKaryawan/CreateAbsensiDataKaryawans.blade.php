@@ -7,6 +7,7 @@
         </h4>
         <!-- Bordered Table -->
         <form id="formAccountSettings" method="POST" action="{{ route('absensi.store') }}">
+            @csrf
             <div class="card">
                 <div class="card-body">
                     <div class="mb-3 row">
@@ -14,10 +15,7 @@
                         <div class="col-md-4 mb-3">
                             <input name="bulan" class="form-control" type="month" value="2021-01" id="html5-month-input" />
                         </div>
-                        <div class="float-right mb-3" style="float: right;">
-                            <button class="btn btn-primary" type="submit" href="javascript:void(0);"><i
-                                    class="bx bx-plus me-1"></i> Simpan</button>
-                        </div>
+                        <button class="btn btn-primary" type="submit"><i class="bx bx-plus me-1"></i> Simpan</button>
                         <hr class="my-0" />
                     </div>
                     <div class="table-responsive text-nowrap">
@@ -41,37 +39,47 @@
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
-
-                                @foreach ($data_karyawans as $karyawan)
-                                    <tr>
-                                        <td><input name="nik" value="{{ $karyawan->nik }}"
-                                                class="form-control absen text-center" style="border:none" type="text"
-                                                disabled />
-                                        </td>
-                                        <td><input name="nama" value="{{ $karyawan->nama }}"
-                                                class="form-control absen text-center" style="border:none" type="text"
-                                                disabled /> </td>
-                                        <td><input class="form-control absen text-center" style="border:none" type="text"
-                                                id="telat" name="telat" placeholder="Telat" /></td>
-                                        <td><input class="form-control absen text-center" style="border:none" type="text"
-                                                id="plgcpt" name="plgcpt" placeholder="Pulang Cepat" /></td>
-                                        <td><input class="form-control absen text-center" style="border:none" type="text"
-                                                id="alpha" name="alpha" placeholder="Alpha" /></td>
-                                        <td><input class="form-control absen text-center" style="border:none" type="text"
-                                                id="ijin" name="ijin" placeholder="Ijin" /></td>
-                                        <td><input class="form-control absen text-center" style="border:none" type="text"
-                                                id="sakit" name="sakit" placeholder="Sakit" /></td>
-                                        <td><input class="form-control absen text-center" style="border:none" type="text"
-                                                id="dnsluar" name="dnsluar" placeholder="Dinas Luar" /></td>
-                                        <td><input class="form-control absen text-center" style="border:none" type="text"
-                                                id="cuti" name="cuti" placeholder="Cuti" /></td>
-                                        <td>
-
-                                            <a class="btn btn-danger" href="javascript:void(0);"><i
-                                                    class="bx bx-trash me-1"></i> Delete</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                <tr>
+                                    <td>
+                                        {{-- <input name="nik" value="{{ $karyawan->nik }}"
+                                                class="form-control absen text-center" style="border:none" type="text" /> --}}
+                                        <select name="nik" id="defaultSelect" class="form-select">
+                                            <option disabled selected>-- Pilih NIK --</option>
+                                            @foreach ($data_karyawans as $karyawan)
+                                                <option value="{{ $karyawan->nik }}">{{ $karyawan->nik }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                    <td>
+                                        @if ($karyawan->skk == '1')
+                                            {{ $karyawan->nama }}
+                                        @endif
+                                        <input name="nama" class="form-control absen text-center" style="border:none"
+                                            type="text" />
+                                    </td>
+                                    <td><input class="form-control absen text-center" style="border:none" type="text"
+                                            id="telat" name="telat" placeholder="Telat" />
+                                    </td>
+                                    <td><input class="form-control absen text-center" style="border:none" type="text"
+                                            id="plgcpt" name="plgcpt" placeholder="Pulang Cepat" /></td>
+                                    <td><input class="form-control absen text-center" style="border:none" type="text"
+                                            id="alpha" name="alpha" placeholder="Alpha" />
+                                    </td>
+                                    <td><input class="form-control absen text-center" style="border:none" type="text"
+                                            id="ijin" name="ijin" placeholder="Ijin" />
+                                    </td>
+                                    <td><input class="form-control absen text-center" style="border:none" type="text"
+                                            id="sakit" name="sakit" placeholder="Sakit" />
+                                    </td>
+                                    <td><input class="form-control absen text-center" style="border:none" type="text"
+                                            id="dnsluar" name="dnsluar" placeholder="Dinas Luar" /></td>
+                                    <td><input class="form-control absen text-center" style="border:none" type="text"
+                                            id="cuti" name="cuti" placeholder="Cuti" />
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

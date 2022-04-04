@@ -1,3 +1,14 @@
+* {
+    font-family: 'roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    transition: all .2s linear;
+    text-decoration: none;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -850,8 +861,57 @@ footer {
     font-size: 18px;
 }
 
+.modal .form-control {
+    border: 1px solid #fff;
+    color: #fff;
+    background: none;
+    box-shadow: none;
+    transition: all .3s;
+    text-align: center;
+}
+
+.modal-content .form-control {
+    position: relative;
+    height: 55px;
+    padding: 20px 0;
+    background: #FFFFFF;
+}
+
+.modal-content textarea {
+    height: 120px;
+    padding: 20px 0;
+    background: #FFFFFF;
+}
+
+.modal-content .form-control,
+.modal-content textarea {
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #e1e1e1;
+}
+
 .btnlogin {
-    border-radius: 4px;
+    width: 240px;
+    height: 52px;
+    background: #f0cc04;
+    border-radius: 15px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 16px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    transition: .3s linear;
+}
+
+.btnlogin:hover {
+    letter-spacing: .1rem;
+    background: #f0cc04;
 }
 
 
@@ -936,11 +996,13 @@ span.psw {
 /* Modal Content/Box */
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    margin: 0% auto 1% auto;
     /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 50%;
+    border-radius: 15px;
+    width: 30%;
     /* Could be more or less, depending on screen size */
 }
 

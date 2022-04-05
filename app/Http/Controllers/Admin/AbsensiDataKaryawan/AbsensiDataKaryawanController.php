@@ -7,6 +7,7 @@ use App\Models\data_karyawan;
 use App\Models\absensi_data_karyawan;
 use Illuminate\Http\Request;
 use Alert;
+use DB;
 
 class AbsensiDataKaryawanController extends Controller
 {
@@ -27,7 +28,7 @@ class AbsensiDataKaryawanController extends Controller
      */
     public function create()
     {
-        $data_karyawans = data_karyawan::all();
+        $data_karyawans = DB::table('data_karyawans')->groupBy('id')->get();
         return view('admins.AbsensiDataKaryawan.CreateAbsensiDataKaryawans',compact('data_karyawans'));
     }
 
@@ -92,5 +93,22 @@ class AbsensiDataKaryawanController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    // FUNCTION AJAX
+    function fetch(Request $request)
+    {
+    $select = $request->get('select');
+    $value = $request->get('value');
+    $dependent = $request->get('dependent');
+    $data = DB::table('data_karyawans')
+    ->where($select, $value)
+    ->groupBy($dependent)
+    ->get();
+    foreach($data as $row)
+    {
+        $output = '<option value="'.$row->$dependent.'" name="nama" selected>'.ucfirst($row->$dependent).'</option>';
+    }
+    echo $output;
     }
 }

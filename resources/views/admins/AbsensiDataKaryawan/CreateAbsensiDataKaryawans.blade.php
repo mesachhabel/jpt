@@ -41,45 +41,42 @@
                             <tbody class="table-border-bottom-0">
                                 <tr>
                                     <td>
-                                        {{-- <input name="nik" value="{{ $karyawan->nik }}"
-                                                class="form-control absen text-center" style="border:none" type="text" /> --}}
-                                        <select name="nik" id="defaultSelect" class="form-select">
+                                        <select name="nik" id="nik" class="form-select dynamic" data-dependent="nama">
                                             <option disabled selected>-- Pilih NIK --</option>
                                             @foreach ($data_karyawans as $karyawan)
-                                                <option value="{{ $karyawan->nik }}">{{ $karyawan->nik }}
+                                                <option value="{{ $karyawan->nik }}">[{{ $karyawan->nik }}]
+                                                    {{ $karyawan->nama }}
                                                 </option>
                                             @endforeach
                                         </select>
                                     </td>
                                     <td>
-                                        @if ($karyawan->skk == '1')
-                                            {{ $karyawan->nama }}
-                                        @endif
-                                        <input name="nama" class="form-control absen text-center" style="border:none"
-                                            type="text" />
+                                        <select style="border:none" name="nama" id="nama" class="form-control input-lg">
+                                        </select>
                                     </td>
-                                    <td><input class="form-control absen text-center" style="border:none" type="text"
-                                            id="telat" name="telat" placeholder="Telat" />
+                                    <td><input value="0" class="form-control absen text-center" style="border:none"
+                                            type="text" id="telat" name="telat" placeholder="Telat" />
                                     </td>
-                                    <td><input class="form-control absen text-center" style="border:none" type="text"
-                                            id="plgcpt" name="plgcpt" placeholder="Pulang Cepat" /></td>
-                                    <td><input class="form-control absen text-center" style="border:none" type="text"
-                                            id="alpha" name="alpha" placeholder="Alpha" />
+                                    <td><input value="0" class="form-control absen text-center" style="border:none"
+                                            type="text" id="plgcpt" name="plgcpt" placeholder="Pulang Cepat" /></td>
+                                    <td><input value="0" class="form-control absen text-center" style="border:none"
+                                            type="text" id="alpha" name="alpha" placeholder="Alpha" />
                                     </td>
-                                    <td><input class="form-control absen text-center" style="border:none" type="text"
-                                            id="ijin" name="ijin" placeholder="Ijin" />
+                                    <td><input value="0" class="form-control absen text-center" style="border:none"
+                                            type="text" id="ijin" name="ijin" placeholder="Ijin" />
                                     </td>
-                                    <td><input class="form-control absen text-center" style="border:none" type="text"
-                                            id="sakit" name="sakit" placeholder="Sakit" />
+                                    <td><input value="0" class="form-control absen text-center" style="border:none"
+                                            type="text" id="sakit" name="sakit" placeholder="Sakit" />
                                     </td>
-                                    <td><input class="form-control absen text-center" style="border:none" type="text"
-                                            id="dnsluar" name="dnsluar" placeholder="Dinas Luar" /></td>
-                                    <td><input class="form-control absen text-center" style="border:none" type="text"
-                                            id="cuti" name="cuti" placeholder="Cuti" />
+                                    <td><input value="0" class="form-control absen text-center" style="border:none"
+                                            type="text" id="dnsluar" name="dnsluar" placeholder="Dinas Luar" /></td>
+                                    <td><input value="0" class="form-control absen text-center" style="border:none"
+                                            type="text" id="cuti" name="cuti" placeholder="Cuti" />
                                     </td>
                                     <td>
                                     </td>
                                 </tr>
+                                {{ csrf_field() }}
                             </tbody>
                         </table>
                     </div>
@@ -89,4 +86,36 @@
     </div>
     <!--/ Bordered Table -->
     <hr class="my-5" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.dynamic').change(function() {
+                if ($(this).val() != '') {
+                    var select = $(this).attr("id");
+                    var value = $(this).val();
+                    var dependent = $(this).data('dependent');
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url: "{{ route('dynamicdependent.fetch') }}",
+                        method: "POST",
+                        data: {
+                            select: select,
+                            value: value,
+                            _token: _token,
+                            dependent: dependent
+                        },
+                        success: function(result) {
+                            $('#' + dependent).html(result);
+                        }
+
+                    })
+                }
+            });
+
+            $('#nik').change(function() {
+                $('#nama').val('');
+            });
+        });
+    </script>
 @endsection

@@ -5,96 +5,98 @@
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light">Transaksi Data /</span> Absensi Data Karyawan
         </h4>
-        <a href="{{ route('absensi.create') }}" class="btn btn-primary mb-3">+ Tambah Data<i class="fas fa-print"></i></a>
         <!-- Striped Rows -->
         <div class="card">
-            <!-- <h5 class="card-header">Striped rows</h5> -->
-            <div class="table-responsive text-nowrap">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Bulan</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                        <tr>
-                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Januari</strong></td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-detail me-1"></i> Detail</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
+            <div class="card-body">
+                <div class="mb-3 row">
+                    <label for="html5-month-input" class="form-label">Month</label>
+                    <div class="col-md-4 mb-3">
+                        <input name="bulan" class="form-control" type="month" value="2021-01" id="html5-month-input" />
+                    </div>
+                    <hr class="my-0" />
+                </div>
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered">
+                        <thead class="text-center" style="vertical-align:middle;">
+                            <tr>
+                                <th rowspan="2">No</th>
+                                <th rowspan="2">NIK</th>
+                                <th rowspan="2">NAMA</th>
+                                <th colspan="2">Dalam satuan menit</th>
+                                <th colspan="5">Dalam satuan hari</th>
+                                <th rowspan="2">Bulan</th>
+                                <th rowspan="2">Actions</th>
+                            </tr>
+                            <tr>
+                                <th>Telat</th>
+                                <th>Pulang<br>Cepat</th>
+                                <th>Alpha</th>
+                                <th>Ijin</th>
+                                <th>Sakit</th>
+                                <th>Dinas<br>Luar</th>
+                                <th>Cuti</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                            <?php $no = 1; ?>
+                            @forelse ($absensis as $absen)
+                                <tr>
+                                    <td>
+                                        {{ $no++ }}
+                                    </td>
+                                    <td>
+                                        <i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                        <strong>{{ $absen->nik }}</strong>
+                                    </td>
+                                    <td>
+                                        {{ $absen->nama }}
+                                    </td>
+                                    <td>
+                                        {{ $absen->telat }}
+                                    </td>
+                                    <td>
+                                        {{ $absen->plgcpt }}
+                                    </td>
+                                    <td>
+                                        {{ $absen->alpha }}
+                                    </td>
+                                    <td>
+                                        {{ $absen->ijin }}
+                                    </td>
+                                    <td>
+                                        {{ $absen->sakit }}
+                                    </td>
+                                    <td>
+                                        {{ $absen->dnsluar }}
+                                    </td>
+                                    <td>
+                                        {{ $absen->cuti }}
+                                    </td>
+                                    <td>
+                                        {{ $absen->bulan }}
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="{{ route('absensi.edit', $absen->id) }}" class="btn btn-sm btn-primary">
+                                            <i class="bx bx-edit-alt"></i>
+                                        </a>
+                                        <form action="{{ route('absensi.destroy', $absen->id) }}" method="POST"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-sm btn-danger">
+                                                <i class="bx bx-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <div class="alert alert-danger">
+                                    Data Abensi Belum Ada.
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>Februari</strong></td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>Maret</strong></td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>April</strong>
-                            </td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

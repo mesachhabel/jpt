@@ -18,7 +18,8 @@ class AbsensiDataKaryawanController extends Controller
      */
     public function index()
     {
-        return view('admins.AbsensiDataKaryawan.AbsensiDataKaryawans');
+        $absensis = absensi_data_karyawan::all();
+        return view('admins.AbsensiDataKaryawan.AbsensiDataKaryawans', compact('absensis'));
     }
 
     /**
@@ -29,7 +30,7 @@ class AbsensiDataKaryawanController extends Controller
     public function create()
     {
         $data_karyawans = DB::table('data_karyawans')->groupBy('id')->get();
-        return view('admins.AbsensiDataKaryawan.CreateAbsensiDataKaryawans',compact('data_karyawans'));
+        return view('admins.AbsensiDataKaryawan.CreateAbsensiDataKaryawans', compact('data_karyawans'));
     }
 
     /**
@@ -40,11 +41,11 @@ class AbsensiDataKaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        $masuk=absensi_data_karyawan::create($request->all());
-        if($masuk){
+        $masuk = absensi_data_karyawan::create($request->all());
+        if ($masuk) {
             Alert::success('Data Berhasil Ditambahkan', 'Selamat');
             return redirect()->route('absensi.index');
-        }else{
+        } else {
             Alert::error('Data Gagal Ditambahkan', 'Maaf');
             return redirect()->route('absensi.create');
         }
@@ -98,17 +99,16 @@ class AbsensiDataKaryawanController extends Controller
     // FUNCTION AJAX
     function fetch(Request $request)
     {
-    $select = $request->get('select');
-    $value = $request->get('value');
-    $dependent = $request->get('dependent');
-    $data = DB::table('data_karyawans')
-    ->where($select, $value)
-    ->groupBy($dependent)
-    ->get();
-    foreach($data as $row)
-    {
-        $output = '<option value="'.$row->$dependent.'" name="nama" selected>'.ucfirst($row->$dependent).'</option>';
-    }
-    echo $output;
+        $select = $request->get('select');
+        $value = $request->get('value');
+        $dependent = $request->get('dependent');
+        $data = DB::table('data_karyawans')
+            ->where($select, $value)
+            ->groupBy($dependent)
+            ->get();
+        foreach ($data as $row) {
+            $output = '<option value="' . $row->$dependent . '" name="nama" selected>' . ucfirst($row->$dependent) . '</option>';
+        }
+        echo $output;
     }
 }

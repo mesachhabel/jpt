@@ -39,6 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     
     //Tabel Absensi Karyawan
     Route::resource('/absensi', AbsensiDataKaryawanController::class);
+    Route::post('dynamic_dependent/fetch', [AbsensiDataKaryawanController::class,'fetch'])->name('dynamicdependent.fetch');
     
     //Tabel Terima Potong
     Route::resource('/terimapotong', TerimaPotongController::class);

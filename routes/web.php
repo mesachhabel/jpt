@@ -76,6 +76,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
         //Tabel Referensi Status Tugas
             Route::resource('/statustugas', TRStatusTugas::class);
     //------------------End Tabel Refrensi----------------------------------
+
+    //Pelaporan Data
+    
+    //End of Pelaporan Data
 });
 
 

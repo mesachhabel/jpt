@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\TabelRefrensi\TRPenandatangan;
 use App\Http\Controllers\Admin\TabelRefrensi\TRBank;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusPegawai;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusTugas;
+use App\Http\Controllers\Admin\PelaporanData\slipgajicontroller;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -74,7 +75,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
 
     //Pelaporan Data
         //Slip Gaji
-            Route::get('SlipGaji', 'Admin/PelaporanData/slipgajicontroller@index')->name('slipgaji');
+            Route::get('SlipGaji', [slipgajicontroller::class ,'index'])->name('slipgaji');
     //End of Pelaporan Data
 });
 

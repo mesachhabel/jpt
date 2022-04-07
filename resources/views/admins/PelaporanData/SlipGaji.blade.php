@@ -110,7 +110,10 @@
 
     <section class="body-letter text">
         <!-- Judul -->
-        <img class="logo" src=".../.../.../assets/img/logo.png" alt="logo">
+        <div class="logo">
+            <img src="../../../assets/img/logo.png" alt="logo">
+        </div>
+        
         <div class="title">
             <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : MARET 2022</a>
         </div>

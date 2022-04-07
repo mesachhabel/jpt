@@ -78,7 +78,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     //------------------End Tabel Refrensi----------------------------------
 
     //Pelaporan Data
-    
+        //Slip Gaji
+            Route::get('SlipGaji', 'Admin/PelaporanData/slipgajicontroller@index')->name('slipgaji');
     //End of Pelaporan Data
 });
 

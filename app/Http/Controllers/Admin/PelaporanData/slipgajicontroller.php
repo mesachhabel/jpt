@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\PelaporanData;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,7 +10,10 @@ class slipgajicontroller extends Controller
 {
     public function index()
     {
-        $pdf = PDF::loadview('admins\PelaporanData\SlipGaji');
-        return $pdf->stream('SlipGaji.pdf');
+        
+        // $pdf = PDF::loadview('admins/PelaporanData/SlipGaji');  
+        
+        // return $pdf->stream('SlipGaji.pdf');
+        return view ('admins/PelaporanData/SlipGaji');
     }
 }

@@ -148,7 +148,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="slipgaji" class="menu-link">
+                    <a href="{{route('slipgaji')}}" class="menu-link">
                         <div data-i18n="Container">Slip Gaji</div>
                     </a>
                 </li>

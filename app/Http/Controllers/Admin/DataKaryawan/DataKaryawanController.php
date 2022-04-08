@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin\DataKaryawan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\data_karyawan;
+use App\Models\tr_agama;
+use App\Models\tr_bank;
 use Alert;
-use Auth;
 use Illuminate\Support\Facades\Storage;
 
 class DataKaryawanController extends Controller
@@ -19,7 +20,7 @@ class DataKaryawanController extends Controller
     public function index()
     {
         $karyawans = data_karyawan::latest()->paginate(5);
-        return view('admins.DataKaryawan.datakaryawans', compact('karyawans'))
+        return view('admins.DataKaryawan.DataKaryawans', compact('karyawans'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -30,9 +31,11 @@ class DataKaryawanController extends Controller
      */
     public function create()
     {
-        return view('admins.DataKaryawan.createdatakaryawans');
+        $agamas = tr_agama::all();
+        $banks = tr_bank::all();
+        return view('admins.DataKaryawan.CreateDataKaryawans',compact('agamas','banks'));
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -53,8 +56,8 @@ class DataKaryawanController extends Controller
         //create post
         $masuk = data_karyawan::create([
             'image'     => $image->hashName(),
-            'nama'      => $request->nama,
             'nik'       => $request->nik,
+            'nama'      => $request->nama,
             'nppi'      => $request->nppi,
             'jk'        => $request->jk,
             'agama'     => $request->agama,
@@ -80,6 +83,11 @@ class DataKaryawanController extends Controller
             'ip'        => $request->ip,
             'sky'       => $request->sky,
             'tb'        => $request->tb,
+            'nppin'     => $request->nppin,
+            'goli'      => $request->goli,
+            'phdp'      => $request->phdp,
+            'ujsm'      => $request->ujsm,
+            'phda'      => $request->phda
         ]);
 
         if($masuk){
@@ -91,29 +99,12 @@ class DataKaryawanController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
     public function edit(data_karyawan $karyawan)
     {
+        $karyawan = data_karyawan::find($karyawan->nik);
         return view('admins.DataKaryawan.EditDataKaryawans', compact('karyawan'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, data_karyawan $karyawan)
     {
         //validate form
@@ -160,7 +151,12 @@ class DataKaryawanController extends Controller
             'an'        => $request->an,
             'ip'        => $request->ip,
             'sky'       => $request->sky,
-            'tb'        => $request->tb
+            'tb'        => $request->tb,
+            'nppin'     => $request->nppin,
+            'goli'        => $request->goli,
+            'phdp'        => $request->phdp,
+            'ujsm'       => $request->ujsm,
+            'phda'        => $request->phda
             ]);
 
         } else {
@@ -194,16 +190,20 @@ class DataKaryawanController extends Controller
             'ip'        => $request->ip,
             'sky'       => $request->sky,
             'tb'        => $request->tb,
+            'nppin'     => $request->nppin,
+            'goli'        => $request->goli,
+            'phdp'        => $request->phdp,
+            'ujsm'       => $request->ujsm,
+            'phda'        => $request->phda
             ]);
         }
-        return redirect()->route('karyawan.index');
-        // if($post){
-        //     Alert::success('Data Berhasil Di Edit', 'Selamat');
-        //     return redirect()->route('data_karyawans.index');
-        // }else{
-        //     Alert::error('Data Gagal Di Edit', 'Maaf');
-        //     return redirect()->route('data_karyawans.edit');
-        // }
+        if($karyawan){
+            Alert::success('Data Berhasil Di Edit', 'Selamat');
+            return redirect()->route('karyawan.index');
+        }else{
+            Alert::error('Data Gagal Di Edit', 'Maaf');
+            return redirect()->route('karyawan.edit');
+        }
     }
 
     /**
@@ -214,6 +214,7 @@ class DataKaryawanController extends Controller
      */
     public function destroy(data_karyawan $karyawan)
     {
+        $karyawan = data_karyawan::find($karyawan->nik);
         //delete image
         Storage::delete('public/posts/'. $karyawan->image);
 
@@ -221,6 +222,12 @@ class DataKaryawanController extends Controller
         $karyawan->delete();
 
         //redirect to index
-        return redirect()->route('karyawan.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        if($karyawan){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('karyawan.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('karyawan.index');
+        }
     }
 }

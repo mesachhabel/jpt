@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_statustugas;
 
 class TRStatusTugas extends Controller
 {
@@ -13,7 +15,8 @@ class TRStatusTugas extends Controller
      */
     public function index()
     {
-        return view('admins.TabelReferensi.TR.StatusTugas');
+        $statustugass = tr_statustugas::paginate(5);
+        return view('admins.TabelReferensi.TR.statustugas', compact('statustugass'));
     }
 
     /**
@@ -34,7 +37,8 @@ class TRStatusTugas extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tr_statustugas::create($request->all());
+        return redirect()->route('statustugas.index');
     }
 
     /**

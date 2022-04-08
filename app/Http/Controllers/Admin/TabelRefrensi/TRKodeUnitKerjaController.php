@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\TabelRefrensi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tr_kodeunitkerja;
+use Alert;
 
 class TRKodeUnitKerjaController extends Controller
 {
@@ -37,8 +38,14 @@ class TRKodeUnitKerjaController extends Controller
      */
     public function store(Request $request)
     {
-        tr_kodeunitkerja::create($request->all());
-        return redirect()->route('admin.show-kodeunitkerja');
+        $tr_kodeunitkerja = tr_kodeunitkerja::create($request->all());
+        if($tr_kodeunitkerja){
+            Alert::success('Data Berhasil Ditambahkan', 'Selamat');
+            return redirect()->route('kodeunitkerja.index');
+        }else{
+            Alert::error('Data Gagal Ditambahkan', 'Maaf');
+            return redirect()->route('kodeunitkerja.index');
+        }
     }
 
     /**
@@ -70,9 +77,16 @@ class TRKodeUnitKerjaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, tr_kodeunitkerja $tr_kodeunitkerja)
     {
-        //
+        $tr_kodeunitkerja->update($request->all());
+        if($tr_kodeunitkerja){
+            Alert::success('Data Berhasil Ditambahkan', 'Selamat');
+            return redirect()->route('kodeunitkerja.index');
+        }else{
+            Alert::error('Data Gagal Ditambahkan', 'Maaf');
+            return redirect()->route('kodeunitkerja.index');
+        }
     }
 
     /**
@@ -81,8 +95,15 @@ class TRKodeUnitKerjaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_kodeunitkerja $kodeunitkerja)
     {
-        //
+        $kodeunitkerja->delete();
+        if($kodeunitkerja){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('kodeunitkerja.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('kodeunitkerja.index');
+        }
     }
 }

@@ -16,29 +16,21 @@ use App\Http\Controllers\Admin\TabelRefrensi\TRPotongController;
 use App\Http\Controllers\Admin\TabelRefrensi\TRAgama;
 use App\Http\Controllers\Admin\TabelRefrensi\TRNilaiBaku;
 use App\Http\Controllers\Admin\TabelRefrensi\TRPenandatangan;
-use App\Http\Controllers\Admin\TabelRefrensi\TRBankTransfer;
+use App\Http\Controllers\Admin\TabelRefrensi\TRBank;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusPegawai;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusTugas;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('auth.login');
 });
+route::get('daftar-ptjpt', [RegisterController::class,'showRegistrationForm'] );
+route::post('register', [RegisterController::class,'register'] );
 
 Auth::routes();
+
 Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], function () {
 
     //Tabel Karyawan 
@@ -46,45 +38,57 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     Route::resource('/karyawan', DataKaryawanController::class);
     
     //Tabel Absensi Karyawan
-    Route::get('absensidatakaryawan', [AbsensiDataKaryawanController::class, 'index'])->name('admin.absensidatakaryawan');
-    Route::get('create-absensidatakaryawan', [AbsensiDataKaryawanController::class, 'create'])->name('admin.create-absensidatakaryawan');
+    Route::resource('/absensi', AbsensiDataKaryawanController::class);
+    route::get('/absensi/{id}/delete', [AbsensiDataKaryawanController::class,'delete'])->name('absensi.delete');
+    Route::post('dynamic_dependent/fetch', [AbsensiDataKaryawanController::class,'fetch'])->name('dynamicdependent.fetch');
+    Route::get('/live_search/action', [AbsensiDataKaryawanController::class, 'action'])->name('live_search.action');
     
     //Tabel Terima Potong
-    Route::get('terimapotong', [TerimaPotongController::class, 'index'])->name('admin.terimapotong');
-    Route::get('create-terimapotong', [TerimaPotongController::class, 'create'])->name('admin.create-terimapotong');
+    Route::resource('/terimapotong', TerimaPotongController::class);
     
     //Tabel Data Lembur
-    Route::get('datalembur', [DataLemburController::class, 'index'])->name('admin.datalembur');
-    Route::get('create-datalembur', [DataLemburController::class, 'create'])->name('admin.create-datalembur');
+    Route::resource('/lembur', DataLemburController::class);
     
-    //Tabel Refrensi
-    Route::get('tabelreferensi', [TabelReferensiController::class, 'index'])->name('admin.tabelreferensi');
-    Route::post('add-tabelreferensi', [TabelReferensiController::class, 'store'])->name('admin.add-tabelreferensi');
-        //Tabel Referensi Keterangan Skala Gaji
-        Route::get('show-skalagaji', [TRSkalaGajiController::class, 'index'])->name('admin.show-skalagaji');
-        Route::post('add-skalagaji', [TRSkalaGajiController::class, 'strore'])->name('admin.add-skalagaji');
+    //--------------Tabel Refrensi-------------------------
+    Route::resource('/refrensi', TabelReferensiController::class);
+        //Tabel Referensi Skala Gaji
+            Route::resource('/skalagaji', TRSkalaGajiController::class);
         //Tabel Referensi Kode Unit Kerja
-        // Route::resource('admins.TabelReferensi.TR', TRKodeUnitKerjaController::class)->name('admin.TabelReferensi.TR');
-        Route::get('show-kodeunitkerja', [TRKodeUnitKerjaController::class, 'index'])->name('admin.show-kodeunitkerja');
-        Route::post('add-kodeunitkerja', [TRKodeUnitKerjaController::class, 'store'])->name('admin.add-kodeunitkerja');
-    
-    
-        Route::get('show-kodestruktur', [TRKodeStrukturController::class, 'index'])->name('admin.show-kodestruktur');
-        Route::post('add-kodestruktur', [TRKodeStrukturController::class, 'store'])->name('admin.add-kodestruktur');
-        Route::get('show-kodejabatan', [TRKodeJabatanController::class, 'index'])->name('admin.show-kodejabatan');
-        Route::post('add-kodejabatan', [TRKodeJabatanController::class, 'store'])->name('admin.add-kodejabatan');
-        Route::get('show-jenisterima', [TRTerimaController::class, 'index'])->name('admin.show-jenisterima');
-        Route::post('add-jenisterima', [TRTerimaController::class, 'store'])->name('admin.add-jenisterima');
-        Route::get('show-jenispotong', [TRPotongController::class, 'index'])->name('admin.show-jenispotong');
-        Route::post('add-jenispotong', [TRPotongController::class, 'store'])->name('admin.add-jenispotong');
-        Route::get('show-keteranganslipgaji', [TRKeteranganSlipGajiController::class, 'index'])->name('admin.show-keteranganslipgaji');
-        Route::post('add-keteranganslipgaji', [TRKeteranganSlipGajiController::class, 'store'])->name('admin.add-keteranganslipgaji');
-        Route::get('show-agama', [TRAgama::class, 'index'])->name('admin.show-agama');
-        Route::post('add-agama', [TRAgama::class, 'store'])->name('admin.add-agama');
+            Route::resource('/kodeunitkerja', TRKodeUnitKerjaController::class);
+        //Tabel Referensi Kode Jabatan
+            Route::resource('/kodejabatan', TRKodeJabatanController::class);
+        //Tabel Referensi Kode Struktur
+            Route::resource('/kodestruktur', TRKodeStrukturController::class);
+        //Tabel Referensi Keterangan Slip Gaji
+            Route::resource('/keteranganslipgaji', TRKeteranganSlipGajiController::class);
+        //Tabel Referensi Terima    
+            Route::resource('/terima', TRTerimaController::class);
+        //Tabel Referensi Potong
+            Route::resource('/potong', TRPotongController::class);
+        //Tabel Referensi Agama
+            Route::resource('/agama', TRAgama::class);
+        //Tabel Referensi Nilai Baku
+            Route::resource('/nilai', TRNilaiBaku::class);
+        //Tabel Referensi Penandatangan
+            Route::resource('/penandatangan', TRPenandatangan::class);
+        //Tabel Referensi Bank Transfer
+            Route::resource('/bank', TRBank::class);
+        //Tabel Referensi Status Pegawai
+            Route::resource('/statuspegawai', TRStatusPegawai::class);
+        //Tabel Referensi Status Tugas
+            Route::resource('/statustugas', TRStatusTugas::class);
+    //------------------End Tabel Refrensi----------------------------------
 
-        Route::get('edit-nilaibaku', [TRNilaiBaku::class, 'index'])->name('admin.edit-nilaibaku');
-        Route::get('edit-penandatangan', [TRPenandatangan::class, 'index'])->name('admin.edit-penandatangan');
-        Route::get('edit-banktransfer', [TRBankTransfer::class, 'index'])->name('admin.edit-banktransfer');
-        Route::get('edit-statuspegawai', [TRStatusPegawai::class, 'index'])->name('admin.edit-statuspegawai');
-        Route::get('edit-statustugas', [TRStatusTugas::class, 'index'])->name('admin.edit-statustugas');
+    //Pelaporan Data
+        //Slip Gaji
+            Route::get('SlipGaji', 'Admin/PelaporanData/slipgajicontroller@index')->name('slipgaji');
+    //End of Pelaporan Data
+});
+
+
+Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function () {
+    
+});
+Route::group(['prefix' => 'editor', 'middleware' => ['isEditor', 'auth']], function () {
+    
 });

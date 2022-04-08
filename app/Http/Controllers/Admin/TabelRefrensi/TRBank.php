@@ -16,7 +16,7 @@ class TRBank extends Controller
     public function index()
     {
         $banks = tr_bank::paginate(5);
-        return view('admins.TabelReferensi.TR.bank', compact('banks'));
+        return view('admins.TabelReferensi.TR.Bank', compact('banks'));
     }
 
     /**
@@ -38,7 +38,7 @@ class TRBank extends Controller
     public function store(Request $request)
     {
         tr_bank::create($request->all());
-        return redirect()->route('admin.show-bank');
+        return redirect()->route('bank.index');
     }
 
     /**

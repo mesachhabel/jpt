@@ -3,11 +3,11 @@
 @section('container')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">Pemeliharaan Data / Data Karyawan /</span> Tambah Data Karyawan
+            <span class="text-muted fw-light">Pemeliharaan Data / Data Karyawan /</span> Edit Data Karyawan
         </h4>
 
         <div class="row">
-            <form id="formAccountSettings" method="POST" action="{{ route('karyawan.update', $karyawan->id) }}"
+            <form id="formAccountSettings" method="POST" action="{{ route('karyawan.update', $karyawan->nik) }}"
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -26,11 +26,6 @@
                                         <input type="file" name="image" id="inputImage"
                                             class="form-control @error('image') is-invalid @enderror">
                                     </label>
-                                    {{-- <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-                                        <i class="bx bx-reset d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Reset</span>
-                                    </button> --}}
-
                                     <p class="text-muted mb-0">Allowed JPG, JPEG, GIF or PNG. Max size of 2MB</p>
                                 </div>
                             </div>
@@ -247,8 +242,16 @@
                                         id="AtNa" name="an" placeholder="Nama Pemegang Rekening" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-3">
-                                    <input type="checkbox" name="ip" id="iuranpen">
-                                    <label for="iuranpen" class="form-label">Iuran Pensiun</label>
+                                    @if ($karyawan->ip == '1')
+                                        <input type="hidden" id="ip" name="ip" value="0" checked>
+                                        <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
+                                            onchange="document.getElementById('ip').value = this.checked ? 1 : 0" checked>
+                                    @elseif ($karyawan->ip == '0')
+                                        <input type="hidden" id="ip" name="ip" value="0">
+                                        <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
+                                            onchange="document.getElementById('ip').value = this.checked ? 1 : 0">
+                                    @endif
+                                    <label for="ip" class="form-label">Iuran Pensiun</label>
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="defaultSelect" class="form-label">Status Karyawan</label>
@@ -278,7 +281,6 @@
                         </div>
                         <!-- /Account -->
                     </div>
-
                     <div class="card mb-4">
                         <h5 class="card-header">Data Jasamarga</h5>
                         <!-- Account -->
@@ -314,17 +316,12 @@
                                     <a href="{{ route('karyawan.index') }}" class="btn btn-outline-secondary">Cancel</a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
             </form>
         </div>
         <!-- /Account -->
     </div>
-    </div>
-    </form>
-    </div>
-    </div>
-    <!-- / Content -->
-    </div>
-    <!--/ Striped Rows -->
     <hr class="my-5" />
     <script src="../../../assets/js/datakaryawan.js"></script>
 @endsection

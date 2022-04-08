@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_statuspegawai;
 
 class TRStatusPegawai extends Controller
 {
@@ -13,7 +15,8 @@ class TRStatusPegawai extends Controller
      */
     public function index()
     {
-        return view('admins.TabelReferensi.TR.StatusPegawai');
+        $statuspegawais = tr_statuspegawai::paginate(5);
+        return view('admins.TabelReferensi.TR.StatusPegawai', compact('statuspegawais'));
     }
 
     /**
@@ -34,7 +37,8 @@ class TRStatusPegawai extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tr_statuspegawai::create($request->all());
+        return redirect()->route('statuspegawai.index');
     }
 
     /**

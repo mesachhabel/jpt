@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\TabelRefrensi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tr_jenispenerimaan;
+use Alert;
 
 class TRTerimaController extends Controller
 {
@@ -37,8 +38,14 @@ class TRTerimaController extends Controller
      */
     public function store(Request $request)
     {
-        tr_jenispenerimaan::create($request->all());
-        return redirect()->route('admin.show-jenisterima');
+        $masuk=tr_jenispenerimaan::create($request->all());
+        if($masuk){
+            Alert::success('Data Berhasil Ditambahkan', 'Selamat');
+            return redirect()->route('terima.index');
+        }else{
+            Alert::error('Data Gagal Ditambahkan', 'Maaf');
+            return redirect()->route('terima.index');
+        }
     }
 
     /**
@@ -81,8 +88,18 @@ class TRTerimaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_jenispenerimaan $terima)
     {
-        //
+        //delete post
+        $terima->delete();
+
+        //redirect to index
+        if($terima){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('terima.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('terima.index');
+        }
     }
 }

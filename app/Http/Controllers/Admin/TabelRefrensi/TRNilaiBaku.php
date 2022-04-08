@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\tr_nilaibaku;
+use Alert;
 
 class TRNilaiBaku extends Controller
 {
@@ -13,7 +16,8 @@ class TRNilaiBaku extends Controller
      */
     public function index()
     {
-        return view('admins.TabelReferensi.TR.NilaiBaku');
+        $nilaibakus = tr_nilaibaku::paginate(5);
+        return view('admins.TabelReferensi.TR.NilaiBaku', compact('nilaibakus'));
     }
 
     /**
@@ -34,7 +38,14 @@ class TRNilaiBaku extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $masuk=tr_nilaibaku::create($request->all());
+        if($masuk){
+            Alert::success('Data Berhasil Ditambahkan', 'Selamat');
+            return redirect()->route('karyawan.index');
+        }else{
+            Alert::error('Data Gagal Ditambahkan', 'Maaf');
+            return redirect()->route('karyawan.create');
+        }
     }
 
     /**
@@ -77,8 +88,18 @@ class TRNilaiBaku extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_nilaibaku $nilai)
     {
-        //
+        //delete post
+        $nilai->delete();
+
+        //redirect to index
+        if($nilai){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('nilai.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('nilai.index');
+        }
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Trkodejabatans extends Migration
+class Trstatuspegawais extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class Trkodejabatans extends Migration
      */
     public function up()
     {
-        Schema::create('tr_kodejabatans', function (Blueprint $table){
+        Schema::create('tr_statuspegawais', function (Blueprint $table){
             $table->id();
-            $table->string('kode');
-            $table->string('golongan');
-            $table->string('uraianjabatan');
-            $table->string('sebutanjabatan');
-            $table->string('klp');
+            $table->string('kodestatuspegawai');
+            $table->string('keteranganpegawai');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -32,6 +29,6 @@ class Trkodejabatans extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tr_kodejabatans');
+        Schema::dropIfExists('statuspegawais');
     }
 };

@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
+    @include('sweetalert::alert')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light">Pemeliharaan Data / Tabel Referensi /</span> Kode Unit Kerja
@@ -18,6 +19,7 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Kode Unit</th>
                                     <th>Kode Sub-Unit</th>
                                     <th>Keterangan Unit</th>
@@ -26,8 +28,10 @@
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
-                                @foreach ($kodeunitkerjas as $kodeunitkerja)
+                                <?php $no = 1; ?>
+                                @forelse ($kodeunitkerjas as $kodeunitkerja)
                                     <tr>
+                                        <td>{{ $no++ }}</td>
                                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                             <strong>{{ $kodeunitkerja->kuk }}</strong>
                                         </td>
@@ -41,15 +45,22 @@
                                             <strong>{{ $kodeunitkerja->ksu }}</strong>
                                         </td>
                                         <td>
-                                            <a href="{{ url('view-skalagaji') }}" type="button"
-                                                class="btn btn-sm btn-secondary"><i class="bx bx-file"></i></a>
-                                            <a href="{{ route('admin.show-kodeunitkerja', $student->id) }}" type="button"
-                                                class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
-                                            <a href="{{ url('delete-skalagaji') }}" type="button"
-                                                class="btn btn-sm btn-danger"><i class="bx bx-trash"></i></a>
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                                action="{{ route('kodeunitkerja.destroy', $kodeunitkerja->id) }}"
+                                                method="POST">
+                                                <a href="{{ route('kodeunitkerja.edit', $kodeunitkerja->id) }}"
+                                                    class="btn btn-sm btn-secondary">Edit</a>
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <div class="alert alert-danger">
+                                        Data Karyawan Belum Ada.
+                                    </div>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -62,7 +73,7 @@
 
     <hr class="my-5" />
     <!-- Modal -->
-    <form id="formAccountSettings" method="POST" action="{{ route('admin.add-kodeunitkerja') }}">
+    <form id="formAccountSettings" method="POST" action="{{ route('kodeunitkerja.store') }}">
         @csrf
         <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">

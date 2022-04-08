@@ -1,106 +1,88 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="container-xxl flex-grow-1 container-p-y">
+    @include('sweetalert::alert')
+    <div id="data" class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light">Transaksi Data /</span> Absensi Data Karyawan
         </h4>
-        <a href="{{ route('admin.create-absensidatakaryawan') }}" class="btn btn-primary mb-3">+ Tambah Data<i
-                class="fas fa-print"></i></a>
+        <a href="{{ route('absensi.create') }}" class="btn btn-primary mb-3">+ Tambah Data<i class="fas fa-print"></i></a>
         <!-- Striped Rows -->
         <div class="card">
-            <!-- <h5 class="card-header">Striped rows</h5> -->
-            <div class="table-responsive text-nowrap">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Bulan</th>
-                            <th>Tahun</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                        <tr>
-                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Januari</strong></td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-detail me-1"></i> Detail</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
+            <div class="card-body">
+                <div class="float-right mb-3 row">
+                    <label for="html5-month-input" style="text-transform: none; font-size: 12px;"
+                        class="form-label">Pencarian Data</label>
+                    <div class="col-md-4 mb-3">
+                        <div class="input-group">
+                            <input class="form-control" id="search" name="search" type="text" placeholder="Cari ...">
+                        </div>
+                    </div>
+                    <hr class="my-0" />
+                </div>
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-hover table-striped table-bordered">
+                        <thead class="text-center" style="vertical-align:middle;">
+                            <tr>
+                                <th rowspan="2">No</th>
+                                <th rowspan="2">Tahun & Bulan</th>
+                                <th rowspan="2">NIK</th>
+                                <th rowspan="2">NAMA</th>
+                                <th colspan="2">Dalam satuan menit</th>
+                                <th colspan="5">Dalam satuan hari</th>
+                                <th rowspan="2">Actions</th>
+                            </tr>
+                            <tr>
+                                <th>Telat</th>
+                                <th>Pulang<br>Cepat</th>
+                                <th>Alpha</th>
+                                <th>Ijin</th>
+                                <th>Sakit</th>
+                                <th>Dinas<br>Luar</th>
+                                <th>Cuti</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                            <?php $no = 1; ?>
+                            @forelse ($absensis as $absen)
+                            @empty
+                                <div class="alert alert-danger">
+                                    Data Abensi Belum Ada.
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>Februari</strong></td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>Maret</strong></td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>April</strong>
-                            </td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
     <!--/ Striped Rows -->
     <hr class="my-5" />
+    <!--/ Striped Rows -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            fetch_nama();
+
+            function fetch_nama(query = '') {
+                $.ajax({
+                    url: "{{ route('live_search.action') }}",
+                    method: 'GET',
+                    data: {
+                        query: query
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        $('tbody').html(data.table_data);
+                    }
+                })
+            }
+
+            $(document).on('keyup', '#search', function() {
+                var query = $(this).val();
+                fetch_nama(query);
+            });
+        });
+    </script>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\TabelRefrensi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tr_potong;
+use Alert;
 
 class TRPotongController extends Controller
 {
@@ -37,8 +38,14 @@ class TRPotongController extends Controller
      */
     public function store(Request $request)
     {
-        tr_potong::create($request->all());
-        return redirect()->route('admin.show-jenispotong');
+        $masuk=tr_potong::create($request->all());
+        if($masuk){
+            Alert::success('Data Berhasil Ditambahkan', 'Selamat');
+            return redirect()->route('potong.index');
+        }else{
+            Alert::error('Data Gagal Ditambahkan', 'Maaf');
+            return redirect()->route('potong.index');
+        }
     }
 
     /**
@@ -81,8 +88,18 @@ class TRPotongController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_potong $potong)
     {
-        //
+        //delete post
+        $potong->delete();
+
+        //redirect to index
+        if($potong){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('potong.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('potong.index');
+        }
     }
 }

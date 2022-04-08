@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\TabelRefrensi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tr_kodestruktur;
+use Alert;
 
 class TRKodeStrukturController extends Controller
 {
@@ -37,8 +38,14 @@ class TRKodeStrukturController extends Controller
      */
     public function store(Request $request)
     {
-        tr_kodestruktur::create($request->all());
-        return redirect()->route('admin.show-kodestruktur');
+        $masuk=tr_kodestruktur::create($request->all());
+        if($masuk){
+            Alert::success('Data Berhasil Ditambahkan', 'Selamat');
+            return redirect()->route('kodestruktur.index');
+        }else{
+            Alert::error('Data Gagal Ditambahkan', 'Maaf');
+            return redirect()->route('kodestruktur.index');
+        }
     }
 
     /**
@@ -81,8 +88,18 @@ class TRKodeStrukturController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_kodestruktur $kodestruktur)
     {
-        //
+        //delete post
+        $kodestruktur->delete();
+
+        //redirect to index
+        if($kodestruktur){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('kodestruktur.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('kodestruktur.index');
+        }
     }
 }

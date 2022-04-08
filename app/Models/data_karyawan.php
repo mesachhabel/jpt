@@ -9,7 +9,8 @@ use App\Models\absensi_data_karyawan;
 class data_karyawan extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    protected $guarded = [];
+    protected $primaryKey = 'nik';
 
     public function absensi_data_karyawans()
     {

@@ -7,7 +7,7 @@
         </h4>
 
         <div class="row">
-            <form id="formAccountSettings" method="POST" action="{{ route('karyawan.update', $karyawan->id) }}"
+            <form id="formAccountSettings" method="POST" action="{{ route('karyawan.update', $karyawan->nik) }}"
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')

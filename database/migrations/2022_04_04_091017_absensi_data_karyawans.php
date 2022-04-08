@@ -15,8 +15,9 @@ class AbsensiDataKaryawans extends Migration
     {
         Schema::create('absensi_data_karyawans', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('nik');
             $table->string('bulan');
-            $table->string('nik');
+            $table->string('year');
             $table->string('nama');
             $table->integer('telat')->default(0);
             $table->integer('plgcpt')->default(0);

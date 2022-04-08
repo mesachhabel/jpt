@@ -10,9 +10,8 @@
                 class="fas fa-print"></i></a>
         <!-- Striped Rows -->
         <div class="card">
-            <!-- <h5 class="card-header">Striped rows</h5> -->
             <div class="table-responsive text-nowrap">
-                <table class="table table-striped">
+                <table class="table table-hover">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -64,12 +63,12 @@
                                     <img width="50" height="50" src="{{ Storage::url('public/posts/') . $post->image }}">
                                 </td>
                                 <td>
-                                    {{-- <strong>{{ $post->tr_agamas->kode }}</strong> --}}
+                                    <strong>{{ $post->agama }}</strong>
                                 </td>
                                 <td>
                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                        action="{{ route('karyawan.destroy', $post->id) }}" method="POST">
-                                        <a href="{{ route('karyawan.edit', $post->id) }}"
+                                        action="{{ route('karyawan.destroy', $post->nik) }}" method="POST">
+                                        <a href="{{ route('karyawan.edit', $post->nik) }}"
                                             class="btn btn-sm btn-secondary">Edit</a>
                                         @csrf
                                         @method('DELETE')

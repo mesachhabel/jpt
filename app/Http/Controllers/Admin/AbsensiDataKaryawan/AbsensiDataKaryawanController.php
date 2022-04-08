@@ -124,12 +124,12 @@ class AbsensiDataKaryawanController extends Controller
             {
                 $absensis = absensi_data_karyawan::where('nama', 'LIKE', '%'.$query.'%')
                 ->orWhere('nik', 'LIKE', '%'.$query.'%')
-                ->orWhere('bulan', 'LIKE', '%'.$query.'%')
-                ->orderBy('bulan', 'asc')->get();
+                ->orWhere('bulantahun', 'LIKE', '%'.$query.'%')
+                ->orderBy('bulantahun', 'asc')->get();
             }
             else
             {
-                $absensis = absensi_data_karyawan::latest('bulan', 'asc')->get();
+                $absensis = absensi_data_karyawan::latest('bulantahun', 'asc')->get();
             }
             $total_row = $absensis->count();
             if($total_row > 0)
@@ -140,7 +140,7 @@ class AbsensiDataKaryawanController extends Controller
                     $output .= '
                     <tr>
                         <td>'.$no++.'</td>
-                        <td>'.$row->year.'-'.$row->bulan.'</td>
+                        <td>'.$row->bulantahun.'</td>
                         <td><strong>'.$row->nik.'</strong>
                         <i class="fab fa-angular fa-lg text-danger me-3"></i>
                         </td>

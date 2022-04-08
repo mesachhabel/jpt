@@ -4,15 +4,16 @@ namespace App\Http\Controllers\Admin\PelaporanData;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Knp\Snappy\Pdf;
+use PDF;
 
 class slipgajicontroller extends Controller
 {
     public function index()
     {
-        $pdf = 'admins/PelaporanData/SlipGaji';
-        $snappy = new Pdf($pdf . '/vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64');
-        return $snappy->stream('SlipGaji.pdf');
         
+        // $pdf = PDF::loadview('admins/PelaporanData/SlipGaji');  
+        
+        // return $pdf->stream('SlipGaji.pdf');
+        return view ('admins/PelaporanData/SlipGaji');
     }
 }

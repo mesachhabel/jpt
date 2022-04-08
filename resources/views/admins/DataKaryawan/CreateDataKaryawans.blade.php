@@ -284,12 +284,6 @@
         </div>
         <!-- /Account -->
     </div>
-    </div>
-    </form>
-    </div>
-    </div>
-    <!-- / Content -->
-    </div>
     <!--/ Striped Rows -->
     <hr class="my-5" />
     <script src="../../../assets/js/datakaryawan.js"></script>

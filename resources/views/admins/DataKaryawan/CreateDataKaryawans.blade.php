@@ -23,8 +23,9 @@
                                         <span class="d-none d-sm-block">Upload new photo</span>
                                         <i class="bx bx-upload d-block d-sm-none"></i>
                                         <input type="file" name="image" id="inputImage"
-                                            class="form-control @error('image') is-invalid @enderror">
+                                            class="form-control @error('image') is-invalid @enderror" required>
                                     </label>
+
                                     <p class="text-muted mb-0">Allowed JPG, JPEG, GIF or PNG. Max size of 2MB</p>
                                 </div>
                             </div>
@@ -35,20 +36,21 @@
                                 <div class="mb-3 col-md-4">
                                     <label for="NIK" class="form-label">NIK</label>
                                     <input class="form-control" type="text" id="NIK" name="nik" placeholder="NIK"
-                                        autofocus />
+                                        autofocus required />
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="Nama" class="form-label">Nama Lengkap</label>
                                     <input class="form-control" type="text" name="nama" id="Nama"
-                                        placeholder="Nama Lengkap" />
+                                        placeholder="Nama Lengkap" required />
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="NPP" class="form-label">NPP Instansi</label>
-                                    <input class="form-control" type="text" id="NPP" name="nppi" placeholder="NPP" />
+                                    <input class="form-control" type="text" id="NPP" name="nppi" placeholder="NPP"
+                                        required />
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="defaultSelect" class="form-label">Jenis Kelamin</label>
-                                    <select id="defaultSelect" name="jk" class="form-select">
+                                    <select id="defaultSelect" name="jk" class="form-select" required>
                                         <option disabled selected>-- Pilih Jenis Kelamin --</option>
                                         <option value="Laki - Laki">Laki Laki</option>
                                         <option value="Perempuan">Perempuan</option>
@@ -57,18 +59,17 @@
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="defaultSelect" class="form-label">Agama</label>
-                                    <select id="defaultSelect" name="agama" class="form-select">
+                                    <select id="defaultSelect" name="agama" class="form-select" required>
                                         <option disabled selected>-- Pilih Agama --</option>
                                         @foreach ($agamas as $agama)
                                             <option value="{{ $agama->namaagama }}">
                                                 {{ $agama->namaagama }}</option>
                                         @endforeach
-
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="defaultSelect" class="form-label">Status Keluarga</label>
-                                    <select name="skk" id="defaultSelect" class="form-select">
+                                    <select name="skk" id="defaultSelect" class="form-select" required>
                                         <option disabled selected>-- Pilih Status Keluarga --</option>
                                         <option value="1">Belum Kawin</option>
                                         <option value="2">Kawin</option>
@@ -83,7 +84,7 @@
                             <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Instansi Asal</label>
-                                    <select name="ia" id="defaultSelect" class="form-select">
+                                    <select name="ia" id="defaultSelect" class="form-select" required>
                                         <option disabled selected>-- Pilih Instansi Asal --</option>
                                         <option value="PT. Jasamarga Pandaan Tol">PT. Jasamarga Pandaan Tol</option>
                                         <option value="PT. Jasamarga (Persero) TBK">PT. Jasamarga (Persero) TBK</option>
@@ -95,7 +96,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Golongan Instansi</label>
-                                    <select name="gi" id="defaultSelect" class="form-select">
+                                    <select name="gi" id="defaultSelect" class="form-select" required>
                                         <option disabled selected>-- Pilih Golongan Instansi --</option>
                                         <option value="1">01</option>
                                         <option value="2">02</option>
@@ -107,17 +108,17 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="NPWP" class="form-label">NPWP</label>
                                     <input class="form-control" type="text" id="NPWP" name="npwp" placeholder="NPWP"
-                                        autofocus />
+                                        autofocus required />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="NoKTP" class="form-label">Nomor KTP</label>
-                                    <input class="form-control" type="text" name="nktp" id="NoKTP"
-                                        placeholder="Nomor KTP" />
+                                    <input class="form-control" type="text" name="nktp" id="NoKTP" placeholder="Nomor KTP"
+                                        required />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="NoBPJST" class="form-label">Nomor BPJS Ketenagakerjaan</label>
                                     <input class="form-control" type="text" id="NoBPJST" name="nbpkt"
-                                        placeholder="BPJS Ketenagakerjaan" autofocus />
+                                        placeholder="BPJS Ketenagakerjaan" autofocus required />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="NoBPJSK" class="form-label">Nomor BPJS Kesehatan</label>
@@ -152,7 +153,7 @@
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="defaultSelect" class="form-label">Jabatan</label>
-                                    <select name="jabatan" id="defaultSelect" class="form-select">
+                                    <select name="jabatan" id="defaultSelect" class="form-select" required>
                                         <option disabled selected>-- Pilih Jabatan --</option>
                                         <option value="1">.....</option>
                                         <option value="2">.....</option>
@@ -161,16 +162,16 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="GOLJAB" class="form-label">Golongan Jabatan</label>
                                     <input class="form-control" type="text" id="GOLJAB" name="gj"
-                                        placeholder="Golongan Jabatan" autofocus />
+                                        placeholder="Golongan Jabatan" autofocus required />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="Barjab" class="form-label">Baris Golongan</label>
                                     <input class="form-control" type="text" name="bg" id="Barjab"
-                                        placeholder="Baris Golongan" />
+                                        placeholder="Baris Golongan" required />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Anggota Serikat</label>
-                                    <select name="as" id="defaultSelect" class="form-select">
+                                    <select name="as" id="defaultSelect" class="form-select" required>
                                         <option disabled selected>-- Pilih Serikat --</option>
                                         <option value="1">.....</option>
                                         <option value="2">.....</option>
@@ -179,16 +180,16 @@
                                 <div class="mb-3 col-md-3">
                                     <label for="Uker" class="form-label">Unit Kerja</label>
                                     <input class="form-control" type="text" id="Uker" name="uk" placeholder="Unit Kerja"
-                                        autofocus />
+                                        autofocus required />
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="AUker" class="form-label">Anaknya Unit Kerja</label>
                                     <input class="form-control" type="text" id="AUker" name="auk"
-                                        placeholder="anaknya Unit Kerja" autofocus />
+                                        placeholder="anaknya Unit Kerja" autofocus required />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Struktur Organisasi</label>
-                                    <select name="so" id="defaultSelect" class="form-select">
+                                    <select name="so" id="defaultSelect" class="form-select" required>
                                         <option disabled selected>-- Struktur --</option>
                                         <option value="1">.....</option>
                                         <option value="2">.....</option>
@@ -201,10 +202,11 @@
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="defaultSelect" class="form-label">Bank</label>
-                                    <select name="bank" id="defaultSelect" class="form-select">
+                                    <select name="bank" id="defaultSelect" class="form-select" required>
                                         <option disabled selected>-- Pilih Bank --</option>
                                         @foreach ($banks as $bank)
-                                            <option value="{{ $bank->bank }}">[{{ $bank->kode }}] {{ $bank->bank }}
+                                            <option value="{{ $bank->bank }}">[{{ $bank->kode }}]
+                                                {{ $bank->bank }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -285,11 +287,6 @@
             </form>
         </div>
         <!-- /Account -->
-    </div>
-    </div>
-    </div>
-    </div>
-    <!-- / Content -->
     </div>
     <!--/ Striped Rows -->
     <hr class="my-5" />

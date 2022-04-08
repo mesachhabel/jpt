@@ -56,8 +56,8 @@ class DataKaryawanController extends Controller
         //create post
         $masuk = data_karyawan::create([
             'image'     => $image->hashName(),
-            'nama'      => $request->nama,
             'nik'       => $request->nik,
+            'nama'      => $request->nama,
             'nppi'      => $request->nppi,
             'jk'        => $request->jk,
             'agama'     => $request->agama,
@@ -84,10 +84,10 @@ class DataKaryawanController extends Controller
             'sky'       => $request->sky,
             'tb'        => $request->tb,
             'nppin'     => $request->nppin,
-            'goli'        => $request->goli,
-            'phdp'        => $request->phdp,
-            'ujsm'       => $request->ujsm,
-            'phda'        => $request->phda
+            'goli'      => $request->goli,
+            'phdp'      => $request->phdp,
+            'ujsm'      => $request->ujsm,
+            'phda'      => $request->phda
         ]);
 
         if($masuk){
@@ -101,16 +101,10 @@ class DataKaryawanController extends Controller
 
     public function edit(data_karyawan $karyawan)
     {
+        $karyawan = data_karyawan::find($karyawan->nik);
         return view('admins.DataKaryawan.EditDataKaryawans', compact('karyawan'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, data_karyawan $karyawan)
     {
         //validate form
@@ -220,6 +214,7 @@ class DataKaryawanController extends Controller
      */
     public function destroy(data_karyawan $karyawan)
     {
+        $karyawan = data_karyawan::find($karyawan->nik);
         //delete image
         Storage::delete('public/posts/'. $karyawan->image);
 

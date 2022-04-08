@@ -5,6 +5,6 @@ function lembur() {
     if (!isNaN(total)) {
         document.getElementById('total').value = total;
     } else {
-        document.getElementById('total').value = "";
+        document.getElementById('total').value = jumlah;
     }
 }

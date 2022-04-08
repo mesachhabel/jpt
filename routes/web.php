@@ -20,12 +20,16 @@ use App\Http\Controllers\Admin\TabelRefrensi\TRBank;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusPegawai;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusTugas;
 use App\Http\Controllers\Admin\PelaporanData\slipgajicontroller;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('auth.login');
 });
+route::get('daftar-ptjpt', [RegisterController::class,'showRegistrationForm'] );
+route::post('register', [RegisterController::class,'register'] );
+
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], function () {
@@ -36,6 +40,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     
     //Tabel Absensi Karyawan
     Route::resource('/absensi', AbsensiDataKaryawanController::class);
+    route::get('/absensi/{id}/delete', [AbsensiDataKaryawanController::class,'delete'])->name('absensi.delete');
+    Route::post('dynamic_dependent/fetch', [AbsensiDataKaryawanController::class,'fetch'])->name('dynamicdependent.fetch');
+    Route::get('/live_search/action', [AbsensiDataKaryawanController::class, 'action'])->name('live_search.action');
     
     //Tabel Terima Potong
     Route::resource('/terimapotong', TerimaPotongController::class);

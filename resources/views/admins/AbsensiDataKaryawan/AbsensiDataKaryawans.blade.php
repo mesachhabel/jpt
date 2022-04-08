@@ -10,7 +10,7 @@
         <!-- Striped Rows -->
         <div class="card">
             <div class="card-body">
-                <div class="mb-3 row">
+                <div class="float-right mb-3 row">
                     <label for="html5-month-input" style="text-transform: none; font-size: 12px;"
                         class="form-label">Pencarian Data</label>
                     <div class="col-md-4 mb-3">
@@ -21,11 +21,11 @@
                     <hr class="my-0" />
                 </div>
                 <div class="table-responsive text-nowrap">
-                    <table class="table table-hover table-striped">
+                    <table class="table table-hover table-striped table-bordered">
                         <thead class="text-center" style="vertical-align:middle;">
                             <tr>
                                 <th rowspan="2">No</th>
-                                <th rowspan="2">Bulan</th>
+                                <th rowspan="2">Tahun & Bulan</th>
                                 <th rowspan="2">NIK</th>
                                 <th rowspan="2">NAMA</th>
                                 <th colspan="2">Dalam satuan menit</th>

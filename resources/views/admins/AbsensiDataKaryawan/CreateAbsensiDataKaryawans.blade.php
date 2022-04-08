@@ -11,28 +11,11 @@
             <div class="card">
                 <div class="card-body">
                     <div class="mb-3 row">
-                        <label for="html5-month-input" class="form-label">Pilih Bulan</label>
+                        <label for="html5-month-input" class="form-label">Pilih Tahun Dan Bulan</label>
                         <div class="col-md-4 mb-3">
-                            <select name="bulan" id="defaultSelect" class="form-select" required>
-                                <option disabled selected>-- Pilih Bulan --</option>
-                                <option value="01">Januari</option>
-                                <option value="02">Febuari</option>
-                                <option value="03">Maret</option>
-                                <option value="04">April</option>
-                                <option value="05">Mei</option>
-                                <option value="06">Juni</option>
-                                <option value="07">Juli</option>
-                                <option value="08">Agustus</option>
-                                <option value="09">September</option>
-                                <option value="10">Oktober</option>
-                                <option value="11">November</option>
-                                <option value="12">Desember</option>
-                            </select>
-                        </div>
-                        <div class="main mb-3 row">
-                            <label for="html5-month-input" class="form-label">Select Year</label>
-                            <div class="col-md-4 mb-3">
-                                <input type="text" name="year" class="yearpicker form-control" value="" />
+                            <div class="col-md-12">
+                                <input class="form-control" name="bulantahun" type="month" value="2022-01"
+                                    id="html5-month-input" />
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
@@ -137,15 +120,6 @@
 
             $('#nik').change(function() {
                 $('#nama').val('');
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $(".yearpicker").yearpicker({
-                year: 2022,
-                startYear: 2020,
-                endYear: 2070
             });
         });
     </script>

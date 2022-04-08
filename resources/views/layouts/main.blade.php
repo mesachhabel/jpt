@@ -43,8 +43,8 @@
 
     <link rel="stylesheet" href="../../assets/vendor/libs/apex-charts/apex-charts.css" />
 
-    <!-- Page CSS -->
-
+    <!-- YearPicker CSS -->
+    <link rel="stylesheet" href="../../../assets/css/yearpicker.css" />
     <!-- Helpers -->
     <script src="../../../assets/vendor/js/helpers.js"></script>
 
@@ -98,6 +98,9 @@
 
     <!-- Page JS -->
     <script src="../../../assets/js/dashboards-analytics.js"></script>
+    
+    <!-- YearPicker JS -->
+    <script src="../../../assets/js/yearpicker.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

@@ -14,8 +14,7 @@ class DataKaryawans extends Migration
     public function up()
     {
         Schema::create('data_karyawans', function (Blueprint $table) {
-            $table->id();
-            $table->integer('nik');
+            $table->integer('nik')->primary();
             $table->string('nama');
             $table->string('nppi');
             $table->string('jk');

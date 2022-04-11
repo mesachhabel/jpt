@@ -108,7 +108,7 @@ class AbsensiDataKaryawanController extends Controller
     }
 
 // FUNCTION AJAX
-    //Ajax Create
+    //Ajax CreateAbsensiDataKaryawan.blade.php
     function fetch(Request $request)
     {
         $select = $request->get('select');
@@ -123,7 +123,8 @@ class AbsensiDataKaryawanController extends Controller
         }
         echo $output;
     }
-    //Ajax Index
+
+    //Ajax Di Halaman AbsensiDataKaryawan.blade.php
     public function action(Request $request)
     {
         if($request->ajax()){

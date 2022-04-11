@@ -20,6 +20,7 @@
             box-sizing: border-box;
             -moz-box-sizing: border-box;
             -webkit-print-color-adjust: exact !important;
+            color-adjust: exact !important;
         }
 
         .page {
@@ -45,7 +46,6 @@
             body {
                 width: 210mm;
                 height: 297mm;
-                
             }
             
             .page {
@@ -62,7 +62,6 @@
 
         .block_container {
             text-align: left;
-
         }
 
         #bloc1,
@@ -149,7 +148,7 @@
 
         .separ {
             /* position: relative; */
-            width: 30px;
+            width: 14px;
             left: 50px;
             top: 0px;
         }
@@ -171,15 +170,15 @@
 
         .ii {
             position: flex;
-            left: 50px;
+            left: 30px;
             height: auto;
             /* top: p; */
         }
 
         .uang {
             text-align: right;
-            margin-right: 0px;
-            width: 40px;
+            /* margin-right: 0px; */
+            width: 60px;
         }
         
     </style>

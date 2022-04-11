@@ -46,7 +46,7 @@
                             <tbody class="table-border-bottom-0">
                                 <tr>
                                     <td>
-                                        <select style="width:7rem; text-align:center;" name=" nik" id="nik"
+                                        <select style="width:7rem; text-align:center;" name="nik" id="nik"
                                             class="form-select dynamic" data-dependent="nama">
                                             <option disabled selected>Pilih NIK</option>
                                             @foreach ($data_karyawans as $karyawan)

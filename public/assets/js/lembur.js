@@ -7,7 +7,6 @@ function lembur() {
     } else {
         document.getElementById('total').value = jumlah;
     }
-
     document.getElementById('jumlahinsentif').value = jumlah;
     document.getElementById('rpinsentif').value = insentif;
     document.getElementById('totalinsentif').value = total;

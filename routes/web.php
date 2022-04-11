@@ -49,7 +49,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     
     //Tabel Data Lembur
     Route::resource('/lembur', DataLemburController::class);
-    
+    Route::post('dynamic_dependent/fetch', [DataLemburController::class,'fetch'])->name('lembur.fetch');
+
     //--------------Tabel Refrensi-------------------------
     Route::resource('/refrensi', TabelReferensiController::class);
         //Tabel Referensi Skala Gaji

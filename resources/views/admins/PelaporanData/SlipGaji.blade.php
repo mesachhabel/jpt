@@ -9,6 +9,55 @@
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #FAFAFA;
+            
+        }
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 10mm auto;
+            border: 1px #D3D3D3 solid;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+  
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        @media print {
+            html,
+            body {
+                width: 210mm;
+                height: 297mm;
+                
+            }
+            
+            .page {
+                margin: 0;
+                border: initial;
+                border-radius: initial;
+                width: initial;
+                min-height: initial;
+                /* box-shadow: initial; */
+                background: initial;
+                page-break-after: always;
+            }
         }
 
         .block_container {
@@ -58,17 +107,7 @@
         /* judul */
 
        
-        .body-letter {
-            position: absolute;
-            left:50px;
-            /* margin-right:130px; */
-            top: 50px;
-            width: 21cm;
-            height: 29.7cm;
-            /* background-color:white; */
-
-
-        }
+       
 
         .logo {
             /* position: absolute; */
@@ -90,15 +129,15 @@
         .text-bank {
             /* position: absolute; */
             font-weight: 400;
-            font-size: 8px;
+            font-size: 12px;
             text-align: right;
             line-height: 30px;
         }
 
         .text {
             font-weight: 400;
-            font-size: 8px;
-            line-height: 10px;
+            font-size: 14px;
+            line-height: 20px;
         }
 
         .sebutan {
@@ -142,12 +181,12 @@
             margin-right: 0px;
             width: 40px;
         }
-
+        
     </style>
 </head>
 
 <body>
-
+<div class="page">
     <section class="body-letter text">
         <!-- Judul -->
         <img class="logo" src="../../assets/img/logo.png" alt="logo">
@@ -395,9 +434,9 @@
             </div>
             <!-- end of keterangan -->
 
-            <div>
+            <div >
                 <table width="100%" border="1" cellspacing="0" cellpadding="0"
-                    style="background-color: #AFFFFF; margin-bottom: 35rem;">
+                    style="background-color: #AFFFFF; margin-bottom: 10rem;">
                     <tbody>
                         <tr>
                             <td valign="top">
@@ -415,7 +454,7 @@
             <hr> PT Jasamarga Pandaan Tol : 06/04/2022 08:59:19
         </section>
     </section>
-
+    </div>
 </body>
 
 </html>

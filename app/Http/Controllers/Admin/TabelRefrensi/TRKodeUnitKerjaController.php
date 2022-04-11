@@ -67,7 +67,7 @@ class TRKodeUnitKerjaController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admins.TabelReferensi.EditTR.EditKodeUnitKerja');
     }
 
     /**

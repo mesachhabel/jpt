@@ -9,7 +9,6 @@
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
-
         }
 
         .block_container {
@@ -17,12 +16,45 @@
 
         }
 
-        #bloc1, #bloc2, #bloc3, #bloc4, #bloc5, #bloc6, #bloc7, #bloc8, #bloc9 ,#bloc10,
-        #bloc11, #bloc12, #bloc13, #bloc14, #bloc15, #bloc16, #bloc17, #bloc18, #bloc19 ,#bloc20,
-        #bloc21, #bloc22, #bloc23, #bloc24, #bloc25, #bloc26, #bloc27, #bloc28, #bloc29 ,#bloc30,
-        #bloc31, #bloc32, #bloc33, #bloc34, #bloc35, #bloc36{
-            display : inline-block;
+        #bloc1,
+        #bloc2,
+        #bloc3,
+        #bloc4,
+        #bloc5,
+        #bloc6,
+        #bloc7,
+        #bloc8,
+        #bloc9,
+        #bloc10,
+        #bloc11,
+        #bloc12,
+        #bloc13,
+        #bloc14,
+        #bloc15,
+        #bloc16,
+        #bloc17,
+        #bloc18,
+        #bloc19,
+        #bloc20,
+        #bloc21,
+        #bloc22,
+        #bloc23,
+        #bloc24,
+        #bloc25,
+        #bloc26,
+        #bloc27,
+        #bloc28,
+        #bloc29,
+        #bloc30,
+        #bloc31,
+        #bloc32,
+        #bloc33,
+        #bloc34,
+        #bloc35,
+        #bloc36 {
+            display: inline-block;
         }
+
         /* judul */
 
         .logo {
@@ -30,7 +62,7 @@
             width: 169px;
             height: 41px;
         }
-        
+
         .title {
             /* position: absolute; */
             text-align: center;
@@ -41,7 +73,7 @@
             /* identical to box height */
             color: #000000;
         }
-        
+
         .text-bank {
             /* position: absolute; */
             font-weight: 400;
@@ -49,34 +81,34 @@
             text-align: right;
             line-height: 30px;
         }
-        
+
         .text {
             font-weight: 400;
             font-size: 8px;
             line-height: 10px;
         }
-        
+
         .sebutan {
             /* position: flex; */
             width: auto;
             left: 0px;
             top: 100px;
         }
-        
+
         .separ {
             position: flex;
             width: auto;
             left: 136px;
             top: 0px;
         }
-        
+
         .keterangan {
             position: flex;
             width: auto;
             left: 143px;
             top: 0px;
         }
-        
+
         .status {
             position: flex;
             width: auto;
@@ -84,18 +116,19 @@
             left: 0px;
             top: 30px;
         }
-        
+
         .ii {
             position: flex;
             left: 0px;
             height: auto;
             top: 30px;
         }
-        
+
         .uang {
             text-align: right;
             margin-right: 0px;
         }
+
     </style>
 </head>
 
@@ -128,7 +161,8 @@
                                     <a>:<br>:<br>:<br>:<br>:</a>
                                 </div>
                                 <div class="keterangan" id="bloc3">
-                                    <a>D1603 - Ir. H. Bahrul Alam <br> Direktur Keuangan & SDM Direksi <br> 48.762.688.9-624.000 <br> 01 Juni 2016 <br> 5 Tahun 9 Bulan</a>
+                                    <a>D1603 - Ir. H. Bahrul Alam <br> Direktur Keuangan & SDM Direksi <br>
+                                        48.762.688.9-624.000 <br> 01 Juni 2016 <br> 5 Tahun 9 Bulan</a>
                                 </div>
                                 <div class="status" id="bloc4">
                                     <a>Status Karyawan <br> Status Keluarga</a>
@@ -313,7 +347,7 @@
                             <div class="block_container">
                                 <div class="sebutan" id="bloc34">
                                     <strong>IV. Pajak Penghasilan (PPh 21)</strong> <br>
-                                    <div style=" margin-left: 11px; " >
+                                    <div style=" margin-left: 11px; ">
                                         <a> -Beban Perusahaan</a> <br>
                                         <a> -Beban Karyawan</a> <br>
                                     </div>
@@ -348,7 +382,8 @@
             <!-- end of keterangan -->
 
             <div>
-                <table width="100%" border="1" cellspacing="0" cellpadding="0" style="background-color: #AFFFFF; margin-bottom: 35rem;">
+                <table width="100%" border="1" cellspacing="0" cellpadding="0"
+                    style="background-color: #AFFFFF; margin-bottom: 35rem;">
                     <tbody>
                         <tr>
                             <td valign="top">

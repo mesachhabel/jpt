@@ -46,8 +46,9 @@
                             <tbody class="table-border-bottom-0">
                                 <tr>
                                     <td>
-                                        <select name="nik" id="nik" class="form-select dynamic" data-dependent="nama">
-                                            <option disabled selected>-- Pilih NIK --</option>
+                                        <select style="width:7rem; text-align:center;" name="nik" id="nik"
+                                            class="form-select dynamic" data-dependent="nama">
+                                            <option disabled selected>Pilih NIK</option>
                                             @foreach ($data_karyawans as $karyawan)
                                                 <option value="{{ $karyawan->nik }}">[{{ $karyawan->nik }}]
                                                     {{ $karyawan->nama }}
@@ -56,7 +57,8 @@
                                         </select>
                                     </td>
                                     <td>
-                                        <select style="border:none" name="nama" id="nama" class="form-control input-lg">
+                                        <select style="border:none; width:13rem; text-align:center;" name="nama" id="nama"
+                                            class="form-control input-lg">
                                         </select>
                                     </td>
                                     <td><input value="0" class="form-control absen text-center" style="border:none"
@@ -79,6 +81,8 @@
                                             type="text" id="cuti" name="cuti" placeholder="Cuti" />
                                     </td>
                                     <td>
+                                        <button class="btn btn-primary" type="reset"><i class="bx bx-plus me-1"></i>
+                                            Reset</button>
                                     </td>
                                 </tr>
                                 {{ csrf_field() }}

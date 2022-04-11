@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\TabelRefrensi\TRPenandatangan;
 use App\Http\Controllers\Admin\TabelRefrensi\TRBank;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusPegawai;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusTugas;
+use App\Http\Controllers\Admin\PelaporanData\slipgajicontroller;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -48,9 +49,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     
     //Tabel Data Lembur
     Route::resource('/lembur', DataLemburController::class);
-    
-//--------------Tabel Refrensi-------------------------
-    // Create Tabel Referensi
+    Route::post('dynamic_dependent/fetch', [DataLemburController::class,'fetch'])->name('lembur.fetch');
+
+    //--------------Tabel Refrensi-------------------------
     Route::resource('/refrensi', TabelReferensiController::class);
         //Tabel Referensi Skala Gaji
             Route::resource('/skalagaji', TRSkalaGajiController::class);
@@ -86,7 +87,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
 
     //Pelaporan Data
         //Slip Gaji
-            Route::get('SlipGaji', 'Admin/PelaporanData/slipgajicontroller@index')->name('slipgaji');
+            Route::get('SlipGaji', [slipgajicontroller::class ,'index'])->name('slipgaji');
     //End of Pelaporan Data
 });
 

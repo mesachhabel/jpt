@@ -68,9 +68,10 @@ class AbsensiDataKaryawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(absensi_data_karyawan $absensi)
     {
-        return 'all posts';
+        $absensi = absensi_data_karyawan::find($absensi->id);
+        return view('admins.AbsensiDataKaryawan.EditAbsensiDataKaryawans', compact('absensi'));
     }
 
     /**
@@ -80,9 +81,17 @@ class AbsensiDataKaryawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,absensi_data_karyawan $absensi)
     {
-        //
+        $absensi = absensi_data_karyawan::find($absensi->id);
+        $absensi->update($request->all());
+        if ($absensi) {
+            Alert::success('Data Berhasil Diubah', 'Selamat');
+            return redirect()->route('absensi.index');
+        } else {
+            Alert::error('Data Gagal Diubah', 'Maaf');
+            return redirect()->route('absensi.edit', $absensi->id);
+        }
     }
     public function delete($id)
     {
@@ -99,7 +108,7 @@ class AbsensiDataKaryawanController extends Controller
     }
 
 // FUNCTION AJAX
-    //Ajax Create
+    //Ajax CreateAbsensiDataKaryawan.blade.php
     function fetch(Request $request)
     {
         $select = $request->get('select');
@@ -114,7 +123,8 @@ class AbsensiDataKaryawanController extends Controller
         }
         echo $output;
     }
-    //Ajax Index
+
+    //Ajax Di Halaman AbsensiDataKaryawan.blade.php
     public function action(Request $request)
     {
         if($request->ajax()){
@@ -129,7 +139,7 @@ class AbsensiDataKaryawanController extends Controller
             }
             else
             {
-                $absensis = absensi_data_karyawan::latest('bulantahun', 'asc')->get();
+                $absensis = absensi_data_karyawan::latest()->get();
             }
             $total_row = $absensis->count();
             if($total_row > 0)
@@ -153,8 +163,8 @@ class AbsensiDataKaryawanController extends Controller
                         <td>'.$row->dnsluar.'</td>
                         <td>'.$row->cuti.'</td>
                         <td>
-                            <a href="'.route('absensi.edit', $row->nik).'" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="'.route('absensi.delete', $row->nik).'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
+                            <a href="'.route('absensi.edit', $row->id).'" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="'.route('absensi.delete', $row->id).'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
                         </td>                 
                     </tr>
                     ';

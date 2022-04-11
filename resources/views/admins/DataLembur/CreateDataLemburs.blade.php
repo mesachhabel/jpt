@@ -243,7 +243,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-
             $('.dynamic').change(function() {
                 if ($(this).val() != '') {
                     var select = $(this).attr("id");

@@ -12,34 +12,16 @@ use Illuminate\Http\Request;
 
 class DataLemburController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('admins.DataLembur.DataLemburs');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $karyawans = DB::table('data_karyawans')->groupBy('nama')->get();
         $lemburs = data_lembur::latest()->paginate(3);
         return view('admins.DataLembur.CreateDataLemburs', compact('karyawans','lemburs'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $masuk = data_lembur::create($request->all());

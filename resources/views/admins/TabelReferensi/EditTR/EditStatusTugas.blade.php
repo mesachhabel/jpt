@@ -4,14 +4,14 @@
     @include('sweetalert::alert')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">Pemeliharaan Data / Tabel Referensi /</span> Edit Jenis Potongan Lain
+            <span class="text-muted fw-light">Pemeliharaan Data / Tabel Referensi /</span> Edit Status Tugas
         </h4>
 
 
         <div class="row">
             <div class="col-md-12">
                 <div class="card mb-4">
-                    <h5 class="card-header">Edit Data Jenis Potongan Lain</h5>
+                    <h5 class="card-header">Edit Data Status Tugas</h5>
                     <!-- Account -->
                     <hr class="my-0" />
                     <div class="card-body">
@@ -26,14 +26,13 @@
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col mb-0">
-                                        <label for="dobWithTitle" class="form-label">Keterangan Potongan
-                                            Lain</label>
+                                        <label for="dobWithTitle" class="form-label">Instansi Asal</label>
                                         <input type="text" id="dobWithTitle" class="form-control"
                                             placeholder="Kode Sub-Unit" name="uraian" />
                                     </div>
                                 </div>
                                 <hr class="my-3" />
-                                <h6 class="modal-title mt-3" id="modalCenterTitle">Alamat Transfer</h6>
+                                <h6 class="modal-title mt-3" id="modalCenterTitle">Transfer Jamsostek</h6>
                                 <div class="row mt-2">
                                     <div class="col mb-0">
                                         <label for="dobWithTitle" class="form-label">Nama Bank</label>

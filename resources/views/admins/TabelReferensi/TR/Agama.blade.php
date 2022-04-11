@@ -33,7 +33,7 @@
                                                 placeholder="Kode Unit" name="kode" />
                                         </div>
                                         <div class="col mb-0">
-                                            <label for="dobWithTitle" class="form-label">Nama Agama</label>
+                                            <label for="dobWithTitle" class="form-label">Keterangan Agama</label>
                                             <input type="text" id="dobWithTitle" class="form-control"
                                                 placeholder="Kode Sub-Unit" name="namaagama" />
                                         </div>

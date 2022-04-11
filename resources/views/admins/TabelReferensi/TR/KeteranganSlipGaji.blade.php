@@ -28,7 +28,7 @@
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="col mb-0">
-                                            <label for="emailWithTitle" class="form-label">Kode Keterangan</label>
+                                            <label for="emailWithTitle" class="form-label">Kode Slip Gaji</label>
                                             <input type="text" id="emailWithTitle" class="form-control"
                                                 placeholder="Kode Penerimaan" name="kode" />
                                         </div>

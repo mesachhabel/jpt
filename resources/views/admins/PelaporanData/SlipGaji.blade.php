@@ -57,6 +57,19 @@
 
         /* judul */
 
+       
+        .body-letter {
+            position: absolute;
+            left:50px;
+            /* margin-right:130px; */
+            top: 50px;
+            width: 21cm;
+            height: 29.7cm;
+            /* background-color:white; */
+
+
+        }
+
         .logo {
             /* position: absolute; */
             width: 169px;
@@ -90,28 +103,28 @@
 
         .sebutan {
             /* position: flex; */
-            width: auto;
+            width: 50%;
             left: 0px;
             top: 100px;
         }
 
         .separ {
-            position: flex;
-            width: auto;
-            left: 136px;
+            /* position: relative; */
+            width: 30px;
+            left: 50px;
             top: 0px;
         }
 
         .keterangan {
             position: flex;
             width: auto;
-            left: 143px;
+            /* left: 143px; */
             top: 0px;
         }
 
         .status {
             position: flex;
-            width: auto;
+            width: 100px;
             height: auto;
             left: 0px;
             top: 30px;
@@ -119,14 +132,15 @@
 
         .ii {
             position: flex;
-            left: 0px;
+            left: 50px;
             height: auto;
-            top: 30px;
+            /* top: p; */
         }
 
         .uang {
             text-align: right;
             margin-right: 0px;
+            width: 40px;
         }
 
     </style>
@@ -150,7 +164,7 @@
                         <!-- identitas -->
                         <td colspan="2" valign="top">
                             <div class="block_container">
-                                <div class="sebutan" id="bloc1">
+                                <div class="sebutan" style="width: 207px;"id="bloc1">
                                     <a>NIK - Nama</a> <br>
                                     <a>Jabatan</a> <br>
                                     <a>Nomor Pokok Wajib Pajak (NPWP) </a> <br>
@@ -181,7 +195,7 @@
                         <td valign="top">
                             <strong>I. PENERIMAAN</strong> <br>
                             <div class="block_container">
-                                <div class="sebutan" style="margin-left: 7px; width: auto;" id="bloc7">
+                                <div class="sebutan" style="margin-left: 7px;" id="bloc7">
                                     <strong>Gaji</strong> <br>
                                     <a>1. Gaji Pokok</a> <br>
                                     <div style="text-align: right; margin-right: 3px;">
@@ -198,7 +212,7 @@
                             </div>
                             <!-- separator -->
                             <div class="block_container">
-                                <div class="sebutan" style="margin-left: 7px; width: auto;" id="bloc10">
+                                <div class="sebutan" style="margin-left: 7px; " id="bloc10">
                                     <strong>Tunjangan</strong> <br>
                                     <a>1. Tunjangan Perum & Kom</a> <br>
                                     <a>1. Tunjangan Jabatan</a> <br>
@@ -219,7 +233,7 @@
                             </div>
                             <!-- separator -->
                             <div class="block_container">
-                                <div class="sebutan" style="margin-left: 7px; width: auto;" id="bloc13">
+                                <div class="sebutan" style="margin-left: 7px; " id="bloc13">
                                     <strong>Umum</strong> <br>
                                     <a>1. Jamsostek</a> <br>
                                     <div style="text-align: right; margin-right: 3px;">
@@ -236,13 +250,13 @@
                             </div>
                             <!-- separator -->
                             <div class="block_container">
-                                <div class="sebutan" style="margin-left: 7px; width: auto;" id="bloc16">
+                                <div class="sebutan" style="margin-left: 7px; " id="bloc16">
                                     <strong>Lain-lain</strong> <br>
                                 </div>
-                                <div class="separ ii" style="top: 0px;" id="bloc17">
+                                <div class="separ ii"  id="bloc17">
                                     <a><strong>:</strong></a>
                                 </div>
-                                <div class="keterangan ii uang" style="top: 0px;" id="bloc18">
+                                <div class="keterangan ii uang" id="bloc18">
                                     <strong>0</strong>
                                 </div>
                             </div>
@@ -253,7 +267,7 @@
                         <td valign="top">
                             <strong>II. POTONGAN</strong> <br>
                             <div class="block_container">
-                                <div class="sebutan" style="margin-left: 10px; width: auto;" id="bloc19">
+                                <div class="sebutan" style="margin-left: 10px;" id="bloc19">
                                     <strong>Umum</strong> <br>
                                     <a>1. Gaji Pokok</a> <br>
                                     <a>2. Jamsostek</a> <br>
@@ -278,7 +292,7 @@
                             </div>
                             <!-- separator -->
                             <div class="block_container">
-                                <div class="sebutan" style="margin-left: 10px; width: auto;" id="bloc22">
+                                <div class="sebutan" style="margin-left: 10px;" id="bloc22">
                                     <strong>Lain-lain</strong> <br>
                                 </div>
                                 <div class="separ ii" style="top: 0px;" id="bloc23">
@@ -296,7 +310,7 @@
                     <tr>
                         <td valign="top">
                             <div class="block_container">
-                                <div class="sebutan" style="margin-left: 7px; width: auto;" id="bloc25">
+                                <div class="sebutan" style="margin-left: 7px; " id="bloc25">
                                     <strong>Total Penerimaan</strong>
                                 </div>
                                 <div class="separ ii" style="top: 0px;" id="bloc26">
@@ -309,7 +323,7 @@
                         </td>
                         <td valign="top">
                             <div class="block_container">
-                                <div class="sebutan" style="margin-left: 10px; width: auto;" id="bloc28">
+                                <div class="sebutan" style="margin-left: 10px; " id="bloc28">
                                     <strong>Total Potongan</strong>
                                 </div>
                                 <div class="separ ii" style="top: 0px;" id="bloc29">
@@ -327,7 +341,7 @@
                     <tr>
                         <td colspan="2 " valign="top ">
                             <div class="block_container">
-                                <div class="sebutan" id="bloc31">
+                                <div class="sebutan" style="width:214px;" id="bloc31">
                                     <strong>III. Penerimaan Bersih</strong>
                                 </div>
                                 <div class="separ ii " style="top: 0px; " id="bloc32">
@@ -345,7 +359,7 @@
                     <tr>
                         <td colspan="2" valign="top">
                             <div class="block_container">
-                                <div class="sebutan" id="bloc34">
+                                <div class="sebutan"  style="width:214px;"id="bloc34">
                                     <strong>IV. Pajak Penghasilan (PPh 21)</strong> <br>
                                     <div style=" margin-left: 11px; ">
                                         <a> -Beban Perusahaan</a> <br>
@@ -401,6 +415,7 @@
             <hr> PT Jasamarga Pandaan Tol : 06/04/2022 08:59:19
         </section>
     </section>
+
 </body>
 
 </html>

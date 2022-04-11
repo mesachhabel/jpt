@@ -30,7 +30,7 @@ class DataLemburController extends Controller
     public function create()
     {
         $karyawans = DB::table('data_karyawans')->groupBy('nama')->get();
-        $lemburs = data_lembur::all();
+        $lemburs = data_lembur::latest()->paginate(3);
         return view('admins.DataLembur.CreateDataLemburs', compact('karyawans','lemburs'));
     }
 

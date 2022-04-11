@@ -68,18 +68,16 @@
                         <div class="card-body">
                             <div class="mb-3 col-md-12">
                                 <label for="tanggal_lembur" class="form-label">Tanggal</label>
-                                <input class="form-control" type="date" name="tanggal_lembur" id="intanggal"
-                                    onchange="preview();" required />
+                                <input class="form-control" type="date" name="tanggal_lembur" id="intanggal" required />
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label for="jumlah_jam_lembur" class="form-label">Jumlah Jam</label>
                                 <input class="form-control" type="text" name="jumlah_jam_lembur" id="injam"
-                                    placeholder="Masukan Jumlah Jam" onchange="preview();" required />
+                                    placeholder="Masukan Jumlah Jam" required />
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label for="defaultSelect" class="form-label">Jenis Hari</label>
-                                <select name="jenis_hari_lembur" id="injenishari" class="form-select"
-                                    onchange="preview();" required>
+                                <select name="jenis_hari_lembur" id="injenishari" class="form-select" required>
                                     <option>-- Pilih Hari --</option>
                                     <option value="1">Hari Kerja</option>
                                     <option value="2">Hari Libur</option>
@@ -100,30 +98,55 @@
                                     <table class="table table-bordered">
                                         <thead class="text-center" style="vertical-align:middle;">
                                             <tr>
+                                                <th>No</th>
                                                 <th>Tanggal</th>
                                                 <th>Jumlah Jam</th>
                                                 <th>Jenis Hari</th>
                                             </tr>
                                         </thead>
                                         <tbody class="table-border-bottom-0">
-                                            <tr>
-                                                <td><input class="form-control absen text-center" style="border:none"
-                                                        type="text" id="tanggal" name="tanggal" disabled />
-                                                </td>
-                                                <td><input class="form-control absen text-center" style="border:none"
-                                                        type="text" id="jam" name="jam" disabled />
-                                                </td>
-                                                <td><input class="form-control absen text-center" style="border:none"
-                                                        type="text" id="jenishari" name="jenishari" value="Hari Kerja"
-                                                        disabled />
-                                                </td>
-                                            </tr>
+                                            <?php $no = 1; ?>
+                                            @forelse ($lemburs as $lembur)
+                                                <tr>
+                                                    <td><input class="form-control absen text-center" style="border:none"
+                                                            value="{{ $no++ }}" type="text" disabled />
+                                                    </td>
+                                                    <td><input class="form-control absen text-center" style="border:none"
+                                                            value="{{ $lembur->tanggal_lembur }}" type="text" id="tanggal"
+                                                            name="tanggal" disabled />
+                                                    </td>
+                                                    <td><input class="form-control absen text-center" style="border:none"
+                                                            value="{{ $lembur->jumlah_jam_lembur }}" type="text" id="jam"
+                                                            name="jam" disabled />
+                                                    </td>
+                                                    <td>
+                                                        @if ($lembur->jenis_hari_lembur == '1')
+                                                            <input class="form-control absen text-center"
+                                                                style="border:none" value="Hari Kerja" type="text" id="jam"
+                                                                name="jam" disabled />
+                                                        @elseif ($lembur->jenis_hari_lembur == '2')
+                                                            <input class="form-control absen text-center"
+                                                                style="border:none" value="Hari Libur" type="text" id="jam"
+                                                                name="jam" disabled />
+                                                        @elseif ($lembur->jenis_hari_lembur == '3')
+                                                            <input class="form-control absen text-center"
+                                                                style="border:none" value="Libur Nasional" type="text"
+                                                                id="jam" name="jam" disabled />
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @empty
+                                                <div class="alert alert-danger">
+                                                    Detail Jam Lembur Belum Ada.
+                                                </div>
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <ul class="pagination justify-content-center mt-3">{{ $lemburs->links('pagination::bootstrap-4') }}
                 </div>
             </div>
             <hr class="my-4" />
@@ -137,17 +160,17 @@
                             <div class="mb-3 col-md-12">
                                 <label for="jumlahinsentif" class="form-label">Jumlah</label>
                                 <input class="form-control" type="text" name="jumlah_insentif" id="jumlah"
-                                    placeholder="Jumlah Insentif" onchange="lembur();" required />
+                                    placeholder="Jumlah Insentif" required />
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label for="rpinsentif" class="form-label">Rp. Insentif</label>
                                 <input class="form-control" type="text" name="nilai_insentif" id="insentif"
-                                    placeholder="Nilai PerInsentif" onchange="lembur();" required />
+                                    placeholder="Nilai PerInsentif" required />
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label for="totalinsentif" class="form-label">Total Insentif</label>
                                 <input class="form-control" type="text" name="total_insentif" id="total"
-                                    placeholder="Total Insentif" onchange="lembur();" readonly required />
+                                    placeholder="Total Insentif" readonly required />
                             </div>
                         </div>
                         <hr class="my-0" />
@@ -170,28 +193,43 @@
                                     <table class="table table-bordered">
                                         <thead class="text-center" style="vertical-align:middle;">
                                             <tr>
+                                                <th>No</th>
                                                 <th>Jumlah</th>
                                                 <th>Rp. Insentif</th>
                                                 <th>Total Insentif</th>
                                             </tr>
                                         </thead>
                                         <tbody class="table-border-bottom-0">
-                                            <tr>
-                                                <td><input class="form-control absen text-center" style="border:none"
-                                                        type="text" id="jumlahinsentif" name="jumlahinsentif"
-                                                        placeholder="-" disabled /></td>
-                                                <td><input class="form-control absen text-center" style="border:none"
-                                                        type="text" id="rpinsentif" name="rpinsentif" placeholder="-"
-                                                        disabled />
-                                                </td>
-                                                <td><input class="form-control absen text-center" style="border:none"
-                                                        type="text" id="totalinsentif" name="totalinsentif" placeholder="-"
-                                                        disabled />
-                                                </td>
-                                            </tr>
+                                            <?php $no = 1; ?>
+                                            @forelse ($lemburs as $lembur)
+                                                <tr>
+                                                    <td><input class="form-control absen text-center" style="border:none"
+                                                            value="{{ $no++ }}" type="text" disabled /></td>
+                                                    <td><input class="form-control absen text-center" style="border:none"
+                                                            type="text" id="jumlahinsentif"
+                                                            value="{{ $lembur->jumlah_insentif }}" name="jumlahinsentif"
+                                                            placeholder="-" disabled /></td>
+                                                    <td><input class="form-control absen text-center" style="border:none"
+                                                            type="text" id="rpinsentif"
+                                                            value="{{ $lembur->nilai_insentif }}" name="rpinsentif"
+                                                            placeholder="-" disabled />
+                                                    </td>
+                                                    <td><input class="form-control absen text-center" style="border:none"
+                                                            type="text" id="totalinsentif"
+                                                            value="{{ $lembur->total_insentif }}" name="totalinsentif"
+                                                            placeholder="-" disabled />
+                                                    </td>
+                                                </tr>
+                                            @empty
+                                                <div class="alert alert-danger">
+                                                    Detail insentif Belum Ada.
+                                                </div>
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
+                                <ul class="pagination justify-content-center mt-3">
+                                    {{ $lemburs->links('pagination::bootstrap-4') }}
                             </div>
                         </div>
                     </div>

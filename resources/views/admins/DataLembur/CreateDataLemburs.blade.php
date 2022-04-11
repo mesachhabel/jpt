@@ -56,16 +56,16 @@
                     <div class="card-body">
 
                         <div class="mb-3 col-md-12">
-                            <label for="NoKTP" class="form-label">Tanggal</label>
-                            <input class="form-control" type="date" name="NoKTP" id="NoKTP" />
+                            <label  class="form-label">Tanggal</label>
+                            <input class="form-control" type="date" name="intanggal" id="intanggal" onchange="preview();"/>
                         </div>
                         <div class="mb-3 col-md-12">
-                            <label for="NoKTP" class="form-label">Jumlah Jam</label>
-                            <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="7" />
+                            <label  class="form-label">Jumlah Jam</label>
+                            <input class="form-control" type="text" name="injam" id="injam" placeholder="-" onchange="preview();"/>
                         </div>
                         <div class="mb-3 col-md-12">
-                            <label for="defaultSelect" class="form-label">Jenis Hari</label>
-                            <select id="defaultSelect" class="form-select">
+                            <label for="injenishari" class="form-label">Jenis Hari</label>
+                            <select id="injenishari" class="form-select" onchange="preview();">
                                 <option>-- Pilih Hari --</option>
                                 <option value="1">Hari Kerja</option>
                                 <option value="2">Hari Libur</option>
@@ -91,7 +91,7 @@
                                             <th>Tanggal</th>
                                             <th>Jumlah Jam</th>
                                             <th>Jenis Hari</th>
-                                            <th>Action</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody class="table-border-bottom-0">
@@ -99,27 +99,11 @@
                                             <td><input class="form-control absen text-center" style="border:none"
                                                     type="text" id="tanggal" name="tanggal" disabled /></td>
                                             <td><input class="form-control absen text-center" style="border:none"
-                                                    type="text" id="jam" name="jam" value="7" disabled /></td>
+                                                    type="text" id="jam" name="jam" disabled /></td>
                                             <td><input class="form-control absen text-center" style="border:none"
                                                     type="text" id="jenishari" name="jenishari" value="Hari Kerja"
                                                     disabled /></td>
 
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                        data-bs-toggle="dropdown">
-                                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                                class="bx bx-detail me-1"></i> Detail</a>
-                                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                                class="bx bx-trash me-1"></i> Delete</a>
-                                                    </div>
-                                                </div>
-                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -141,16 +125,16 @@
                         <div class="mb-3 col-md-12">
                             <label for="jumlahinsentif" class="form-label">Jumlah</label>
                             <input class="form-control" type="text" name="jumlah" id="jumlah"
-                                placeholder="Jumlah Insentif" onkeyup="lembur();" />
+                                placeholder="Jumlah Insentif" onchange="lembur();" />
                         </div>
                         <div class="mb-3 col-md-12">
                             <label for="rpinsentif" class="form-label">Rp. Insentif</label>
                             <input class="form-control" type="text" name="insentif" id="insentif"
-                                placeholder="Nilai PerInsentif" onkeyup="lembur();" />
+                                placeholder="Nilai PerInsentif" onchange="lembur();" />
                         </div>
                         <div class="mb-3 col-md-12">
                             <label for="totalinsentif" class="form-label">Total Insentif</label>
-                            <input class="form-control" type="text" name="total" id="total" placeholder="Total Insentif"
+                            <input class="form-control" type="text" name="total" id="total" placeholder="Total Insentif" onchange="lembur();"
                                 disabled />
                         </div>
                     </div>
@@ -176,37 +160,22 @@
                                         <tr>
                                             <th>Jumlah</th>
                                             <th>Rp. Insentif</th>
-                                            <th>Total Insentif</th>
-                                            <th>Action</th>
+                                            <th>Total Insentif</th>  
                                         </tr>
                                     </thead>
                                     <tbody class="table-border-bottom-0">
                                         <tr>
                                             <td><input class="form-control absen text-center" style="border:none"
-                                                    type="text" id="jumlahinsentif" name="jumlahinsentif" value="2"
+                                                    type="text" id="jumlahinsentif" name="jumlahinsentif" placeholder="-"
                                                     disabled /></td>
                                             <td><input class="form-control absen text-center" style="border:none"
-                                                    type="text" id="rpinsentif" name="rpinsentif" value="10000" disabled />
+                                                    type="text" id="rpinsentif" name="rpinsentif" placeholder="-"
+                                                    disabled />
                                             </td>
                                             <td><input class="form-control absen text-center" style="border:none"
-                                                    type="text" id="totalinsentif" name="totalinsentif" value="20000"
+                                                    type="text" id="totalinsentif" name="totalinsentif" placeholder="-"
                                                     disabled /></td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                        data-bs-toggle="dropdown">
-                                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                                class="bx bx-detail me-1"></i> Detail</a>
-                                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                                class="bx bx-trash me-1"></i> Delete</a>
-                                                    </div>
-                                                </div>
-                                            </td>
+                                            
                                         </tr>
                                     </tbody>
                                 </table>

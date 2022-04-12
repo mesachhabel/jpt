@@ -15,7 +15,7 @@
                         class="form-label">Pencarian Data</label>
                     <div class="col-md-4 mb-3">
                         <div class="input-group">
-                            <input class="form-control" id="search" name="search" type="text" placeholder="Cari ...">
+                            <input class="form-control search" id="search" name="search" type="text" placeholder="Cari ...">
                         </div>
                     </div>
                     <hr class="my-0" />
@@ -42,12 +42,12 @@
                                 <th>Cuti</th>
                             </tr>
                         </thead>
-                        <tbody class="table-border-bottom-0">
+                        <tbody class="table-border-bottom-0 tbody">
                             <?php $no = 1; ?>
                             @forelse ($absensis as $absen)
                             @empty
                                 <div class="alert alert-danger">
-                                    Data Abensi Belum Ada.
+                                    Data Absensi Belum Ada.
                                 </div>
                             @endforelse
                         </tbody>
@@ -63,25 +63,25 @@
     <script>
         $(document).ready(function() {
 
-            fetch_nama();
+            fetch_nik();
 
-            function fetch_nama(query = '') {
+            function fetch_nik(query1 = '') {
                 $.ajax({
-                    url: "{{ route('live_search.action') }}",
+                    url: "{{ route('absensi.action') }}",
                     method: 'GET',
                     data: {
-                        query: query
+                        query1: query1
                     },
                     dataType: 'json',
-                    success: function(data) {
-                        $('tbody').html(data.table_data);
+                    success: function(data1) {
+                        $('.tbody').html(data1.table_data1);
                     }
                 })
             }
 
-            $(document).on('keyup', '#search', function() {
-                var query = $(this).val();
-                fetch_nama(query);
+            $(document).on('keyup', '.search', function() {
+                var query1 = $(this).val();
+                fetch_nik(query1);
             });
         });
     </script>

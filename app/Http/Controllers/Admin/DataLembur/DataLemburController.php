@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin\DataLembur;
 
 use App\Http\Controllers\Controller;
-use App\Models\absensi_data_karyawan;
 use App\Models\data_lembur;
 use DB;
 use Alert;
@@ -14,7 +13,8 @@ class DataLemburController extends Controller
 {
     public function index()
     {
-        return view('admins.DataLembur.DataLemburs');
+        $lemburs = data_lembur::latest('bulan')->paginate(5);
+        return view('admins.DataLembur.DataLemburs', compact('lemburs'));
     }
     public function create()
     {
@@ -51,9 +51,12 @@ class DataLemburController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(data_lembur $lembur)
     {
-        //
+        $karyawans = DB::table('data_karyawans')->groupBy('nama')->get();
+        $lemburs = data_lembur::latest()->paginate(3);
+        $lembur = data_lembur::findOrFail($lembur->id);
+        return view('admins.DataLembur.EditDataLemburs', compact('lembur','karyawans','lemburs'));
     }
 
     /**
@@ -93,5 +96,64 @@ class DataLemburController extends Controller
             $output = '<option value="' . $row->$dependent . '" name="nama" selected>' . ucfirst($row->$dependent) . '</option>';
         }
         echo $output;
+    }
+
+    //Ajax Di Halaman AbsensiDataKaryawan.blade.php
+    public function action(Request $request)
+    {
+        if($request->ajax()){
+            $output = '';
+            $query = $request->get('query');
+            if($query != '')
+            {
+                $lemburs = data_lembur::where('nama', 'LIKE', '%'.$query.'%')
+                ->orWhere('nik', 'LIKE', '%'.$query.'%')
+                ->orWhere('bulantahun', 'LIKE', '%'.$query.'%')
+                ->orderBy('bulantahun', 'asc')->get();
+            }
+            else
+            {
+                $lemburs = data_lembur::latest()->get();
+            }
+            $total_row = $lemburs->count();
+            if($total_row > 0)
+            {
+                $no = 1;
+                foreach($lemburs as $row)
+                {
+                    $output .= '
+                    <tr>
+                        <td>'.$no++.'</td>
+                        <td>'.$row->bulan.'</td>
+                        <td><strong>'.$row->nama.'</strong>
+                        <i class="fab fa-angular fa-lg text-danger me-3"></i>
+                        </td>
+                        <td>'.$row->jabatan.'</td>
+                        <td>'.$row->npp.'</td>
+                        <td>'.$row->tanggal_lembur.'</td>
+                        <td>'.$row->jumlah_jam_lembur.'</td>
+                        <td>'.$row->jenis_hari_lembur.'</td>
+                        <td>'.$row->jumlah_insentif.'</td>
+                        <td>'.$row->nilai_insentif.'</td>
+                        <td>'.$row->total_insentif.'</td>
+                        <td>
+                            <a href="'.route('lembur.edit', $row->id).'" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="'.route('lembur.delete', $row->id).'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
+                        </td>                 
+                    </tr>
+                    ';
+                }
+            }
+            else
+            {
+            $output = '
+            <tr>
+                <td align="center" colspan="15"><strong> No Data Found </strong></td>
+            </tr>
+            ';
+            }
+            $lemburs = array('table_data' => $output);
+            echo json_encode($lemburs);
+        }
     }
 }

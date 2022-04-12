@@ -160,17 +160,17 @@
                             <div class="mb-3 col-md-12">
                                 <label for="jumlahinsentif" class="form-label">Jumlah</label>
                                 <input class="form-control" type="text" name="jumlah_insentif" id="jumlah"
-                                    placeholder="Jumlah Insentif" onchange="lembur();" required />
+                                    placeholder="Jumlah Insentif" required />
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label for="rpinsentif" class="form-label">Rp. Insentif</label>
                                 <input class="form-control" type="text" name="nilai_insentif" id="insentif"
-                                    placeholder="Nilai PerInsentif" onchange="lembur();" required />
+                                    placeholder="Nilai PerInsentif" required />
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label for="totalinsentif" class="form-label">Total Insentif</label>
                                 <input class="form-control" type="text" name="total_insentif" id="total"
-                                    placeholder="Total Insentif" onchange="lembur();" readonly required />
+                                    placeholder="Total Insentif" readonly required />
                             </div>
                         </div>
                         <hr class="my-0" />

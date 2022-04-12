@@ -9,93 +9,59 @@
         <a href="{{ route('lembur.create') }}" class="btn btn-primary mb-3">+ Tambah Data<i class="fas fa-print"></i></a>
         <!-- Striped Rows -->
         <div class="card">
-            <!-- <h5 class="card-header">Striped rows</h5> -->
+            <div class="float-right mb-3 row">
+                <label for="html5-month-input" style="text-transform: none; font-size: 12px;"
+                    class="form-label">Pencarian Data</label>
+                <div class="col-md-4 mb-3">
+                    <div class="input-group">
+                        <input class="form-control" id="search" name="search" type="text" placeholder="Cari ...">
+                    </div>
+                </div>
+                <hr class="my-0" />
+            </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-striped">
-                    <thead>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="text-center" style="vertical-align:middle;">
                         <tr>
-                            <th>Bulan</th>
-                            <th>Tahun</th>
-                            <th>Actions</th>
+                            <th rowspan="2">No</th>
+                            <th rowspan="2">Bulan & Tahun</th>
+                            <th rowspan="2">Nama</th>
+                            <th rowspan="2">Jabatan</th>
+                            <th rowspan="2">Npp</th>
+                            <th colspan="3">Detail Jam Lembur</th>
+                            <th colspan="3">Detail Insentif</th>
+                        </tr>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Jumlah<br>Jam</th>
+                            <th>Jenis<br>Hari</th>
+                            <th>Jumlah</th>
+                            <th>Rp.Insentif</th>
+                            <th>Total<br>Insentif</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        <tr>
-                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Januari</strong></td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-detail me-1"></i> Detail</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>Februari</strong></td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>Maret</strong></td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>April</strong>
-                            </td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php $no = 1; ?>
+                        @forelse ($lemburs as $lembur)
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $lembur->bulan }}</td>
+                                <td>{{ $lembur->nama }}</td>
+                                <td>{{ $lembur->jabatan }}</td>
+                                <td>{{ $lembur->npp }}</td>
+                                <td>{{ $lembur->tanggal_lembur }}</td>
+                                <td>{{ $lembur->jumlah_jam_lembur }}</td>
+                                <td>{{ $lembur->jenis_hari_lembur }}</td>
+                                <td>{{ $lembur->jumlah_insentif }}</td>
+                                <td>{{ $lembur->nilai_insentif }}</td>
+                                <td>{{ $lembur->total_insentif }}</td>
+                                <td>tes</td>
+                            </tr>
+                        @empty
+                            <div class="alert alert-danger">
+                                Data Lembur Karyawan Belum Ada.
+                            </div>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -103,4 +69,30 @@
     </div>
     <!--/ Striped Rows -->
     <hr class="my-5" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            fetch_nama();
+
+            function fetch_nama(query = '') {
+                $.ajax({
+                    url: "{{ route('lemburs.action') }}",
+                    method: 'GET',
+                    data: {
+                        query: query
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        $('tbody').html(data.table_data);
+                    }
+                })
+            }
+
+            $(document).on('keyup', '#search', function() {
+                var query = $(this).val();
+                fetch_nama(query);
+            });
+        });
+    </script>
 @endsection

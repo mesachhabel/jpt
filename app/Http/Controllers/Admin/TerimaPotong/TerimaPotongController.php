@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin\TerimaPotong;
 
 use App\Http\Controllers\Controller;
+use DB;
+use Illuminate\Http\Request;
+use App\Models\terima_potong;
 
 class TerimaPotongController extends Controller
 {
@@ -23,7 +26,9 @@ class TerimaPotongController extends Controller
      */
     public function create()
     {
-        return view('admins.TerimaPotong.CreateTerimaPotongs');
+        $karyawans = DB::table('data_karyawans')->groupBy('nik')->get();
+        $potongs = terima_potong::all();
+        return view('admins.TerimaPotong.CreateTerimaPotongs', compact('potongs','karyawans'));
     }
 
     /**
@@ -80,5 +85,22 @@ class TerimaPotongController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+// FUNCTION AJAX
+    //Ajax CreateDataLemburs.blade.php
+    function fetch(Request $request)
+    {
+        $select = $request->get('select');
+        $value = $request->get('value');
+        $dependent = $request->get('dependent');
+        $data = DB::table('data_karyawans')
+            ->where($select, $value)
+            ->groupBy($dependent)
+            ->get();
+        foreach ($data as $row) {
+            $output = '<option value="' . $row->$dependent . '" name="nik" selected>' . ucfirst($row->$dependent) . '</option>';
+        }
+        echo $output;
     }
 }

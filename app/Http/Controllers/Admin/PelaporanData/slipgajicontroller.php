@@ -17,6 +17,11 @@ class slipgajicontroller extends Controller
     {
         return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiKomisaris');
     }
+
+    public function dataslipkomisaris()
+    {
+        return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKomisaris');
+    }
     
     public function slipdireksi()
     {
@@ -84,7 +89,7 @@ class slipgajicontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tr_agama $agama)
+    public function destroy()
     {
         
     }

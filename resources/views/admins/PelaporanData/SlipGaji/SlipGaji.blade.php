@@ -18,9 +18,10 @@
                     </thead>
                     <tbody class="table-border-bottom-0">
                         <tr>
-                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Slip Gaji Komisaris</strong></td>
+                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Slip Gaji Komisaris</strong>
+                            </td>
                             <td>
-                                <a href="{{ route('slipgaji.slipkomisaris') }}" type="button" 
+                                <a href="{{ route('slipgaji.dataslipkomisaris') }}" type="button"
                                     class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
                             </td>
                         </tr>
@@ -33,7 +34,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Slip Gaji Karyawan Tetap</strong>
+                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Slip Gaji Karyawan
+                                    Tetap</strong>
                             </td>
                             <td>
                                 <a href="{{ route('kodestruktur.index') }}" type="button"
@@ -41,7 +43,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Slip Gaji Karyawan Tidak Tetap</strong>
+                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Slip Gaji Karyawan Tidak
+                                    Tetap</strong>
                             </td>
                             <td>
                                 <a href="{{ route('kodejabatan.index') }}" type="button" class="btn btn-sm btn-success"><i

@@ -95,6 +95,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
             // // // //Komisaris
              Route::get('/slipkomisaris', [slipgajicontroller::class,'slipkomisaris'])->name('slipgaji.slipkomisaris');
             //Karyawan Tetap
+             Route::get('/slipkaryawantetap', [slipgajicontroller::class,'slipkaryawantetap'])->name('slipgaji.slipkaryawantetap');
     //End of Pelaporan Data
 });
 

@@ -36,7 +36,7 @@
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Slip Gaji Karyawan Tetap</strong>
                             </td>
                             <td>
-                                <a href="{{ route('kodestruktur.index') }}" type="button"
+                                <a href="{{ route('slipgaji.slipkaryawantetap') }}" type="button"
                                     class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
                             </td>
                         </tr>

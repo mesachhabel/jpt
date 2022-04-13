@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use DB;
 use Illuminate\Http\Request;
 use App\Models\terima_potong;
+use App\Models\data_karyawans;
+use Alert;
 
 class TerimaPotongController extends Controller
 {
@@ -16,7 +18,9 @@ class TerimaPotongController extends Controller
      */
     public function index()
     {
-        return view('admins.TerimaPotong.TerimaPotongs');
+        $terimapotongs = terima_potong::latest()->paginate(5);
+        return view('admins.TerimaPotong.TerimaPotongs', compact('terimapotongs'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -26,9 +30,9 @@ class TerimaPotongController extends Controller
      */
     public function create()
     {
-        $karyawans = DB::table('data_karyawans')->groupBy('nik')->get();
-        $potongs = terima_potong::all();
-        return view('admins.TerimaPotong.CreateTerimaPotongs', compact('potongs','karyawans'));
+        $data_karyawans = DB::table('data_karyawans')->groupBy('nik')->get();
+        $potongs = terima_potong::latest()->paginate(3);
+        return view('admins.TerimaPotong.CreateTerimaPotongs', compact('potongs','data_karyawans'));
     }
 
     /**
@@ -39,7 +43,14 @@ class TerimaPotongController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $masuk=terima_potong::create($request->all());
+        if($masuk){
+            Alert::success('Data Berhasil Ditambahkan', 'Selamat');
+            return redirect()->route('terimapotong.index');
+        }else{
+            Alert::error('Data Gagal Ditambahkan', 'Maaf');
+            return redirect()->route('terimapotong.create');
+        }
     }
 
     /**
@@ -99,7 +110,7 @@ class TerimaPotongController extends Controller
             ->groupBy($dependent)
             ->get();
         foreach ($data as $row) {
-            $output = '<option value="' . $row->$dependent . '" name="nik" selected>' . ucfirst($row->$dependent) . '</option>';
+            $output = '<option value="' . $row->$dependent . '" name="nama" selected>' . ucfirst($row->$dependent) . '</option>';
         }
         echo $output;
     }

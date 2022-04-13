@@ -14,7 +14,7 @@
                     class="form-label">Pencarian Data</label>
                 <div class="col-md-4 mb-3">
                     <div class="input-group">
-                        <input class="form-control" id="search" name="search" type="text" placeholder="Cari ...">
+                        <input class="form-control search" id="search" name="search" type="text" placeholder="Cari ...">
                     </div>
                 </div>
                 <hr class="my-0" />
@@ -40,7 +40,7 @@
                             <th>Total<br>Insentif</th>
                         </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0">
+                    <tbody class="table-border-bottom-0 tbody">
                         <?php $no = 1; ?>
                         @forelse ($lemburs as $lembur)
                             <tr>
@@ -75,23 +75,23 @@
 
             fetch_nama();
 
-            function fetch_nama(query = '') {
+            function fetch_nama(query2 = '') {
                 $.ajax({
                     url: "{{ route('lemburs.action') }}",
                     method: 'GET',
                     data: {
-                        query: query
+                        query2: query2
                     },
                     dataType: 'json',
-                    success: function(data) {
-                        $('tbody').html(data.table_data);
+                    success: function(data2) {
+                        $('.tbody').html(data2.table_data2);
                     }
                 })
             }
 
-            $(document).on('keyup', '#search', function() {
-                var query = $(this).val();
-                fetch_nama(query);
+            $(document).on('keyup', '.search', function() {
+                var query2 = $(this).val();
+                fetch_nik(query2);
             });
         });
     </script>

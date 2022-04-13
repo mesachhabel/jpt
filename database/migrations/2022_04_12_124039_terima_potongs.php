@@ -16,17 +16,17 @@ class TerimaPotongs extends Migration
         schema::create('terima_potongs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('bulan');
-            $table->string('nik');
+            $table->integer('nik');
             $table->string('nama');
             $table->string('jabatan');
             //Data Penerimaan Potong
             $table->string('kode_penerimaan');
             $table->string('uraian_penerimaan');
-            $table->string('jumlah_penerimaan');
+            $table->integer('jumlah_penerimaan');
             //Rincian Potongan Lain
             $table->string('kode_potongan');
             $table->string('uraian_potongan');
-            $table->string('jumlah_potongan');
+            $table->integer('jumlah_potongan');
             $table->timestamps();
         });
     }

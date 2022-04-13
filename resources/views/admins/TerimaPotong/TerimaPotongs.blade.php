@@ -11,91 +11,56 @@
         <div class="card">
             <!-- <h5 class="card-header">Striped rows</h5> -->
             <div class="table-responsive text-nowrap">
-                <table class="table table-striped">
+                <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>Bulan</th>
-                            <th>Tahun</th>
-                            <th>Actions</th>
+                        <tr>
+                            <th rowspan="2">No</th>
+                            <th rowspan="2">Bulan & Tahun</th>
+                            <th rowspan="2">Nik</th>
+                            <th rowspan="2">Nama</th>
+                            <th rowspan="2">Jabatan</th>
+                            <th colspan="3">Rincian Penerimaan Lain-lain</th>
+                            <th colspan="3">Rincian Potongan Lain-lain</th>
+                        </tr>
+                        <tr>
+                            <th>Kode<br> Penerimaan</th>
+                            <th>Uraian<br> Penerimaan</th>
+                            <th>Jumlah<br> Penerimaan</th>
+                            <th>Kode<br> Potongan</th>
+                            <th>Uraian<br> Potongan</th>
+                            <th>Jumlah<br> Potongan</th>
+                        </tr>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        <tr>
-                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Januari</strong></td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-detail me-1"></i> Detail</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>Februari</strong></td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>Maret</strong></td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>April</strong>
-                            </td>
-                            <td>2022</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i
-                                                class="bx bx-trash me-1"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php $no = 1; ?>
+                        @forelse ($terimapotongs as $terimapotong)
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $terimapotong->bulan }}</td>
+                                <td>{{ $terimapotong->nik }}</td>
+                                <td>{{ $terimapotong->nama }}</td>
+                                <td>{{ $terimapotong->jabatan }}</td>
+                                <td>{{ $terimapotong->kode_penerimaan }}</td>
+                                <td>{{ $terimapotong->uraian_penerimaan }}</td>
+                                <td>{{ $terimapotong->jumlah_penerimaan }}</td>
+                                <td>{{ $terimapotong->kode_potongan }}</td>
+                                <td>{{ $terimapotong->uraian_potongan }}</td>
+                                <td>{{ $terimapotong->jumlah_potongan }}</td>
+                                <td>
+                                    <a href="{{ route('terimapotong.edit', $terimapotong->id) }}"
+                                        class="btn btn-primary btn-sm">Edit</a>
+                                    <form action="{{ route('terimapotong.destroy', $terimapotong->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                        @endforelse
                     </tbody>
                 </table>
             </div>

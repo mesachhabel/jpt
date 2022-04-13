@@ -13,7 +13,7 @@ class DataLemburController extends Controller
 {
     public function index()
     {
-        $lemburs = data_lembur::latest('bulan')->paginate(5);
+        $lemburs = data_lembur::paginate(5);
         return view('admins.DataLembur.DataLemburs', compact('lemburs'));
     }
     public function create()
@@ -98,25 +98,25 @@ class DataLemburController extends Controller
         echo $output;
     }
 
-    //Ajax Di Halaman AbsensiDataKaryawan.blade.php
+    //Ajax Di Halaman DataLemburs.blade.php
     public function action(Request $request)
     {
         if($request->ajax()){
             $output = '';
-            $query = $request->get('query');
-            if($query != '')
+            $query2 = $request->get('query2');
+            if($query2 != '')
             {
-                $lemburs = data_lembur::where('nama', 'LIKE', '%'.$query.'%')
-                ->orWhere('nik', 'LIKE', '%'.$query.'%')
-                ->orWhere('bulantahun', 'LIKE', '%'.$query.'%')
-                ->orderBy('bulantahun', 'asc')->get();
+                $lemburs = data_lembur::where('nama', 'LIKE', '%'.$query2.'%')
+                ->orWhere('nik', 'LIKE', '%'.$query2.'%')
+                ->orWhere('bulan', 'LIKE', '%'.$query2.'%')
+                ->orderBy('nama', 'asc')->get();
             }
             else
             {
                 $lemburs = data_lembur::latest()->get();
             }
-            $total_row = $lemburs->count();
-            if($total_row > 0)
+            $total_row2 = $lemburs->count();
+            if($total_row2 > 0)
             {
                 $no = 1;
                 foreach($lemburs as $row)
@@ -126,7 +126,6 @@ class DataLemburController extends Controller
                         <td>'.$no++.'</td>
                         <td>'.$row->bulan.'</td>
                         <td><strong>'.$row->nama.'</strong>
-                        <i class="fab fa-angular fa-lg text-danger me-3"></i>
                         </td>
                         <td>'.$row->jabatan.'</td>
                         <td>'.$row->npp.'</td>
@@ -146,14 +145,14 @@ class DataLemburController extends Controller
             }
             else
             {
-            $output = '
-            <tr>
-                <td align="center" colspan="15"><strong> No Data Found </strong></td>
-            </tr>
-            ';
-            }
-            $lemburs = array('table_data' => $output);
-            echo json_encode($lemburs);
+                $output = '
+                <tr>
+                    <td align="center" colspan="15"><strong> No Data Found </strong></td>
+                </tr>
+                ';
+                }
+                $lemburs = array('table_data2' => $output);
+                echo json_encode($lemburs);
         }
     }
 }

@@ -129,20 +129,20 @@ class AbsensiDataKaryawanController extends Controller
     {
         if($request->ajax()){
             $output = '';
-            $query = $request->get('query');
-            if($query != '')
+            $query1 = $request->get('query1');
+            if($query1 != '')
             {
-                $absensis = absensi_data_karyawan::where('nama', 'LIKE', '%'.$query.'%')
-                ->orWhere('nik', 'LIKE', '%'.$query.'%')
-                ->orWhere('bulantahun', 'LIKE', '%'.$query.'%')
+                $absensis = absensi_data_karyawan::where('nama', 'LIKE', '%'.$query1.'%')
+                ->orWhere('nik', 'LIKE', '%'.$query1.'%')
+                ->orWhere('bulantahun', 'LIKE', '%'.$query1.'%')
                 ->orderBy('bulantahun', 'asc')->get();
             }
             else
             {
                 $absensis = absensi_data_karyawan::latest()->get();
             }
-            $total_row = $absensis->count();
-            if($total_row > 0)
+            $total_row1 = $absensis->count();
+            if($total_row1 > 0)
             {
                 $no = 1;
                 foreach($absensis as $row)
@@ -178,7 +178,7 @@ class AbsensiDataKaryawanController extends Controller
             </tr>
             ';
             }
-            $absensis = array('table_data' => $output);
+            $absensis = array('table_data1' => $output);
             echo json_encode($absensis);
         }
     }

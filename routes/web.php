@@ -41,15 +41,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     //Tabel Absensi Karyawan
     Route::resource('/absensi', AbsensiDataKaryawanController::class);
     route::get('/absensi/{id}/delete', [AbsensiDataKaryawanController::class,'delete'])->name('absensi.delete');
-    Route::post('dynamic_dependent/fetch', [AbsensiDataKaryawanController::class,'fetch'])->name('dynamicdependent.fetch');
-    Route::get('/live_search/action', [AbsensiDataKaryawanController::class, 'action'])->name('live_search.action');
+    Route::post('absensi/fetch', [AbsensiDataKaryawanController::class,'fetch'])->name('absensi.fetch');
+    Route::get('/live_search/action', [AbsensiDataKaryawanController::class, 'action'])->name('absensi.action');
     
     //Tabel Terima Potong
     Route::resource('/terimapotong', TerimaPotongController::class);
+    Route::post('/potong/fetch', [TerimaPotongController::class,'fetch'])->name('potong.fetch');
     
     //Tabel Data Lembur
     Route::resource('/lembur', DataLemburController::class);
-    Route::post('dynamic_dependent/fetch', [DataLemburController::class,'fetch'])->name('lembur.fetch');
+    Route::post('/lembur/fetch', [DataLemburController::class,'fetch'])->name('lembur.fetch');
+    Route::get('/lembur_search/search', [DataLemburController::class, 'action'])->name('lemburs.action');
 
     //--------------Tabel Refrensi-------------------------
     Route::resource('/refrensi', TabelReferensiController::class);

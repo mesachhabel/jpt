@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\PelaporanData;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
+use Carbon\Carbon;
 
 class slipgajicontroller extends Controller
 {
@@ -25,7 +26,10 @@ class slipgajicontroller extends Controller
     
     public function slipdireksi()
     {
-        return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiDireksi');
+        $today = Carbon::now();
+        $year = $today->year;
+        $monthName = $today->format('F');
+        return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiDireksi',compact('today','year','monthName'));
     }
 
     /**

@@ -15,7 +15,7 @@
                         <div class="col-md-4 mb-3">
                             <div class="col-md-12">
                                 <input class="form-control" name="bulantahun" type="month" value="2022-01"
-                                    id="html5-month-input" />
+                                    id="html5-month-input" required />
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
@@ -58,7 +58,7 @@
                                     </td>
                                     <td>
                                         <select style="border:none; width:13rem; text-align:center;" name="nama" id="nama"
-                                            class="form-control input-lg">
+                                            class="form-control input-lg" readonly="readonly">
                                         </select>
                                     </td>
                                     <td><input value="0" class="form-control absen text-center" style="border:none"
@@ -106,7 +106,7 @@
                     var dependent = $(this).data('dependent');
                     var _token = $('input[name="_token"]').val();
                     $.ajax({
-                        url: "{{ route('dynamicdependent.fetch') }}",
+                        url: "{{ route('absensi.fetch') }}",
                         method: "POST",
                         data: {
                             select: select,

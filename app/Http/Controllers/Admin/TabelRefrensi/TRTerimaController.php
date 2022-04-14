@@ -21,16 +21,6 @@ class TRTerimaController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -49,25 +39,15 @@ class TRTerimaController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(tr_jenispenerimaan $terima)
     {
-        //
+        $terima = tr_jenispenerimaan::find($terima->id);
+        return view('admins.TabelReferensi.EditTR.EditJenisTerima',compact('terima'));
     }
 
     /**
@@ -77,9 +57,17 @@ class TRTerimaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,tr_jenispenerimaan $terima)
     {
-        //
+        $terima = tr_jenispenerimaan::find($terima->id);
+        $terima->update($request->all());
+        if($terima){
+            Alert::success('Data Berhasil Diubah', 'Selamat');
+            return redirect()->route('terima.index');
+        }else{
+            Alert::error('Data Gagal Diubah', 'Maaf');
+            return redirect()->route('terima.edit',$terima->id);
+        }
     }
 
     /**

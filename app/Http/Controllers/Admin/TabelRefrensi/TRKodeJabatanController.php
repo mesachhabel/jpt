@@ -21,16 +21,6 @@ class TRKodeJabatanController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -49,25 +39,15 @@ class TRKodeJabatanController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(tr_kodejabatan $kodejabatan)
     {
-        //
+        $kodejabatan = tr_kodejabatan::find($kodejabatan->id);
+        return view('admins.TabelReferensi.EditTR.EditKodeJabatan',compact('kodejabatan'));
     }
 
     /**
@@ -77,9 +57,17 @@ class TRKodeJabatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,tr_kodejabatan $kodejabatan)
     {
-        //
+        $kodejabatan = tr_kodejabatan::find($kodejabatan->id);
+        $kodejabatan->update($request->all());
+        if($kodejabatan){
+            Alert::success('Data Berhasil Diubah', 'Selamat');
+            return redirect()->route('kodejabatan.index');
+        }else{
+            Alert::error('Data Gagal Diubah', 'Maaf');
+            return redirect()->route('kodejabatan.index');
+        }
     }
 
     /**

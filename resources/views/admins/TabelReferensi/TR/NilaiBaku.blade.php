@@ -186,7 +186,7 @@
         <div class="card">
             <div class="table-responsive text-nowrap">
                 <table class="table table-hover">
-                    <thead>
+                    <thead class="text-center" style="vertical-align:middle;">
                         <tr>
                             <th>No</th>
                             <th>St_Peg</th>
@@ -216,7 +216,7 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0">
+                    <tbody class="text-center" style="vertical-align:middle;">
                         <?php $no = 1; ?>
                         @forelse ($nilaibakus as $nilai)
                             <tr>
@@ -306,7 +306,7 @@
                             </tr>
                         @empty
                             <div class="alert alert-danger">
-                                Data Karyawan Belum Ada.
+                                Data NIlai Baku Belum Ada.
                             </div>
                         @endforelse
                     </tbody>

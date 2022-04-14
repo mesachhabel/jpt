@@ -21,16 +21,6 @@ class TRKeteranganSlipGajiController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -49,25 +39,15 @@ class TRKeteranganSlipGajiController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(tr_keteranganslipgaji $keteranganslipgaji)
     {
-        //
+        $keteranganslipgaji=tr_keteranganslipgaji::find($keteranganslipgaji->id);
+        return view('admins.TabelReferensi.EditTR.EditKeteranganSlipGaji', compact('keteranganslipgaji'));
     }
 
     /**
@@ -77,9 +57,17 @@ class TRKeteranganSlipGajiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,tr_keteranganslipgaji $keteranganslipgaji)
     {
-        //
+        $keteranganslipgaji=tr_keteranganslipgaji::find($keteranganslipgaji->id);
+        $keteranganslipgaji->update($request->all());
+        if($keteranganslipgaji){
+            Alert::success('Data Berhasil Diubah', 'Selamat');
+            return redirect()->route('keteranganslipgaji.index');
+        }else{
+            Alert::error('Data Gagal Diubah', 'Maaf');
+            return redirect()->route('keteranganslipgaji.edit',$keteranganslipgaji->id);
+        }
     }
 
     /**

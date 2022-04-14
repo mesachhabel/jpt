@@ -21,16 +21,6 @@ class TRAgama extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -49,25 +39,15 @@ class TRAgama extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(tr_agama $agama)
     {
-        //
+        $agama = tr_agama::find($agama->id);
+        return view('admins.TabelReferensi.EditTR.EditAgama', compact('agama'));
     }
 
     /**
@@ -77,9 +57,17 @@ class TRAgama extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,tr_agama $agama)
     {
-        //
+        $agama = tr_agama::find($agama->id);
+        $agama->update($request->all());
+        if($agama){
+            Alert::success('Data Berhasil Diubah', 'Selamat');
+            return redirect()->route('agama.index');
+        }else{
+            Alert::error('Data Gagal Diubah', 'Maaf');
+            return redirect()->route('agama.edit', $agama->id);
+        }
     }
 
     /**

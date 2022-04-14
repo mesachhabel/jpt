@@ -49,25 +49,15 @@ class TRPotongController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(tr_potong $potong)
     {
-        //
+        $potong = tr_potong::find($potong->id);
+        return view('admins.TabelReferensi.EditTR.EditJenisPotong', compact('potong'));
     }
 
     /**
@@ -77,9 +67,17 @@ class TRPotongController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,tr_potong $potong)
     {
-        //
+        $potong = tr_potong::find($potong->id);
+        $potong->update($request->all());
+        if($potong){
+            Alert::success('Data Berhasil Diubah', 'Selamat');
+            return redirect()->route('potong.index');
+        }else{
+            Alert::error('Data Gagal Diubah', 'Maaf');
+            return redirect()->route('potong.edit', $potong->id);
+        }
     }
 
     /**

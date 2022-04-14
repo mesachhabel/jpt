@@ -4,10 +4,11 @@
     @include('sweetalert::alert')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">Transaksi Data / Lembur Karyawan /</span> Tambah Data
+            <span class="text-muted fw-light">Transaksi Data / Lembur Karyawan /</span> Edit Data
         </h4>
-        <form id="formAccountSettings" method="POST" action="{{ route('lembur.store') }}">
+        <form id="formAccountSettings" method="POST" action="{{ route('lembur.update', $lembur->id) }}">
             @csrf
+            @method('PUT')
             <div class="row">
                 <div class="col-md-12">
                     <div class="card mb-4">
@@ -19,37 +20,21 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="html5-month-input" class="form-label">Bulan - Tahun</label>
                                     <div id="datetimepicker" class="col-md-12">
-                                        <input name="bulan" class="form-control" type="month" value="2022-01"
-                                            id="html5-month-input" />
+                                        <input name="bulan" class="form-control" type="month"
+                                            value="{{ old('bulan', $lembur->bulan) }}" required>
                                     </div>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="nama" class="form-label">Nama</label>
-                                    <select name="nama" id="nama" class="form-select dynamic" data-dependent="nppi"
-                                        required>
-                                        <option disabled selected>Pilih Nama</option>
-                                        @foreach ($karyawans as $lembur)
-                                            <option value="{{ $lembur->nama }}">[{{ $lembur->nik }}]
-                                                {{ $lembur->nama }}
-                                            </option>
-                                        @endforeach
-                                    </select>
+                                    <input class="form-control" value="{{ old('nama', $lembur->nama) }}" />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">NPP</label>
-                                    <select name="npp" id="nppi" class="form-control input-lg" readonly="readonly">
-                                    </select>
+                                    <input class="form-control" value="{{ old('npp', $lembur->npp) }}" />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Jabatan</label>
-                                    <select id="defaultSelect" name="jabatan" class="form-select" required>
-                                        <option disabled selected>--- Pilih Jabatan --- </option>
-                                        @foreach ($karyawans as $lembur)
-                                            <option value="{{ $lembur->jabatan }}">
-                                                {{ $lembur->jabatan }}
-                                            </option>
-                                        @endforeach
-                                    </select>
+                                    <input class="form-control" value="{{ old('jabatan', $lembur->jabatan) }}" />
                                 </div>
                             </div>
                         </div>
@@ -68,21 +53,19 @@
                         <div class="card-body">
                             <div class="mb-3 col-md-12">
                                 <label for="tanggal_lembur" class="form-label">Tanggal</label>
-                                <input class="form-control" type="date" name="tanggal_lembur" id="intanggal" required />
+                                <input class="form-control" type="date" name="tanggal_lembur" id="intanggal"
+                                    value="{{ old('tanggal_lembur', $lembur->tanggal_lembur) }}" />
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label for="jumlah_jam_lembur" class="form-label">Jumlah Jam</label>
                                 <input class="form-control" type="text" name="jumlah_jam_lembur" id="injam"
-                                    placeholder="Masukan Jumlah Jam" required />
+                                    placeholder="Masukan Jumlah Jam"
+                                    value="{{ old('jumlah_jam_lembur', $lembur->jumlah_jam_lembur) }}" />
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label for="defaultSelect" class="form-label">Jenis Hari</label>
-                                <select name="jenis_hari_lembur" id="injenishari" class="form-select" required>
-                                    <option>-- Pilih Hari --</option>
-                                    <option value="1">Hari Kerja</option>
-                                    <option value="2">Hari Libur</option>
-                                    <option value="3">Libur Nasional</option>
-                                </select>
+                                <input name="jenis_hari_lembur" id="injenishari" class="form-select"
+                                    value="{{ old('jenis_hari_lembur', $lembur->jenis_hari_lembur) }}" disabled />
                             </div>
                         </div>
                         <hr class="my-0" />
@@ -106,7 +89,7 @@
                                         </thead>
                                         <tbody class="table-border-bottom-0">
                                             <?php $no = 1; ?>
-                                            @forelse ($lemburs as $lembur)
+                                            @foreach ($lemburs as $lembur)
                                                 <tr>
                                                     <td><input class="form-control absen text-center" style="border:none"
                                                             value="{{ $no++ }}" type="text" disabled />
@@ -135,18 +118,13 @@
                                                         @endif
                                                     </td>
                                                 </tr>
-                                            @empty
-                                                <div class="alert alert-danger">
-                                                    Detail Jam Lembur Belum Ada.
-                                                </div>
-                                            @endforelse
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <ul class="pagination justify-content-center mt-3">{{ $lemburs->links('pagination::bootstrap-4') }}
                 </div>
             </div>
             <hr class="my-4" />
@@ -160,17 +138,20 @@
                             <div class="mb-3 col-md-12">
                                 <label for="jumlahinsentif" class="form-label">Jumlah</label>
                                 <input class="form-control" type="text" name="jumlah_insentif" id="jumlah"
-                                    placeholder="Jumlah Insentif" required />
+                                    placeholder="Jumlah Insentif"
+                                    value="{{ old('jumlah_insentif', $lembur->jumlah_insentif) }}" />
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label for="rpinsentif" class="form-label">Rp. Insentif</label>
                                 <input class="form-control" type="text" name="nilai_insentif" id="insentif"
-                                    placeholder="Nilai PerInsentif" required />
+                                    placeholder="Nilai PerInsentif"
+                                    value="{{ old('nilai_insentif', $lembur->nilai_insentif) }}" />
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label for="totalinsentif" class="form-label">Total Insentif</label>
                                 <input class="form-control" type="text" name="total_insentif" id="total"
-                                    placeholder="Total Insentif" readonly required />
+                                    placeholder="Total Insentif" readonly
+                                    value="{{ old('total_insentif', $lembur->total_insentif) }}" />
                             </div>
                         </div>
                         <hr class="my-0" />
@@ -201,7 +182,7 @@
                                         </thead>
                                         <tbody class="table-border-bottom-0">
                                             <?php $no = 1; ?>
-                                            @forelse ($lemburs as $lembur)
+                                            @foreach ($lemburs as $lembur)
                                                 <tr>
                                                     <td><input class="form-control absen text-center" style="border:none"
                                                             value="{{ $no++ }}" type="text" disabled /></td>
@@ -220,16 +201,10 @@
                                                             placeholder="-" disabled />
                                                     </td>
                                                 </tr>
-                                            @empty
-                                                <div class="alert alert-danger">
-                                                    Detail insentif Belum Ada.
-                                                </div>
-                                            @endforelse
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
-                                <ul class="pagination justify-content-center mt-3">
-                                    {{ $lemburs->links('pagination::bootstrap-4') }}
                             </div>
                         </div>
                     </div>
@@ -239,36 +214,4 @@
     </div>
     <!--/ Striped Rows -->
     <hr class="my-5" />
-    <script src="../../../assets/js/lembur.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.dynamic').change(function() {
-                if ($(this).val() != '') {
-                    var select = $(this).attr("id");
-                    var value = $(this).val();
-                    var dependent = $(this).data('dependent');
-                    var _token = $('input[name="_token"]').val();
-                    $.ajax({
-                        url: "{{ route('lembur.fetch') }}",
-                        method: "POST",
-                        data: {
-                            select: select,
-                            value: value,
-                            _token: _token,
-                            dependent: dependent
-                        },
-                        success: function(result) {
-                            $('#' + dependent).html(result);
-                        }
-
-                    })
-                }
-            });
-
-            $('#nama').change(function() {
-                $('#nppi').val('');
-            });
-        });
-    </script>
 @endsection

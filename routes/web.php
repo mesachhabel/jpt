@@ -81,10 +81,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
             Route::resource('/statuspegawai', TRStatusPegawai::class);
         //Tabel Referensi Status Tugas
             Route::resource('/statustugas', TRStatusTugas::class);
-
-    // Edit Tabel Referensi
-        // Tabel Referensi Kode Unit Kerja
-        Route::resource('/edit-kodeunitkerja', TRKodeUnitKerjaController::class);
 //------------------End Tabel Refrensi----------------------------------
 
     //Pelaporan Data

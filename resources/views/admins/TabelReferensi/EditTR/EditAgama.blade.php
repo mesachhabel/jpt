@@ -15,28 +15,34 @@
                     <!-- Account -->
                     <hr class="my-0" />
                     <div class="card-body">
-                        <form id="formAccountSettings" method="POST" onsubmit="return false">
+                        <form id="formAccountSettings" method="POST" action="{{ route('agama.update', $agama->id) }}">
+                            @csrf
+                            @method('PUT')
                             <div class="row">
                                 <div class="mb-3 col-md-6">
-                                    <label for="NPWP" class="form-label">Kode Agama</label>
-                                    <input class="form-control" type="text" id="NPWP" name="NPWP" value="HRD" autofocus />
+                                    <label for="kode" class="form-label">Kode Agama</label>
+                                    <input class="form-control" type="text" id="kode" name="kode"
+                                        value="{{ old('kode', $agama->kode) }}" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="NoKTP" class="form-label">Keterangan Agama</label>
-                                    <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="Rudistiar" />
+                                    <label for="namaagama" class="form-label">Keterangan Agama</label>
+                                    <input class="form-control" type="text" name="namaagama" id="namaagama"
+                                        value="{{ old('nama', $agama->namaagama) }}" />
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="NPWP" class="form-label">Kode Kelompok</label>
-                                    <input class="form-control" type="text" id="NPWP" name="NPWP" value="HRD" autofocus />
+                                    <label for="kodekelompok" class="form-label">Kode Kelompok</label>
+                                    <input class="form-control" type="text" id="kodekelompok" name="kodekelompok"
+                                        value="{{ old('kodekelompok', $agama->kodekelompok) }}" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="NoKTP" class="form-label">Kelompok Agama</label>
-                                    <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="Rudistiar" />
+                                    <label for="kelompok" class="form-label">Kelompok Agama</label>
+                                    <input class="form-control" type="text" name="kelompok" id="kelompok"
+                                        value="{{ old('kelompok', $agama->kelompok) }}" />
                                 </div>
                                 <hr class="my-0" />
                                 <div class="mt-3">
                                     <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                                    <a href="{{ route('karyawan.index') }}" class="btn btn-outline-secondary">Cancel</a>
+                                    <a href="{{ route('agama.index') }}" class="btn btn-outline-secondary">Cancel</a>
                                 </div>
                             </div>
                         </form>

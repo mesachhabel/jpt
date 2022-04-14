@@ -35,17 +35,6 @@ class DataLemburController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -53,10 +42,9 @@ class DataLemburController extends Controller
      */
     public function edit(data_lembur $lembur)
     {
-        $karyawans = DB::table('data_karyawans')->groupBy('nama')->get();
         $lemburs = data_lembur::latest()->paginate(3);
-        $lembur = data_lembur::findOrFail($lembur->id);
-        return view('admins.DataLembur.EditDataLemburs', compact('lembur','karyawans','lemburs'));
+        $lembur = data_lembur::find($lembur->id);
+        return view('admins.DataLembur.EditDataLemburs', compact('lembur','lemburs'));
     }
 
     /**

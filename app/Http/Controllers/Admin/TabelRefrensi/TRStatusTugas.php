@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\TabelRefrensi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tr_statustugas;
+use Alert;
 
 class TRStatusTugas extends Controller
 {
@@ -15,18 +16,8 @@ class TRStatusTugas extends Controller
      */
     public function index()
     {
-        $statustugass = tr_statustugas::paginate(5);
-        return view('admins.TabelReferensi.TR.statustugas', compact('statustugass'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $statustugas = tr_statustugas::paginate(5);
+        return view('admins.TabelReferensi.TR.StatusTugas', compact('statustugas'));
     }
 
     /**
@@ -42,25 +33,15 @@ class TRStatusTugas extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(tr_statustugas $statustugas)
     {
-        //
+        $statustugas = tr_statustugas::find($statustugas->id);
+        return view('admins.TabelReferensi.EditTR.EditStatusTugas', compact('statustugas'));
     }
 
     /**
@@ -70,9 +51,18 @@ class TRStatusTugas extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,tr_statustugas $statustugas)
     {
-        //
+        $statustugas = tr_statustugas::find($statustugas->id);
+        $statustugas->update($request->all());
+        if($statustugas){
+            Alert::success('Data Berhasil Diubah', 'Selamat');
+            return redirect()->route('statustugas.index');
+        }
+        else{
+            Alert::error('Data Gagal Diubah', 'Maaf');
+            return redirect()->route('statustugas.edit', $statustugas->id);
+        }
     }
 
     /**

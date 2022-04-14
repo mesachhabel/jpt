@@ -55,7 +55,16 @@
                                 <td>{{ $lembur->jumlah_insentif }}</td>
                                 <td>{{ $lembur->nilai_insentif }}</td>
                                 <td>{{ $lembur->total_insentif }}</td>
-                                <td>tes</td>
+                                <td>
+                                    <a href="{{ route('lembur.edit', $lembur->id) }}"
+                                        class="btn btn-primary btn-sm">Edit</a>
+                                    <form action="{{ route('lembur.destroy', $lembur->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                    </form>
+                                </td>
                             </tr>
                         @empty
                             <div class="alert alert-danger">

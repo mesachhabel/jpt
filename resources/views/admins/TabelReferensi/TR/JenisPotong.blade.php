@@ -81,22 +81,23 @@
         <!-- Hoverable Table rows -->
         <div class="card">
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover">
-                    <thead>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="text-center" style="vertical-align:middle;">
                         <tr>
-                            <th rowspan="2">No</th>
-                            <th rowspan="2">Kode Potongan</th>
-                            <th rowspan="2">Keterangan Potongan Lain</th>
+                            <th colspan="3">Jenis Potongan Lain</th>
                             <th colspan="3">Alamat Transfer</th>
                             <th rowspan="2">Actions</th>
                         </tr>
                         <tr>
+                            <th>No</th>
+                            <th>Kode Potongan</th>
+                            <th>Keterangan Potongan Lain</th>
                             <th>Bank</th>
                             <th>No. Rekening</th>
                             <th>Atas Nama</th>
                         </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0">
+                    <tbody class="text-center" style="vertical-align:middle;">
                         <?php $no = 1; ?>
                         @forelse ($potongs as $potong)
                             <tr>

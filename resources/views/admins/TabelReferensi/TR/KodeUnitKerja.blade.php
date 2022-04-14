@@ -17,7 +17,7 @@
                 <div class="card mt-3">
                     <div class="table-responsive text-nowrap">
                         <table class="table table-hover">
-                            <thead>
+                            <thead class="text-center" style="vertical-align:middle;">
                                 <tr>
                                     <th>No</th>
                                     <th>Kode Unit</th>
@@ -27,7 +27,7 @@
                                     <th>Actions</th>
                                 </tr>
                             </thead>
-                            <tbody class="table-border-bottom-0">
+                            <tbody class="text-center" style="vertical-align:middle;">
                                 <?php $no = 1; ?>
                                 @forelse ($kodeunitkerjas as $kodeunitkerja)
                                     <tr>

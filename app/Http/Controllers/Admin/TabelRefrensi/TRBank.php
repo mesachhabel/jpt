@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\TabelRefrensi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tr_bank;
+use Alert;
 
 class TRBank extends Controller
 {
@@ -20,16 +21,6 @@ class TRBank extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -42,25 +33,15 @@ class TRBank extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(tr_bank $bank)
     {
-        //
+        $bank = tr_bank::find($bank->id);
+        return view('admins.TabelReferensi.EditTR.EditBank', compact('bank'));
     }
 
     /**
@@ -70,9 +51,19 @@ class TRBank extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,tr_bank $bank)
     {
-        //
+        $bank = tr_bank::find($bank->id);
+        $bank->update($request->all());
+        if($bank){
+            Alert::success('Data Berhasil Diubah', 'Selamat');
+            return redirect()->route('bank.index');
+        }
+        else{
+            Alert::error('Data Gagal Diubah', 'Maaf');
+            return redirect()->route('bank.edit');
+        }
+        
     }
 
     /**

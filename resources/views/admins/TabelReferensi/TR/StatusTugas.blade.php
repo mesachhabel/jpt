@@ -14,7 +14,7 @@
                     + Tambah Data
                 </button>
                 <!-- Modal -->
-                <form id="formAccountSettings" method="POST" action="{{ route('statustugas.store') }}">
+                <form id="formAccountSettings" method="POST" action="{{ route('statustugasdb.store') }}">
                     @csrf
                     <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -94,7 +94,7 @@
                     </thead>
                     <tbody class="text-center" style="vertical-align:middle;">
                         <?php $no = 1; ?>
-                        @forelse ($statustugas as $stt)
+                        @forelse ($statustugasdbs as $stt)
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
@@ -114,8 +114,8 @@
                                 </td>
                                 <td>
                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                        action="{{ route('statustugas.destroy', $stt->id) }}" method="POST">
-                                        <a href="{{ route('statustugas.edit', $stt->id) }}"
+                                        action="{{ route('statustugasdb.destroy', $stt->id) }}" method="POST">
+                                        <a href="{{ route('statustugasdb.edit', $stt->id) }}"
                                             class="btn btn-sm btn-secondary">Edit</a>
                                         @csrf
                                         @method('DELETE')
@@ -134,7 +134,7 @@
             </div>
             <!--/ Hoverable Table rows -->
         </div>
-        <ul class="pagination justify-content-center mt-3">{{ $statustugass->links('pagination::bootstrap-4') }} </ul>
+        <ul class="pagination justify-content-center mt-3">{{ $statustugasdbs->links('pagination::bootstrap-4') }} </ul>
         <!--/ Hoverable Table rows -->
     </div>
     <hr class="my-5" />

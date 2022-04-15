@@ -118,7 +118,7 @@
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Status Tugas</strong>
                             </td>
                             <td>
-                                <a href="{{ route('statustugas.index') }}" type="button"
+                                <a href="{{ route('statustugasdb.index') }}" type="button"
                                     class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
 
                             </td>

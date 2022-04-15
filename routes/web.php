@@ -18,7 +18,7 @@ use App\Http\Controllers\Admin\TabelRefrensi\TRNilaiBaku;
 use App\Http\Controllers\Admin\TabelRefrensi\TRPenandatangan;
 use App\Http\Controllers\Admin\TabelRefrensi\TRBank;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusPegawai;
-use App\Http\Controllers\Admin\TabelRefrensi\TRStatusTugas;
+use App\Http\Controllers\Admin\TabelRefrensi\TRStatusTugasDB;
 use App\Http\Controllers\Admin\PelaporanData\slipgajicontroller;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -80,7 +80,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
         //Tabel Referensi Status Pegawai
             Route::resource('/statuspegawai', TRStatusPegawai::class);
         //Tabel Referensi Status Tugas
-            Route::resource('/statustugas', TRStatusTugas::class);
+            Route::resource('/statustugasdb', TRStatusTugasDB::class);
 //------------------End Tabel Refrensi----------------------------------
 
     //Pelaporan Data

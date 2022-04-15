@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\tr_statustugas;
+use App\Models\tr_statustugas_db;
 use Alert;
+use DB;
 
-class TRStatusTugas extends Controller
+class TRStatusTugasDB extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +17,8 @@ class TRStatusTugas extends Controller
      */
     public function index()
     {
-        $statustugas = tr_statustugas::paginate(5);
-        return view('admins.TabelReferensi.TR.StatusTugas', compact('statustugas'));
+        $statustugasdbs = tr_statustugas_db::paginate(5);
+        return view('admins.TabelReferensi.TR.StatusTugas', compact('statustugasdbs'));
     }
 
     /**
@@ -28,8 +29,8 @@ class TRStatusTugas extends Controller
      */
     public function store(Request $request)
     {
-        tr_statustugas::create($request->all());
-        return redirect()->route('statustugas.index');
+        tr_statustugas_db::create($request->all());
+        return redirect()->route('statustugasdb.index');
     }
 
     /**
@@ -38,10 +39,10 @@ class TRStatusTugas extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(tr_statustugas $statustugas)
+    public function edit(tr_statustugas_db $statustugasdb)
     {
-        $statustugas = tr_statustugas::find($statustugas->id);
-        return view('admins.TabelReferensi.EditTR.EditStatusTugas', compact('statustugas'));
+        $statustugasdb = tr_statustugas_db::find($statustugasdb->id);
+        return view('admins.TabelReferensi.EditTR.EditStatusTugas', compact('statustugasdb'));
     }
 
     /**
@@ -51,17 +52,16 @@ class TRStatusTugas extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,tr_statustugas $statustugas)
+    public function update(Request $request, tr_statustugas_db $statustugasdb)
     {
-        $statustugas = tr_statustugas::find($statustugas->id);
-        $statustugas->update($request->all());
-        if($statustugas){
+        $statustugasdb = tr_statustugas_db::find($statustugasdb->id);
+        $statustugasdb->update($request->all());
+        if ($statustugasdb) {
             Alert::success('Data Berhasil Diubah', 'Selamat');
-            return redirect()->route('statustugas.index');
-        }
-        else{
+            return redirect()->route('statustugasdb.index');
+        } else {
             Alert::error('Data Gagal Diubah', 'Maaf');
-            return redirect()->route('statustugas.edit', $statustugas->id);
+            return redirect()->route('statustugasdb.edit', $statustugasdb->id);
         }
     }
 

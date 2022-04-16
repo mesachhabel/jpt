@@ -57,13 +57,14 @@
                             </div>
                         </div>
                     </div>
+                </form>
             </div>
         </div>
 
         <!-- Hoverable Table rows -->
         <div class="card">
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover">
+                <table class="table table-hover table-bordered table-striped">
                     <thead class="text-center" style="vertical-align:middle;">
                         <tr>
                             <th>No</th>
@@ -93,7 +94,7 @@
                                         <a href="{{ route('penandatangan.edit', $ttd->id) }}"
                                             class="btn btn-sm btn-secondary">Edit</a>
                                         @csrf
-                                        @method('DELETE')
+                                        {{ method_field('DELETE') }}
                                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                     </form>
                                 </td>

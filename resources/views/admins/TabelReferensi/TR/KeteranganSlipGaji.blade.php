@@ -57,7 +57,7 @@
         <!-- Hoverable Table rows -->
         <div class="card">
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover">
+                <table class="table table-hover table-bordered table-striped">
                     <thead class="text-center" style="vertical-align:middle;">
                         <tr>
                             <th>No</th>
@@ -91,7 +91,7 @@
                             </tr>
                         @empty
                             <div class="alert alert-danger">
-                                Data Post belum Tersedia.
+                                Data Keterangan Slip Gaji Belum Tersedia.
                             </div>
                         @endforelse
                     </tbody>

@@ -72,8 +72,16 @@ class TRBank extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_bank $bank)
     {
-        //
+        $bank->delete();
+        if ($bank) {
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('bank.index');
+        }
+        else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('bank.index');
+        }
     }
 }

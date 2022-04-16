@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('container')
     @include('sweetalert::alert')
     <div id="data" class="container-xxl flex-grow-1 container-p-y">
@@ -12,10 +11,12 @@
             <div class="card-body">
                 <div class="float-right mb-3 row">
                     <label for="html5-month-input" style="text-transform: none; font-size: 12px;"
-                        class="form-label">Pencarian Data</label>
+                        class="form-label">Pencarian Data
+                    </label>
                     <div class="col-md-4 mb-3">
                         <div class="input-group">
-                            <input class="form-control search" id="search" name="search" type="text" placeholder="Cari ...">
+                            <input class="form-control search" id="search" name="search" placeholder="Cari Disini"
+                                type="month">
                         </div>
                     </div>
                     <hr class="my-0" />
@@ -79,7 +80,7 @@
                 })
             }
 
-            $(document).on('keyup', '.search', function() {
+            $(document).on('change', '.search', function() {
                 var query1 = $(this).val();
                 fetch_nik(query1);
             });

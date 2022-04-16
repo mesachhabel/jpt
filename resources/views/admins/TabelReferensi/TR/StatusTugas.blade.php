@@ -72,6 +72,7 @@
                             </div>
                         </div>
                     </div>
+                </form>
             </div>
         </div>
         <!-- Hoverable Table rows -->

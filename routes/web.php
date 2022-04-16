@@ -42,7 +42,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     Route::resource('/absensi', AbsensiDataKaryawanController::class);
     route::get('/absensi/{id}/delete', [AbsensiDataKaryawanController::class,'delete'])->name('absensi.delete');
     Route::post('absensi/fetch', [AbsensiDataKaryawanController::class,'fetch'])->name('absensi.fetch');
-    Route::get('/live_search/action', [AbsensiDataKaryawanController::class, 'action'])->name('absensi.action');
+    Route::get('/absensi_search/action', [AbsensiDataKaryawanController::class, 'action'])->name('absensi.action');
     
     //Tabel Terima Potong
     Route::resource('/terimapotong', TerimaPotongController::class);
@@ -51,7 +51,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     //Tabel Data Lembur
     Route::resource('/lembur', DataLemburController::class);
     Route::post('/lembur/fetch', [DataLemburController::class,'fetch'])->name('lembur.fetch');
-    Route::get('/lembur_search/search', [DataLemburController::class, 'action'])->name('lemburs.action');
 
     //--------------Tabel Refrensi-------------------------
     Route::resource('/refrensi', TabelReferensiController::class);
@@ -87,11 +86,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
         //Slip Gaji
         Route::resource('/slipgaji', slipgajicontroller::class);
             // //Direksi
-             Route::get('/slipdireksi', [slipgajicontroller::class,'slipdireksi'])->name('slipgaji.slipdireksi');   
-             Route::get('/dataslipdireksi', [slipgajicontroller::class,'dataslipdireksi'])->name('slipgaji.dataslipdireksi');   
+            Route::get('/slipdireksi', [slipgajicontroller::class,'slipdireksi'])->name('slipgaji.slipdireksi');   
+            Route::get('/dataslipdireksi', [slipgajicontroller::class,'dataslipdireksi'])->name('slipgaji.dataslipdireksi');   
             // //Komisaris
-             Route::get('/slipkomisaris', [slipgajicontroller::class,'slipkomisaris'])->name('slipgaji.slipkomisaris');
-             Route::get('/dataslipkomisaris', [slipgajicontroller::class,'dataslipkomisaris'])->name('slipgaji.dataslipkomisaris');
+            Route::get('/slipkomisaris', [slipgajicontroller::class,'slipkomisaris'])->name('slipgaji.slipkomisaris');
+            Route::get('/dataslipkomisaris', [slipgajicontroller::class,'dataslipkomisaris'])->name('slipgaji.dataslipkomisaris');
             //Karyawan Tetap
     //End of Pelaporan Data
 });

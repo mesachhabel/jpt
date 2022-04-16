@@ -16,9 +16,15 @@ class TerimaPotongController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $terimapotongs = terima_potong::latest()->paginate(5);
+        if($request->has('bulan')){
+            $terimapotongs = terima_potong::where('bulan','LIKE','%'.$request->bulan.'%')->get();
+        }
+        else{
+            $terimapotongs = terima_potong::all();
+        }
         return view('admins.TerimaPotong.TerimaPotongs', compact('terimapotongs'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

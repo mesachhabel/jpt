@@ -70,8 +70,15 @@ class TRStatusPegawai extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_statuspegawai $statuspegawai)
     {
-        //
+        $statuspegawai->delete();
+        if($statuspegawai){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('statuspegawai.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('statuspegawai.index');
+        }
     }
 }

@@ -16,17 +16,17 @@
                         <!-- Account -->
                         <div class="card-body">
                             <div class="d-flex align-items-start align-items-sm-center gap-4">
-                                <img src="../../assets/img/avatars/1.svg" alt="user-avatar" class="d-block rounded"
-                                    height="100" width="100" id="uploadedAvatar" />
+                                <img src="../../assets/img/avatars/ImageUser.svg" alt="user-avatar" class="d-block rounded"
+                                    height="150" width="150" id="uploadedAvatar" />
                                 <div class="button-wrapper">
-                                    <label for="inputImage" class="btn btn-primary me-2 mb-0" tabindex="0">
+                                    <label for="inputImage" class="btn btn-primary me-10 mb-0" tabindex="0">
                                         <span class="d-none d-sm-block">Upload new photo</span>
                                         <i class="bx bx-upload d-block d-sm-none"></i>
                                         <input type="file" name="image" id="inputImage"
                                             class="form-control @error('image') is-invalid @enderror" required>
                                     </label>
 
-                                    <p class="text-muted mb-0">Allowed JPG, JPEG, GIF or PNG. Max size of 2MB</p>
+                                    <p class="text-muted mt-1">Allowed JPG, JPEG, GIF or PNG. Max size of 2MB</p>
                                 </div>
                             </div>
                         </div>

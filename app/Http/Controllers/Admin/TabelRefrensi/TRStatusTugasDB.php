@@ -71,8 +71,15 @@ class TRStatusTugasDB extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_statustugas_db $statustugasdb)
     {
-        //
+        $statustugasdb->delete();
+        if ($statustugasdb) {
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('statustugasdb.index');
+        } else {
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('statustugasdb.index');
+        }
     }
 }

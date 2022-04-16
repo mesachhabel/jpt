@@ -132,9 +132,7 @@ class AbsensiDataKaryawanController extends Controller
             $query1 = $request->get('query1');
             if($query1 != '')
             {
-                $absensis = absensi_data_karyawan::where('nama', 'LIKE', '%'.$query1.'%')
-                ->orWhere('nik', 'LIKE', '%'.$query1.'%')
-                ->orWhere('bulantahun', 'LIKE', '%'.$query1.'%')
+                $absensis = absensi_data_karyawan::Where('bulantahun', 'LIKE', '%'.$query1.'%')
                 ->orderBy('bulantahun', 'asc')->get();
             }
             else

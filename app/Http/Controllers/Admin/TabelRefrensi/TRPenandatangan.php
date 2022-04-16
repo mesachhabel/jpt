@@ -70,8 +70,15 @@ class TRPenandatangan extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_penandatangan $penandatangan)
     {
-        //
+        $penandatangan->delete();
+        if($penandatangan){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('penandatangan.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('penandatangan.index');
+        }
     }
 }

@@ -193,9 +193,9 @@
     <div class="page">
         <section class="body-letter text">
             <!-- Judul -->
-            <img class="logo" src="../../assets/img/logo.png" alt="logo">
+            <img class="logo" src="../../assets/img/logo-jpt1.png" alt="logo">
             <div class="title">
-                <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : MARET 2022</a>
+                <a> RICIAN PENGHASILAN KARYAWAN TETAP<br> BULAN : MARET 2022</a>
             </div>
             <div class="text-bank">
                 <a>Pembayaran : BANK MANDIRI</a>

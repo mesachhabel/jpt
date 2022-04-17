@@ -69,6 +69,12 @@
             text-align: left;
         }
 
+        .wraptext{
+            width: 210px;
+            /* border: 1px solid #000000; */
+            word-wrap: break-word;
+        }
+
         #bloc1,
         #bloc2,
         #bloc3,
@@ -145,10 +151,12 @@
         }
 
         .sebutan {
-            /* position: flex; */
+            /* position: relative; */
             width: 50%;
+            top: 0px;
             left: 0px;
-            top: 100px;
+
+            /* top: 100px; */
         }
 
         .separ {
@@ -159,8 +167,8 @@
         }
 
         .keterangan {
-            position: flex;
-            width: auto;
+            /* position: flex; */
+            /* width: auto; */
             /* left: 143px; */
             top: 0px;
         }
@@ -193,7 +201,7 @@
     <div class="page">
         <section class="body-letter text">
             <!-- Judul -->
-            <img class="logo" src="../../assets/img/logo.png" alt="logo">
+            <img class="logo" src="../../assets/img/logo-jpt1.png" alt="logo">
             <div class="title">
                 <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : {{ $monthName }} {{ $year }} </a>
             </div>
@@ -207,18 +215,20 @@
                             <!-- identitas -->
                             <td colspan="2" valign="top">
                                 <div class="block_container">
-                                    <div class="sebutan" style="width: 207px;" id="bloc1">
-                                        <a>NIK - Nama</a> <br>
-                                        <a>Jabatan</a> <br>
-                                        <a>Nomor Pokok Wajib Pajak (NPWP) </a> <br>
-                                        <a>Tanggal Masuk Bekerja </a> <br>
-                                        <a>Masa Kerja Efektif</a> <br>
+                                    <div class="sebutan wraptext" style="width: 207px;" id="bloc1">
+                                        <span>
+                                            NIK - Nama  &emsp;  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;:<br>
+                                            Jabatan<br>
+                                            Nomor Pokok Wajib Pajak (NPWP)<br>
+                                            Tanggal Masuk Bekerja<br>
+                                            Masa Kerja Efektif
+                                        </span>
                                     </div>
-                                    <div class="separ" id="bloc2">
+                                    <div class="separ wraptext" id="bloc2">
                                         <a>:<br>:<br>:<br>:<br>:</a>
                                     </div>
-                                    <div class="keterangan" id="bloc3">
-                                        <a>D1603 - Ir. H. Bahrul Alam <br> Direktur Keuangan & SDM Direksi <br>
+                                    <div class="keterangan wraptext" id="bloc3">
+                                        <a>D1603 - Ir. H. Bahrul Alam <br> Direktur Keuangan & SDM Direksi<br>
                                             48.762.688.9-624.000 <br> 01 Juni 2016 <br> 5 Tahun 9 Bulan</a>
                                     </div>
                                     <div class="status" id="bloc4">

@@ -32,6 +32,11 @@ class slipgajicontroller extends Controller
         return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiDireksi',compact('today','year','monthName'));
     }
 
+    public function slipkaryawantetap()
+    {
+        return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiKaryawanTetap');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

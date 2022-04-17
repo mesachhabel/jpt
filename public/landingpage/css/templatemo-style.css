@@ -228,7 +228,7 @@ bootstrap.min.css:5 .navbar-toggle {
     width: 100%;
     padding-top: 35vh;
     text-align: center;
-    background-image: url(../../../landingpage/img/banner_bg.jpg);
+    background-image: url(../img/banner_bg.jpg);
     vertical-align: middle;
     box-shadow: inset 0 0 2000px rgba(0, 0, 0, 5);
 }
@@ -276,7 +276,7 @@ bootstrap.min.css:5 .navbar-toggle {
 
 #about {
     padding: 150px 0px;
-    background-image: url(../../../landingpage/img/about-bg.jpg);
+    background-image: url(../img/about-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -443,7 +443,7 @@ bootstrap.min.css:5 .navbar-toggle {
 }
 
 #blog {
-    background-image: url(../../../landingpage/img/blog-bg.jpg);
+    background-image: url(../img/blog-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

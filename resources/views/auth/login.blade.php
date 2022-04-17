@@ -7,7 +7,7 @@
             <div class="imgcontainer">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close"
                     title="Close Modal">&times;</span>
-                <img src="assets/img/logo-jpt1.png" alt="Logo" class="avatar mb-3">
+                <img src="landingpage/img/logo-jpt1.png" alt="Logo" class="avatar mb-3">
             </div>
             <div class="container">
                 <div class="clue"><b>Welcome to Jasa Marga Pandaan</b></div>

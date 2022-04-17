@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('index');
 });
 route::get('daftar-ptjpt', [RegisterController::class,'showRegistrationForm'] );
 route::post('register', [RegisterController::class,'register'] );

@@ -1,43 +1,62 @@
-@extends('index')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('login')
-    <div id="id01" class="modal">
-        <form class="modal-content animate" autocomplete="off" action="{{ route('login') }}" method="post">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="landingpage/img/logo.png" />
+    <title>PT Jasamarga Pandaan Tol</title>
+    <link rel="stylesheet" href="../../../assets/loginreg/css/login.css">
+</head>
+
+<body class="align">
+    <div class="grid">
+        <form action="{{ route('login') }}" method="POST" class="form login">
             @csrf
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                    title="Close Modal">&times;</span>
-                <img src="landingpage/img/logo-jpt1.png" alt="Logo" class="avatar mb-3">
+            <div class="form__field">
+                <label for="login__username">
+                    <svg class="icon">
+                        <use xlink:href="#icon-user"></use>
+                    </svg><span class="hidden">E-mail Address</span></label>
+                <input autocomplete="E-mail Address" id="email" type="text" name="email" class="form__input"
+                    placeholder="Enter E-mail Address" required>
             </div>
-            <div class="container">
-                <div class="clue"><b>Welcome to Jasa Marga Pandaan</b></div>
-                <br><b class="clue subclue">Mohon lakukan Log-In untuk melakukan administrasi</b>
-            </div>
-            <div class="container">
-                <br>
-                <label for="uname" class="clue subclue"><b> E-mail Address</b></label>
-                <input type="text" placeholder="Enter E-mail Address" class="form-control" id="email" name="email"
-                    required>
-                <span class="text-danger">
-                    @error('email')
-                        {{ $message }}
-                    @enderror
-                </span>
+            <span class="text-danger">
+                @error('email')
+                    {{ $message }}
+                @enderror
+            </span>
 
-                <label for="psw" class="clue subclue"><b>Password</b></label>
-                <input id="password" type="password" class="form-control" name="password" required data-eye
-                    placeholder="Enter password">
-                <span class="text-danger">
-                    @error('password')
-                        {{ $message }}
-                    @enderror
-                </span>
-                <label class="clue subclue mb-2">
-                    <input type="checkbox" name="remember"> Remember me
-                </label>
-                <button type="submit" class="btnlogin mb-3" onclick="lsRememberMe()">Login</button>
+            <div class="form__field">
+                <label for="login__password"><svg class="icon">
+                        <use xlink:href="#icon-lock"></use>
+                    </svg><span class="hidden">Password</span></label>
+                <input id="login__password" type="password" name="password" class="form__input"
+                    placeholder="Password" required data-eye>
+            </div>
+            <span class="text-danger">
+                @error('password')
+                    {{ $message }}
+                @enderror
+            </span>
+
+            <div class="form__field">
+                <input type="submit" value="Sign In">
             </div>
         </form>
     </div>
-    <script src="../../../assets/js/login.js"> </script>
-@endsection
+    <svg xmlns="http://www.w3.org/2000/svg" class="icons">
+        <symbol id="icon-lock" viewBox="0 0 1792 1792">
+            <path
+                d="M640 768h512V576q0-106-75-181t-181-75-181 75-75 181v192zm832 96v576q0 40-28 68t-68 28H416q-40 0-68-28t-28-68V864q0-40 28-68t68-28h32V576q0-184 132-316t316-132 316 132 132 316v192h32q40 0 68 28t28 68z" />
+        </symbol>
+        <symbol id="icon-user" viewBox="0 0 1792 1792">
+            <path
+                d="M1600 1405q0 120-73 189.5t-194 69.5H459q-121 0-194-69.5T192 1405q0-53 3.5-103.5t14-109T236 1084t43-97.5 62-81 85.5-53.5T538 832q9 0 42 21.5t74.5 48 108 48T896 971t133.5-21.5 108-48 74.5-48 42-21.5q61 0 111.5 20t85.5 53.5 62 81 43 97.5 26.5 108.5 14 109 3.5 103.5zm-320-893q0 159-112.5 271.5T896 896 624.5 783.5 512 512t112.5-271.5T896 128t271.5 112.5T1280 512z" />
+        </symbol>
+    </svg>
+
+</body>
+
+</html>

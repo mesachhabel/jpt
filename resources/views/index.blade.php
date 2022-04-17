@@ -17,6 +17,8 @@ https://templatemo.com/tm-506-tinker
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
 
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <link rel="stylesheet" href="landingpage/css/bootstrap.min.css">
     <link rel="stylesheet" href="landingpage/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="landingpage/css/fontAwesome.css">
@@ -24,42 +26,33 @@ https://templatemo.com/tm-506-tinker
     <link rel="stylesheet" href="landingpage/css/owl-carousel.css">
     <link rel="stylesheet" href="landingpage/css/templatemo-style.css">
     <link rel="stylesheet" href="landingpage/css/lightbox.css">
-    
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" -->
-    
-    
-    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/media-queries.css">
+
+    <script src="landingpage/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 
 <body>
     <div class="header">
         <div class="container">
-            <nav class="navbar-inverse" role="navigation">
+            <nav class="navbar navbar-inverse" role="navigation">
                 <div class="navbar-header">
-                    
+                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <img src="landingpage/img/logo-jpt1.png" class="navbar-brand logo-jpt" alt="logo-jpt1" />
                 </div>
                 <!--/.navbar-header-->
                 <div id="main-nav" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav" style="flex-direction: row;">
+                    <ul class="nav navbar-nav">
                         <li><a href="#" class="scroll-top">Home</a></li>
                         <li><a href="#" class="scroll-link" data-id="about">Corporate Business</a></li>
                         <!-- <li><a href="#" class="scroll-link" data-id="portfolio">Galery</a></li> -->
                         <li><a href="#" class="scroll-link" data-id="blog">About Us</a></li>
                         <li><a href="#" class="scroll-link" data-id="contact-us">Contact Us</a></li>
-                        
-                        <li>
-                        <a onclick="document.getElementById('id01').style.display='block'" role="button">
-                                Login
-                            </a>
-                                @yield('login')
-                        </li>
-                        
+                        <li><a href="{{ route('login') }}">Login</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -69,7 +62,7 @@ https://templatemo.com/tm-506-tinker
         <!--/.container-->
     </div>
     <!--/.header-->
-    @yield('login')
+
 
     <div class="parallax-content baner-content" id="home">
         <div class="container">
@@ -451,7 +444,7 @@ https://templatemo.com/tm-506-tinker
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js "></script>
     <script>
-        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js "></script>')
+        window.jQuery || document.write('<script src="landingpage/js/vendor/jquery-1.11.2.min.js "><\/script>')
     </script>
 
     <script src="landingpage/js/vendor/bootstrap.min.js "></script>
@@ -459,17 +452,13 @@ https://templatemo.com/tm-506-tinker
     <script src="landingpage/js/plugins.js "></script>
     <script src="landingpage/js/main.js "></script>
 
-    <script src="assets/js/scripts.js"></script>
-
-    <script src="landingpage/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js " type="text/javascript "></script>
-    <script type="text/javascript ">
+    <script type="text/javascript">
         $(document).ready(function() {
             // navigation click actions 
             $('.scroll-link').on('click', function(event) {
                 event.preventDefault();
-                var sectionID = $(this).attr("data-id ");
+                var sectionID = $(this).attr("data-id");
                 scrollToID('#' + sectionID, 750);
             });
             // scroll to top action
@@ -482,7 +471,7 @@ https://templatemo.com/tm-506-tinker
             // mobile nav toggle
             $('#nav-toggle').on('click', function(event) {
                 event.preventDefault();
-                $('#main-nav').toggleClass("open ");
+                $('#main-nav').toggleClass("open");
             });
         });
         // scroll function
@@ -493,12 +482,12 @@ https://templatemo.com/tm-506-tinker
             $('html,body').animate({
                 scrollTop: targetOffset
             }, speed);
-            if (mainNav.hasClass("open ")) {
-                mainNav.css("height ", "1px ").removeClass("in ").addClass("collapse ");
-                mainNav.removeClass("open ");
+            if (mainNav.hasClass("open")) {
+                mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+                mainNav.removeClass("open");
             }
         }
-        if (typeof console === "undefined ") {
+        if (typeof console === "undefined") {
             console = {
                 log: function() {}
             };

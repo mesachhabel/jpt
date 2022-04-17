@@ -47,6 +47,25 @@ p {
 }
 
 .primary-white-button a:hover {
+    background-color: rgba(51, 193, 207, 0.5);
+    color: #fff;
+    transition: .2s;
+}
+
+.primary-login-button a {
+    background-color: #33c1cf;
+    font-size: 13px;
+    padding: 12px 18px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 20px;
+    line-height: 80px;
+}
+
+.primary-login-button a:hover {
     background-color: rgba(240, 204, 4, 0.5);
     color: #121212;
     transition: .2s;
@@ -64,6 +83,12 @@ p {
     text-decoration: none;
     border-radius: 20px;
     cursor: pointer;
+}
+
+.pop-button h4:hover {
+    background-color: rgba(240, 204, 4, 0.5);
+    color: #fff;
+    transition: .2s;
 }
 
 .header {
@@ -84,6 +109,7 @@ p {
     width: 120px;
     height: auto;
     margin-top: 2.6rem;
+    line-height: 80px;
 }
 
 .navbar-inverse .navbar-brand,
@@ -511,7 +537,7 @@ bootstrap.min.css:5 .navbar-toggle {
 }
 
 .tabs a:hover {
-    color: #f0cc04;
+    color: #33c1cf;
 }
 
 .tabs .active {

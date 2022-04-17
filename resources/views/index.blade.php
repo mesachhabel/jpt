@@ -52,7 +52,10 @@ https://templatemo.com/tm-506-tinker
                         <!-- <li><a href="#" class="scroll-link" data-id="portfolio">Galery</a></li> -->
                         <li><a href="#" class="scroll-link" data-id="blog">About Us</a></li>
                         <li><a href="#" class="scroll-link" data-id="contact-us">Contact Us</a></li>
-                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li>
+                            <div class="primary-login-button"><a href="{{ route('login') }}">Login</a></div>
+                        </li>
+
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->

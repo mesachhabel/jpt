@@ -18,7 +18,7 @@
         <!-- Dashboard -->
         <li class="menu-item active">
             <a href="{{ route('admin.dashboard') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon fa-solid fa-house-chimney"></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
@@ -29,7 +29,7 @@
         <!-- Transaksi Data -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <i class="menu-icon fa-solid fa-money-bill-trend-up"></i>
                 <div data-i18n="Layouts">Transaksi Data</div>
             </a>
 
@@ -55,7 +55,7 @@
         <!-- Proses Data -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <i class="menu-icon fa-solid fa-print"></i>
                 <div data-i18n="Layouts">Proses data</div>
             </a>
 
@@ -86,7 +86,7 @@
         <!-- Pelaporan Data -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <i class="menu-icon fa-solid fa-file"></i>
                 <div data-i18n="Layouts">Pelaporan data</div>
             </a>
 
@@ -122,7 +122,7 @@
         <!-- Pemeliharaan Data -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <i class="menu-icon fa-solid fa-laptop-file"></i>
                 <div data-i18n="Layouts">Pemeliharaan data</div>
             </a>
 
@@ -139,6 +139,16 @@
                 </li>
             </ul>
         </li>
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Account</span>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link">
+                <i class="fa-solid fa-user menu-icon "></i>
+                <div data-i18n="Layouts">Account</div>
+            </a>
+        </li>
     </ul>
+
 </aside>
 <!-- / Menu -->

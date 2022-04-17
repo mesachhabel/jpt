@@ -16,9 +16,15 @@ class TerimaPotongController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $terimapotongs = terima_potong::latest()->paginate(5);
+        if($request->has('bulan')){
+            $terimapotongs = terima_potong::where('bulan','LIKE','%'.$request->bulan.'%')->get();
+        }
+        else{
+            $terimapotongs = terima_potong::all();
+        }
         return view('admins.TerimaPotong.TerimaPotongs', compact('terimapotongs'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -54,25 +60,15 @@ class TerimaPotongController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(terima_potong $terimapotong)
     {
-        //
+        $terimapotong = terima_potong::find($terimapotong->id);
+        return view('admins.TerimaPotong.EditTerimaPotongs', compact('terimapotong'));
     }
 
     /**
@@ -82,9 +78,17 @@ class TerimaPotongController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, terima_potong $terimapotong)
     {
-        //
+        $terimapotong = terima_potong::find($terimapotong->id);
+        $terimapotong->update($request->all());
+        if ($terimapotong) {
+            Alert::success('Data Berhasil Diubah', 'Selamat');
+            return redirect()->route('terimapotong.index');
+        } else {
+            Alert::error('Data Gagal Diubah', 'Maaf');
+            return redirect()->route('terimapotong.edit', $terimapotong->id);
+        }
     }
 
     /**

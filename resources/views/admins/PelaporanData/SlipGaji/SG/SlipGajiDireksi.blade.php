@@ -203,7 +203,7 @@
             <!-- Judul -->
             <img class="logo" src="../../assets/img/logo-jpt1.png" alt="logo">
             <div class="title">
-                <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : MARET 2022</a>
+                <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : {{ $monthName }} {{ $year }} </a>
             </div>
             <div class="text-bank">
                 <a>Pembayaran : BANK MANDIRI</a>
@@ -465,7 +465,7 @@
                 </div>
             </div>
             <section class="footer" style="text-align: center;">
-                <hr> PT Jasamarga Pandaan Tol : 06/04/2022 08:59:19
+                <hr> PT Jasamarga Pandaan Tol : {{ $today }}
             </section>
         </section>
     </div>

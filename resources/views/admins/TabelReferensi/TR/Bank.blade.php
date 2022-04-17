@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
+    @include('sweetalert::alert')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light">Pemeliharaan Data / Tabel Referensi /</span> Bank Transfer
@@ -56,32 +57,43 @@
         <!-- Hoverable Table rows -->
         <div class="card">
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover">
-                    <thead>
+                <table class="table table-hover table-bordered table-striped">
+                    <thead class="text-center" style="vertical-align:middle;">
 
                         <tr>
+                            <th>No</th>
                             <th>Kode Bank</th>
                             <th>Nama Bank</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    @foreach ($banks as $bank)
-                        <tbody class="table-border-bottom-0">
+                    <tbody class="text-center" style="vertical-align:middle;">
+                        <?php $no = 1; ?>
+                        @forelse ($banks as $bank)
                             <tr>
+                                <td>{{ $no++ }}</td>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                    <strong>{{ $bank->kode }}</strong></td>
+                                    <strong>{{ $bank->kode }}</strong>
+                                </td>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                    <strong>{{ $bank->bank }}</strong></td>
+                                    <strong>{{ $bank->bank }}</strong>
+                                </td>
                                 <td>
-                                    <a href="{{ url('view-skalagaji') }}" type="button" class="btn btn-sm btn-secondary"><i
-                                            class="bx bx-file"></i></a>
-                                    <a href="{{ url('edit-skalagaji') }}" type="button" class="btn btn-sm btn-success"><i
-                                            class="bx bx-edit"></i></a>
-                                    <a href="{{ url('delete-skalagaji') }}" type="button" class="btn btn-sm btn-danger"><i
-                                            class="bx bx-trash"></i></a>
+                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                        action="{{ route('bank.destroy', $bank->id) }}" method="POST">
+                                        <a href="{{ route('bank.edit', $bank->id) }}"
+                                            class="btn btn-sm btn-secondary">Edit</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
-                    @endforeach
+                        @empty
+                            <div class="alert alert-danger">
+                                Data Karyawan Belum Ada.
+                            </div>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

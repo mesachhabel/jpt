@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Trstatustugas extends Migration
+class TRStatusTugasDBS extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Trstatustugas extends Migration
      */
     public function up()
     {
-        Schema::create('tr_statustugas', function (Blueprint $table){
+        schema::create('tr_statustugas_dbs', function (Blueprint $table) {
             $table->id();
             $table->string('kode');
             $table->string('instansi');
@@ -32,6 +32,6 @@ class Trstatustugas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('statustugas');
+        Schema::dropIfExists('tr_statustugas_dbs');
     }
 };

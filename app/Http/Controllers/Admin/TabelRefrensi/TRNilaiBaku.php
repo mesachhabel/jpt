@@ -21,16 +21,6 @@ class TRNilaiBaku extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -41,22 +31,11 @@ class TRNilaiBaku extends Controller
         $masuk=tr_nilaibaku::create($request->all());
         if($masuk){
             Alert::success('Data Berhasil Ditambahkan', 'Selamat');
-            return redirect()->route('karyawan.index');
+            return redirect()->route('nilai.index');
         }else{
             Alert::error('Data Gagal Ditambahkan', 'Maaf');
-            return redirect()->route('karyawan.create');
+            return redirect()->route('nilai.create');
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -65,9 +44,10 @@ class TRNilaiBaku extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(tr_nilaibaku $nilai)
     {
-        //
+        $nilai = tr_nilaibaku::find($nilai->id);
+        return view('admins.TabelReferensi.EditTR.EditNilaiBaku', compact('nilai'));
     }
 
     /**
@@ -77,9 +57,17 @@ class TRNilaiBaku extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,tr_nilaibaku $nilai)
     {
-        //
+        $nilai = tr_nilaibaku::find($nilai->id);
+        $nilai->update($request->all());
+        if($nilai){
+            Alert::success('Data Berhasil Diubah', 'Selamat');
+            return redirect()->route('nilai.index');
+        }else{
+            Alert::error('Data Gagal Diubah', 'Maaf');
+            return redirect()->route('nilai.edit');
+        }
     }
 
     /**

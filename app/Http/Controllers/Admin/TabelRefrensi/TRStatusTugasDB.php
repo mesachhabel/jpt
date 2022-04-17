@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Admin\TabelRefrensi;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\tr_bank;
+use App\Models\tr_statustugas_db;
 use Alert;
+use DB;
 
-class TRBank extends Controller
+class TRStatusTugasDB extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +17,8 @@ class TRBank extends Controller
      */
     public function index()
     {
-        $banks = tr_bank::paginate(5);
-        return view('admins.TabelReferensi.TR.Bank', compact('banks'));
+        $statustugasdbs = tr_statustugas_db::paginate(5);
+        return view('admins.TabelReferensi.TR.StatusTugas', compact('statustugasdbs'));
     }
 
     /**
@@ -28,8 +29,8 @@ class TRBank extends Controller
      */
     public function store(Request $request)
     {
-        tr_bank::create($request->all());
-        return redirect()->route('bank.index');
+        tr_statustugas_db::create($request->all());
+        return redirect()->route('statustugasdb.index');
     }
 
     /**
@@ -38,10 +39,10 @@ class TRBank extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(tr_bank $bank)
+    public function edit(tr_statustugas_db $statustugasdb)
     {
-        $bank = tr_bank::find($bank->id);
-        return view('admins.TabelReferensi.EditTR.EditBank', compact('bank'));
+        $statustugasdb = tr_statustugas_db::find($statustugasdb->id);
+        return view('admins.TabelReferensi.EditTR.EditStatusTugas', compact('statustugasdb'));
     }
 
     /**
@@ -51,19 +52,17 @@ class TRBank extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,tr_bank $bank)
+    public function update(Request $request, tr_statustugas_db $statustugasdb)
     {
-        $bank = tr_bank::find($bank->id);
-        $bank->update($request->all());
-        if($bank){
+        $statustugasdb = tr_statustugas_db::find($statustugasdb->id);
+        $statustugasdb->update($request->all());
+        if ($statustugasdb) {
             Alert::success('Data Berhasil Diubah', 'Selamat');
-            return redirect()->route('bank.index');
-        }
-        else{
+            return redirect()->route('statustugasdb.index');
+        } else {
             Alert::error('Data Gagal Diubah', 'Maaf');
-            return redirect()->route('bank.edit');
+            return redirect()->route('statustugasdb.edit', $statustugasdb->id);
         }
-        
     }
 
     /**
@@ -72,16 +71,15 @@ class TRBank extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tr_bank $bank)
+    public function destroy(tr_statustugas_db $statustugasdb)
     {
-        $bank->delete();
-        if ($bank) {
+        $statustugasdb->delete();
+        if ($statustugasdb) {
             Alert::success('Data Berhasil Dihapus', 'Selamat');
-            return redirect()->route('bank.index');
-        }
-        else{
+            return redirect()->route('statustugasdb.index');
+        } else {
             Alert::error('Data Gagal Dihapus', 'Maaf');
-            return redirect()->route('bank.index');
+            return redirect()->route('statustugasdb.index');
         }
     }
 }

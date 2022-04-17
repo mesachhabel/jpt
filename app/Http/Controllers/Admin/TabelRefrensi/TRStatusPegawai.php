@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\TabelRefrensi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tr_statuspegawai;
+use Alert;
 
 class TRStatusPegawai extends Controller
 {
@@ -20,16 +21,6 @@ class TRStatusPegawai extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -42,25 +33,15 @@ class TRStatusPegawai extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(tr_statuspegawai $statuspegawai)
     {
-        //
+        $statuspegawai = tr_statuspegawai::find($statuspegawai->id);
+        return view('admins.TabelReferensi.EditTR.EditStatusPegawai', compact('statuspegawai'));
     }
 
     /**
@@ -70,9 +51,17 @@ class TRStatusPegawai extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,tr_statuspegawai $statuspegawai)
     {
-        //
+        $statuspegawai = tr_statuspegawai::find($statuspegawai->id);
+        $statuspegawai->update($request->all());
+        if($statuspegawai){
+            Alert::success('Data Berhasil Diubah', 'Selamat');
+            return redirect()->route('statuspegawai.index');
+        }else{
+            Alert::error('Data Gagal Diubah', 'Maaf');
+            return redirect()->route('statuspegawai.edit', $statuspegawai->id);
+        }
     }
 
     /**
@@ -81,8 +70,15 @@ class TRStatusPegawai extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(tr_statuspegawai $statuspegawai)
     {
-        //
+        $statuspegawai->delete();
+        if($statuspegawai){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('statuspegawai.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('statuspegawai.index');
+        }
     }
 }

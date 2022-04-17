@@ -6,8 +6,6 @@
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light">Pemeliharaan Data / Tabel Referensi /</span> Edit Kode Jabatan
         </h4>
-
-
         <div class="row">
             <div class="col-md-12">
                 <div class="card mb-4">
@@ -15,27 +13,35 @@
                     <!-- Account -->
                     <hr class="my-0" />
                     <div class="card-body">
-                        <form id="formAccountSettings" method="POST" onsubmit="return false">
+                        <form id="formAccountSettings" method="POST"
+                            action="{{ route('kodejabatan.update', $kodejabatan->id) }}">
+                            @csrf
+                            @method('PUT')
                             <div class="row">
                                 <div class="mb-3 col-md-4">
-                                    <label for="NPWP" class="form-label">Kode Jabatan</label>
-                                    <input class="form-control" type="text" id="NPWP" name="NPWP" value="HRD" autofocus />
+                                    <label for="kode" class="form-label">Kode Jabatan</label>
+                                    <input class="form-control" type="text" id="kode" name="kode"
+                                        value="{{ old('kode', $kodejabatan->kode) }}" />
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="NoKTP" class="form-label">Golongan</label>
-                                    <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="Rudistiar" />
+                                    <label for="golongan" class="form-label">Golongan</label>
+                                    <input class="form-control" type="text" name="golongan" id="golongan"
+                                        value="{{ old('kode', $kodejabatan->golongan) }}" />
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="NoKTP" class="form-label">KLP</label>
-                                    <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="Rudistiar" />
+                                    <label for="klp" class="form-label">Kelompok</label>
+                                    <input class="form-control" type="text" name="klp" id="klp"
+                                        value="{{ old('kode', $kodejabatan->klp) }}" />
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="NPWP" class="form-label">Nama Jabatan</label>
-                                    <input class="form-control" type="text" id="NPWP" name="NPWP" value="HRD" autofocus />
+                                    <label for="uraianjabatan" class="form-label">Nama Jabatan</label>
+                                    <input class="form-control" type="text" id="uraianjabatan" name="uraianjabatan"
+                                        value="{{ old('kode', $kodejabatan->uraianjabatan) }}" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="NoKTP" class="form-label">Sebutan Jabatan</label>
-                                    <input class="form-control" type="text" name="NoKTP" id="NoKTP" value="Rudistiar" />
+                                    <label for="sebutanjabatan" class="form-label">Sebutan Jabatan</label>
+                                    <input class="form-control" type="text" name="sebutanjabatan" id="sebutanjabatan"
+                                        value="{{ old('kode', $kodejabatan->sebutanjabatan) }}" />
                                 </div>
                                 <hr class="my-0" />
                                 <div class="mt-3">

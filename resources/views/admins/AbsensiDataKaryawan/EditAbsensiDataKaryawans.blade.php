@@ -3,7 +3,7 @@
 @section('container')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">Transaksi Data / Absensi Data Karyawan /</span> Tambah Data Absensi
+            <span class="text-muted fw-light">Transaksi Data / Absensi Data Karyawan /</span> Edit Data Absensi
         </h4>
         <!-- Bordered Table -->
         <form id="formAccountSettings" method="POST" action="{{ route('absensi.update', $absensi->id) }}">

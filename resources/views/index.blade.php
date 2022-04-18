@@ -52,7 +52,10 @@ https://templatemo.com/tm-506-tinker
                         <!-- <li><a href="#" class="scroll-link" data-id="portfolio">Galery</a></li> -->
                         <li><a href="#" class="scroll-link" data-id="blog">About Us</a></li>
                         <li><a href="#" class="scroll-link" data-id="contact-us">Contact Us</a></li>
-                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li>
+                            <div class="primary-login-button"><a href="{{ route('login') }}">Login</a></div>
+                        </li>
+
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -431,9 +434,12 @@ https://templatemo.com/tm-506-tinker
                     <div class="connect-us ">
                         <h4>Get Social with us</h4>
                         <ul>
-                            <li><a href="https://www.instagram.com/official.jpt/ "><i class="fa fa-instagram "></i></a>
+                            <li><a href="https://www.instagram.com/official.jpt/ "><i
+                                        class="fa fa-instagram icon"></i></a>
                             </li>
-                            <li><a href="https://www.facebook.com/official.jpt/ "><i class="fa fa-facebook "></i></a>
+                            <li><a href="https://www.facebook.com/official.jpt/ "><i
+                                        class="fa fa-facebook icon"></i></a>
+                            <li><a href="# "><i class="fa fa-whatsapp icon"></i></a>
                             </li>
                         </ul>
                     </div>

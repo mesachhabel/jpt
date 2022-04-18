@@ -434,9 +434,12 @@ https://templatemo.com/tm-506-tinker
                     <div class="connect-us ">
                         <h4>Get Social with us</h4>
                         <ul>
-                            <li><a href="https://www.instagram.com/official.jpt/ "><i class="fa fa-instagram "></i></a>
+                            <li><a href="https://www.instagram.com/official.jpt/ "><i
+                                        class="fa fa-instagram icon"></i></a>
                             </li>
-                            <li><a href="https://www.facebook.com/official.jpt/ "><i class="fa fa-facebook "></i></a>
+                            <li><a href="https://www.facebook.com/official.jpt/ "><i
+                                        class="fa fa-facebook icon"></i></a>
+                            <li><a href="# "><i class="fa fa-whatsapp icon"></i></a>
                             </li>
                         </ul>
                     </div>

@@ -217,7 +217,7 @@
                                 <div class="block_container">
                                     <div class="sebutan wraptext" style="width: 207px;" id="bloc1">
                                         <span>
-                                            NIK - Nama  &emsp;  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;:<br>
+                                            NIK - Nama  <br>
                                             Jabatan<br>
                                             Nomor Pokok Wajib Pajak (NPWP)<br>
                                             Tanggal Masuk Bekerja<br>
@@ -440,7 +440,7 @@
                 <div>
                     Keterangan :
                     <ol>
-                        <li>amsostek merupakan tunjangan yang dibayarkan Perusahaan</li>
+                        <li>Jamsostek merupakan tunjangan yang dibayarkan Perusahaan</li>
                         <li>PPh 21 adalah jumlah Pajak yang seharusnya disetor ke kantor Pajak</li>
                         <li>Rincian Potongan Santunan Duka : </li>
                         3 Orang Karyawan (Suderajat/06864, Abdurahman/10280, Imam Ansori/04694)

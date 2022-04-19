@@ -70,7 +70,7 @@
                         <?php $no = 1; ?>
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Tabel Skala Gaji</strong></td>
+                            <td><i class=" fa-lg text-danger me-3"></i> <strong>Tabel Skala Gaji</strong></td>
                             <td>
                                 <a href="{{ url('view-skalagaji') }}" type="button" class="btn btn-sm btn-secondary"><i
                                         class="bx bx-file"></i></a>

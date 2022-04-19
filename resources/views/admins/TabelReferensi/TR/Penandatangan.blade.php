@@ -79,13 +79,13 @@
                         @forelse ($penandatangans as $ttd)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $ttd->nik }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $ttd->nama }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $ttd->jabatan }}</strong>
                                 </td>
                                 <td>

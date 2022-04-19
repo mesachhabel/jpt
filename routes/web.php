@@ -85,14 +85,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     //Pelaporan Data
         //Slip Gaji
         Route::resource('/slipgaji', slipgajicontroller::class);
-            // //Direksi
-            Route::get('/slipdireksi', [slipgajicontroller::class,'slipdireksi'])->name('slipgaji.slipdireksi');   
-            Route::get('/dataslipdireksi', [slipgajicontroller::class,'dataslipdireksi'])->name('slipgaji.dataslipdireksi');   
-            // //Komisaris
-            Route::get('/slipkomisaris', [slipgajicontroller::class,'slipkomisaris'])->name('slipgaji.slipkomisaris');
-            Route::get('/dataslipkomisaris', [slipgajicontroller::class,'dataslipkomisaris'])->name('slipgaji.dataslipkomisaris');
-            //Karyawan Tetap
-             Route::get('/slipkaryawantetap', [slipgajicontroller::class,'slipkaryawantetap'])->name('slipgaji.slipkaryawantetap');
+            // Golongan Kelas 1
+            Route::get('/slipkelas1', [slipgajicontroller::class,'slipkelas1'])->name('slipgaji.slipkelas1');   
+            Route::get('/dataslipkelas1', [slipgajicontroller::class,'dataslipkelas1'])->name('slipgaji.dataslipkelas1');   
+            // Golongan Kelas 2
+            Route::get('/slipkelas2', [slipgajicontroller::class,'slipkelas2'])->name('slipgaji.slipkelas2');
+            Route::get('/dataslipkelas2', [slipgajicontroller::class,'dataslipkelas2'])->name('slipgaji.dataslipkelas2');
+            // Golongan Kelas 3
+            Route::get('/slipkelas3', [slipgajicontroller::class,'slipkelas3'])->name('slipgaji.slipkelas3');
+            Route::get('/dataslipkelas3', [slipgajicontroller::class,'dataslipkelas3'])->name('slipgaji.dataslipkelas3');
+            // Golongan Kelas 4
+            Route::get('/slipkelas4', [slipgajicontroller::class,'slipkelas4'])->name('slipgaji.slipkelas4');
+            Route::get('/dataslipkelas4', [slipgajicontroller::class,'dataslipkelas4'])->name('slipgaji.dataslipkelas4');
+            // Golongan Kelas 5
+            Route::get('/slipkelas5', [slipgajicontroller::class,'slipkelas5'])->name('slipgaji.slipkelas5');
+            Route::get('/dataslipkelas5', [slipgajicontroller::class,'dataslipkelas5'])->name('slipgaji.dataslipkelas5');
     //End of Pelaporan Data
 });
 

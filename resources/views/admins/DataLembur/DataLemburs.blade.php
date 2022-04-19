@@ -5,7 +5,7 @@
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light">Transaksi Data /</span> Lembur Karyawan
         </h4>
-        <a href="{{ route('lembur.create') }}" class="btn btn-primary mb-3">+ Tambah Data<i class="fas fa-print"></i></a>
+        <a href="{{ route('lembur.create') }}" class="btn btn-primary mb-3">+ Tambah Data</a>
         <!-- Striped Rows -->
         <div class="card">
             <div class="card-body">

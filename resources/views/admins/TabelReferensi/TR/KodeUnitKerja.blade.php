@@ -32,16 +32,16 @@
                                 @forelse ($kodeunitkerjas as $kodeunitkerja)
                                     <tr>
                                         <td>{{ $no++ }}</td>
-                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                        <td><i class=" fa-lg text-danger me-3"></i>
                                             <strong>{{ $kodeunitkerja->kuk }}</strong>
                                         </td>
-                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                        <td><i class=" fa-lg text-danger me-3"></i>
                                             <strong>{{ $kodeunitkerja->sub }}</strong>
                                         </td>
-                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                        <td><i class=" fa-lg text-danger me-3"></i>
                                             <strong>{{ $kodeunitkerja->uuk }}</strong>
                                         </td>
-                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                        <td><i class=" fa-lg text-danger me-3"></i>
                                             <strong>{{ $kodeunitkerja->ksu }}</strong>
                                         </td>
                                         <td>

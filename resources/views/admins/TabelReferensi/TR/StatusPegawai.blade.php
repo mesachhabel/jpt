@@ -72,10 +72,10 @@
                         @forelse ($statuspegawais as $stp)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $stp->kodestatuspegawai }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $stp->keteranganpegawai }}</strong>
                                 </td>
                                 <td>

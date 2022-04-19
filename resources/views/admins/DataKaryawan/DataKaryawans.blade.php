@@ -6,8 +6,7 @@
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light">Pemeliharaan Data /</span> Data Karyawan
         </h4>
-        <a href="{{ route('karyawan.create') }}" class="btn btn-primary mb-3">+ Tambah Data<i
-                class="fas fa-print"></i></a>
+        <a href="{{ route('karyawan.create') }}" class="btn btn-primary mb-3">+ Tambah Data</a>
         <!-- Striped Rows -->
         <div class="card">
             <div class="table-responsive text-nowrap">
@@ -30,7 +29,7 @@
                         @forelse ($karyawans as $post)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $post->nik }}</strong>
                                 </td>
                                 <td>
@@ -38,11 +37,11 @@
                                 </td>
                                 <td>
                                     @if ($post->jabatan == '1')
-                                        <p>Kepala Bagian</p>
+                                        <p>Direktur</p>
                                     @elseif ($post->jabatan == '2')
-                                        <p>Kepala Sub Bagian</p>
+                                        <p>Komisaris</p>
                                     @elseif ($post->jabatan == '3')
-                                        <p>Kepala Divisi</p>
+                                        <p>Karyawans</p>
                                     @endif
                                 </td>
                                 <td>

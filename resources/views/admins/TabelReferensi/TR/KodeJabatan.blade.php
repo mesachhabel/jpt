@@ -28,33 +28,23 @@
                                 <div class="modal-body">
                                     <div class="row g-2">
                                         <div class="col mb-0">
-                                            <label for="emailWithTitle" class="form-label">Kode Jabatan</label>
+                                            <label for="emailWithTitle" class="form-label">Kelas Jabatan</label>
                                             <input type="text" id="emailWithTitle" class="form-control"
-                                                placeholder="Kode Unit" name="kode" />
-                                        </div>
-                                        <div class="col mb-0">
-                                            <label for="dobWithTitle" class="form-label">Golongan</label>
-                                            <input type="text" id="dobWithTitle" class="form-control"
-                                                placeholder="Kode Sub-Unit" name="golongan" />
-                                        </div>
-                                        <div class="col mb-0">
-                                            <label for="emailWithTitle" class="form-label">KLP</label>
-                                            <input type="text" id="emailWithTitle" class="form-control"
-                                                placeholder="Keterangan Unit" name="klp" />
+                                                placeholder="Kode Unit" name="kelas" />
                                         </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col mb-0">
                                             <label for="dobWithTitle" class="form-label">Nama Jabatan</label>
                                             <input type="text" id="dobWithTitle" class="form-control"
-                                                placeholder="Keterangan Sub-Unit" name="uraianjabatan" />
+                                                placeholder="Keterangan Sub-Unit" name="jabatan" />
                                         </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col mb-0">
-                                            <label for="dobWithTitle" class="form-label">Sebutan Jabatan</label>
+                                            <label for="dobWithTitle" class="form-label">Kelompok</label>
                                             <input type="text" id="dobWithTitle" class="form-control"
-                                                placeholder="Keterangan Sub-Unit" name="sebutanjabatan" />
+                                                placeholder="Keterangan Sub-Unit" name="klp" />
                                         </div>
                                     </div>
                                 </div>
@@ -78,11 +68,9 @@
                     <thead class="text-center" style="vertical-align:middle;">
                         <tr>
                             <th>No</th>
-                            <th>Kode</th>
-                            <th>Golongan</th>
-                            <th>Keterangan Jabatan</th>
-                            <th>Nama Jabatan</th>
-                            <th>KLP</th>
+                            <th>Kelas Jabatan</th>
+                            <th>Jabatan</th>
+                            <th>Kelompok</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -91,19 +79,13 @@
                         @forelse ($kodejabatans as $kodejabatan)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                    <strong>{{ $kodejabatan->kode }}</strong>
+                                <td><i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $kodejabatan->kelas }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                    <strong>{{ $kodejabatan->golongan }}</strong>
+                                <td><i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $kodejabatan->jabatan }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                    <strong>{{ $kodejabatan->uraianjabatan }}</strong>
-                                </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                    <strong>{{ $kodejabatan->sebutanjabatan }}</strong>
-                                </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $kodejabatan->klp }}</strong>
                                 </td>
                                 <td>
@@ -119,7 +101,7 @@
                             </tr>
                         @empty
                             <div class="alert alert-danger">
-                                Data Karyawan Belum Ada.
+                                Data Kode Jabatan Belum Ada.
                             </div>
                         @endforelse
                     </tbody>

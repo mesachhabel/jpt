@@ -72,10 +72,10 @@
                         @forelse ($kodestrukturs as $kodestruktur)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $kodestruktur->kode }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $kodestruktur->uraian }}</strong>
                                 </td>
                                 <td>

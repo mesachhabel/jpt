@@ -15,10 +15,8 @@ class Trkodejabatans extends Migration
     {
         Schema::create('tr_kodejabatans', function (Blueprint $table){
             $table->id();
-            $table->string('kode');
-            $table->string('golongan');
-            $table->string('uraianjabatan');
-            $table->string('sebutanjabatan');
+            $table->string('kelas');
+            $table->string('jabatan');
             $table->string('klp');
             $table->rememberToken();
             $table->timestamps();

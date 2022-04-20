@@ -221,76 +221,76 @@
                         @forelse ($nilaibakus as $nilai)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->st_peg }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->st_tugas }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jkm }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jkk }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jht }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jht_prs }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jht_peg }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jpk }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jpk_prs }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jpk_peg }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jpp }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jpp_prs }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jpp_peg }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->pajak_jamsostek }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jamsostek }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jams_prs }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jams_peg }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->menit_telat }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->hari_kerja }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->purnajab_dir }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->purna_karya }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->dana_pensiun }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->tarif_1 }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->tarif_2 }}</strong>
                                 </td>
                                 <td>

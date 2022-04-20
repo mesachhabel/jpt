@@ -150,7 +150,7 @@ class AbsensiDataKaryawanController extends Controller
                         <td>'.$no++.'</td>
                         <td>'.$row->bulantahun.'</td>
                         <td><strong>'.$row->nik.'</strong>
-                        <i class="fab fa-angular fa-lg text-danger me-3"></i>
+                        <i class=" fa-lg text-danger me-3"></i>
                         </td>
                         <td>'.$row->nama.'</td>
                         <td>'.$row->telat.'</td>

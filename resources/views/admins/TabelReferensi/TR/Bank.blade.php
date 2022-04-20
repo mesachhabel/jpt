@@ -72,10 +72,10 @@
                         @forelse ($banks as $bank)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $bank->kode }}</strong>
                                 </td>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                                <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $bank->bank }}</strong>
                                 </td>
                                 <td>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
 use Carbon\Carbon;
+use App\Models\data_karyawan;
 
 class slipgajicontroller extends Controller
 {
@@ -14,27 +15,58 @@ class slipgajicontroller extends Controller
         return view ('admins.PelaporanData.SlipGaji.SlipGaji');
     }
 
-    public function slipkomisaris()
+    public function slipkelas1()
     {
-        return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiKomisaris');
+        return view ('admins.PelaporanData.SlipGaji.SG.SlipKelas1');
     }
 
-    public function dataslipkomisaris()
+    public function dataslipkelas1()
     {
-        return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKomisaris');
+        $dataslipkelas1 = data_karyawan::where('jabatan', 1)->get();
+        return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas1', compact('dataslipkelas1'));
     }
     
-    public function slipdireksi()
+    public function slipkelas2()
     {
         $today = Carbon::now();
         $year = $today->year;
         $monthName = $today->format('F');
-        return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiDireksi',compact('today','year','monthName'));
+        return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiKelas2',compact('today','year','monthName'));
+    }
+    public function dataslipkelas2()
+    {
+        $dataslipkelas2 = data_karyawan::where('jabatan', kelas2)->get();
+        return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas2', compact('dataslipkelas2'));
     }
 
-    public function slipkaryawantetap()
+    public function slipkelas3()
     {
-        return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiKaryawanTetap');
+        return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiKelas3');
+    }
+    public function dataslipkelas3()
+    {
+        $dataslipkelas3 = data_karyawan::where('jabatan', 3)->get();
+        return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas3', compact('dataslipkelas3'));
+    }
+
+    public function slipkelas4()
+    {
+        return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiKelas3');
+    }
+    public function dataslipkelas4()
+    {
+        $dataslipkelas4 = data_karyawan::where('jabatan', 4)->get();
+        return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas4', compact('dataslipkelas4'));
+    }
+
+    public function slipkelas5()
+    {
+        return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiKelas5');
+    }
+    public function dataslipkelas5()
+    {
+        $dataslipkelas3 = data_karyawan::where('jabatan', 5)->get();
+        return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas5', compact('dataslipkelas5'));
     }
 
     /**

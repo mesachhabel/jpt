@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\data_karyawan;
 use App\Models\tr_agama;
 use App\Models\tr_bank;
+use App\Models\tr_kodejabatan;
 use Alert;
 use Illuminate\Support\Facades\Storage;
 
@@ -33,7 +34,8 @@ class DataKaryawanController extends Controller
     {
         $agamas = tr_agama::all();
         $banks = tr_bank::all();
-        return view('admins.DataKaryawan.CreateDataKaryawans',compact('agamas','banks'));
+        $jabatan = tr_kodejabatan::all();
+        return view('admins.DataKaryawan.CreateDataKaryawans',compact('agamas','banks','jabatan'));
     }
     
     /**

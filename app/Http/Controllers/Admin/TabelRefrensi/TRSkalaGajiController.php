@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin\TabelRefrensi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tr_skalagaji;
+use App\Models\tr_kodejabatan;
+use Alert;
 
 class TRSkalaGajiController extends Controller
 {
@@ -15,18 +17,9 @@ class TRSkalaGajiController extends Controller
      */
     public function index()
     {
-        // $skalagajis = tr_skalagaji::latest()->paginate(5);
-        return view('admins.TabelReferensi.TR.SkalaGaji');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $jabatan = tr_kodejabatan::all();
+        $skalagajis = tr_skalagaji::latest()->paginate(5);
+        return view('admins.TabelReferensi.TR.SkalaGaji',compact('skalagajis','jabatan'));
     }
 
     /**
@@ -37,18 +30,14 @@ class TRSkalaGajiController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $masuk=tr_skalagaji::create($request->all());
+        if($masuk){
+            Alert::success('Data Berhasil Ditambahkan', 'Selamat');
+            return redirect()->route('skalagaji.index');
+        }else{
+            Alert::error('Data Gagal Ditambahkan', 'Maaf');
+            return redirect()->route('skalagaji.index');
+        }
     }
 
     /**
@@ -57,9 +46,10 @@ class TRSkalaGajiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(tr_skalagaji $skalagaji)
     {
-        //
+        $skalagaji = tr_skalagaji::find($skalagaji->id);
+        return view('admins.TabelReferensi.EditTR.EditSkalaGaji', compact('skalagaji'));
     }
 
     /**

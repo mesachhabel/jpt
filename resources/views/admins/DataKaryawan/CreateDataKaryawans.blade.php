@@ -152,22 +152,33 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="defaultSelect" class="form-label">Jabatan</label>
-                                    <select name="jabatan" id="defaultSelect" class="form-select" required>
+                                    <label for="defaultSelect" class="form-label">Kelas Jabatan</label>
+                                    <select name="kelas" id="defaultSelect" class="form-select" required>
                                         <option disabled selected>-- Pilih Jabatan --</option>
-                                        <option value="1">.....</option>
-                                        <option value="2">.....</option>
+                                        @foreach ($jabatan as $jb)
+                                            <option value="{{ $jb->kelas }}">
+                                                {{ $jb->kelas }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="GOLJAB" class="form-label">Golongan Jabatan</label>
-                                    <input class="form-control" type="text" id="GOLJAB" name="gj"
-                                        placeholder="Golongan Jabatan" autofocus required />
+                                <div class="mb-3 col-md-4">
+                                    <label for="GOLJAB" class="form-label">Jabatan</label>
+                                    <input class="form-control" type="text" id="GOLJAB" name="jabatan"
+                                        placeholder="Jabatan" autofocus required />
                                 </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="Barjab" class="form-label">Baris Golongan</label>
-                                    <input class="form-control" type="text" name="bg" id="Barjab"
-                                        placeholder="Baris Golongan" required />
+                                <div class="mb-3 col-md-4">
+                                    <label for="Barjab" class="form-label">Kelompok Jabatan</label>
+                                    <input class="form-control" type="text" name="klp" id="klp"
+                                        placeholder="Kelompok Jabatan" required />
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label for="Barjab" class="form-label">Skala Gaji Pokok</label>
+                                    <select name="sgp" id="" class="form-select" required>
+                                        <option value="">-- Silahkan Pilih Skala Gaji Pokok --</option>
+                                        <option value="">Min</option>
+                                        <option value="">Mid</option>
+                                        <option value="">Max</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Anggota Serikat</label>

@@ -19,7 +19,7 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @forelse ($dataslipkelas1 as $data)
+                        @forelse ($dataslipdireksi as $data)
                             <tr>
                                 <td><i class=" fa-lg text-danger me-3"></i> <strong> {{ $data->nik }}</strong>
                                 <td><i class="fa-lg text-danger me-3"></i> <strong>{{ $data->nama }}</strong>

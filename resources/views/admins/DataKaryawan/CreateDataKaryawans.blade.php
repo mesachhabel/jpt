@@ -152,33 +152,24 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="defaultSelect" class="form-label">Kelas Jabatan</label>
-                                    <select name="kelas" id="defaultSelect" class="form-select" required>
-                                        <option disabled selected>-- Pilih Jabatan --</option>
+                                    <label for="jabatan" class="form-label">Jabatan</label>
+                                    <select name="jabatan" id="jabatan" class="form-select dynamic" data-dependent="klp">
+                                        <option disabled selected>-- Pilih Jabatan -- </option>
                                         @foreach ($jabatan as $jb)
-                                            <option value="{{ $jb->kelas }}">
-                                                {{ $jb->kelas }}</option>
+                                            <option value="{{ $jb->jabatan }}">[{{ $jb->kelas }}]
+                                                {{ $jb->jabatan }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="mb-3 col-md-4">
-                                    <label for="GOLJAB" class="form-label">Jabatan</label>
-                                    <input class="form-control" type="text" id="GOLJAB" name="jabatan"
-                                        placeholder="Jabatan" autofocus required />
-                                </div>
-                                <div class="mb-3 col-md-4">
-                                    <label for="Barjab" class="form-label">Kelompok Jabatan</label>
-                                    <input class="form-control" type="text" name="klp" id="klp"
-                                        placeholder="Kelompok Jabatan" required />
-                                </div>
-                                <div class="mb-3 col-md-4">
-                                    <label for="Barjab" class="form-label">Skala Gaji Pokok</label>
-                                    <select name="sgp" id="" class="form-select" required>
-                                        <option value="">-- Silahkan Pilih Skala Gaji Pokok --</option>
-                                        <option value="">Min</option>
-                                        <option value="">Mid</option>
-                                        <option value="">Max</option>
+                                <div class="mb-3 col-md-6">
+                                    <label for="klp" class="form-label">Kelompok Jabatan</label>
+                                    <select name="klp" id="klp" class="form-control input-lg" readonly="readonly">
                                     </select>
+                                </div>
+                                <div class=" mb-3 col-md-6">
+                                    <label for="Barjab" class="form-label">Skala Gaji Pokok</label>
+                                    <input name="sgp" id="sgp" class="form-select" />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Anggota Serikat</label>
@@ -206,11 +197,6 @@
                                         <option value="2">.....</option>
                                     </select>
                                 </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="Jab" class="form-label">Jabatan</label>
-                                    <input class="form-control" type="text" id="Jab" placeholder="Kok Jabatannya ada 2?"
-                                        autofocus readonly />
-                                </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="defaultSelect" class="form-label">Bank</label>
                                     <select name="bank" id="defaultSelect" class="form-select" required>
@@ -232,13 +218,8 @@
                                     <input class="form-control" type="text" id="AtNa" name="an"
                                         placeholder="Nama Pemegang Rekening" autofocus />
                                 </div>
-                                <div class="mb-3 col-md-3">
-                                    <input type="hidden" id="ip" name="ip" value="0">
-                                    <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
-                                        onchange="document.getElementById('ip').value = this.checked ? 1 : 0">
-                                    <label for="ip" class="form-label">Iuran Pensiun</label>
-                                </div>
-                                <div class="mb-3 col-md-3">
+
+                                <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Status Karyawan</label>
                                     <select name="sky" id="defaultSelect" class="form-select"
                                         onChange="statuskar(this.value)">
@@ -254,7 +235,12 @@
                                             data-date-inline-picker="true" />
                                     </div>
                                 </div>
-                                </label>
+                                <div class="mb-3 col-md-3 mt-4">
+                                    <input type="hidden" id="ip" name="ip" value="0">
+                                    <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
+                                        onchange="document.getElementById('ip').value = this.checked ? 1 : 0">
+                                    <label for="ip" class="form-label">Iuran Pensiun</label>
+                                </div>
                             </div>
                         </div>
                         <!-- /Account -->
@@ -302,4 +288,36 @@
     <!--/ Striped Rows -->
     <hr class="my-5" />
     <script src="../../../assets/js/datakaryawan.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.dynamic').change(function() {
+                if ($(this).val() != '') {
+                    var select = $(this).attr("id");
+                    var value = $(this).val();
+                    var dependent = $(this).data('dependent');
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url: "{{ route('kry.fetch') }}",
+                        method: "POST",
+                        data: {
+                            select: select,
+                            value: value,
+                            _token: _token,
+                            dependent: dependent
+                        },
+                        success: function(result) {
+                            $('#' + dependent).html(result);
+                        }
+
+                    })
+                }
+            });
+
+            $('#jabatan').change(function() {
+                $('#klp').val('');
+            });
+        });
+    </script>
 @endsection

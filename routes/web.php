@@ -34,13 +34,14 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], function () {
 
-    //Tabel Karyawan 
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    //Tabel Karyawan 
     Route::resource('/karyawan', DataKaryawanController::class);
+    Route::post('fetch', [DataKaryawanController::class,'fetch'])->name('kry.fetch');
     
     //Tabel Absensi Karyawan
     Route::resource('/absensi', AbsensiDataKaryawanController::class);
-    route::get('/absensi/{id}/delete', [AbsensiDataKaryawanController::class,'delete'])->name('absensi.delete');
+    Route::get('/absensi/{id}/delete', [AbsensiDataKaryawanController::class,'delete'])->name('absensi.delete');
     Route::post('absensi/fetch', [AbsensiDataKaryawanController::class,'fetch'])->name('absensi.fetch');
     Route::get('/absensi_search/action', [AbsensiDataKaryawanController::class, 'action'])->name('absensi.action');
     

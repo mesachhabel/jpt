@@ -114,9 +114,12 @@
                                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                     </form>
                                 </td>
-                            @empty
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="7" class="text-center">Tidak Ada Data</td>
+                            </tr>
                         @endforelse
-                        </tr>
                     </tbody>
                 </table>
             </div>

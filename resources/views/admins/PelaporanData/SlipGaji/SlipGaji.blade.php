@@ -18,6 +18,22 @@
                     </thead>
                     <tbody class="table-border-bottom-0">
                         <tr>
+                            <td><i class=" fa-lg text-danger me-3"></i> <strong>Slip Gaji Direksi</strong>
+                            </td>
+                            <td>
+                                <a href="{{ route('slipgaji.dataslipdireksi') }}" type="button"
+                                    class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i class=" fa-lg text-danger me-3"></i> <strong>Slip Gaji Komisari</strong>
+                            </td>
+                            <td>
+                                <a href="{{ route('slipgaji.dataslipkomisaris') }}" type="button"
+                                    class="btn btn-sm btn-success"><i class="bx bx-edit"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
                             <td><i class=" fa-lg text-danger me-3"></i> <strong>Slip Gaji Golongan Kelas 1</strong>
                             </td>
                             <td>

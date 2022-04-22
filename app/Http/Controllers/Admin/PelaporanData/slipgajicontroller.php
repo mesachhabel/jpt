@@ -15,6 +15,26 @@ class slipgajicontroller extends Controller
         return view ('admins.PelaporanData.SlipGaji.SlipGaji');
     }
 
+    public function slipdireksi()
+    {
+        return view ('admins.PelaporanData.SlipGaji.SG.SlipDireksi');
+    }
+
+    public function dataslipdireksi()
+    {
+        $dataslipdireksi = data_karyawan::where('jabatan', 1)->get();
+        return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiDireksi', compact('dataslipdireksi'));
+    }
+    public function slipkomisaris()
+    {
+        return view ('admins.PelaporanData.SlipGaji.SG.SlipKomisaris');
+    }
+
+    public function dataslipkomisaris()
+    {
+        $dataslipkomisaris = data_karyawan::where('jabatan', 1)->get();
+        return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKomisaris', compact('dataslipkomisaris'));
+    }
     public function slipkelas1()
     {
         return view ('admins.PelaporanData.SlipGaji.SG.SlipKelas1');

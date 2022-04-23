@@ -5,6 +5,7 @@
 }
 
 body {
+    scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
@@ -783,7 +784,7 @@ footer .logo a {
 }
 
 footer .logo a:hover {
-    color: #000;
+    color: #33c1cf;
 }
 
 footer .location h4 {
@@ -822,7 +823,7 @@ footer .contact-info a {
 }
 
 footer .contact-info a:hover {
-    color: #000;
+    color: #33c1cf;
 }
 
 footer .contact-info ul li {

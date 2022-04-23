@@ -73,8 +73,8 @@ class DataKaryawanController extends Controller
             'tmk'       => $request->tmk,
             'ska'       => $request->ska,
             'jabatan'   => $request->jabatan,
-            'gj'        => $request->gj,
-            'bg'        => $request->bg,
+            'klp'        => $request->klp,
+            'sgp'        => $request->sgp,
             'as'        => $request->as,
             'uk'        => $request->uk,
             'auk'       => $request->auk,
@@ -104,7 +104,8 @@ class DataKaryawanController extends Controller
     public function edit(data_karyawan $karyawan)
     {
         $karyawan = data_karyawan::find($karyawan->nik);
-        return view('admins.DataKaryawan.EditDataKaryawans', compact('karyawan'));
+        $jabatan = tr_kodejabatan::all();
+        return view('admins.DataKaryawan.EditDataKaryawans', compact('karyawan','jabatan'));
     }
 
     public function update(Request $request, data_karyawan $karyawan)
@@ -142,8 +143,8 @@ class DataKaryawanController extends Controller
             'tmk'       => $request->tmk,
             'ska'       => $request->ska,
             'jabatan'   => $request->jabatan,
-            'gj'        => $request->gj,
-            'bg'        => $request->bg,
+            'klp'        => $request->klp,
+            'sgp'        => $request->sgp,
             'as'        => $request->as,
             'uk'        => $request->uk,
             'auk'       => $request->auk,
@@ -155,10 +156,10 @@ class DataKaryawanController extends Controller
             'sky'       => $request->sky,
             'tb'        => $request->tb,
             'nppin'     => $request->nppin,
-            'goli'        => $request->goli,
-            'phdp'        => $request->phdp,
-            'ujsm'       => $request->ujsm,
-            'phda'        => $request->phda
+            'goli'      => $request->goli,
+            'phdp'      => $request->phdp,
+            'ujsm'      => $request->ujsm,
+            'phda'      => $request->phda
             ]);
 
         } else {
@@ -180,8 +181,8 @@ class DataKaryawanController extends Controller
             'tmk'       => $request->tmk,
             'ska'       => $request->ska,
             'jabatan'   => $request->jabatan,
-            'gj'        => $request->gj,
-            'bg'        => $request->bg,
+            'klp'        => $request->klp,
+            'sgp'        => $request->sgp,
             'as'        => $request->as,
             'uk'        => $request->uk,
             'auk'       => $request->auk,
@@ -193,10 +194,10 @@ class DataKaryawanController extends Controller
             'sky'       => $request->sky,
             'tb'        => $request->tb,
             'nppin'     => $request->nppin,
-            'goli'        => $request->goli,
-            'phdp'        => $request->phdp,
-            'ujsm'       => $request->ujsm,
-            'phda'        => $request->phda
+            'goli'      => $request->goli,
+            'phdp'      => $request->phdp,
+            'ujsm'      => $request->ujsm,
+            'phda'      => $request->phda
             ]);
         }
         if($karyawan){
@@ -242,7 +243,7 @@ class DataKaryawanController extends Controller
             ->groupBy($dependent)
             ->get();
         foreach ($data as $row) {
-            $output = '<option value="' . $row->$dependent . '" name="nama" selected>' . ucfirst($row->$dependent) . '</option>';
+            $output = '<option value="' . $row->$dependent . '" name="klp" selected>' . ucfirst($row->$dependent) . '</option>';
         }
         echo $output;
     }

@@ -16,11 +16,12 @@
                             <th>No</th>
                             <th>NIK</th>
                             <th>Nama</th>
+                            <th>Photo</th>
                             <th>Jabatan</th>
                             <th>Unit Kerja</th>
                             <th>Status</th>
-                            <th>Photo</th>
                             <th>Agama</th>
+                            <th>Skala Gaji</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -36,13 +37,10 @@
                                     {{ $post->nama }}
                                 </td>
                                 <td>
-                                    @if ($post->jabatan == '1')
-                                        <p>Direktur</p>
-                                    @elseif ($post->jabatan == '2')
-                                        <p>Komisaris</p>
-                                    @elseif ($post->jabatan == '3')
-                                        <p>Karyawans</p>
-                                    @endif
+                                    <img width="50" height="50" src="{{ Storage::url('public/posts/') . $post->image }}">
+                                </td>
+                                <td>
+                                    <strong>{{ $post->jabatan }}</strong>
                                 </td>
                                 <td>
                                     <strong> {{ $post->ska }}</strong>
@@ -59,10 +57,10 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <img width="50" height="50" src="{{ Storage::url('public/posts/') . $post->image }}">
+                                    <strong>{{ $post->agama }}</strong>
                                 </td>
                                 <td>
-                                    <strong>{{ $post->agama }}</strong>
+                                    <strong>@currency ($post->sgp)</strong>
                                 </td>
                                 <td>
                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');"

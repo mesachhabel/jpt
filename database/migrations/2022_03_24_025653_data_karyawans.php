@@ -28,9 +28,9 @@ class DataKaryawans extends Migration
             $table->integer('nbpks');
             $table->string('tmk');
             $table->string('ska');
-            $table->string('jabatan')->nullable();
-            $table->string('gj')->nullable();
-            $table->string('bg')->nullable();
+            $table->string('jabatan');
+            $table->string('klp');
+            $table->bigInteger('sgp');
             $table->string('as')->nullable();
             $table->string('uk')->nullable();
             $table->string('auk')->nullable();

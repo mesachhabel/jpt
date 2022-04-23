@@ -169,11 +169,12 @@
                                 </div>
                                 <div class=" mb-3 col-md-6">
                                     <label for="Barjab" class="form-label">Skala Gaji Pokok</label>
-                                    <input name="sgp" id="sgp" class="form-select" />
+                                    <input name="sgp" id="sgp" class="form-control"
+                                        placeholder="Silahkan Masukan Skala Gaji" required />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Anggota Serikat</label>
-                                    <select name="as" id="defaultSelect" class="form-select" required>
+                                    <select name="as" id="defaultSelect" class="form-select">
                                         <option disabled selected>-- Pilih Serikat --</option>
                                         <option value="1">.....</option>
                                         <option value="2">.....</option>
@@ -182,16 +183,16 @@
                                 <div class="mb-3 col-md-3">
                                     <label for="Uker" class="form-label">Unit Kerja</label>
                                     <input class="form-control" type="text" id="Uker" name="uk" placeholder="Unit Kerja"
-                                        autofocus required />
+                                        autofocus />
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="AUker" class="form-label">Anaknya Unit Kerja</label>
                                     <input class="form-control" type="text" id="AUker" name="auk"
-                                        placeholder="anaknya Unit Kerja" autofocus required />
+                                        placeholder="anaknya Unit Kerja" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Struktur Organisasi</label>
-                                    <select name="so" id="defaultSelect" class="form-select" required>
+                                    <select name="so" id="defaultSelect" class="form-select">
                                         <option disabled selected>-- Struktur --</option>
                                         <option value="1">.....</option>
                                         <option value="2">.....</option>

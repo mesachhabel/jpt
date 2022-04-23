@@ -171,23 +171,30 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="defaultSelect" class="form-label">Jabatan</label>
-                                    <select name="jabatan" id="defaultSelect" class="form-select">
+                                    <label for="jabatan" class="form-label">Jabatan</label>
+                                    <select name="jabatan" id="jabatan" class="form-select dynamic" data-dependent="klp">
                                         <option value="{{ old('jabatan', $karyawan->jabatan) }}" selected>
-                                            {{ $karyawan->jabatan }}</option>
-                                        <option value="1">.....</option>
-                                        <option value="2">.....</option>
+                                            {{ $karyawan->jabatan }}
+                                        </option>
+                                        @foreach ($jabatan as $jb)
+                                            <option value="{{ $jb->jabatan }}">[{{ $jb->kelas }}]
+                                                {{ $jb->jabatan }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="GOLJAB" class="form-label">Golongan Jabatan</label>
-                                    <input value="{{ old('gj', $karyawan->gj) }}" class="form-control" type="text"
-                                        id="GOLJAB" name="gj" placeholder="Golongan Jabatan" autofocus />
+                                    <label for="klp" class="form-label">Kelompok Jabatan</label>
+                                    <select name="klp" id="klp" class="form-control input-lg">
+                                        <option value="{{ old('klp', $karyawan->klp) }}" selected>{{ $karyawan->klp }}
+                                        </option>
+                                    </select>
                                 </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="Barjab" class="form-label">Baris Golongan</label>
-                                    <input value="{{ old('bg', $karyawan->bg) }}" class="form-control" type="text"
-                                        name="bg" id="Barjab" placeholder="Baris Golongan" />
+                                <div class=" mb-3 col-md-6">
+                                    <label for="Barjab" class="form-label">Skala Gaji Pokok</label>
+                                    <input name="sgp" id="sgp" class="form-control"
+                                        placeholder="Silahkan Masukan Skala Gaji"
+                                        value="{{ old('sgp', $karyawan->sgp) }}" required />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Anggota Serikat</label>
@@ -216,11 +223,6 @@
                                         <option value="1">.....</option>
                                         <option value="2">.....</option>
                                     </select>
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="Jab" class="form-label">Jabatan</label>
-                                    <input class="form-control" type="text" id="Jab" placeholder="Kok Jabatannya ada 2?"
-                                        autofocus readonly />
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="defaultSelect" class="form-label">Bank</label>
@@ -324,4 +326,36 @@
     </div>
     <hr class="my-5" />
     <script src="../../../assets/js/datakaryawan.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.dynamic').change(function() {
+                if ($(this).val() != '') {
+                    var select = $(this).attr("id");
+                    var value = $(this).val();
+                    var dependent = $(this).data('dependent');
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url: "{{ route('kry.fetch') }}",
+                        method: "POST",
+                        data: {
+                            select: select,
+                            value: value,
+                            _token: _token,
+                            dependent: dependent
+                        },
+                        success: function(result) {
+                            $('#' + dependent).html(result);
+                        }
+
+                    })
+                }
+            });
+
+            $('#jabatan').change(function() {
+                $('#klp').val('');
+            });
+        });
+    </script>
 @endsection

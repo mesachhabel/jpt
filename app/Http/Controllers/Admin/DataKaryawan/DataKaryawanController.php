@@ -73,7 +73,7 @@ class DataKaryawanController extends Controller
             'tmk'       => $request->tmk,
             'ska'       => $request->ska,
             'jabatan'   => $request->jabatan,
-            'klp'        => $request->klp,
+            'kelas'        => $request->kelas,
             'sgp'        => $request->sgp,
             'as'        => $request->as,
             'uk'        => $request->uk,
@@ -143,7 +143,7 @@ class DataKaryawanController extends Controller
             'tmk'       => $request->tmk,
             'ska'       => $request->ska,
             'jabatan'   => $request->jabatan,
-            'klp'        => $request->klp,
+            'kelas'        => $request->kelas,
             'sgp'        => $request->sgp,
             'as'        => $request->as,
             'uk'        => $request->uk,
@@ -181,7 +181,7 @@ class DataKaryawanController extends Controller
             'tmk'       => $request->tmk,
             'ska'       => $request->ska,
             'jabatan'   => $request->jabatan,
-            'klp'        => $request->klp,
+            'kelas'        => $request->kelas,
             'sgp'        => $request->sgp,
             'as'        => $request->as,
             'uk'        => $request->uk,
@@ -243,7 +243,7 @@ class DataKaryawanController extends Controller
             ->groupBy($dependent)
             ->get();
         foreach ($data as $row) {
-            $output = '<option value="' . $row->$dependent . '" name="klp" selected>' . ucfirst($row->$dependent) . '</option>';
+            $output = '<option value="' . $row->$dependent . '" name="kelas" selected>' . ucfirst($row->$dependent) . '</option>';
         }
         echo $output;
     }

@@ -60,7 +60,7 @@
                                     <strong>{{ $post->agama }}</strong>
                                 </td>
                                 <td>
-                                    <strong>@currency ($post->sgp)</strong>
+                                    <strong>Rp. @idr ($post->sgp)</strong>
                                 </td>
                                 <td>
                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');"

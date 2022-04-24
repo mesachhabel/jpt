@@ -26,9 +26,8 @@
                                 <td><i class="fa-lg text-danger me-3"></i> <strong>{{ $data->jabatan }}</strong>
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-primary">Cetak</a>
-                                    <a href="" class="btn btn-sm btn-secondary">Edit</a>
-                                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{ route('slipgaji.cetakdireksi', $data->nik) }}"
+                                        class="btn btn-sm btn-secondary">Cetak</a>
                                 </td>
                             </tr>
                         @empty

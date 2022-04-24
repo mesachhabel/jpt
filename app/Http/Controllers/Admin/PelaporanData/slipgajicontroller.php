@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use PDF;
 use Carbon\Carbon;
 use App\Models\data_karyawan;
+use Illuminate\Support\Str;
 
 class slipgajicontroller extends Controller
 {
@@ -15,6 +16,7 @@ class slipgajicontroller extends Controller
         return view ('admins.PelaporanData.SlipGaji.SlipGaji');
     }
 
+    //Slip Gaji Direksi
     public function slipdireksi()
     {
         return view ('admins.PelaporanData.SlipGaji.SG.SlipDireksi');
@@ -22,9 +24,25 @@ class slipgajicontroller extends Controller
 
     public function dataslipdireksi()
     {
-        $dataslipdireksi = data_karyawan::where('jabatan', 1)->get();
+        $dataslipdireksi = data_karyawan::where('kelas', 'bod1')
+        ->orWhere('kelas', 'bod2')
+        ->orWhere('kelas', 'bod3')
+        ->get();
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiDireksi', compact('dataslipdireksi'));
     }
+
+    public function cetak($nik){
+        $direksi=data_karyawan::find($nik);
+        $today = Carbon::now();
+        $year = $today->year;
+        $monthName = $today->format('F');
+
+        $beetween = Carbon::createFromDate($direksi->tmk)->diff(Carbon::now())->format('%y Tahun, %m Bulan, %d Hari');
+        
+        return view ('admins.PelaporanData.SlipGaji.SG.CetakSlipGajiDireksi', compact('direksi', 'year', 'monthName','today','beetween'));
+    }
+
+    // Slip Gaji Komisaris
     public function slipkomisaris()
     {
         return view ('admins.PelaporanData.SlipGaji.SG.SlipKomisaris');
@@ -32,9 +50,13 @@ class slipgajicontroller extends Controller
 
     public function dataslipkomisaris()
     {
-        $dataslipkomisaris = data_karyawan::where('jabatan', 1)->get();
+        $dataslipkomisaris = data_karyawan::where('kelas', 'boc1')
+        ->orWhere('kelas', 'boc2')
+        ->get();
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKomisaris', compact('dataslipkomisaris'));
     }
+
+    // Slip Gaji Kelas 1
     public function slipkelas1()
     {
         return view ('admins.PelaporanData.SlipGaji.SG.SlipKelas1');
@@ -46,6 +68,7 @@ class slipgajicontroller extends Controller
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas1', compact('dataslipkelas1'));
     }
     
+    // Slip Gaji Kelas 2
     public function slipkelas2()
     {
         $today = Carbon::now();
@@ -59,6 +82,7 @@ class slipgajicontroller extends Controller
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas2', compact('dataslipkelas2'));
     }
 
+    // Slip Gaji Kelas 3
     public function slipkelas3()
     {
         return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiKelas3');
@@ -69,6 +93,7 @@ class slipgajicontroller extends Controller
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas3', compact('dataslipkelas3'));
     }
 
+    // Slip Gaji Kelas 4
     public function slipkelas4()
     {
         return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiKelas3');
@@ -79,6 +104,7 @@ class slipgajicontroller extends Controller
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas4', compact('dataslipkelas4'));
     }
 
+    // Slip Gaji Kelas 5
     public function slipkelas5()
     {
         return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiKelas5');

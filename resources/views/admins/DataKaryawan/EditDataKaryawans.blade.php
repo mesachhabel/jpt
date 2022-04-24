@@ -184,9 +184,10 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="klp" class="form-label">Kelompok Jabatan</label>
-                                    <select name="klp" id="klp" class="form-control input-lg">
-                                        <option value="{{ old('klp', $karyawan->klp) }}" selected>{{ $karyawan->klp }}
+                                    <label for="kelas" class="form-label">Kelas Jabatan</label>
+                                    <select name="kelas" id="kelas" class="form-control input-lg">
+                                        <option value="{{ old('kelas', $karyawan->kelas) }}" selected>
+                                            {{ $karyawan->kelas }}
                                         </option>
                                     </select>
                                 </div>
@@ -354,7 +355,7 @@
             });
 
             $('#jabatan').change(function() {
-                $('#klp').val('');
+                $('#kelas').val('');
             });
         });
     </script>

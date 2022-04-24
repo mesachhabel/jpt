@@ -141,19 +141,14 @@
                                     <label for="defaultSelect" class="form-label">Status Karyawan</label>
                                     <select name="ska" id="defaultSelect" class="form-select">
                                         <option disabled selected>-- Pilih Status Karyawan --</option>
-                                        <option value="Direksi">[DR] Direksi</option>
-                                        <option value="Komisaris">[KM] Komisaris</option>
-                                        <option value="Operasional">[OP] Operasional</option>
-                                        <option value="Outsourcing">[OS] Outsourcing</option>
-                                        <option value="Karyawan Tetap">[TP] Karyawan Tetap</option>
-                                        <option value="PKWT Jasamarga">[TX] PKWT Jasamarga</option>
-                                        <option value="PKWT Eksternal">[TY] PKWT Eksternal</option>
-                                        <option value="Tenaga Ahli">[TZ] Tenaga Ahli</option>
+                                        <option value="Direksi">Direksi</option>
+                                        <option value="Komisaris">Komisaris</option>
+                                        <option value="Karyawan">Karyawan</option>
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="jabatan" class="form-label">Jabatan</label>
-                                    <select name="jabatan" id="jabatan" class="form-select dynamic" data-dependent="klp">
+                                    <select name="jabatan" id="jabatan" class="form-select dynamic" data-dependent="kelas">
                                         <option disabled selected>-- Pilih Jabatan -- </option>
                                         @foreach ($jabatan as $jb)
                                             <option value="{{ $jb->jabatan }}">[{{ $jb->kelas }}]
@@ -163,8 +158,8 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="klp" class="form-label">Kelompok Jabatan</label>
-                                    <select name="klp" id="klp" class="form-control input-lg" readonly="readonly">
+                                    <label for="kelas" class="form-label">Kelas Jabatan</label>
+                                    <select name="kelas" id="kelas" class="form-control input-lg" readonly="readonly">
                                     </select>
                                 </div>
                                 <div class=" mb-3 col-md-6">
@@ -317,7 +312,7 @@
             });
 
             $('#jabatan').change(function() {
-                $('#klp').val('');
+                $('#kelas').val('');
             });
         });
     </script>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard || JPT</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/icon.png" />
 
     <style>
         body {
@@ -69,7 +69,7 @@
             text-align: left;
         }
 
-        .wraptext{
+        .wraptext {
             width: 210px;
             /* border: 1px solid #000000; */
             word-wrap: break-word;
@@ -198,15 +198,17 @@
 </head>
 
 <body>
+    @csrf
+    @method('PUT')
     <div class="page">
         <section class="body-letter text">
             <!-- Judul -->
-            <img class="logo" src="../../assets/img/logo-jpt1.png" alt="logo">
-            <div class="title">
-                <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : {{ $monthName }} {{ $year }} </a>
+            <img class="logo" src="../../../assets/img/logo-jpt1.png" alt="logo">
+            <div class="title text-uppercase">
+                <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : {{ Str::upper($monthName) }} {{ $year }} </a>
             </div>
-            <div class="text-bank">
-                <a>Pembayaran : BANK MANDIRI</a>
+            <div class="text-bank text-uppercase">
+                <a>Pembayaran : {{ old('bank', $direksi->bank) }}</a>
             </div>
             <div class="text">
                 <table border="1" cellspacing="0" cellpadding="0" width="100%">
@@ -217,7 +219,7 @@
                                 <div class="block_container">
                                     <div class="sebutan wraptext" style="width: 207px;" id="bloc1">
                                         <span>
-                                            NIK - Nama  <br>
+                                            NIK - Nama <br>
                                             Jabatan<br>
                                             Nomor Pokok Wajib Pajak (NPWP)<br>
                                             Tanggal Masuk Bekerja<br>
@@ -228,8 +230,10 @@
                                         <a>:<br>:<br>:<br>:<br>:</a>
                                     </div>
                                     <div class="keterangan wraptext" id="bloc3">
-                                        <a>D1603 - Ir. H. Bahrul Alam <br> Direktur Keuangan & SDM Direksi<br>
-                                            48.762.688.9-624.000 <br> 01 Juni 2016 <br> 5 Tahun 9 Bulan</a>
+                                        <a>{{ old('nik', $direksi->nik) }} - {{ old('nama', $direksi->nama) }} <br>
+                                            {{ old('jabatan', $direksi->jabatan) }}<br>
+                                            4{{ old('npwp', $direksi->npwp) }} <br> {{ old('tmk', $direksi->tmk) }}
+                                            <br>{{ $beetween }} </a>
                                     </div>
                                     <div class="status" id="bloc4">
                                         <a>Status Karyawan <br> Status Keluarga</a>
@@ -238,7 +242,7 @@
                                         <a>:<br>:</a>
                                     </div>
                                     <div class="keterangan ii" id="bloc6">
-                                        <a>Direksi<br>K/2</a>
+                                        <a>{{ old('ska', $direksi->ska) }}<br>{{ old('skk', $direksi->skk) }}</a>
                                     </div>
                                 </div>
                             </td>
@@ -259,8 +263,8 @@
                                         <a>:<br><strong>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 9px;" id="bloc9">
-                                        <a>45.973.015</a><br>
-                                        <strong>45.973.015</strong>
+                                        <a>@idr($direksi->sgp)</a><br>
+                                        <strong>@idr($direksi->sgp)</strong>
                                     </div>
                                 </div>
                                 <!-- separator -->

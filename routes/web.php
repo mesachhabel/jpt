@@ -88,7 +88,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
         Route::resource('/slipgaji', slipgajicontroller::class);
             // Golongan Direksi
             Route::get('/slipdireksi', [slipgajicontroller::class,'slipdireksi'])->name('slipgaji.slipdireksi');   
-            Route::get('/dataslipdireksi', [slipgajicontroller::class,'dataslipdireksi'])->name('slipgaji.dataslipdireksi');   
+            Route::get('/dataslipdireksi', [slipgajicontroller::class,'dataslipdireksi'])->name('slipgaji.dataslipdireksi'); 
+            Route::get('/dataslipdireksi/{nik}/cetak', [slipgajicontroller::class,'cetak'])->name('slipgaji.cetakdireksi'); 
             // Golongan Komisaris
             Route::get('/slipkomisaris', [slipgajicontroller::class,'slipkomisaris'])->name('slipgaji.slipkomisaris');   
             Route::get('/dataslipkomisaris', [slipgajicontroller::class,'dataslipkomisaris'])->name('slipgaji.dataslipkomisaris');   

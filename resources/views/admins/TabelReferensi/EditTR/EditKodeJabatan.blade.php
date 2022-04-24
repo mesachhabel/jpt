@@ -18,30 +18,20 @@
                             @csrf
                             @method('PUT')
                             <div class="row">
-                                <div class="mb-3 col-md-4">
-                                    <label for="kode" class="form-label">Kode Jabatan</label>
-                                    <input class="form-control" type="text" id="kode" name="kode"
-                                        value="{{ old('kode', $kodejabatan->kode) }}" />
+                                <div class="mb-3 col-md">
+                                    <label for="kelas" class="form-label">Kelas Jabatan</label>
+                                    <input class="form-control" type="text" id="kelas" name="kelas"
+                                        value="{{ old('kelas', $kodejabatan->kelas) }}" />
                                 </div>
-                                <div class="mb-3 col-md-4">
-                                    <label for="golongan" class="form-label">Golongan</label>
-                                    <input class="form-control" type="text" name="golongan" id="golongan"
-                                        value="{{ old('kode', $kodejabatan->golongan) }}" />
+                                <div class="mb-3 col-md">
+                                    <label for="jabatan" class="form-label">Nama Jabatan</label>
+                                    <input class="form-control" type="text" id="jabatan" name="jabatan"
+                                        value="{{ old('jabatan', $kodejabatan->jabatan) }}" autofocus />
                                 </div>
-                                <div class="mb-3 col-md-4">
+                                <div class="mb-3 col-md">
                                     <label for="klp" class="form-label">Kelompok</label>
                                     <input class="form-control" type="text" name="klp" id="klp"
-                                        value="{{ old('kode', $kodejabatan->klp) }}" />
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="uraianjabatan" class="form-label">Nama Jabatan</label>
-                                    <input class="form-control" type="text" id="uraianjabatan" name="uraianjabatan"
-                                        value="{{ old('kode', $kodejabatan->uraianjabatan) }}" autofocus />
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="sebutanjabatan" class="form-label">Sebutan Jabatan</label>
-                                    <input class="form-control" type="text" name="sebutanjabatan" id="sebutanjabatan"
-                                        value="{{ old('kode', $kodejabatan->sebutanjabatan) }}" />
+                                        value="{{ old('klp', $kodejabatan->klp) }}" />
                                 </div>
                                 <hr class="my-0" />
                                 <div class="mt-3">

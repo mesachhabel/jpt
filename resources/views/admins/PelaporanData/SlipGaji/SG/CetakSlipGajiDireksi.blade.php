@@ -46,7 +46,9 @@
         }
 
         @media print {
-
+        .button{
+            visibility: hidden;
+        }            
             html,
             body {
                 width: 210mm;
@@ -59,7 +61,6 @@
                 border-radius: initial;
                 width: initial;
                 min-height: initial;
-                /* box-shadow: initial; */
                 background: initial;
                 page-break-after: always;
             }
@@ -71,7 +72,6 @@
 
         .wraptext {
             width: 210px;
-            /* border: 1px solid #000000; */
             word-wrap: break-word;
         }
 
@@ -472,6 +472,10 @@
                 <hr> PT Jasamarga Pandaan Tol : {{ $today }}
             </section>
         </section>
+        <div class="button">
+            <button onclick="history.back()">Back</button>
+            <button onclick="window.print()">Print</button>
+        </div>
     </div>
 </body>
 

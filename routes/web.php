@@ -109,6 +109,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
             Route::get('/slipkelas5', [slipgajicontroller::class,'slipkelas5'])->name('slipgaji.slipkelas5');
             Route::get('/dataslipkelas5', [slipgajicontroller::class,'dataslipkelas5'])->name('slipgaji.dataslipkelas5');
     //End of Pelaporan Data
+
+    //--------------Tabel Remunerasi-------------------------
+    Route::resource('/remunerasi', TabelReferensiController::class);
 });
 
 

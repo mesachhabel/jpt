@@ -250,7 +250,8 @@
                                     <div class="keterangan wraptext" id="bloc3">
                                         <a>{{ old('nik', $direksi->nik) }} - {{ old('nama', $direksi->nama) }} <br>
                                             {{ old('jabatan', $direksi->jabatan) }}<br>
-                                            4{{ old('npwp', $direksi->npwp) }} <br> {{ old('tmk', $direksi->tmk) }}
+                                            {{ old('npwp', $direksi->npwp) }} <br> 
+                                            {{ old('tmk', $direksi->tmk) }}
                                             <br>{{ $beetween }} </a>
                                     </div>
                                     <div class="status" id="bloc4">

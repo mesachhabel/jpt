@@ -492,7 +492,7 @@
             </section>
         </section>
         
-        <a onclick="window.print()" class="float" style="bottom : 120px;">
+        <a onclick="window.print()" class="float" style="bottom : 120px;"  download="slipgajidireksi">
             <i class="fa fa-print my-float"></i>
         </a>
         <a onclick="history.back()" class="float">

@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\TabelRefrensi\TRBank;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusPegawai;
 use App\Http\Controllers\Admin\TabelRefrensi\TRStatusTugasDB;
 use App\Http\Controllers\Admin\PelaporanData\slipgajicontroller;
+use App\Http\Controllers\Admin\Lainnya\remunerasicontroller;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -111,7 +112,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     //End of Pelaporan Data
 
     //--------------Tabel Remunerasi-------------------------
-    Route::resource('/remunerasi', TabelReferensiController::class);
+    Route::resource('/remunerasi', remunerasicontroller::class);
 });
 
 

@@ -148,7 +148,7 @@
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="jabatan" class="form-label">Jabatan</label>
-                                    <select name="jabatan" id="jabatan" class="form-select dynamic" data-dependent="kelas">
+                                    <select name="jabatan" id="jabatan" class="form-select dynamic" data-dependent="klp">
                                         <option disabled selected>-- Pilih Jabatan -- </option>
                                         @foreach ($jabatan as $jb)
                                             <option value="{{ $jb->jabatan }}">[{{ $jb->kelas }}]
@@ -158,8 +158,8 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="kelas" class="form-label">Kelas Jabatan</label>
-                                    <select name="kelas" id="kelas" class="form-control input-lg" readonly="readonly">
+                                    <label for="klp" class="form-label">Kelompok Jabatan</label>
+                                    <select name="klp" id="klp" class="form-control input-lg" readonly="readonly">
                                     </select>
                                 </div>
                                 <div class=" mb-3 col-md-6">
@@ -312,7 +312,7 @@
             });
 
             $('#jabatan').change(function() {
-                $('#kelas').val('');
+                $('#klp').val('');
             });
         });
     </script>

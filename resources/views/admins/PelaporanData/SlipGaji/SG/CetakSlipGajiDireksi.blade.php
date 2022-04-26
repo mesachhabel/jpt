@@ -8,7 +8,8 @@
     <title>Dashboard || JPT</title>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/icon.png" />
-
+    <link rel="stylesheet" href="../../../landingpage/css/fontAwesome.css">
+    
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -46,9 +47,9 @@
         }
 
         @media print {
-        .button{
+        .float{
             visibility: hidden;
-        }            
+        }
             html,
             body {
                 width: 210mm;
@@ -194,6 +195,23 @@
             width: 60px;
         }
 
+        /* button float */
+        .float{
+	        position:fixed;
+	        width:60px;
+	        height:60px;
+	        bottom:40px;
+	        right:40px;
+	        background-color:#0C9;
+	        color:#FFF;
+	        border-radius:50px;
+	        text-align:center;
+	        box-shadow: 2px 2px 3px #999;
+            
+        }
+        .my-float{
+	        margin-top:22px;
+        }
     </style>
 </head>
 
@@ -472,10 +490,13 @@
                 <hr> PT Jasamarga Pandaan Tol : {{ $today }}
             </section>
         </section>
-        <div class="button">
-            <button onclick="history.back()">Back</button>
-            <button onclick="window.print()">Print</button>
-        </div>
+        
+        <a onclick="window.print()" class="float" style="bottom : 120px;">
+            <i class="fa fa-print my-float"></i>
+        </a>
+        <a onclick="history.back()" class="float">
+            <i class="fa fa-arrow-left my-float"></i>
+        </a>
     </div>
 </body>
 

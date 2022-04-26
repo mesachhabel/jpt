@@ -13,8 +13,8 @@
                 <table class="table table-hover table-striped table-bordered">
                     <thead class="text-center" style="vertical-align:middle;">
                         <tr>
-                            <th>No</th>
                             <th>Golongan</th>
+                            <th>Baris</th>
                             <th>Gaji Pokok</th>
                             <th>Honorarium</th>
                             <th>Action</th>
@@ -26,30 +26,29 @@
                             <tr>
                                 <td>
                                     <!-- Golongan -->
-                                    02
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $rem->golongan }}</strong>
                                 </td>
                                 <td>
                                     <!-- Gaji Pokok -->
-                                    30
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $rem->baris }}</strong>
                                 </td>
                                 <td>
                                     <!-- Honorarium -->
-                                    30.719.100,00
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $rem->Gaji_pokok }}</strong>
                                 </td>
                                 <td>
                                     <!-- Honorarium -->
-                                    0
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $rem->Honorarium }}</strong>
                                 </td>
                                 
                                 <td>
-                                    <!-- <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                        action="{{ route('karyawan.destroy', $rem->nik) }}" method="POST">
-                                        <a href="{{ route('karyawan.edit', $rem->nik) }}"
-                                            class="btn btn-sm btn-secondary">Edit</a>
-                                        @csrf
-                                        @method('DELETE')
+                                   
                                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                    </form> -->
+                                    
                                 </td>
                             </tr>
                         @empty

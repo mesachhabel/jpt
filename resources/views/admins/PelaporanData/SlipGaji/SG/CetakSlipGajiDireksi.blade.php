@@ -9,7 +9,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/icon.png" />
     <link rel="stylesheet" href="../../../landingpage/css/fontAwesome.css">
-    
+
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -47,9 +47,10 @@
         }
 
         @media print {
-        .float{
-            visibility: hidden;
-        }
+            .float {
+                visibility: hidden;
+            }
+
             html,
             body {
                 width: 210mm;
@@ -196,22 +197,28 @@
         }
 
         /* button float */
-        .float{
-	        position:fixed;
-	        width:60px;
-	        height:60px;
-	        bottom:40px;
-	        right:40px;
-	        background-color:#0C9;
-	        color:#FFF;
-	        border-radius:50px;
-	        text-align:center;
-	        box-shadow: 2px 2px 3px #999;
-            
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #0C9;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
+            cursor: pointer;
         }
-        .my-float{
-	        margin-top:22px;
+
+        .float:hover {
+            background-color: #0B7;
         }
+
+        .my-float {
+            margin-top: 22px;
+        }
+
     </style>
 </head>
 
@@ -222,10 +229,12 @@
         <section class="body-letter text">
             <!-- Judul -->
             <img class="logo" src="../../../assets/img/logo-jpt1.png" alt="logo">
-            <div class="title text-uppercase">
-                <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : {{ Str::upper($monthName) }} {{ $year }} </a>
+            <div class="title">
+                <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : {{ Str::upper($monthName) }}
+                    {{ $year }}
+                </a>
             </div>
-            <div class="text-bank text-uppercase">
+            <div class="text-bank">
                 <a>Pembayaran : {{ old('bank', $direksi->bank) }}</a>
             </div>
             <div class="text">
@@ -490,7 +499,7 @@
                 <hr> PT Jasamarga Pandaan Tol : {{ $today }}
             </section>
         </section>
-        
+
         <a onclick="window.print()" class="float" style="bottom : 120px;">
             <i class="fa fa-print my-float"></i>
         </a>

@@ -29,7 +29,7 @@ class DataKaryawans extends Migration
             $table->string('tmk');
             $table->string('ska');
             $table->string('jabatan');
-            $table->string('kelas');
+            $table->string('klp');
             $table->bigInteger('sgp');
             $table->string('as')->nullable();
             $table->string('uk')->nullable();

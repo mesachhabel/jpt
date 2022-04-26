@@ -250,7 +250,8 @@
                                     <div class="keterangan wraptext" id="bloc3">
                                         <a>{{ old('nik', $direksi->nik) }} - {{ old('nama', $direksi->nama) }} <br>
                                             {{ old('jabatan', $direksi->jabatan) }}<br>
-                                            4{{ old('npwp', $direksi->npwp) }} <br> {{ old('tmk', $direksi->tmk) }}
+                                            {{ old('npwp', $direksi->npwp) }} <br> 
+                                            {{ old('tmk', $direksi->tmk) }}
                                             <br>{{ $beetween }} </a>
                                     </div>
                                     <div class="status" id="bloc4">
@@ -491,7 +492,7 @@
             </section>
         </section>
         
-        <a onclick="window.print()" class="float" style="bottom : 120px;">
+        <a onclick="window.print()" class="float" style="bottom : 120px;"  download="slipgajidireksi">
             <i class="fa fa-print my-float"></i>
         </a>
         <a onclick="history.back()" class="float">

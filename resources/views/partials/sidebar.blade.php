@@ -142,7 +142,7 @@
         <!-- Lainnya -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon fa-solid fa-laptop-file"></i>
+                <i class="menu-icon fa fa-ellipsis-h"></i>
                 <div data-i18n="Layouts">Lainnya</div>
             </a>
 

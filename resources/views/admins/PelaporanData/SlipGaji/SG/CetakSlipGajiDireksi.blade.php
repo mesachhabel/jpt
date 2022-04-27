@@ -301,7 +301,7 @@
                                     <div class="sebutan" style="margin-left: 7px; " id="bloc10">
                                         <strong>Tunjangan</strong> <br>
                                         <a>1. Tunjangan Perum & Kom</a> <br>
-                                        <a>1. Tunjangan Jabatan</a> <br>
+                                        <a>2. Tunjangan Jabatan</a> <br>
                                         <div style="text-align: right; margin-right: 3px;">
                                             <strong>Sub Total</strong> <br>
                                             <strong>Jumlah Penghasilan</strong> <br>

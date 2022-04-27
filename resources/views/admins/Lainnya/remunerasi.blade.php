@@ -4,7 +4,7 @@
     @include('sweetalert::alert')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">Lainnya /</span> Data Remunerasi
+            <span class="text-muted fw-light">Lainnya /</span> Data Remunerasi Tunjangan
         </h4>
         <a href="{{ route('karyawan.create') }}" class="btn btn-primary mb-3">+ Tambah Data</a>
         <!-- Striped Rows -->
@@ -14,9 +14,16 @@
                     <thead class="text-center" style="vertical-align:middle;">
                         <tr>
                             <th>Golongan</th>
-                            <th>Baris</th>
-                            <th>Gaji Pokok</th>
-                            <th>Honorarium</th>
+                            <th>Kode</th>
+                            <th>Jabatan</th>
+                            <th>Tunjangan Jabatan</th>
+                            <th>Tunjangan UMK</th>
+                            <th>Tunjangan Transport</th>
+                            <th>Tunjangan Proyek</th>
+                            <th>Tunjangan Komunikasi</th>
+                            <th>Tunjangan Pulsa</th>
+                            <th>Tunjangan Utilitas</th>
+                            <th>Tunjangan Perumahan</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -30,30 +37,62 @@
                                     <strong>{{ $rem->golongan }}</strong>
                                 </td>
                                 <td>
-                                    <!-- Gaji Pokok -->
+                                    <!-- Kode -->
                                     <i class=" fa-lg text-danger me-3"></i>
-                                    <strong>{{ $rem->baris }}</strong>
+                                    <strong>{{ $rem->kode }}</strong>
                                 </td>
                                 <td>
-                                    <!-- Honorarium -->
+                                    <!-- Jabatan -->
                                     <i class=" fa-lg text-danger me-3"></i>
-                                    <strong>{{ $rem->Gaji_pokok }}</strong>
+                                    <strong>{{ $rem->jabatan }}</strong>
                                 </td>
                                 <td>
-                                    <!-- Honorarium -->
+                                    <!-- Tunjangan Jabatan -->
                                     <i class=" fa-lg text-danger me-3"></i>
-                                    <strong>{{ $rem->Honorarium }}</strong>
+                                    <strong>{{ $rem->tunj_jabatan }}</strong>
                                 </td>
-                                
                                 <td>
-                                   
-                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                    
+                                    <!-- Tunjangan UMK -->
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $rem->tunj_umk }}</strong>
+                                </td>
+                                <td>
+                                    <!-- Tunjangan Transport -->
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $rem->tunj_transport }}</strong>
+                                </td>
+                                <td>
+                                    <!-- Tunjangan Proyek -->
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $rem->tunj_proyek }}</strong>
+                                </td>
+                                <td>
+                                    <!-- Tunjangan Komunikasi -->
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $rem->tunj_komunikasi }}</strong>
+                                </td>
+                                <td>
+                                    <!-- Tunjangan Pulsa -->
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $rem->tunj_pulsa }}</strong>
+                                </td>
+                                <td>
+                                    <!-- Tunjangan Utilitas -->
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $rem->tunj_utilitas }}</strong>
+                                </td>
+                                <td>
+                                    <!-- Tunjangan Perumahan-->
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $rem->tunj_perumahan}}</strong>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                 </td>
                             </tr>
                         @empty
                             <div class="alert alert-danger">
-                                Data Remunerasi Belum Ada.
+                                Data Remunerasi Tunjangan Belum Ada.
                             </div>
                         @endforelse
                     </tbody>

@@ -149,7 +149,7 @@
             <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="{{ route('remunerasi.index') }}" class="menu-link">
-                        <div data-i18n="Without menu">Tabel Remunerasi Tunjangan</div>
+                        <div data-i18n="Without menu">Tabel Remunarasi Tunjangan</div>
                     </a>
                 </li>
             </ul>

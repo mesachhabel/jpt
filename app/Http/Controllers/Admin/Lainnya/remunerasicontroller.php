@@ -44,9 +44,10 @@ class remunerasicontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(remunerasi $remunerasi)
     {
-       
+        $remunerasi = remunerasi::find($remunerasi->id);
+        return view('admins.Lainnya.edit_remunerasi', compact('remunerasi'));
     }
 
     /**
@@ -56,9 +57,17 @@ class remunerasicontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update(Request $request,remunerasi $remunerasi)
     {
-        
+        $remunerasi = remunerasi::find($remunerasi->id);
+        $remunerasi->update($request->all());
+        if($remunerasi){
+            Alert::success('Data Berhasil Diubah', 'Selamat');
+            return redirect()->route('remunerasi.index');
+        }else{
+            Alert::error('Data Gagal Diubah', 'Maaf');
+            return redirect()->route('remunerasi.edit', $remunerasi->id);
+        }
     }
 
     /**
@@ -67,8 +76,18 @@ class remunerasicontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy(remunerasi $remunerasi)
     {
-    
+        //delete post
+        $remunerasi->delete();
+
+        //redirect to index
+        if($remunerasi){
+            Alert::success('Data Berhasil Dihapus', 'Selamat');
+            return redirect()->route('remunerasi.index');
+        }else{
+            Alert::error('Data Gagal Dihapus', 'Maaf');
+            return redirect()->route('remunerasi.index');
+        }
     }
 }

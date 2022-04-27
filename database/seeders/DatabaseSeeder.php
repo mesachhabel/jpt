@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // data_karyawan::factory(10)->create();
+        $this->call([
+            tr_agamaSeeder::class,
+        ]);
     }
 }

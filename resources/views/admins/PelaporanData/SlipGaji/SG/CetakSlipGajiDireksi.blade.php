@@ -9,7 +9,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/icon.png" />
     <link rel="stylesheet" href="../../../landingpage/css/fontAwesome.css">
-    
+
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -18,6 +18,7 @@
             margin: 0;
             padding: 0;
             background-color: #FAFAFA;
+            scroll-behavior: smooth;
 
         }
 
@@ -47,9 +48,10 @@
         }
 
         @media print {
-        .float{
-            visibility: hidden;
-        }
+            .float {
+                visibility: hidden;
+            }
+
             html,
             body {
                 width: 210mm;
@@ -196,22 +198,28 @@
         }
 
         /* button float */
-        .float{
-	        position:fixed;
-	        width:60px;
-	        height:60px;
-	        bottom:40px;
-	        right:40px;
-	        background-color:#0C9;
-	        color:#FFF;
-	        border-radius:50px;
-	        text-align:center;
-	        box-shadow: 2px 2px 3px #999;
-            
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #0C9;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
+            cursor: pointer;
         }
-        .my-float{
-	        margin-top:22px;
+
+        .float:hover {
+            background-color: #0B7;
         }
+
+        .my-float {
+            margin-top: 22px;
+        }
+
     </style>
 </head>
 
@@ -222,11 +230,13 @@
         <section class="body-letter text">
             <!-- Judul -->
             <img class="logo" src="../../../assets/img/logo-jpt1.png" alt="logo">
-            <div class="title text-uppercase">
-                <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : {{ Str::upper($monthName) }} {{ $year }} </a>
+            <div class="title">
+                <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : {{ Str::upper($monthName) }}
+                    {{ $year }}
+                </a>
             </div>
-            <div class="text-bank text-uppercase">
-                <a>Pembayaran : {{ old('bank', $direksi->bank) }}</a>
+            <div class="text-bank">
+                <a>Pembayaran : {{ Str::upper($direksi->bank) }}</a>
             </div>
             <div class="text">
                 <table border="1" cellspacing="0" cellpadding="0" width="100%">
@@ -250,8 +260,7 @@
                                     <div class="keterangan wraptext" id="bloc3">
                                         <a>{{ old('nik', $direksi->nik) }} - {{ old('nama', $direksi->nama) }} <br>
                                             {{ old('jabatan', $direksi->jabatan) }}<br>
-                                            {{ old('npwp', $direksi->npwp) }} <br> 
-                                            {{ old('tmk', $direksi->tmk) }}
+                                            4{{ old('npwp', $direksi->npwp) }} <br> {{ old('tmk', $direksi->tmk) }}
                                             <br>{{ $beetween }} </a>
                                     </div>
                                     <div class="status" id="bloc4">
@@ -491,11 +500,11 @@
                 <hr> PT Jasamarga Pandaan Tol : {{ $today }}
             </section>
         </section>
-        
-        <a onclick="window.print()" class="float" style="bottom : 120px;"  download="slipgajidireksi">
+
+        <a onclick="window.print()" class="float" style="bottom : 120px;">
             <i class="fa fa-print my-float"></i>
         </a>
-        <a onclick="history.back()" class="float">
+        <a href="{{ route('slipgaji.dataslipdireksi') }}" class="float">
             <i class="fa fa-arrow-left my-float"></i>
         </a>
     </div>

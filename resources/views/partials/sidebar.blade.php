@@ -1,7 +1,7 @@
 <!-- Menu -->
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="index.html" class="app-brand-link">
+        <a href="{{ route('admin.dashboard') }}" class="app-brand-link">
             <!-- <span class="app-brand-logo demo"> -->
             <img src="../../../assets/img/logo-jpt1.png" height="40" width="160" alt="Logo 1" />
             <!-- </span> -->

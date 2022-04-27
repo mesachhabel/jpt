@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\Account;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Alert;
 
 class AccountController extends Controller
 {
@@ -14,17 +16,8 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return view('admins.Account.Accounts');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $account = User::all();
+        return view('admins.Account.Accounts',compact('account'));
     }
 
     /**
@@ -35,7 +28,20 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $masuk = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => $request->role,
+            'password' => bcrypt($request->password),
+        ]);
+        
+        if ($masuk) {
+            Alert::success('Data Berhasil Ditambahkan', 'Selamat');
+            return redirect()->route('account.index');
+        } else {
+            Alert::error('Data Gagal Ditambahkan', 'Maaf');
+            return redirect()->route('account.index');
+        }
     }
 
     /**

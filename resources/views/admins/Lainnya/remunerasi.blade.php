@@ -4,7 +4,7 @@
     @include('sweetalert::alert')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">Lainnya /</span> Data Remunarasi Tunjangan
+            <span class="text-muted fw-light">Lainnya/</span> Data Remunarasi Tunjangan
         </h4>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
                     + Tambah Data

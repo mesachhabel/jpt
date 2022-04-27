@@ -160,7 +160,7 @@
             <span class="menu-header-text">Account</span>
         </li>
         <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link">
+            <a href="{{ route('account.index') }}" class="menu-link">
                 <i class="fa-solid fa-user menu-icon "></i>
                 <div data-i18n="Layouts">Account</div>
             </a>

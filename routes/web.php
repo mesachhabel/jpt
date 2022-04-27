@@ -58,6 +58,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     Route::resource('/refrensi', TabelReferensiController::class);
         //Tabel Referensi Skala Gaji
             Route::resource('/skalagaji', TRSkalaGajiController::class);
+            Route::post('skalagaji/fetch', [TRSkalaGajiController::class,'fetch'])->name('skalagaji.fetch');
         //Tabel Referensi Kode Unit Kerja
             Route::resource('/kodeunitkerja', TRKodeUnitKerjaController::class);
         //Tabel Referensi Kode Jabatan

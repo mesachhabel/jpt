@@ -28,17 +28,21 @@
                                     <div class="row">
                                         <div class="col mb-3">
                                             <label for="nameWithTitle" class="form-label">Kelas Jabatan</label>
-                                            <select name="kelas" id="" class="form-control">
+                                            <select name="kelas" id="kelas" class="form-control dynamic"
+                                                data-dependent="jabatan">
                                                 <option value="" disabled selected>-- Silahkan Pilih Kelas Jabatan --
                                                 </option>
                                                 @foreach ($jabatan as $item)
-                                                    <option value="{{ $item->kelas }}">{{ $item->kelas }}</option> )
+                                                    <option value="{{ $item->kelas }}">{{ $item->kelas }} ||
+                                                        {{ $item->jabatan }}</option> )
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="col mb-3">
                                             <label for="nameWithTitle" class="form-label">Jabatan</label>
-                                            <input name="jabatan" type="text" class="form-control" placeholder="Jabatan">
+                                            <select name="jabatan" id="jabatan" class="form-control input-lg"
+                                                readonly="readonly">
+                                            </select>
                                         </div>
                                     </div>
                                     <h6 class="modal-title mt-3" style="font-size: 12px;" id="modalCenterTitle">Skala Gaji
@@ -127,4 +131,36 @@
         <!--/ Hoverable Table rows -->
     </div>
     <hr class="my-5" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.dynamic').change(function() {
+                if ($(this).val() != '') {
+                    var select = $(this).attr("id");
+                    var value = $(this).val();
+                    var dependent = $(this).data('dependent');
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url: "{{ route('skalagaji.fetch') }}",
+                        method: "POST",
+                        data: {
+                            select: select,
+                            value: value,
+                            _token: _token,
+                            dependent: dependent
+                        },
+                        success: function(result) {
+                            $('#' + dependent).html(result);
+                        }
+
+                    })
+                }
+            });
+
+            $('#kelas').change(function() {
+                $('#jabatan').val('');
+            });
+        });
+    </script>
 @endsection

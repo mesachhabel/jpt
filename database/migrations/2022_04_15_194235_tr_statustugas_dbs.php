@@ -17,9 +17,9 @@ class TRStatusTugasDBS extends Migration
             $table->id();
             $table->string('kode');
             $table->string('instansi');
-            $table->string('bank');
-            $table->string('norek');
-            $table->string('atasnama');
+            $table->string('bank')->nullable();
+            $table->string('norek')->nullable();
+            $table->string('atasnama')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

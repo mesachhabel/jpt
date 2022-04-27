@@ -74,4 +74,17 @@ class TRSkalaGajiController extends Controller
     {
         //
     }
+    function fetch(Request $request)
+    {
+        $select = $request->get('select');
+        $value = $request->get('value');
+        $dependent = $request->get('dependent');
+        $data = tr_kodejabatan::where($select, $value)
+            ->groupBy($dependent)
+            ->get();
+        foreach ($data as $row) {
+            $output = '<option value="' . $row->$dependent . '" name="jabatan" selected>' . ucfirst($row->$dependent) . '</option>';
+        }
+        echo $output;
+    }
 }

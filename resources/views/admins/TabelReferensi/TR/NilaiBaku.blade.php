@@ -58,16 +58,6 @@
                                             <input type="text" id="emailWithTitle" class="form-control"
                                                 placeholder="Keterangan Unit" name="jht" />
                                         </div>
-                                        <div class="col mb-0">
-                                            <label for="emailWithTitle" class="form-label">JHT_Prs</label>
-                                            <input type="text" id="emailWithTitle" class="form-control"
-                                                placeholder="Keterangan Unit" name="jht_prs" />
-                                        </div>
-                                        <div class="col mb-0">
-                                            <label for="dobWithTitle" class="form-label">JHT_Peg</label>
-                                            <input type="text" id="dobWithTitle" class="form-control"
-                                                placeholder="Keterangan Sub-Unit" name="jht_peg" />
-                                        </div>
                                     </div>
                                     <div class="row g-2 mt-2">
                                         <div class="col mb-0">
@@ -194,8 +184,6 @@
                             <th>JKM</th>
                             <th>JKK</th>
                             <th>JHT</th>
-                            <th>JHT_Prs</th>
-                            <th>JHT_Peg</th>
                             <th>JPK</th>
                             <th>JPK_Prs</th>
                             <th>JPK_Peg</th>
@@ -235,12 +223,6 @@
                                 </td>
                                 <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jht }}</strong>
-                                </td>
-                                <td><i class=" fa-lg text-danger me-3"></i>
-                                    <strong>{{ $nilai->jht_prs }}</strong>
-                                </td>
-                                <td><i class=" fa-lg text-danger me-3"></i>
-                                    <strong>{{ $nilai->jht_peg }}</strong>
                                 </td>
                                 <td><i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $nilai->jpk }}</strong>

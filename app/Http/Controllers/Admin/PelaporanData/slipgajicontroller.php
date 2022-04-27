@@ -24,10 +24,8 @@ class slipgajicontroller extends Controller
 
     public function dataslipdireksi()
     {
-        $dataslipdireksi = data_karyawan::where('kelas', 'bod1')
-        ->orWhere('kelas', 'bod2')
-        ->orWhere('kelas', 'bod3')
-        ->get();
+        $klp = 'BOD';
+        $dataslipdireksi = data_karyawan::where('klp', 'LIKE','%'.$klp.'%')->get();
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiDireksi', compact('dataslipdireksi'));
     }
 

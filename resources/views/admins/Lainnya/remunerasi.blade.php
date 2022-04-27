@@ -4,7 +4,7 @@
     @include('sweetalert::alert')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
-            <span class="text-muted fw-light">Lainnya /</span> Data Remunerasi Tunjangan
+            <span class="text-muted fw-light">Lainnya /</span> Data Remunarasi Tunjangan
         </h4>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
                     + Tambah Data
@@ -16,7 +16,7 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modalCenterTitle">Tambah Data Remunerasi Tunjangan</h5>
+                                    <h5 class="modal-title" id="modalCenterTitle">Tambah Data Remunarasi Tunjangan</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
@@ -181,7 +181,14 @@
                                     <strong>{{ $rem->tunj_perumahan}}</strong>
                                 </td>
                                 <td>
-                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                <form onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                        action="{{ route('remunerasi.destroy', $rem->id) }}" method="POST">
+                                        <a href="{{ route('remunerasi.edit', $rem->id) }}"
+                                            class="btn btn-sm btn-secondary">Edit</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty

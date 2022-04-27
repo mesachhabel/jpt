@@ -6,7 +6,7 @@
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light">Lainnya/</span> Data Remunarasi Tunjangan
         </h4>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
+        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalCenter">
             + Tambah Data
         </button>
         <!-- Modal -->

@@ -11,6 +11,7 @@
 </head>
 
 <body class="align">
+    @include('sweetalert::alert')
     <div class="grid">
         <form action="{{ route('login') }}" method="POST" class="form login">
             @csrf
@@ -18,12 +19,12 @@
                 <label for="login__username">
                     <svg class="icon">
                         <use xlink:href="#icon-user"></use>
-                    </svg><span class="hidden">E-mail Address</span></label>
-                <input autocomplete="E-mail Address" id="email" type="text" name="email" class="form__input"
-                    placeholder="Enter E-mail Address" required>
+                    </svg><span class="hidden">Username</span></label>
+                <input id="name" type="text" name="name" class="form__input" placeholder="Enter Your Username"
+                    required>
             </div>
             <span class="text-danger">
-                @error('email')
+                @error('name')
                     {{ $message }}
                 @enderror
             </span>

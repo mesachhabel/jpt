@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
+use Alert;
 
 class LoginController extends Controller
 {
@@ -29,17 +30,17 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-      protected function redirectTo(){
-          if( Auth()->user()->role == 1){
-              return route('admin.dashboard');
-          }
-          elseif( Auth()->user() == 2){
-              return route('user.dashboard');
-          }
-          elseif( Auth()->user() == 3){
-              return route('editor.dashboard');
-          }
-      }
+        protected function redirectTo(){
+            if( Auth()->user()->role == 1){
+                return route('admin.dashboard');
+            }
+            elseif( Auth()->user() == 2){
+                return route('user.dashboard');
+            }
+            elseif( Auth()->user() == 3){
+                return route('editor.dashboard');
+            }
+        }
 
 
     /**
@@ -53,13 +54,13 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
-       $input = $request->all();
-       $this->validate($request,[
-           'email'=>'required|email',
-           'password'=>'required'
-       ]);
+        $input = $request->all();
+        $this->validate($request,[
+            'name'=>'required',
+            'password'=>'required'
+        ]);
 
-       if( auth()->attempt(array('email'=>$input['email'], 'password'=>$input['password'])) ){
+        if( auth()->attempt(array('name'=>$input['name'], 'password'=>$input['password'])) ){
 
         if( auth()->user()->role == 1 ){
             return redirect()->route('admin.dashboard');
@@ -71,8 +72,8 @@ class LoginController extends Controller
             return redirect()->route('editor.dashboard');
         }
 
-       }else{
-           return redirect()->route('login')->with('error','Email and password are wrong');
-       }
+        }else{
+            return redirect()->route('login')->with('Alert','Username atau Email, Salah !');
+        }
     }
 }

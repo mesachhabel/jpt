@@ -16,7 +16,7 @@
                 <!-- Hoverable Table rows -->
                 <div class="card mt-3">
                     <div class="table-responsive text-nowrap">
-                        <table class="table table-hover">
+                        <table class="table table-hover table-bordered table-striped">
                             <thead class="text-center" style="vertical-align:middle;">
                                 <tr>
                                     <th>No</th>
@@ -28,7 +28,37 @@
                                 </tr>
                             </thead>
                             <tbody class="text-center" style="vertical-align:middle;">
-
+                                @forelse ($account as $ac)
+                                    <tr>
+                                        <td>{{ $ac->id }}</td>
+                                        <td>{{ $ac->name }}</td>
+                                        <td>{{ $ac->email }}</td>
+                                        <td>
+                                            @if ($ac->role == 1)
+                                                Admin
+                                            @elseif ($ac->role == 2)
+                                                Karyawan
+                                            @elseif ($ac->role == 3)
+                                                Editor
+                                            @endif
+                                        </td>
+                                        <td>{{ $ac->password }}</td>
+                                        <td>
+                                            <a href="{{ route('account.edit', $ac->id) }}"
+                                                class="btn btn-primary btn-sm">Edit</a>
+                                            <form action="{{ route('account.destroy', $ac->id) }}" method="POST"
+                                                class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <div class="alert alert-danger">
+                                        Account Belum Dibuat, Silahkan Buat !!.
+                                    </div>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -41,7 +71,7 @@
 
     <hr class="my-5" />
     <!-- Modal -->
-    <form id="formAccountSettings" method="POST" action="{{ route('kodeunitkerja.store') }}">
+    <form id="formAccountSettings" method="POST" action="{{ route('account.store') }}">
         @csrf
         <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -54,25 +84,29 @@
                         <div class="row g-2">
                             <div class="col mb-0">
                                 <label for="emailWithTitle" class="form-label">Name</label>
-                                <input name="kuk" type="text" id="emailWithTitle" class="form-control"
-                                    placeholder="Name" />
+                                <input name="name" type="text" id="emailWithTitle" class="form-control" placeholder="Name"
+                                    required />
                             </div>
                             <div class="col mb-0">
                                 <label for="dobWithTitle" class="form-label">E-mail</label>
-                                <input name="sub" type="text" id="dobWithTitle" class="form-control"
-                                    placeholder="E-mail" />
+                                <input name="email" type="email" id="dobWithTitle" class="form-control"
+                                    placeholder="E-mail" required />
                             </div>
                         </div>
                         <div class="row g-2 mt-2">
                             <div class="col mb-0">
                                 <label for="emailWithTitle" class="form-label">Role</label>
-                                <input name="uuk" type="text" id="emailWithTitle" class="form-control"
-                                    placeholder="Role" />
+                                <select name="role" id="role" class="form-control" required>
+                                    <option disabled selected>-- Silahkan Pilih Role --</option>
+                                    <option value=1>Admin</option>
+                                    <option value=2>User</option>
+                                    <option value=3>Editor</option>
+                                </select>
                             </div>
                             <div class="col mb-0">
                                 <label for="dobWithTitle" class="form-label">Password</label>
-                                <input name="ksu" type="text" id="dobWithTitle" class="form-control"
-                                    placeholder="Password" />
+                                <input name="password" type="password" id="dobWithTitle" class="form-control" data-eye
+                                    placeholder="Enter password" required />
                             </div>
                         </div>
                     </div>

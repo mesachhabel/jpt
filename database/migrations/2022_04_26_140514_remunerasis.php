@@ -16,9 +16,16 @@ return new class extends Migration
         Schema::create('remunerasis', function (Blueprint $table){
             $table->id();
             $table->string('golongan');
-            $table->string('baris');
-            $table->string('Gaji_pokok');
-            $table->string('Honorarium');
+            $table->string('kode');
+            $table->string('jabatan');
+            $table->bigInteger('tunj_jabatan');
+            $table->bigInteger('tunj_umk');
+            $table->bigInteger('tunj_transport');
+            $table->bigInteger('tunj_proyek');
+            $table->bigInteger('tunj_komunikasi');
+            $table->bigInteger('tunj_pulsa');
+            $table->bigInteger('tunj_utilitas');
+            $table->bigInteger('tunj_perumahan');
             $table->rememberToken();
             $table->timestamps();
         });

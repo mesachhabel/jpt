@@ -7,98 +7,97 @@
             <span class="text-muted fw-light">Lainnya /</span> Data Remunerasi Tunjangan
         </h4>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
-                    + Tambah Data
+            + Tambah Data
         </button>
         <!-- Modal -->
         <form id="formAccountSettings" method="POST" action="{{ route('remunerasi.store') }}">
-                    @csrf
-                    <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="modalCenterTitle">Tambah Data Remunerasi Tunjangan</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+            @csrf
+            <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalCenterTitle">Tambah Data Remunerasi Tunjangan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2 mt-2">
+                                <div class="col mb-0">
+                                    <label for="emailWithTitle" class="form-label">Golongan</label>
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Golongan"
+                                        name="golongan" />
                                 </div>
-                                <div class="modal-body">
-                                    <div class="row g-2 mt-2">
-                                        <div class="col mb-0">
-                                            <label for="emailWithTitle" class="form-label">Golongan</label>
-                                            <input type="text" id="emailWithTitle" class="form-control"
-                                                placeholder="Kode Unit" name="golongan" />
-                                        </div>
-                                        <div class="col mb-0">
-                                            <label for="dobWithTitle" class="form-label">Kode</label>
-                                            <input type="text" id="dobWithTitle" class="form-control"
-                                                placeholder="Kode Sub-Unit" name="kode" />
-                                        </div>
-                                    </div>
-                                    <div class="row g-2 mt-2">
-                                        <div class="col mb-0">
-                                            <label for="emailWithTitle" class="form-label">Jabatan</label>
-                                            <input type="text" id="emailWithTitle" class="form-control"
-                                                placeholder="Keterangan Unit" name="jabatan" />
-                                        </div>
-                                        <div class="col mb-0">
-                                            <label for="dobWithTitle" class="form-label">Tunjangan Jabatan</label>
-                                            <input type="text" id="dobWithTitle" class="form-control"
-                                                placeholder="Keterangan Sub-Unit" name="tunj_jabatan" />
-                                        </div>
-                                    </div>
-                                    <div class="row g-2 mt-2">
-                                        <div class="col mb-0">
-                                            <label for="emailWithTitle" class="form-label">Tunjangan UMK</label>
-                                            <input type="text" id="emailWithTitle" class="form-control"
-                                                placeholder="Keterangan Unit" name="tunj_umk" />
-                                        </div>
-                                        <div class="col mb-0">
-                                            <label for="dobWithTitle" class="form-label">Tunjangan Transport</label>
-                                            <input type="text" id="dobWithTitle" class="form-control"
-                                                placeholder="Keterangan Sub-Unit" name="tunj_transport" />
-                                        </div>
-                                    </div>
-                                    <div class="row g-2 mt-2">
-                                        <div class="col mb-0">
-                                            <label for="emailWithTitle" class="form-label">Tunjangan Proyek</label>
-                                            <input type="text" id="emailWithTitle" class="form-control"
-                                                placeholder="Keterangan Unit" name="tunj_proyek" />
-                                        </div>
-                                        <div class="col mb-0">
-                                            <label for="dobWithTitle" class="form-label">Tunjangan Komunikasi</label>
-                                            <input type="text" id="dobWithTitle" class="form-control"
-                                                placeholder="Keterangan Sub-Unit" name="tunj_komunikasi" />
-                                        </div>
-                                    </div>
-                                    <div class="row g-2 mt-2">
-                                        <div class="col mb-0">
-                                            <label for="emailWithTitle" class="form-label">Tunjangan Pulsa</label>
-                                            <input type="text" id="emailWithTitle" class="form-control"
-                                                placeholder="Keterangan Unit" name="tunj_pulsa" />
-                                        </div>
-                                        <div class="col mb-0">
-                                            <label for="dobWithTitle" class="form-label">Tunjangan Utilitas</label>
-                                            <input type="text" id="dobWithTitle" class="form-control"
-                                                placeholder="Keterangan Sub-Unit" name="tunj_utilitas" />
-                                        </div>
-                                    </div>
-                                    <div class="row g-2 mt-2">
-                                        <div class="col mb-0">
-                                            <label for="emailWithTitle" class="form-label">Tunjangan Perumahan</label>
-                                            <input type="text" id="emailWithTitle" class="form-control"
-                                                placeholder="Keterangan Unit" name="tunj_perumahan" />
-                                        </div>
-                                    </div>
+                                <div class="col mb-0">
+                                    <label for="dobWithTitle" class="form-label">Kode</label>
+                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Kode"
+                                        name="kode" />
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                        Close
-                                    </button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                            <div class="row g-2 mt-2">
+                                <div class="col mb-0">
+                                    <label for="emailWithTitle" class="form-label">Jabatan</label>
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Jabatan"
+                                        name="jabatan" />
+                                </div>
+                            </div>
+                            <div class="row g-2 mt-2">
+                                <div class="col mb-0">
+                                    <label for="dobWithTitle" class="form-label">Tunjangan Jabatan</label>
+                                    <input type="text" id="dobWithTitle" class="form-control"
+                                        placeholder="Tunjangan Jabatan" name="tunj_jabatan" />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="emailWithTitle" class="form-label">Tunjangan UMK</label>
+                                    <input type="text" id="emailWithTitle" class="form-control"
+                                        placeholder="Tunjangan UMK" name="tunj_umk" />
+                                </div>
+                            </div>
+                            <div class="row g-2 mt-2">
+                                <div class="col mb-0">
+                                    <label for="dobWithTitle" class="form-label">Tunjangan Transport</label>
+                                    <input type="text" id="dobWithTitle" class="form-control"
+                                        placeholder="Tunjangan Transport" name="tunj_transport" />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="emailWithTitle" class="form-label">Tunjangan Proyek</label>
+                                    <input type="text" id="emailWithTitle" class="form-control"
+                                        placeholder="Tunjangan Proyek" name="tunj_proyek" />
+                                </div>
+                            </div>
+                            <div class="row g-2 mt-2">
+                                <div class="col mb-0">
+                                    <label for="dobWithTitle" class="form-label">Tunjangan Komunikasi</label>
+                                    <input type="text" id="dobWithTitle" class="form-control"
+                                        placeholder="Tunjangan Komunikasi" name="tunj_komunikasi" />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="emailWithTitle" class="form-label">Tunjangan Pulsa</label>
+                                    <input type="text" id="emailWithTitle" class="form-control"
+                                        placeholder="Tunjangan Pulsa" name="tunj_pulsa" />
+                                </div>
+                            </div>
+                            <div class="row g-2 mt-2">
+                                <div class="col mb-0">
+                                    <label for="dobWithTitle" class="form-label">Tunjangan Utilitas</label>
+                                    <input type="text" id="dobWithTitle" class="form-control"
+                                        placeholder="Tunjangan Utilitas" name="tunj_utilitas" />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="emailWithTitle" class="form-label">Tunjangan Perumahan</label>
+                                    <input type="text" id="emailWithTitle" class="form-control"
+                                        placeholder="Tunjangan Perumahan" name="tunj_perumahan" />
                                 </div>
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
                     </div>
-                </form>
+                </div>
+            </div>
+        </form>
 
 
         <!-- Striped Rows -->
@@ -122,7 +121,7 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        
+
                         @forelse ($remunerasis as $rem)
                             <tr>
                                 <td>
@@ -178,7 +177,7 @@
                                 <td>
                                     <!-- Tunjangan Perumahan-->
                                     <i class=" fa-lg text-danger me-3"></i>
-                                    <strong>{{ $rem->tunj_perumahan}}</strong>
+                                    <strong>{{ $rem->tunj_perumahan }}</strong>
                                 </td>
                                 <td>
                                     <button type="submit" class="btn btn-sm btn-danger">Delete</button>

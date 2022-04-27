@@ -403,7 +403,7 @@
                                         <a><strong>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 0px;" id="bloc27">
-                                        <strong>70.340.614</strong>
+                                        <strong>@idr($direksi->sgp + $direksi->sgp)</strong>
                                     </div>
                                 </div>
                             </td>

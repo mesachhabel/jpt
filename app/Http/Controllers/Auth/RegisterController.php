@@ -50,7 +50,7 @@ class RegisterController extends Controller
      */
     function showRegistrationForm()
     {
-        return view('auth.login');
+        return view('auth.register');
     }
 
     protected function validator(array $data)
@@ -62,33 +62,4 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:5', 'confirmed'],
         ]);
     }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
-//     function register(Request $request){
-
-//         $request->validate([
-//            'name' => ['required', 'string', 'max:255'],
-//            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-//            'role'=>'required',
-//            'password' => ['required', 'string', 'min:5', 'confirmed'],
-//         ]);
-
-//         $user = new User();
-//         $user->name = $request->name;
-//         $user->email = $request->email;
-//         $user->role = $request->role;
-//         $user->password = \Hash::make($request->password);
-
-//         if( $user->save() ){
-
-//            return redirect()->route('admin.dashboard')->with('success','You are now successfully registerd');
-//         }else{
-//             return redirect()->back()->with('error','Failed to register');
-//         }
-//    }
 }

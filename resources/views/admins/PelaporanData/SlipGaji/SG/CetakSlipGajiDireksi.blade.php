@@ -18,6 +18,7 @@
             margin: 0;
             padding: 0;
             background-color: #FAFAFA;
+            scroll-behavior: smooth;
 
         }
 
@@ -235,7 +236,7 @@
                 </a>
             </div>
             <div class="text-bank">
-                <a>Pembayaran : {{ old('bank', $direksi->bank) }}</a>
+                <a>Pembayaran : {{ Str::upper($direksi->bank) }}</a>
             </div>
             <div class="text">
                 <table border="1" cellspacing="0" cellpadding="0" width="100%">
@@ -503,7 +504,7 @@
         <a onclick="window.print()" class="float" style="bottom : 120px;">
             <i class="fa fa-print my-float"></i>
         </a>
-        <a onclick="history.back()" class="float">
+        <a href="{{ route('slipgaji.dataslipdireksi') }}" class="float">
             <i class="fa fa-arrow-left my-float"></i>
         </a>
     </div>

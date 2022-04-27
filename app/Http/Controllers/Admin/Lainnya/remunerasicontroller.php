@@ -28,7 +28,14 @@ class remunerasicontroller extends Controller
      */
     public function store(Request $request)
     {
-        
+        $masuk=remunerasi::create($request->all());
+        if($masuk){
+            Alert::success('Data Berhasil Ditambahkan', 'Selamat');
+            return redirect()->route('remunerasi.index');
+        }else{
+            Alert::error('Data Gagal Ditambahkan', 'Maaf');
+            return redirect()->route('remunerasi.index');
+        }
     }
 
     /**

@@ -15,7 +15,8 @@
                     <!-- Account -->
                     <hr class="my-0" />
                     <div class="card-body">
-                        <form id="formAccountSettings" method="POST" action="{{ route('remunerasi.update', $remunerasi->id) }}">
+                        <form id="formAccountSettings" method="POST"
+                            action="{{ route('remunerasi.update', $remunerasi->id) }}">
                             @csrf
                             @method('PUT')
                             <div class="row">
@@ -29,7 +30,7 @@
                                     <input class="form-control" type="text" name="kode"
                                         value="{{ old('kode', $remunerasi->kode) }}" />
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-12">
                                     <label class="form-label">Jabatan</label>
                                     <input class="form-control" type="text" name="jabatan"
                                         value="{{ old('jabatan', $remunerasi->jabatan) }}" autofocus />
@@ -40,7 +41,7 @@
                                         value="{{ old('tunj_jabatan', $remunerasi->tunj_jabatan) }}" />
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label  class="form-label">Tunjangan UMK</label>
+                                    <label class="form-label">Tunjangan UMK</label>
                                     <input class="form-control" type="text" name="tunj_umk"
                                         value="{{ old('tunj_umk', $remunerasi->tunj_umk) }}" autofocus />
                                 </div>
@@ -70,14 +71,15 @@
                                         value="{{ old('tunj_utilitas', $remunerasi->tunj_utilitas) }}" />
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label  class="form-label">Tunjangan Perumahan</label>
-                                    <input class="form-control" type="text"  name="tunj_perumahan"
+                                    <label class="form-label">Tunjangan Perumahan</label>
+                                    <input class="form-control" type="text" name="tunj_perumahan"
                                         value="{{ old('tunj_perumahan', $remunerasi->tunj_perumahan) }}" autofocus />
                                 </div>
                                 <hr class="my-0" />
                                 <div class="mt-3">
                                     <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                                    <a href="{{ route('remunerasi.index') }}" class="btn btn-outline-secondary">Cancel</a>
+                                    <a href="{{ route('remunerasi.index') }}"
+                                        class="btn btn-outline-secondary">Cancel</a>
                                 </div>
                             </div>
                         </form>

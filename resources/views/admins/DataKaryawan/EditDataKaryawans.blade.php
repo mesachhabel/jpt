@@ -85,8 +85,8 @@
                                                 <span class="badge bg-label-purple me-4">Duda</span>
                                             @endif
                                         </option>
-                                        <option value="1">Belum Kawin</option>
-                                        <option value="2">Kawin</option>
+                                        <option value="1">Belum Menikah</option>
+                                        <option value="2">Menikah</option>
                                         <option value="3">Janda</option>
                                         <option value="4">Duda</option>
                                     </select>

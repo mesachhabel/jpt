@@ -44,7 +44,7 @@
                                 <th>Total<br>Insentif</th>
                             </tr>
                         </thead>
-                        <tbody class="table-border-bottom-0 tbody">
+                        <tbody class="text-center" style="vertical-align:middle;">
                             <?php $no = 1; ?>
                             @forelse ($lemburs as $lembur)
                                 <tr>

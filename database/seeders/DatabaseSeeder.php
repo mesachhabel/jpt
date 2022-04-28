@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             tr_statustugasSeeder::class,
             tr_jenispenerimaanSeeder::class,
             UserSeeder::class,
+            tab_keterangan_slipsSeeder::class,
         ]);
     }
 }

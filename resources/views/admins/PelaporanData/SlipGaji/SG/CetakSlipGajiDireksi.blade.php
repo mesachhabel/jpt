@@ -231,7 +231,7 @@
             <!-- Judul -->
             <img class="logo" src="../../../assets/img/logo-jpt1.png" alt="logo">
             <div class="title">
-                <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : {{ Str::upper($monthName) }}
+                <a> RINCIAN PENGHASILAN {{ Str::upper($direksi->ska) }} <br> BULAN : {{ Str::upper($monthName) }}
                     {{ $year }}
                 </a>
             </div>
@@ -245,7 +245,7 @@
                             <!-- identitas -->
                             <td colspan="2" valign="top">
                                 <div class="block_container">
-                                    <div class="sebutan wraptext" style="width: 207px;" id="bloc1">
+                                    <div class="sebutan" style="width: 207px;" id="bloc1">
                                         <span>
                                             NIK - Nama <br>
                                             Jabatan<br>
@@ -254,17 +254,18 @@
                                             Masa Kerja Efektif
                                         </span>
                                     </div>
-                                    <div class="separ wraptext" id="bloc2">
+                                    <div class="separ" id="bloc2">
                                         <a>:<br>:<br>:<br>:<br>:</a>
                                     </div>
-                                    <div class="keterangan wraptext" id="bloc3" style="width:auto;">
-                                        <a>{{ old('nik', $direksi->nik) }} - {{ old('nama', $direksi->nama) }} <br>
+                                    <div class="keterangan" id="bloc3" style="width:9.7rem;">
+                                        <a>{{ old('nik', $direksi->nik) }} - {{ old('nama', $direksi->nama) }}
+                                            <br>
                                             {{ old('jabatan', $direksi->jabatan) }}<br>
                                             {{ old('npwp', $direksi->npwp) }} <br>
                                             {{ old('tmk', $direksi->tmk) }}
                                             <br>{{ $beetween }} </a>
                                     </div>
-                                    <div class="status" id="bloc4" style="margin-left:35px;">
+                                    <div class="status" id="bloc4">
                                         <a>Status Karyawan <br> Status Keluarga</a>
                                     </div>
                                     <div class="separ ii" id="bloc5">
@@ -483,10 +484,11 @@
                 <div>
                     Keterangan :
                     <ol>
-                        <li>Jamsostek merupakan tunjangan yang dibayarkan Perusahaan</li>
-                        <li>PPh 21 adalah jumlah Pajak yang seharusnya disetor ke kantor Pajak</li>
-                        <li>Rincian Potongan Santunan Duka : </li>
-                        3 Orang Karyawan (Suderajat/06864, Abdurahman/10280, Imam Ansori/04694)
+                        @forelse ($keterangan as $keterangan)
+                            {{ $keterangan->id }}. {{ $keterangan->Ur_Keterangan }}<br>
+                        @empty
+                            <li>Tidak Ada Catatan!</li>
+                        @endforelse
                     </ol>
                 </div>
                 <!-- end of keterangan -->

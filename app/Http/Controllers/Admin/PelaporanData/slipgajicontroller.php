@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use PDF;
 use Carbon\Carbon;
 use App\Models\data_karyawan;
+use App\Models\Tab_KeteranganSlip;
 use Illuminate\Support\Str;
 
 class slipgajicontroller extends Controller
@@ -30,14 +31,20 @@ class slipgajicontroller extends Controller
     }
 
     public function cetak($nik){
+        //Pemanggilan Table
         $direksi=data_karyawan::find($nik);
+        //Months And Year TOday
         $today = Carbon::now();
         $year = $today->year;
         $monthName = $today->format('F');
 
-        $beetween = Carbon::createFromDate($direksi->tmk)->diff(Carbon::now())->format('%y Tahun, %m Bulan, %d Hari');
+        //Beetween Tanggal Masuk kerja
+        $beetween = Carbon::createFromDate($direksi->tmk)->diff(Carbon::now())->format('%y Tahun, %m Bulan');
         
-        return view ('admins.PelaporanData.SlipGaji.SG.CetakSlipGajiDireksi', compact('direksi', 'year', 'monthName','today','beetween'));
+        //Keterangan Slip
+        $keterangan = Tab_KeteranganSlip::all();
+
+        return view ('admins.PelaporanData.SlipGaji.SG.CetakSlipGajiDireksi', compact('direksi', 'year', 'monthName','today','beetween','keterangan'));
     }
 
     // Slip Gaji Komisaris

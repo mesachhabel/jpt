@@ -179,10 +179,10 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="kelas" class="form-label">Kelas Jabatan</label>
-                                    <select name="kelas" id="kelas" class="form-control input-lg">
-                                        <option value="{{ old('kelas', $karyawan->kelas) }}" selected>
-                                            {{ $karyawan->kelas }}
+                                    <label for="klp" class="form-label">Kelompok Jabatan</label>
+                                    <select name="klp" id="klp" class="form-control input-lg" readonly="readonly">
+                                        <option value="{{ old('klp', $karyawan->klp) }}" selected>
+                                            {{ $karyawan->klp }}
                                         </option>
                                     </select>
                                 </div>
@@ -237,7 +237,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="AtNa" class="form-label">Atas Nama</label>
                                     <input value="{{ old('an', $karyawan->an) }}" class="form-control" type="text"
-                                        id="AtNa" name="an" placeholder="Nama Pemegang Rekening" autofocus />
+                                        id="AtNa" name="an" placeholder="Atas Nama" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     @if ($karyawan->ip == '1')
@@ -350,7 +350,7 @@
             });
 
             $('#jabatan').change(function() {
-                $('#kelas').val('');
+                $('#klp').val('');
             });
         });
     </script>

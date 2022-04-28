@@ -76,9 +76,9 @@
                                     <select name="skk" id="defaultSelect" class="form-select">
                                         <option value="{{ old('sk', $karyawan->skk) }}" selected>
                                             @if ($karyawan->skk == '1')
-                                                <span class="badge bg-label-primary me-1">Belum Kawin</span>
+                                                <span class="badge bg-label-primary me-1">Belum Menikah</span>
                                             @elseif ($karyawan->skk == '2')
-                                                <span class="badge bg-label-warning me-2">Kawin</span>
+                                                <span class="badge bg-label-warning me-2">Menikah</span>
                                             @elseif ($karyawan->skk == '3')
                                                 <span class="badge bg-label-danger me-3">Janda</span>
                                             @elseif ($karyawan->skk == '4')
@@ -160,14 +160,9 @@
                                     <select name="ska" id="defaultSelect" class="form-select">
                                         <option value="{{ old('ska', $karyawan->ska) }}" selected>{{ $karyawan->ska }}
                                         </option>
-                                        <option value="Direksi">[DR] Direksi</option>
-                                        <option value="Komisaris">[KM] Komisaris</option>
-                                        <option value="Operasional">[OP] Operasional</option>
-                                        <option value="Outsourcing">[OS] Outsourcing</option>
-                                        <option value="Karyawan Tetap">[TP] Karyawan Tetap</option>
-                                        <option value="PKWT Jasamarga">[TX] PKWT Jasamarga</option>
-                                        <option value="PKWT Eksternal">[TY] PKWT Eksternal</option>
-                                        <option value="Tenaga Ahli">[TZ] Tenaga Ahli</option>
+                                        <option value="Direksi">Direksi</option>
+                                        <option value="Komisaris">Komisaris</option>
+                                        <option value="Karyawan">Karyawan</option>
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">

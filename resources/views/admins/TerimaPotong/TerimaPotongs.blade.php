@@ -47,7 +47,7 @@
                             </tr>
                             </tr>
                         </thead>
-                        <tbody class="table-border-bottom-0 tbody">
+                        <tbody class="text-center" style="vertical-align:middle;">
                             <?php $no = 1; ?>
                             @forelse ($terimapotongs as $terimapotong)
                                 <tr>

@@ -271,7 +271,17 @@
                                         <a>:<br>:</a>
                                     </div>
                                     <div class="keterangan ii" id="bloc6">
-                                        <a>{{ old('ska', $direksi->ska) }}<br>{{ old('skk', $direksi->skk) }}</a>
+                                        <a>{{ old('ska', $direksi->ska) }}<br>
+                                            @if ($direksi->skk == '1')
+                                                <span class="badge bg-label-primary me-1">Belum Menikah</span>
+                                            @elseif ($direksi->skk == '2')
+                                                <span class="badge bg-label-warning me-2">Menikah</span>
+                                            @elseif ($direksi->skk == '3')
+                                                <span class="badge bg-label-danger me-3">Janda</span>
+                                            @elseif ($direksi->skk == '4')
+                                                <span class="badge bg-label-purple me-4">Duda</span>
+                                            @endif
+                                        </a>
                                     </div>
                                 </div>
                             </td>

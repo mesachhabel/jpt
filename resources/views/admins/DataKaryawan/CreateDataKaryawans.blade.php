@@ -272,7 +272,7 @@
                                 </div>
                                 <div class="mt-3">
                                     <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                                    <a href="{{ route('karyawan.index') }}" class="btn btn-outline-secondary">Cancel</a>
+                                    <a onclick="goBack()" class="btn btn-outline-secondary">Cancel</a>
                                 </div>
                             </div>
                         </div>
@@ -284,6 +284,11 @@
     <!--/ Striped Rows -->
     <hr class="my-5" />
     <script src="../../../assets/js/datakaryawan.js"></script>
+    <script>
+        function goBack() {
+            history.back();
+        }
+    </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {

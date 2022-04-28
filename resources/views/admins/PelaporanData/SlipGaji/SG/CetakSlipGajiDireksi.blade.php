@@ -231,7 +231,7 @@
             <!-- Judul -->
             <img class="logo" src="../../../assets/img/logo-jpt1.png" alt="logo">
             <div class="title">
-                <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : {{ Str::upper($monthName) }}
+                <a> RINCIAN PENGHASILAN {{ Str::upper($direksi->ska) }} <br> BULAN : {{ Str::upper($monthName) }}
                     {{ $year }}
                 </a>
             </div>

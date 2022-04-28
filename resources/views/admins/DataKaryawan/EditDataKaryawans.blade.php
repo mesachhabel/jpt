@@ -223,10 +223,12 @@
                                 <div class="mb-3 col-md-3">
                                     <label for="defaultSelect" class="form-label">Bank</label>
                                     <select name="bank" id="defaultSelect" class="form-select">
-                                        <option value="{{ old('bank', $karyawan->bank) }}" selected>
-                                            {{ $karyawan->bank }}</option>
-                                        <option value="1">.....</option>
-                                        <option value="2">.....</option>
+                                        <option disabled selected>-- Pilih Bank --</option>
+                                        @foreach ($banks as $bank)
+                                            <option value="{{ $bank->bank }}">[{{ $bank->kode }}]
+                                                {{ $bank->bank }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-3">

@@ -257,14 +257,14 @@
                                     <div class="separ wraptext" id="bloc2">
                                         <a>:<br>:<br>:<br>:<br>:</a>
                                     </div>
-                                    <div class="keterangan wraptext" id="bloc3">
+                                    <div class="keterangan wraptext" id="bloc3" style="width:auto;">
                                         <a>{{ old('nik', $direksi->nik) }} - {{ old('nama', $direksi->nama) }} <br>
                                             {{ old('jabatan', $direksi->jabatan) }}<br>
                                             {{ old('npwp', $direksi->npwp) }} <br>
                                             {{ old('tmk', $direksi->tmk) }}
                                             <br>{{ $beetween }} </a>
                                     </div>
-                                    <div class="status" id="bloc4">
+                                    <div class="status" id="bloc4" style="margin-left:35px;">
                                         <a>Status Karyawan <br> Status Keluarga</a>
                                     </div>
                                     <div class="separ ii" id="bloc5">
@@ -301,7 +301,7 @@
                                     <div class="sebutan" style="margin-left: 7px; " id="bloc10">
                                         <strong>Tunjangan</strong> <br>
                                         <a>1. Tunjangan Perum & Kom</a> <br>
-                                        <a>1. Tunjangan Jabatan</a> <br>
+                                        <a>2. Tunjangan Jabatan</a> <br>
                                         <div style="text-align: right; margin-right: 3px;">
                                             <strong>Sub Total</strong> <br>
                                             <strong>Jumlah Penghasilan</strong> <br>
@@ -403,7 +403,7 @@
                                         <a><strong>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 0px;" id="bloc27">
-                                        <strong>70.340.614</strong>
+                                        <strong>@idr($direksi->sgp + $direksi->sgp)</strong>
                                     </div>
                                 </div>
                             </td>

@@ -2,124 +2,50 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="author" content="Kodinger">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>SlipGaji - PTJPT</title>
-    <link rel="stylesheet" href="assets/loginreg/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="assets/loginreg/css/my-login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Silahkan Daftar Di Admin</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/icon.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
+<style>
+    * {
+        text-align: center !important;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-<body class="my-login-page">
-    <section class="h-100">
-        <div class="container h-100">
-            <div class="row justify-content-md-center h-100">
-                <div class="card-wrapper">
+    .a {
+        line-height: 5rem;
+    }
 
-                    <div class="cardx fat mt-4">
-                        <div class="card-body">
-                            <h4 class="card-title">Register</h4>
-                            <form method="POST" class="my-login-validation" autocomplete="off"
-                                action="{{ route('register') }}">
-                                @csrf
-                                @if (Session::get('success'))
-                                    <div class="alert alert-success">
-                                        {{ Session::get('success') }}
-                                    </div>
-                                @endif
-                                @if (Session::get('error'))
-                                    <div class="alert alert-danger">
-                                        {{ Session::get('error') }}
-                                    </div>
-                                @endif
-                                @csrf
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input id="name" type="text" class="form-control" name="name" autofocus
-                                        placeholder="Enter name" value="{{ old('name') }}">
-                                    <span class="text-danger">
-                                        @error('name')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
+    .b {
+        line-height: 2rem;
+    }
 
-                                <div class="form-group">
-                                    <label for="email">E-Mail Address</label>
-                                    <input id="email" type="email" class="form-control" name="email"
-                                        placeholder="Enter email" value="{{ old('email') }}">
-                                    <span class="text-danger">
-                                        @error('email')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="role">Role</label>
-                                    <span class="text-danger">
-                                        @error('role')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                    <select class="form-control" name="role" id="role">
-                                        <option selected disabled value="">Select Role</option>
-                                        <option value=1>Admin</option>
-                                        <option value=2>User</option>
-                                        <option value=3>Editor</option>
-                                    </select>
-                                </div>
+    .error {
+        width: 500px;
+        margin-top: 2.5rem;
+    }
 
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input id="password" type="password" class="form-control" name="password" data-eye
-                                        placeholder="Enter password">
-                                    <span class="text-danger">
-                                        @error('password')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password-confirm">Confirm Password</label>
-                                    <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required data-eye
-                                        placeholder="Enter confirm password">
-                                    <span class="text-danger">
-                                        @error('password_confirmation')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
+    @media screen and (max-width: 600px) {
+        .error {
+            width: 100%;
+        }
+    }
 
-                                </div>
-                                <div class="form-group">
-                                    <div class="custom-checkbox custom-control">
-                                        <input required type="checkbox" name="agree" id="agree"
-                                            class="custom-control-input">
-                                        <label for="agree" class="custom-control-label">I agree to the <a href="#">Terms
-                                                and Conditions</a></label>
-                                        <div class="invalid-feedback">
-                                            You must agree with our Terms and Conditions
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group m-0">
-                                    <button type="submit" class="btn btn-primary btn-block">
-                                        Register
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+</style>
 
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script src="assets/loginreg/jquery-3.4.1.min.js"></script>
-    <script src="assets/loginreg/bootstrap/js/popper.js"></script>
-    <script src="assets/loginreg/bootstrap/js/bootstrap.js"></script>
-    <script src="assets/loginreg/js/my-login.js"></script>
+<body>
+    <img class="error" src="../../../assets/loginreg/img/undraw_server_down_s-4-lk.svg" alt="Error-Register">
+    <p class="a"> Silahkan Daftar Akun Terlebih Dahulu, Atau Hubungi Admin!!!</p>
+    <p class="b">Terima Kasih!!!</p>
+    <a class="btn btn-primary" href="{{ route('login') }}">Login</a>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </html>

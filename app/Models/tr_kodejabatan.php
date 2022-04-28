@@ -10,5 +10,8 @@ class tr_kodejabatan extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    
+    public function remunerasi()
+    {
+        return $this->belongsTo('App\Models\remunerasi', 'kelas');
+    }
 }

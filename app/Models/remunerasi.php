@@ -10,5 +10,10 @@ class remunerasi extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    
+    protected $primaryKey = 'kelas';
+
+    public function tr_kodejabatan()
+    {
+        return $this->hasOne('App\Models\tr_kodejabatan');
+    }
 }

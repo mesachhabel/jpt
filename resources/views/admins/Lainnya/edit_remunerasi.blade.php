@@ -22,8 +22,8 @@
                             <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Golongan</label>
-                                    <input class="form-control" type="text" name="golongan"
-                                        value="{{ old('golongan', $remunerasi->golongan) }}" autofocus />
+                                    <input class="form-control" type="text" name="kelas"
+                                        value="{{ old('kelas', $remunerasi->kelas) }}" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Kode</label>

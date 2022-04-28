@@ -24,7 +24,7 @@
                                 <div class="col mb-0">
                                     <label for="emailWithTitle" class="form-label">Golongan</label>
                                     <input type="text" id="emailWithTitle" class="form-control" placeholder="Golongan"
-                                        name="golongan" />
+                                        name="kelas" />
                                 </div>
                                 <div class="col mb-0">
                                     <label for="dobWithTitle" class="form-label">Kode</label>
@@ -127,7 +127,7 @@
                                 <td>
                                     <!-- Golongan -->
                                     <i class=" fa-lg text-danger me-3"></i>
-                                    <strong>{{ $rem->golongan }}</strong>
+                                    <strong>{{ $rem->kelas }}</strong>
                                 </td>
                                 <td>
                                     <!-- Kode -->

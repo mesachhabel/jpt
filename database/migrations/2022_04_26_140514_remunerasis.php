@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('remunerasis', function (Blueprint $table){
             $table->id();
-            $table->string('golongan');
+            $table->string('kelas');
             $table->string('kode');
             $table->string('jabatan');
             $table->bigInteger('tunj_jabatan');

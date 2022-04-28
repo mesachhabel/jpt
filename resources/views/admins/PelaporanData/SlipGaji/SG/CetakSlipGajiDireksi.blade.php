@@ -73,8 +73,12 @@
             text-align: left;
         }
 
+        .container{
+
+        }
+
         .wraptext {
-            width: 210px;
+            width: 180px;
             word-wrap: break-word;
         }
 
@@ -257,14 +261,14 @@
                                     <div class="separ wraptext" id="bloc2">
                                         <a>:<br>:<br>:<br>:<br>:</a>
                                     </div>
-                                    <div class="keterangan wraptext" id="bloc3" style="width:auto;">
+                                    <div class="keterangan wraptext" id="bloc3" >
                                         <a>{{ old('nik', $direksi->nik) }} - {{ old('nama', $direksi->nama) }} <br>
                                             {{ old('jabatan', $direksi->jabatan) }}<br>
                                             {{ old('npwp', $direksi->npwp) }} <br>
                                             {{ old('tmk', $direksi->tmk) }}
                                             <br>{{ $beetween }} </a>
                                     </div>
-                                    <div class="status" id="bloc4" style="margin-left:35px;">
+                                    <div class="status" id="bloc4" style="margin-left:auto;">
                                         <a>Status Karyawan <br> Status Keluarga</a>
                                     </div>
                                     <div class="separ ii" id="bloc5">

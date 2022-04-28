@@ -71,8 +71,8 @@
                                     <label for="defaultSelect" class="form-label">Status Keluarga</label>
                                     <select name="skk" id="defaultSelect" class="form-select" required>
                                         <option disabled selected>-- Pilih Status Keluarga --</option>
-                                        <option value="1">Belum Kawin</option>
-                                        <option value="2">Kawin</option>
+                                        <option value="1">Belum Menikah</option>
+                                        <option value="2">Menikah</option>
                                         <option value="3">Janda</option>
                                         <option value="4">Duda</option>
                                     </select>

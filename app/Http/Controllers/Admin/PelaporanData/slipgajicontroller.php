@@ -46,7 +46,7 @@ class slipgajicontroller extends Controller
         //Keterangan Slip
         $keterangan = Tab_KeteranganSlip::all();
 
-        return view ('admins.PelaporanData.SlipGaji.SG.CetakSlipGajiDireksi', compact('direksi', 'year', 'monthName','today','beetween','keterangan','tunjangan'));
+        return view ('admins.PelaporanData.SlipGaji.SG.CetakSlipGajiDireksi', compact('direksi', 'year', 'monthName','today','beetween','keterangan'));
     }
 
     // Slip Gaji Komisaris

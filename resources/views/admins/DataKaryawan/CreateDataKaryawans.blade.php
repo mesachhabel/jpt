@@ -167,32 +167,37 @@
                                     <input name="sgp" id="sgp" class="form-control"
                                         placeholder="Silahkan Masukan Skala Gaji" required />
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                {{-- <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Anggota Serikat</label>
                                     <select name="as" id="defaultSelect" class="form-select">
                                         <option disabled selected>-- Pilih Serikat --</option>
                                         <option value="1">.....</option>
                                         <option value="2">.....</option>
                                     </select>
-                                </div>
+                                </div> --}}
                                 <div class="mb-3 col-md-3">
                                     <label for="Uker" class="form-label">Unit Kerja</label>
                                     <input class="form-control" type="text" id="Uker" name="uk" placeholder="Unit Kerja"
                                         autofocus />
                                 </div>
                                 <div class="mb-3 col-md-3">
-                                    <label for="AUker" class="form-label">Anaknya Unit Kerja</label>
-                                    <input class="form-control" type="text" id="AUker" name="auk"
-                                        placeholder="anaknya Unit Kerja" autofocus />
+                                    <label for="AUker" class="form-label">Sub Unit Kerja</label>
+                                    <select name="auk" id="auk" class="form-select">
+                                        <option disabled selected>-- Pilih Sub Unit Kerja --</option>
+                                        <option value="Struktural">Struktural</option>
+                                        <option value="Fungsional">Fungsional</option>
+                                        <option value="Non Operasional TCM">Non Operasional TCM</option>
+                                        <option value="Non Operasional TM">Non Operasional TM</option>
+                                    </select>
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                {{-- <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Struktur Organisasi</label>
                                     <select name="so" id="defaultSelect" class="form-select">
                                         <option disabled selected>-- Struktur --</option>
                                         <option value="1">.....</option>
                                         <option value="2">.....</option>
                                     </select>
-                                </div>
+                                </div> --}}
                                 <div class="mb-3 col-md-3">
                                     <label for="defaultSelect" class="form-label">Bank</label>
                                     <select name="bank" id="defaultSelect" class="form-select" required>
@@ -219,7 +224,7 @@
                                     <label for="defaultSelect" class="form-label">Status Karyawan</label>
                                     <select name="sky" id="defaultSelect" class="form-select"
                                         onChange="statuskar(this.value)">
-                                        <option disabled selected>-- Bukan status keluarga --</option>
+                                        <option disabled selected>-- status karyawan --</option>
                                         <option value="1">Aktif</option>
                                         <option value="2">Non-Aktif</option>
                                     </select>

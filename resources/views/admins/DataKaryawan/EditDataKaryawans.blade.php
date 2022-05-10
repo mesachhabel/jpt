@@ -162,7 +162,8 @@
                                         </option>
                                         <option value="Direksi">Direksi</option>
                                         <option value="Komisaris">Komisaris</option>
-                                        <option value="Karyawan">Karyawan</option>
+                                        <option value="PKWTT">Karyawan Tetap</option>
+                                        <option value="PKWT ">Karyawan Tidak Tetap</option>
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">

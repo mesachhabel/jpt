@@ -303,7 +303,9 @@
                                         <a>:<br><strong>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 9px;" id="bloc9">
-                                        <a>@idr($direksi->sgp)</a><br>
+                                        <a>
+                                            {{ $perhitungan }}
+                                        </a><br>
                                         <strong>@idr($direksi->sgp)</strong>
                                     </div>
                                 </div>

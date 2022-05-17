@@ -35,6 +35,7 @@ class slipgajicontroller extends Controller
     public function cetak($nik){
         //Pemanggilan Table
         $direksi=data_karyawan::find($nik);
+        $tunjangan = tr_nilaibaku::first();
         //Months And Year TOday
         $today = Carbon::now();
         $year = $today->year;
@@ -46,7 +47,9 @@ class slipgajicontroller extends Controller
         //Keterangan Slip
         $keterangan = Tab_KeteranganSlip::all();
 
-        return view ('admins.PelaporanData.SlipGaji.SG.CetakSlipGajiDireksi', compact('direksi', 'year', 'monthName','today','beetween','keterangan'));
+        $perhitungan = $direksi->sgp * $tunjangan->jkm;
+
+        return view ('admins.PelaporanData.SlipGaji.SG.CetakSlipGajiDireksi', compact('direksi','perhitungan','tunjangan' ,'year', 'monthName','today','beetween','keterangan'));
     }
 
     // Slip Gaji Komisaris

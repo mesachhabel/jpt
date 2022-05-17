@@ -114,6 +114,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
 
     //--------------Tabel Remunarasi-------------------------
     Route::resource('/remunerasi', remunerasicontroller::class);
+    Route::post('/remunerasi/fetch', [remunerasicontroller::class,'fetch'])->name('remunerasi.fetch');
 
     //--------------Tabel Remunarasi-------------------------
     Route::resource('/account', AccountController::class);

@@ -17,7 +17,7 @@
                             <th>NIK</th>
                             <th>Nama</th>
                             <th>Photo</th>
-                            <th>Jabatan</th>
+                            <th>Kelas / Jabatan</th>
                             <th>Unit Kerja</th>
                             <th>Status</th>
                             <th>Agama</th>
@@ -40,7 +40,7 @@
                                     <img width="50" height="50" src="{{ Storage::url('public/posts/') . $post->image }}">
                                 </td>
                                 <td>
-                                    <strong>{{ $post->Remunerasi->jabatan }}</strong>
+                                    <strong>{{ $post->kelas }} / {{ $post->Remunerasi->jabatan }}</strong>
                                 </td>
                                 <td>
                                     <strong> {{ $post->ska }}</strong>

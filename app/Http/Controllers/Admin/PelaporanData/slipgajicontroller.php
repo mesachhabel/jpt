@@ -85,7 +85,7 @@ class slipgajicontroller extends Controller
     }
     public function dataslipkelas2()
     {
-        $dataslipkelas1 = data_karyawan::with(['remunerasi'])->where('kelas', '2')->get();
+        $dataslipkelas2 = data_karyawan::with(['remunerasi'])->where('kelas', '2')->get();
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas2', compact('dataslipkelas2'));
     }
 
@@ -96,7 +96,7 @@ class slipgajicontroller extends Controller
     }
     public function dataslipkelas3()
     {
-        $dataslipkelas1 = data_karyawan::with(['remunerasi'])->where('kelas', '3')->get();
+        $dataslipkelas3 = data_karyawan::with(['remunerasi'])->where('kelas', '3')->get();
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas3', compact('dataslipkelas3'));
     }
 
@@ -107,7 +107,7 @@ class slipgajicontroller extends Controller
     }
     public function dataslipkelas4()
     {
-        $dataslipkelas1 = data_karyawan::with(['remunerasi'])->where('kelas', '4')->get();
+        $dataslipkelas4 = data_karyawan::with(['remunerasi'])->where('kelas', '4')->get();
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas4', compact('dataslipkelas4'));
     }
 
@@ -118,7 +118,7 @@ class slipgajicontroller extends Controller
     }
     public function dataslipkelas5()
     {
-        $dataslipkelas1 = data_karyawan::with(['remunerasi'])->where('kelas', '5')->get();
+        $dataslipkelas5 = data_karyawan::with(['remunerasi'])->where('kelas', '5')->get();
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas5', compact('dataslipkelas5'));
     }
 

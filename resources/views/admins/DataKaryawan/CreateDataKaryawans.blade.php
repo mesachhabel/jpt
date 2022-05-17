@@ -157,12 +157,12 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="mb-3 col-md-3">
+                                <div class="mb-3 col-md-4">
                                     <label for="klp" class="form-label">Kelompok Jabatan</label>
                                     <select name="klp" id="klp" class="form-control input-lg" required readonly="readonly">
                                     </select>
                                 </div>
-                                <div class="mb-3 col-md-3">
+                                <div class="mb-3 col-md-4">
                                     <label for="kelas" class="form-label">Kelas Jabatan</label>
                                     <select name="kelas" id="kelas" class="form-control input-lg" required>
                                         <option disabled selected> -- Pilih Kelas Jabatan -- </option>
@@ -173,7 +173,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class=" mb-3 col-md-3">
+                                <div class=" mb-3 col-md-4">
                                     <label for="Barjab" class="form-label">Skala Gaji Pokok</label>
                                     <input name="sgp" id="sgp" class="form-control"
                                         placeholder="Silahkan Masukan Skala Gaji" required />
@@ -186,7 +186,7 @@
                                         <option value="2">.....</option>
                                     </select>
                                 </div> --}}
-                                <div class="mb-3 col-md-3">
+                                <div class="mb-3 col-md-4">
                                     <label for="Uker" class="form-label">Unit Kerja</label>
                                     <input class="form-control" type="text" id="Uker" name="uk" placeholder="Unit Kerja"
                                         autofocus />
@@ -225,13 +225,13 @@
                                     <input class="form-control" type="text" id="Rek" name="norek"
                                         placeholder="no rekening" autofocus />
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="AtNa" class="form-label">Atas Nama</label>
                                     <input class="form-control" type="text" id="AtNa" name="an"
                                         placeholder="Nama Pemegang Rekening" autofocus />
                                 </div>
 
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="defaultSelect" class="form-label">Status Karyawan</label>
                                     <select name="sky" id="defaultSelect" class="form-select"
                                         onChange="statuskar(this.value)">
@@ -240,7 +240,7 @@
                                         <option value="2">Non-Aktif</option>
                                     </select>
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="tb" class="form-label">Tanggal Berhenti</label>
                                     <div class="col-md-12">
                                         <input name="tb" class="form-control" type="date" id="tb"

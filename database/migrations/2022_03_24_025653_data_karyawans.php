@@ -15,6 +15,7 @@ class DataKaryawans extends Migration
     {
         Schema::create('data_karyawans', function (Blueprint $table) {
             $table->integer('nik')->primary();
+            $table->unsignedBigInteger('remunarasi_id')->on('remunerasis')->references('id');
             $table->string('nama');
             $table->string('nppi');
             $table->string('jk');
@@ -28,7 +29,6 @@ class DataKaryawans extends Migration
             $table->integer('nbpks');
             $table->string('tmk');
             $table->string('ska');
-            $table->unsignedBigInteger('remunarasi_id')->on('remunerasis')->references('id');
             $table->string('klp');
             $table->string('kelas');
             $table->bigInteger('sgp');

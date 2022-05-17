@@ -105,10 +105,11 @@ class DataKaryawanController extends Controller
 
     public function edit(data_karyawan $karyawan)
     {
-        $karyawan = data_karyawan::find($karyawan->nik);
+        $karyawan = data_karyawan::with(['remunerasi'])->find($karyawan->nik);
+        $tunjangan = remunerasi::all();
         $jabatan = tr_kodejabatan::all();
         $banks = tr_bank::all();
-        return view('admins.DataKaryawan.EditDataKaryawans', compact('karyawan','jabatan','banks'));
+        return view('admins.DataKaryawan.EditDataKaryawans', compact('karyawan','jabatan','banks','tunjangan'));
     }
 
     public function update(Request $request, data_karyawan $karyawan)

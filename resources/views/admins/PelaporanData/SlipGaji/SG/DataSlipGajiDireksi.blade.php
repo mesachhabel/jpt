@@ -26,10 +26,11 @@
                                 <td>{{ $no++ }}</td>
                                 <td><i class=" fa-lg text-danger me-3"></i> <strong> {{ $data->nik }}</strong>
                                 <td><i class="fa-lg text-danger me-3"></i> <strong>{{ $data->nama }}</strong>
-                                <td><i class="fa-lg text-danger me-3"></i> <strong>{{ $data->jabatan }}</strong>
+                                <td><i class="fa-lg text-danger me-3"></i>
+                                    <strong>{{ $data->remunerasi->jabatan }}</strong>
                                 </td>
                                 <td>
-                                    <a href="{{ route('slipgaji.cetakdireksi', $data->nik) }}"
+                                    <a href="{{ route('slipgaji.cetak', $data->nik) }}"
                                         class="btn btn-sm btn-primary">Cetak</a>
                                     <a href="{{ route('karyawan.edit', $data->nik) }}"
                                         class="btn btn-sm btn-secondary">Edit</a>

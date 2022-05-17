@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard || JPT</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/icon.png" />
+    <link rel="stylesheet" href="../../../landingpage/css/fontAwesome.css">
 
     <style>
         body {
@@ -17,6 +18,7 @@
             margin: 0;
             padding: 0;
             background-color: #FAFAFA;
+            scroll-behavior: smooth;
 
         }
 
@@ -46,6 +48,9 @@
         }
 
         @media print {
+            .float {
+                visibility: hidden;
+            }
 
             html,
             body {
@@ -59,7 +64,6 @@
                 border-radius: initial;
                 width: initial;
                 min-height: initial;
-                /* box-shadow: initial; */
                 background: initial;
                 page-break-after: always;
             }
@@ -69,9 +73,8 @@
             text-align: left;
         }
 
-        .wraptext{
+        .wraptext {
             width: 210px;
-            /* border: 1px solid #000000; */
             word-wrap: break-word;
         }
 
@@ -194,19 +197,47 @@
             width: 60px;
         }
 
+        /* button float */
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #0C9;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
+            cursor: pointer;
+        }
+
+        .float:hover {
+            background-color: #0B7;
+        }
+
+        .my-float {
+            margin-top: 22px;
+        }
+
     </style>
 </head>
 
 <body>
+    @csrf
+    @method('PUT')
     <div class="page">
         <section class="body-letter text">
             <!-- Judul -->
-            <img class="logo" src="../../assets/img/logo-jpt1.png" alt="logo">
+            <img class="logo" src="../../../assets/img/logo-jpt1.png" alt="logo">
             <div class="title">
-                <a> RICIAN PENGHASILAN DIREKSI <br> BULAN : {{ $monthName }} {{ $year }} </a>
+                <a> RINCIAN PENGHASILAN {{ Str::upper($data->remunerasi->jabatan) }} <br> BULAN :
+                    {{ Str::upper($monthName) }}
+                    {{ $year }}
+                </a>
             </div>
             <div class="text-bank">
-                <a>Pembayaran : BANK MANDIRI</a>
+                <a>Pembayaran : {{ Str::upper($data->bank) }}</a>
             </div>
             <div class="text">
                 <table border="1" cellspacing="0" cellpadding="0" width="100%">
@@ -215,21 +246,25 @@
                             <!-- identitas -->
                             <td colspan="2" valign="top">
                                 <div class="block_container">
-                                    <div class="sebutan wraptext" style="width: 207px;" id="bloc1">
+                                    <div class="sebutan" style="width: 207px;" id="bloc1">
                                         <span>
-                                            NIK - Nama  <br>
+                                            NIK - Nama <br>
                                             Jabatan<br>
                                             Nomor Pokok Wajib Pajak (NPWP)<br>
                                             Tanggal Masuk Bekerja<br>
                                             Masa Kerja Efektif
                                         </span>
                                     </div>
-                                    <div class="separ wraptext" id="bloc2">
+                                    <div class="separ" id="bloc2">
                                         <a>:<br>:<br>:<br>:<br>:</a>
                                     </div>
-                                    <div class="keterangan wraptext" id="bloc3">
-                                        <a>D1603 - Ir. H. Bahrul Alam <br> Direktur Keuangan & SDM Direksi<br>
-                                            48.762.688.9-624.000 <br> 01 Juni 2016 <br> 5 Tahun 9 Bulan</a>
+                                    <div class="keterangan" id="bloc3" style="width:9.7rem;">
+                                        <a>{{ old('nik', $data->nik) }} - {{ old('nama', $data->nama) }}
+                                            <br>
+                                            {{ $data->remunerasi->jabatan }}<br>
+                                            {{ old('npwp', $data->npwp) }} <br>
+                                            {{ old('tmk', $data->tmk) }}
+                                            <br>{{ $beetween }} </a>
                                     </div>
                                     <div class="status" id="bloc4">
                                         <a>Status Karyawan <br> Status Keluarga</a>
@@ -238,7 +273,17 @@
                                         <a>:<br>:</a>
                                     </div>
                                     <div class="keterangan ii" id="bloc6">
-                                        <a>Direksi<br>K/2</a>
+                                        <a>{{ old('ska', $data->ska) }}<br>
+                                            @if ($data->skk == '1')
+                                                <span class="badge bg-label-primary me-1">Belum Menikah</span>
+                                            @elseif ($data->skk == '2')
+                                                <span class="badge bg-label-warning me-2">Menikah</span>
+                                            @elseif ($data->skk == '3')
+                                                <span class="badge bg-label-danger me-3">Janda</span>
+                                            @elseif ($data->skk == '4')
+                                                <span class="badge bg-label-purple me-4">Duda</span>
+                                            @endif
+                                        </a>
                                     </div>
                                 </div>
                             </td>
@@ -259,8 +304,10 @@
                                         <a>:<br><strong>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 9px;" id="bloc9">
-                                        <a>45.973.015</a><br>
-                                        <strong>45.973.015</strong>
+                                        <a>
+                                            {{-- {{ $perhitungan }} --}}@idr($data->sgp)
+                                        </a><br>
+                                        <strong>@idr($data->sgp)</strong>
                                     </div>
                                 </div>
                                 <!-- separator -->
@@ -268,7 +315,7 @@
                                     <div class="sebutan" style="margin-left: 7px; " id="bloc10">
                                         <strong>Tunjangan</strong> <br>
                                         <a>1. Tunjangan Perum & Kom</a> <br>
-                                        <a>1. Tunjangan Jabatan</a> <br>
+                                        <a>2. Tunjangan Jabatan</a> <br>
                                         <div style="text-align: right; margin-right: 3px;">
                                             <strong>Sub Total</strong> <br>
                                             <strong>Jumlah Penghasilan</strong> <br>
@@ -278,9 +325,9 @@
                                         <a>:<br>:<br><strong>:<br>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 9px;" id="bloc12">
-                                        <a>11.500.000</a><br>
-                                        <a>9.180.000</a><br>
-                                        <strong>20.680.000</strong><br>
+                                        <a>@idr($data->remunerasi->tunj_perumahan)</a><br>
+                                        <a>@idr($data->remunerasi->tunj_jabatan) </a><br>
+                                        <strong>@idr($total_tunj)</strong><br>
                                         <strong>66.653.015</strong>
                                     </div>
                                 </div>
@@ -370,7 +417,7 @@
                                         <a><strong>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 0px;" id="bloc27">
-                                        <strong>70.340.614</strong>
+                                        <strong>@idr($data->sgp + $data->sgp)</strong>
                                     </div>
                                 </div>
                             </td>
@@ -440,17 +487,18 @@
                 <div>
                     Keterangan :
                     <ol>
-                        <li>Jamsostek merupakan tunjangan yang dibayarkan Perusahaan</li>
-                        <li>PPh 21 adalah jumlah Pajak yang seharusnya disetor ke kantor Pajak</li>
-                        <li>Rincian Potongan Santunan Duka : </li>
-                        3 Orang Karyawan (Suderajat/06864, Abdurahman/10280, Imam Ansori/04694)
+                        @forelse ($keterangan as $keterangan)
+                            {{ $keterangan->id }}. {{ $keterangan->Ur_Keterangan }}<br>
+                        @empty
+                            <li>Tidak Ada Catatan!</li>
+                        @endforelse
                     </ol>
                 </div>
                 <!-- end of keterangan -->
 
                 <div>
                     <table width="100%" border="1" cellspacing="0" cellpadding="0"
-                        style="background-color: #AFFFFF; margin-bottom: 10rem;">
+                        style="background-color: #AFFFFF; margin-bottom: 9rem;">
                         <tbody>
                             <tr>
                                 <td valign="top">
@@ -468,6 +516,13 @@
                 <hr> PT Jasamarga Pandaan Tol : {{ $today }}
             </section>
         </section>
+
+        <a onclick="window.print()" class="float" style="bottom : 120px;">
+            <i class="fa fa-print my-float"></i>
+        </a>
+        <a onclick="history.back()" class="float">
+            <i class="fa fa-arrow-left my-float"></i>
+        </a>
     </div>
 </body>
 

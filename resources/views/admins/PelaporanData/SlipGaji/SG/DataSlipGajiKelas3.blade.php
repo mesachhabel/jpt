@@ -23,12 +23,14 @@
                             <tr>
                                 <td><i class=" fa-lg text-danger me-3"></i> <strong> {{ $data->nik }}</strong>
                                 <td><i class="fa-lg text-danger me-3"></i> <strong>{{ $data->nama }}</strong>
-                                <td><i class="fa-lg text-danger me-3"></i> <strong>{{ $data->jabatan }}</strong>
+                                <td><i class="fa-lg text-danger me-3"></i>
+                                    <strong>{{ $data->remunerasi->jabatan }}</strong>
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-primary">Cetak</a>
-                                    <a href="" class="btn btn-sm btn-secondary">Edit</a>
-                                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{ route('slipgaji.cetak', $data->nik) }}"
+                                        class="btn btn-sm btn-primary">Cetak</a>
+                                    <a href="{{ route('karyawan.edit', $data->nik) }}"
+                                        class="btn btn-sm btn-secondary">Edit</a>
                                 </td>
                             </tr>
                         @empty

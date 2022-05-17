@@ -9,8 +9,8 @@
         <!-- Hoverable Table rows -->
         <div class="card">
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover">
-                    <thead>
+                <table class="table table-hover table-bordered table-striped">
+                    <thead class="text-center" style="vertical-align:middle;">
                         <tr>
                             <th>NIK</th>
                             <th>Nama</th>
@@ -18,7 +18,7 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0">
+                    <tbody class="text-center" style="vertical-align:middle;">
                         @forelse ($dataslipkaryawantidaktetap as $data)
                             <tr>
                                 <td><i class=" fa-lg text-danger me-3"></i> <strong> {{ $data->nik }}</strong>

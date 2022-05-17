@@ -85,8 +85,8 @@
                                                 <span class="badge bg-label-purple me-4">Duda</span>
                                             @endif
                                         </option>
-                                        <option value="1">Belum Kawin</option>
-                                        <option value="2">Kawin</option>
+                                        <option value="1">Belum Menikah</option>
+                                        <option value="2">Menikah</option>
                                         <option value="3">Janda</option>
                                         <option value="4">Duda</option>
                                     </select>
@@ -162,7 +162,8 @@
                                         </option>
                                         <option value="Direksi">Direksi</option>
                                         <option value="Komisaris">Komisaris</option>
-                                        <option value="Karyawan">Karyawan</option>
+                                        <option value="PKWTT">Karyawan Tetap</option>
+                                        <option value="PKWT ">Karyawan Tidak Tetap</option>
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
@@ -179,10 +180,10 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="kelas" class="form-label">Kelas Jabatan</label>
-                                    <select name="kelas" id="kelas" class="form-control input-lg">
-                                        <option value="{{ old('kelas', $karyawan->kelas) }}" selected>
-                                            {{ $karyawan->kelas }}
+                                    <label for="klp" class="form-label">Kelompok Jabatan</label>
+                                    <select name="klp" id="klp" class="form-control input-lg" readonly="readonly">
+                                        <option value="{{ old('klp', $karyawan->klp) }}" selected>
+                                            {{ $karyawan->klp }}
                                         </option>
                                     </select>
                                 </div>
@@ -223,10 +224,12 @@
                                 <div class="mb-3 col-md-3">
                                     <label for="defaultSelect" class="form-label">Bank</label>
                                     <select name="bank" id="defaultSelect" class="form-select">
-                                        <option value="{{ old('bank', $karyawan->bank) }}" selected>
-                                            {{ $karyawan->bank }}</option>
-                                        <option value="1">.....</option>
-                                        <option value="2">.....</option>
+                                        <option disabled selected>-- Pilih Bank --</option>
+                                        @foreach ($banks as $bank)
+                                            <option value="{{ $bank->bank }}">[{{ $bank->kode }}]
+                                                {{ $bank->bank }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-3">
@@ -237,7 +240,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="AtNa" class="form-label">Atas Nama</label>
                                     <input value="{{ old('an', $karyawan->an) }}" class="form-control" type="text"
-                                        id="AtNa" name="an" placeholder="Nama Pemegang Rekening" autofocus />
+                                        id="AtNa" name="an" placeholder="Atas Nama" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     @if ($karyawan->ip == '1')
@@ -350,7 +353,7 @@
             });
 
             $('#jabatan').change(function() {
-                $('#kelas').val('');
+                $('#klp').val('');
             });
         });
     </script>

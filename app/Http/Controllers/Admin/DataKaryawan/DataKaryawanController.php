@@ -105,7 +105,8 @@ class DataKaryawanController extends Controller
     {
         $karyawan = data_karyawan::find($karyawan->nik);
         $jabatan = tr_kodejabatan::all();
-        return view('admins.DataKaryawan.EditDataKaryawans', compact('karyawan','jabatan'));
+        $banks = tr_bank::all();
+        return view('admins.DataKaryawan.EditDataKaryawans', compact('karyawan','jabatan','banks'));
     }
 
     public function update(Request $request, data_karyawan $karyawan)

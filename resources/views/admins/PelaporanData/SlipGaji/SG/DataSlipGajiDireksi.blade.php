@@ -9,25 +9,30 @@
         <!-- Hoverable Table rows -->
         <div class="card">
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover">
-                    <thead>
+                <table class="table table-hover table-bordered table-striped">
+                    <thead class="text-center" style="vertical-align:middle;">
                         <tr>
+                            <th>No</th>
                             <th>NIK</th>
                             <th>Nama</th>
                             <th>Jabatan</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0">
+                    <tbody class="text-center" style="vertical-align:middle;">
+                        <?php $no = 1; ?>
                         @forelse ($dataslipdireksi as $data)
                             <tr>
+                                <td>{{ $no++ }}</td>
                                 <td><i class=" fa-lg text-danger me-3"></i> <strong> {{ $data->nik }}</strong>
                                 <td><i class="fa-lg text-danger me-3"></i> <strong>{{ $data->nama }}</strong>
                                 <td><i class="fa-lg text-danger me-3"></i> <strong>{{ $data->jabatan }}</strong>
                                 </td>
                                 <td>
                                     <a href="{{ route('slipgaji.cetakdireksi', $data->nik) }}"
-                                        class="btn btn-sm btn-secondary">Cetak</a>
+                                        class="btn btn-sm btn-primary">Cetak</a>
+                                    <a href="{{ route('karyawan.edit', $data->nik) }}"
+                                        class="btn btn-sm btn-secondary">Edit</a>
                                 </td>
                             </tr>
                         @empty

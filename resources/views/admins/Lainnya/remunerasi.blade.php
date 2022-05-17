@@ -120,7 +120,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0">
+                    <tbody class="text-center" style="vertical-align:middle;">
 
                         @forelse ($remunerasis as $rem)
                             <tr>

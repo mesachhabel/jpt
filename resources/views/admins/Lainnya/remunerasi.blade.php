@@ -22,22 +22,25 @@
                         <div class="modal-body">
                             <div class="row g-2 mt-2">
                                 <div class="col mb-0">
-                                    <label for="emailWithTitle" class="form-label">Golongan</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Golongan"
-                                        name="golongan" />
-                                </div>
-                                <div class="col mb-0">
-                                    <label for="dobWithTitle" class="form-label">Kode</label>
-                                    <input type="text" id="dobWithTitle" class="form-control" placeholder="Kode"
-                                        name="kode" />
+                                    <label for="dobWithTitle" class="form-label">Jabatan</label>
+                                    <select class="form-select dynamic" name="jabatan" id="jabatan" data-dependent="kelas">
+                                        <option disabled selected>Pilih Jabatan</option>
+                                        @foreach ($jabatan as $jabatan)
+                                            <option value="{{ $jabatan->jabatan }}">{{ $jabatan->jabatan }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="row g-2 mt-2">
                                 <div class="col mb-0">
-                                    <label for="emailWithTitle" class="form-label">Jabatan</label>
-                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Jabatan"
-                                        name="jabatan" />
+                                    <label for="emailWithTitle" class="form-label">Kode</label>
+                                    <input type="text" id="emailWithTitle" class="form-control" placeholder="Kode"
+                                        name="kode" />
                                 </div>
+                            </div>
+                            <div class="col mb-0">
+                                <label for="emailWithTitle" class="form-label">Kelas</label>
+                                <Select name="kelas" id="kelas" class="form-control" readonly="readonly"></Select>
                             </div>
                             <div class="row g-2 mt-2">
                                 <div class="col mb-0">
@@ -46,9 +49,14 @@
                                         placeholder="Tunjangan Jabatan" name="tunj_jabatan" />
                                 </div>
                                 <div class="col mb-0">
-                                    <label for="emailWithTitle" class="form-label">Tunjangan UMK</label>
+                                    <label for="emailWithTitle" class="form-label">Tunjangan Prestasi</label>
                                     <input type="text" id="emailWithTitle" class="form-control"
-                                        placeholder="Tunjangan UMK" name="tunj_umk" />
+                                        placeholder="Tunjangan Prestasi" name="tunj_prestasi" />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="emailWithTitle" class="form-label">Tunjangan Shift</label>
+                                    <input type="text" id="emailWithTitle" class="form-control"
+                                        placeholder="Tunjangan Prestasi" name="tunj_shift" />
                                 </div>
                             </div>
                             <div class="row g-2 mt-2">
@@ -106,11 +114,12 @@
                 <table class="table table-hover table-striped table-bordered">
                     <thead class="text-center" style="vertical-align:middle;">
                         <tr>
-                            <th>Golongan</th>
-                            <th>Kode</th>
                             <th>Jabatan</th>
+                            <th>Kode</th>
+                            <th>Kelompok</th>
                             <th>Tunjangan Jabatan</th>
-                            <th>Tunjangan UMK</th>
+                            <th>Tunjangan Prestasi</th>
+                            <th>Tunjangan Shift</th>
                             <th>Tunjangan Transport</th>
                             <th>Tunjangan Proyek</th>
                             <th>Tunjangan Komunikasi</th>
@@ -125,29 +134,34 @@
                         @forelse ($remunerasis as $rem)
                             <tr>
                                 <td>
-                                    <!-- Golongan -->
-                                    <i class=" fa-lg text-danger me-3"></i>
-                                    <strong>{{ $rem->golongan }}</strong>
-                                </td>
-                                <td>
-                                    <!-- Kode -->
-                                    <i class=" fa-lg text-danger me-3"></i>
-                                    <strong>{{ $rem->kode }}</strong>
-                                </td>
-                                <td>
                                     <!-- Jabatan -->
                                     <i class=" fa-lg text-danger me-3"></i>
                                     <strong>{{ $rem->jabatan }}</strong>
                                 </td>
                                 <td>
+                                    <!-- Kode -->
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $rem->kode_mg }}</strong>
+                                </td>
+                                <td>
+                                    <!-- Kelas -->
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>{{ $rem->klp }}</strong>
+                                </td>
+                                <td>
                                     <!-- Tunjangan Jabatan -->
                                     <i class=" fa-lg text-danger me-3"></i>
-                                    <strong>{{ $rem->tunj_jabatan }}</strong>
+                                    <strong>@idr($rem->tunj_jabatan) </strong>
                                 </td>
                                 <td>
                                     <!-- Tunjangan UMK -->
                                     <i class=" fa-lg text-danger me-3"></i>
-                                    <strong>{{ $rem->tunj_umk }}</strong>
+                                    <strong>@idr($rem->tunj_prestasi)</strong>
+                                </td>
+                                <td>
+                                    <!-- Tunjangan Shift -->
+                                    <i class=" fa-lg text-danger me-3"></i>
+                                    <strong>@idr($rem->tunj_shift)</strong>
                                 </td>
                                 <td>
                                     <!-- Tunjangan Transport -->
@@ -202,4 +216,36 @@
     </div>
     <ul class="pagination justify-content-center mt-3">{{ $remunerasis->links('pagination::bootstrap-4') }}
     </ul>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.dynamic').change(function() {
+                if ($(this).val() != '') {
+                    var select = $(this).attr("id");
+                    var value = $(this).val();
+                    var dependent = $(this).data('dependent');
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url: "{{ route('remunerasi.fetch') }}",
+                        method: "POST",
+                        data: {
+                            select: select,
+                            value: value,
+                            _token: _token,
+                            dependent: dependent
+                        },
+                        success: function(result) {
+                            $('#' + dependent).html(result);
+                        }
+
+                    })
+                }
+            });
+
+            $('#jabatan').change(function() {
+                $('#kelas').val('');
+            });
+        });
+    </script>
 @endsection

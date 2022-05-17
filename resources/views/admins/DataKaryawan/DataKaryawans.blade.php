@@ -40,7 +40,7 @@
                                     <img width="50" height="50" src="{{ Storage::url('public/posts/') . $post->image }}">
                                 </td>
                                 <td>
-                                    <strong>{{ $post->jabatan }}</strong>
+                                    <strong>{{ $post->Remunerasi->jabatan }}</strong>
                                 </td>
                                 <td>
                                     <strong> {{ $post->ska }}</strong>

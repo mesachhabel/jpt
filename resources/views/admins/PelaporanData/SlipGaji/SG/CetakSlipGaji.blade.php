@@ -314,17 +314,21 @@
                                         <strong>Tunjangan</strong> <br>
                                         <a>1. Tunjangan Perum & Kom</a> <br>
                                         <a>2. Tunjangan Jabatan</a> <br>
+                                        <a>3. Tunjangan Prestasi</a> <br>
+                                        <a>4. Tunjangan Shift</a> <br>
                                         <div style="text-align: right; margin-right: 3px;">
                                             <strong>Sub Total</strong> <br>
                                             <strong>Jumlah Penghasilan</strong> <br>
                                         </div>
                                     </div>
                                     <div class="separ ii" style="top: 9px;" id="bloc11">
-                                        <a>:<br>:<br><strong>:<br>:</strong></a>
+                                        <a>:<br>:<br>:<br>:<br><strong>:<br>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 9px;" id="bloc12">
                                         <a>@idr($data->remunerasi->tunj_perumahan)</a><br>
                                         <a>@idr($data->remunerasi->tunj_jabatan) </a><br>
+                                        <a>@idr($data->remunerasi->tunj_jabatan) </a><br> <!--tunj prestasi -->
+                                        <a>@idr($data->remunerasi->tunj_jabatan) </a><br> <!-- tunj shift -->
                                         <strong>@idr($total_tunj)</strong><br>
                                         <strong>@idr($total_tunj)</strong>
                                     </div>
@@ -333,16 +337,18 @@
                                 <div class="block_container">
                                     <div class="sebutan" style="margin-left: 7px; " id="bloc13">
                                         <strong>Umum</strong> <br>
-                                        <a>1. Jamsostek</a> <br>
+                                        <a>1. BPJS Kesehatan</a> <br>
+                                        <a>2. BPJS Ketenagakerjaan</a> <br>
                                         <div style="text-align: right; margin-right: 3px;">
                                             <strong>Sub Total </strong> <br>
                                         </div>
                                     </div>
                                     <div class="separ ii" style="top: 9px;" id="bloc14">
-                                        <a>:<br><strong>:</strong></a>
+                                        <a>:<br>:<br><strong>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 9px;" id="bloc15">
                                         <a>3.687.599</a><br>
+                                        <a>200.001</a><br>
                                         <strong>3.687.599</strong>
                                     </div>
                                 </div>
@@ -368,7 +374,8 @@
                                     <div class="sebutan" style="margin-left: 10px;" id="bloc19">
                                         <strong>Umum</strong> <br>
                                         <a>1. Gaji Pokok</a> <br>
-                                        <a>2. Jamsostek</a> <br>
+                                        <a>2. BPJS Kesehatan</a> <br>
+                                        <a>3. BPJS Ketenagakerjaan</a> <br>
                                         <div style="margin-left: 9px;">
                                             <a> -Beban Perusahaan</a> <br>
                                             <a> -Beban Karyawan</a> <br>
@@ -378,7 +385,7 @@
                                         </div>
                                     </div>
                                     <div class="separ ii" style="top: 9px;" id="bloc20">
-                                        <a>:<br>:<br>:<br>:<br><strong>:</strong></a>
+                                        <a>:<br>:<br>:<br>:<br>:<br><strong>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 9px;" id="bloc21">
                                         <a>0</a><br>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin\Lainnya;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\remunerasi;
+use App\Models\tr_kodejabatan;
 use Alert;
+use DB;
 
 class remunerasicontroller extends Controller
 {
@@ -17,7 +19,8 @@ class remunerasicontroller extends Controller
     public function index()
     {
         $remunerasis = remunerasi::paginate(5);
-        return view('admins.Lainnya.remunerasi', compact('remunerasis'));
+        $jabatan = tr_kodejabatan::all();
+        return view('admins.Lainnya.remunerasi', compact('remunerasis','jabatan'));
     }
 
     /**
@@ -89,5 +92,21 @@ class remunerasicontroller extends Controller
             Alert::error('Data Gagal Dihapus', 'Maaf');
             return redirect()->route('remunerasi.index');
         }
+    }
+
+    //Ajax remunerasu.blade.php
+    function fetch(Request $request)
+    {
+        $select = $request->get('select');
+        $value = $request->get('value');
+        $dependent = $request->get('dependent');
+        $data = DB::table('tr_kodejabatans')
+            ->where($select, $value)
+            ->groupBy($dependent)
+            ->get();
+        foreach ($data as $row) {
+            $output = '<option value="' . $row->$dependent . '" name="kelas" selected>' . ucfirst($row->$dependent) . '</option>';
+        }
+        echo $output;
     }
 }

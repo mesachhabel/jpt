@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('remunerasis', function (Blueprint $table){
             $table->id();
-            $table->string('kelas');
-            $table->string('kode');
             $table->string('jabatan');
+            $table->string('kode_mg');
+            $table->string('klp');
             $table->bigInteger('tunj_jabatan');
-            $table->bigInteger('tunj_umk');
+            $table->bigInteger('tunj_prestasi');
+            $table->bigInteger('tunj_shift');
             $table->bigInteger('tunj_transport');
             $table->bigInteger('tunj_proyek');
             $table->bigInteger('tunj_komunikasi');

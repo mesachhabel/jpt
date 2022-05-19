@@ -17,7 +17,7 @@
                             <th>NIK</th>
                             <th>Nama</th>
                             <th>Photo</th>
-                            <th>Jabatan</th>
+                            <th>Kelas / Jabatan</th>
                             <th>Unit Kerja</th>
                             <th>Status</th>
                             <th>Agama</th>
@@ -40,16 +40,16 @@
                                     <img width="50" height="50" src="{{ Storage::url('public/posts/') . $post->image }}">
                                 </td>
                                 <td>
-                                    <strong>{{ $post->jabatan }}</strong>
+                                    <strong>{{ $post->kelas }} / {{ $post->Remunerasi->jabatan }}</strong>
                                 </td>
                                 <td>
                                     <strong> {{ $post->ska }}</strong>
                                 </td>
                                 <td>
                                     @if ($post->skk == '1')
-                                        <span class="badge bg-label-primary me-1">Belum Kawin</span>
+                                        <span class="badge bg-label-primary me-1">Belum Menikah</span>
                                     @elseif ($post->skk == '2')
-                                        <span class="badge bg-label-warning me-2">Kawin</span>
+                                        <span class="badge bg-label-warning me-2">Menikah</span>
                                     @elseif ($post->skk == '3')
                                         <span class="badge bg-label-danger me-3">Janda</span>
                                     @elseif ($post->skk == '4')

@@ -34,19 +34,23 @@ class slipgajicontroller extends Controller
 
     public function cetak($nik){
         //Pemanggilan Table
-        $direksi=data_karyawan::find($nik);
+            $data=data_karyawan::with(['remunerasi'])->find($nik);
+            $tunjangan = tr_nilaibaku::first();
         //Months And Year TOday
-        $today = Carbon::now();
-        $year = $today->year;
-        $monthName = $today->format('F');
+            $today = Carbon::now();
+            $year = $today->year;
+            $monthName = $today->format('F');
 
         //Beetween Tanggal Masuk kerja
-        $beetween = Carbon::createFromDate($direksi->tmk)->diff(Carbon::now())->format('%y Tahun, %m Bulan');
+            $beetween = Carbon::createFromDate($data->tmk)->diff(Carbon::now())->format('%y Tahun, %m Bulan');
         
         //Keterangan Slip
-        $keterangan = Tab_KeteranganSlip::all();
+            $keterangan = Tab_KeteranganSlip::all();
 
-        return view ('admins.PelaporanData.SlipGaji.SG.CetakSlipGajiDireksi', compact('direksi', 'year', 'monthName','today','beetween','keterangan'));
+        //Perhitungan Tunjangan
+            $total_tunj = $data->remunerasi->tunj_jabatan + $data->remunerasi->tunj_perumahan;
+
+        return view ('admins.PelaporanData.SlipGaji.SG.CetakSlipGaji', compact('data','total_tunj','tunjangan' ,'year', 'monthName','today','beetween','keterangan'));
     }
 
     // Slip Gaji Komisaris
@@ -70,21 +74,18 @@ class slipgajicontroller extends Controller
 
     public function dataslipkelas1()
     {
-        $dataslipkelas1 = data_karyawan::where('jabatan', 1)->get();
+        $dataslipkelas1 = data_karyawan::with(['remunerasi'])->where('kelas', '1')->get();
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas1', compact('dataslipkelas1'));
     }
     
     // Slip Gaji Kelas 2
     public function slipkelas2()
     {
-        $today = Carbon::now();
-        $year = $today->year;
-        $monthName = $today->format('F');
-        return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiKelas2',compact('today','year','monthName'));
+        return view ('admins.PelaporanData.SlipGaji.SG.SlipGajiKelas2');
     }
     public function dataslipkelas2()
     {
-        $dataslipkelas2 = data_karyawan::where('jabatan', kelas2)->get();
+        $dataslipkelas2 = data_karyawan::with(['remunerasi'])->where('kelas', '2')->get();
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas2', compact('dataslipkelas2'));
     }
 
@@ -95,7 +96,7 @@ class slipgajicontroller extends Controller
     }
     public function dataslipkelas3()
     {
-        $dataslipkelas3 = data_karyawan::where('jabatan', 3)->get();
+        $dataslipkelas3 = data_karyawan::with(['remunerasi'])->where('kelas', '3')->get();
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas3', compact('dataslipkelas3'));
     }
 
@@ -106,7 +107,7 @@ class slipgajicontroller extends Controller
     }
     public function dataslipkelas4()
     {
-        $dataslipkelas4 = data_karyawan::where('jabatan', 4)->get();
+        $dataslipkelas4 = data_karyawan::with(['remunerasi'])->where('kelas', '4')->get();
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas4', compact('dataslipkelas4'));
     }
 
@@ -117,7 +118,7 @@ class slipgajicontroller extends Controller
     }
     public function dataslipkelas5()
     {
-        $dataslipkelas3 = data_karyawan::where('jabatan', 5)->get();
+        $dataslipkelas5 = data_karyawan::with(['remunerasi'])->where('kelas', '5')->get();
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas5', compact('dataslipkelas5'));
     }
 

@@ -4,16 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\tr_kodejabatan;
+use App\Models\data_karyawan;
 
 class remunerasi extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    protected $primaryKey = 'kelas';
 
-    public function tr_kodejabatan()
+    public function data_karyawan()
     {
-        return $this->hasOne('App\Models\tr_kodejabatan');
+        return $this->hasMany(data_karyawan::class,'id', 'remunarasi_id');
     }
 }

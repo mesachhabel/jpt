@@ -8,6 +8,8 @@ use App\Models\data_karyawan;
 use App\Models\tr_agama;
 use App\Models\tr_bank;
 use App\Models\tr_kodejabatan;
+use App\Models\remunerasi;
+use App\Models\tr_nilaibaku;
 use Alert;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,7 +22,7 @@ class DataKaryawanController extends Controller
      */
     public function index()
     {
-        $karyawans = data_karyawan::latest()->paginate(5);
+        $karyawans = data_karyawan::with(['remunerasi'])->latest()->paginate(5);
         return view('admins.DataKaryawan.DataKaryawans', compact('karyawans'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -34,8 +36,10 @@ class DataKaryawanController extends Controller
     {
         $agamas = tr_agama::all();
         $banks = tr_bank::all();
+        $tunjangan = remunerasi::all();
         $jabatan = tr_kodejabatan::all();
-        return view('admins.DataKaryawan.CreateDataKaryawans',compact('agamas','banks','jabatan'));
+        $jamspot = tr_nilaibaku::all();
+        return view('admins.DataKaryawan.CreateDataKaryawans',compact('agamas','banks','tunjangan','jabatan','jamspot'));
     }
     
     /**
@@ -72,17 +76,18 @@ class DataKaryawanController extends Controller
             'nbpks'     => $request->nbpks,
             'tmk'       => $request->tmk,
             'ska'       => $request->ska,
-            'jabatan'   => $request->jabatan,
+            'remunarasi_id'   => $request->remunarasi_id,
+            'nilaibaku_id'   => $request->nilaibaku_id,
             'klp'        => $request->klp,
+            'kelas'        => $request->kelas,
             'sgp'        => $request->sgp,
-            'as'        => $request->as,
             'uk'        => $request->uk,
-            'auk'       => $request->auk,
-            'so'        => $request->so,
+            'suk'       => $request->suk,
             'bank'      => $request->bank,
             'norek'     => $request->norek,
             'an'        => $request->an,
             'ip'        => $request->ip,
+            'is'        => $request->is,
             'sky'       => $request->sky,
             'tb'        => $request->tb,
             'nppin'     => $request->nppin,
@@ -103,10 +108,11 @@ class DataKaryawanController extends Controller
 
     public function edit(data_karyawan $karyawan)
     {
-        $karyawan = data_karyawan::find($karyawan->nik);
+        $karyawan = data_karyawan::with(['remunerasi'])->find($karyawan->nik);
+        $tunjangan = remunerasi::all();
         $jabatan = tr_kodejabatan::all();
         $banks = tr_bank::all();
-        return view('admins.DataKaryawan.EditDataKaryawans', compact('karyawan','jabatan','banks'));
+        return view('admins.DataKaryawan.EditDataKaryawans', compact('karyawan','jabatan','banks','tunjangan'));
     }
 
     public function update(Request $request, data_karyawan $karyawan)
@@ -143,17 +149,18 @@ class DataKaryawanController extends Controller
             'nbpks'     => $request->nbpks,
             'tmk'       => $request->tmk,
             'ska'       => $request->ska,
-            'jabatan'   => $request->jabatan,
+            'remunarasi_id'   => $request->remunarasi_id,
+            'nilaibaku_id'   => $request->nilaibaku_id,
             'klp'        => $request->klp,
+            'kelas'        => $request->kelas,
             'sgp'        => $request->sgp,
-            'as'        => $request->as,
             'uk'        => $request->uk,
-            'auk'       => $request->auk,
-            'so'        => $request->so,
+            'suk'       => $request->suk,
             'bank'      => $request->bank,
             'norek'     => $request->norek,
             'an'        => $request->an,
             'ip'        => $request->ip,
+            'is'        => $request->is,
             'sky'       => $request->sky,
             'tb'        => $request->tb,
             'nppin'     => $request->nppin,
@@ -181,17 +188,18 @@ class DataKaryawanController extends Controller
             'nbpks'     => $request->nbpks,
             'tmk'       => $request->tmk,
             'ska'       => $request->ska,
-            'jabatan'   => $request->jabatan,
+            'remunarasi_id'   => $request->remunarasi_id,
+            'nilaibaku_id'   => $request->nilaibaku_id,
             'klp'        => $request->klp,
+            'kelas'        => $request->kelas,
             'sgp'        => $request->sgp,
-            'as'        => $request->as,
             'uk'        => $request->uk,
-            'auk'       => $request->auk,
-            'so'        => $request->so,
+            'suk'       => $request->suk,
             'bank'      => $request->bank,
             'norek'     => $request->norek,
             'an'        => $request->an,
             'ip'        => $request->ip,
+            'is'        => $request->is,
             'sky'       => $request->sky,
             'tb'        => $request->tb,
             'nppin'     => $request->nppin,
@@ -240,11 +248,12 @@ class DataKaryawanController extends Controller
         $select = $request->get('select');
         $value = $request->get('value');
         $dependent = $request->get('dependent');
-        $data = tr_kodejabatan::where($select, $value)
+        $data = remunerasi::where($select, $value)
             ->groupBy($dependent)
             ->get();
-        foreach ($data as $row) {
-            $output = '<option value="' . $row->$dependent . '" name="kelas" selected>' . ucfirst($row->$dependent) . '</option>';
+        foreach($data as $row)
+        {
+            $output = '<option value="' . $row->$dependent . '" name="klp" selected>' . ucfirst($row->$dependent) . '</option>';
         }
         echo $output;
     }

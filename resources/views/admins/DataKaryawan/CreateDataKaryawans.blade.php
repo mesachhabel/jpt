@@ -102,7 +102,6 @@
                                         <option value="2">02</option>
                                         <option value="3">03</option>
                                         <option value="4">04</option>
-                                        <option value="5">.....</option>
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
@@ -115,15 +114,26 @@
                                     <input class="form-control" type="text" name="nktp" id="NoKTP" placeholder="Nomor KTP"
                                         required />
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="NoBPJST" class="form-label">Nomor BPJS Ketenagakerjaan</label>
                                     <input class="form-control" type="text" id="NoBPJST" name="nbpkt"
                                         placeholder="BPJS Ketenagakerjaan" autofocus required />
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="NoBPJSK" class="form-label">Nomor BPJS Kesehatan</label>
                                     <input class="form-control" type="text" name="nbpks" id="NoBPJSK"
                                         placeholder="BPJS Kesehatan" />
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label for="nilaibaku_id" class="form-label">Jamsostek & Potongan</label>
+                                    <select name="nilaibaku_id" id="id" class="form-select">
+                                        <option disabled selected>-- Pilih JAMSPOT -- </option>
+                                        @foreach ($jamspot as $js)
+                                            <option value="{{ $js->id }}">
+                                                {{ $js->st_peg }} || {{ $js->st_tugas }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -146,23 +156,35 @@
                                         <option value="Karyawan">Karyawan</option>
                                     </select>
                                 </div>
+                                {{-- Field relationship yang disimpan adalah id dari tabel remunerasi --}}
                                 <div class="mb-3 col-md-4">
-                                    <label for="jabatan" class="form-label">Jabatan</label>
-                                    <select name="jabatan" id="jabatan" class="form-select dynamic" data-dependent="klp">
+                                    <label for="remunarasi_id" class="form-label">Tunjangan</label>
+                                    <select name="remunarasi_id" id="id" class="form-select dynamic" data-dependent="klp">
                                         <option disabled selected>-- Pilih Jabatan -- </option>
-                                        @foreach ($jabatan as $jb)
-                                            <option value="{{ $jb->jabatan }}">[{{ $jb->kelas }}]
-                                                {{ $jb->jabatan }}
+                                        @foreach ($tunjangan as $tj)
+                                            <option value="{{ $tj->id }}">
+                                                {{ $tj->kode_mg }} || {{ $tj->jabatan }}
                                             </option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="klp" class="form-label">Kelompok Jabatan</label>
-                                    <select name="klp" id="klp" class="form-control input-lg" readonly="readonly">
+                                    <select name="klp" id="klp" class="form-control input-lg" required readonly="readonly">
                                     </select>
                                 </div>
-                                <div class=" mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
+                                    <label for="kelas" class="form-label">Kelas Jabatan</label>
+                                    <select name="kelas" id="kelas" class="form-control input-lg" required>
+                                        <option disabled selected> -- Pilih Kelas Jabatan -- </option>
+                                        @foreach ($jabatan as $jb)
+                                            <option value="{{ $jb->kelas }}">
+                                                {{ $jb->kelas }} || {{ $jb->jabatan }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class=" mb-3 col-md-4">
                                     <label for="Barjab" class="form-label">Skala Gaji Pokok</label>
                                     <input name="sgp" id="sgp" class="form-control"
                                         placeholder="Silahkan Masukan Skala Gaji" required />
@@ -175,14 +197,14 @@
                                         <option value="2">.....</option>
                                     </select>
                                 </div> --}}
-                                <div class="mb-3 col-md-3">
+                                <div class="mb-3 col-md-4">
                                     <label for="Uker" class="form-label">Unit Kerja</label>
                                     <input class="form-control" type="text" id="Uker" name="uk" placeholder="Unit Kerja"
                                         autofocus />
                                 </div>
-                                <div class="mb-3 col-md-3">
-                                    <label for="AUker" class="form-label">Sub Unit Kerja</label>
-                                    <select name="auk" id="auk" class="form-select">
+                                <div class="mb-3 col-md-4">
+                                    <label for="SUker" class="form-label">Sub Unit Kerja</label>
+                                    <select name="suk" id="suk" class="form-select">
                                         <option disabled selected>-- Pilih Sub Unit Kerja --</option>
                                         <option value="Struktural">Struktural</option>
                                         <option value="Fungsional">Fungsional</option>
@@ -198,7 +220,7 @@
                                         <option value="2">.....</option>
                                     </select>
                                 </div> --}}
-                                <div class="mb-3 col-md-3">
+                                <div class="mb-3 col-md-4">
                                     <label for="defaultSelect" class="form-label">Bank</label>
                                     <select name="bank" id="defaultSelect" class="form-select" required>
                                         <option disabled selected>-- Pilih Bank --</option>
@@ -209,18 +231,18 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="mb-3 col-md-3">
+                                <div class="mb-3 col-md-4">
                                     <label for="Rek" class="form-label">No Rekening</label>
                                     <input class="form-control" type="text" id="Rek" name="norek"
                                         placeholder="no rekening" autofocus />
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="AtNa" class="form-label">Atas Nama</label>
                                     <input class="form-control" type="text" id="AtNa" name="an"
                                         placeholder="Nama Pemegang Rekening" autofocus />
                                 </div>
 
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="defaultSelect" class="form-label">Status Karyawan</label>
                                     <select name="sky" id="defaultSelect" class="form-select"
                                         onChange="statuskar(this.value)">
@@ -229,18 +251,24 @@
                                         <option value="2">Non-Aktif</option>
                                     </select>
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="tb" class="form-label">Tanggal Berhenti</label>
                                     <div class="col-md-12">
                                         <input name="tb" class="form-control" type="date" id="tb"
                                             data-date-inline-picker="true" />
                                     </div>
                                 </div>
-                                <div class="mb-3 col-md-3 mt-4">
+                                <div class="mb-3 col-md-1 mt-4">
                                     <input type="hidden" id="ip" name="ip" value="0">
                                     <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
                                         onchange="document.getElementById('ip').value = this.checked ? 1 : 0">
                                     <label for="ip" class="form-label">Iuran Pensiun</label>
+                                </div>
+                                <div class="mb-3 col-md-1 mt-4">
+                                    <input type="hidden" id="is" name="is" value="0">
+                                    <input value="1" type="checkbox" name="iuranshift" id="iuranshift"
+                                        onchange="document.getElementById('is').value = this.checked ? 1 : 0">
+                                    <label for="is" class="form-label">Iuran Shift</label>
                                 </div>
                             </div>
                         </div>
@@ -320,8 +348,7 @@
                     })
                 }
             });
-
-            $('#jabatan').change(function() {
+            $('#id').change(function() {
                 $('#klp').val('');
             });
         });

@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\absensi_data_karyawan;
-use App\Models\tr_kodejabatan;
+use App\Models\remunerasi;
+use App\Models\tr_nilaibaku;
 
 class data_karyawan extends Model
 {
@@ -13,13 +13,12 @@ class data_karyawan extends Model
     protected $guarded = [];
     protected $primaryKey = 'nik';
 
-    public function absensi_data_karyawans()
+    public function Remunerasi()
     {
-        return $this->hasmany(absensi_data_karyawan::class);
+        return $this->belongsTo(remunerasi::class, 'remunarasi_id');
     }
-
-    public function tr_kodejabatan()
+    public function nilaibaku()
     {
-        return $this->belongsTo('App\Models\tr_kodejabatan', 'kelas');
+        return $this->belongsTo(tr_nilaibaku::class, 'nilaibaku_id');
     }
 }

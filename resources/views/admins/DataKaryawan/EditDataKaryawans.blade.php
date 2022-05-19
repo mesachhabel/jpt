@@ -53,6 +53,7 @@
                                     <select id="defaultSelect" name="jk" class="form-select">
                                         <option value="{{ old('jk', $karyawan->jk) }}" selected>
                                             {{ old('jk', $karyawan->jk) }}</option>
+                                        <option>------------------------------------------------------</option>
                                         <option value="Laki - Laki">Laki Laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                         <option value="Lain - Lain">Lain Lain ..</option>
@@ -63,6 +64,7 @@
                                     <select id="defaultSelect" name="agama" class="form-select">
                                         <option value="{{ old('agama', $karyawan->agama) }}" selected>
                                             {{ old('agama', $karyawan->agama) }}</option>
+                                        <option>------------------------------------------------------</option>
                                         <option value="Islam">Islam</option>
                                         <option value="Kristen Protestan">Kristen Protestan</option>
                                         <option value="Kristen Katholik">Kristen Katholik</option>
@@ -85,6 +87,7 @@
                                                 <span class="badge bg-label-purple me-4">Duda</span>
                                             @endif
                                         </option>
+                                        <option>------------------------------------------------------</option>
                                         <option value="1">Belum Menikah</option>
                                         <option value="2">Menikah</option>
                                         <option value="3">Janda</option>
@@ -101,6 +104,7 @@
                                     <select name="ia" id="defaultSelect" class="form-select">
                                         <option value="{{ old('ia', $karyawan->ia) }}" selected>
                                             {{ old('ia', $karyawan->ia) }}</option>
+                                        <option>------------------------------------------------------</option>
                                         <option value="PT. Jasamarga Pandaan Tol">PT. Jasamarga Pandaan Tol</option>
                                         <option value="PT. Jasamarga (Persero) TBK">PT. Jasamarga (Persero) TBK</option>
                                         <option value="PT. Trans Optima Luhur">PT. Trans Optima Luhur</option>
@@ -114,6 +118,7 @@
                                     <select name="gi" id="defaultSelect" class="form-select">
                                         <option value="{{ old('gi', $karyawan->gi) }}" selected>{{ $karyawan->gi }}
                                         </option>
+                                        <option>------------------------------------------------------</option>
                                         <option value="1">01</option>
                                         <option value="2">02</option>
                                         <option value="3">03</option>
@@ -160,6 +165,7 @@
                                     <select name="ska" id="defaultSelect" class="form-select">
                                         <option value="{{ old('ska', $karyawan->ska) }}" selected>{{ $karyawan->ska }}
                                         </option>
+                                        <option>------------------------------------------------------</option>
                                         <option value="Direksi">Direksi</option>
                                         <option value="Komisaris">Komisaris</option>
                                         <option value="PKWTT">Karyawan Tetap</option>
@@ -167,19 +173,22 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="jabatan" class="form-label">Jabatan</label>
-                                    <select name="jabatan" id="jabatan" class="form-select dynamic" data-dependent="klp">
-                                        <option value="{{ old('jabatan', $karyawan->jabatan) }}" selected>
-                                            {{ $karyawan->jabatan }}
+                                    <label for="remunarasi_id" class="form-label">Tunjangan</label>
+                                    <select name="remunarasi_id" id="id" class="form-select dynamic" data-dependent="klp">
+                                        <option value="{{ old('jabatan', $karyawan->remunerasi->id) }}" selected
+                                            readonly="readonly">
+                                            [{{ $karyawan->remunerasi->kode_mg }}]
+                                            {{ $karyawan->remunerasi->jabatan }}
                                         </option>
-                                        @foreach ($jabatan as $jb)
-                                            <option value="{{ $jb->jabatan }}">[{{ $jb->kelas }}]
-                                                {{ $jb->jabatan }}
+                                        <option>------------------------------------------------------</option>
+                                        @foreach ($tunjangan as $tj)
+                                            <option value="{{ $tj->id }}">[{{ $tj->kode_mg }}]
+                                                {{ $tj->jabatan }}
                                             </option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="klp" class="form-label">Kelompok Jabatan</label>
                                     <select name="klp" id="klp" class="form-control input-lg" readonly="readonly">
                                         <option value="{{ old('klp', $karyawan->klp) }}" selected>
@@ -187,13 +196,27 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class=" mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
+                                    <label for="kelas" class="form-label">Kelas Jabatan</label>
+                                    <select name="kelas" id="kelas" class="form-control input-lg">
+                                        <option value="{{ old('kelas', $karyawan->kelas) }}" selected>
+                                            {{ $karyawan->kelas }}
+                                        </option>
+                                        <option>------------------------------------------------------</option>
+                                        @foreach ($jabatan as $jb)
+                                            <option value="{{ $jb->kelas }}">
+                                                {{ $jb->kelas }} || {{ $jb->jabatan }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class=" mb-3 col-md-4">
                                     <label for="Barjab" class="form-label">Skala Gaji Pokok</label>
                                     <input name="sgp" id="sgp" class="form-control"
                                         placeholder="Silahkan Masukan Skala Gaji"
                                         value="{{ old('sgp', $karyawan->sgp) }}" required />
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                {{-- <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Anggota Serikat</label>
                                     <select name="as" id="defaultSelect" class="form-select">
                                         <option value="{{ old('as', $karyawan->as) }}" selected>{{ $karyawan->as }}
@@ -201,18 +224,26 @@
                                         <option value="1">.....</option>
                                         <option value="2">.....</option>
                                     </select>
-                                </div>
-                                <div class="mb-3 col-md-3">
+                                </div> --}}
+                                <div class="mb-3 col-md-4">
                                     <label for="Uker" class="form-label">Unit Kerja</label>
                                     <input value="{{ old('uk', $karyawan->uk) }}" class="form-control" type="text"
                                         id="Uker" name="uk" placeholder="Unit Kerja" autofocus />
                                 </div>
-                                <div class="mb-3 col-md-3">
-                                    <label for="AUker" class="form-label">Anaknya Unit Kerja</label>
-                                    <input value="{{ old('auk', $karyawan->auk) }}" class="form-control" type="text"
-                                        id="AUker" name="auk" placeholder="anaknya Unit Kerja" autofocus />
+                                <div class="mb-3 col-md-4">
+                                    <label for="SUker" class="form-label">Sub Unit Kerja</label>
+                                    <select name="suk" id="suk" class="form-select">
+                                        <option value="{{ old('suk', $karyawan->suk) }}" selected>
+                                            {{ $karyawan->suk }}
+                                        </option>
+                                        <option>------------------------------------------------------</option>
+                                        <option value="Struktural">Struktural</option>
+                                        <option value="Fungsional">Fungsional</option>
+                                        <option value="Non Operasional TCM">Non Operasional TCM</option>
+                                        <option value="Non Operasional TM">Non Operasional TM</option>
+                                    </select>
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                {{-- <div class="mb-3 col-md-6">
                                     <label for="defaultSelect" class="form-label">Struktur Organisasi</label>
                                     <select name="so" id="defaultSelect" class="form-select">
                                         <option value="{{ old('so', $karyawan->so) }}" selected>{{ $karyawan->so }}
@@ -220,11 +251,14 @@
                                         <option value="1">.....</option>
                                         <option value="2">.....</option>
                                     </select>
-                                </div>
-                                <div class="mb-3 col-md-3">
+                                </div> --}}
+                                <div class="mb-3 col-md-4">
                                     <label for="defaultSelect" class="form-label">Bank</label>
                                     <select name="bank" id="defaultSelect" class="form-select">
-                                        <option disabled selected>-- Pilih Bank --</option>
+                                        <option value="{{ old('bank', $karyawan->bank) }}" selected>
+                                            {{ $karyawan->bank }}
+                                        </option>
+                                        <option>------------------------------------------------------</option>
                                         @foreach ($banks as $bank)
                                             <option value="{{ $bank->bank }}">[{{ $bank->kode }}]
                                                 {{ $bank->bank }}
@@ -232,29 +266,17 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="mb-3 col-md-3">
+                                <div class="mb-3 col-md-4">
                                     <label for="Rek" class="form-label">No Rekening</label>
                                     <input value="{{ old('norek', $karyawan->norek) }}" class="form-control"
                                         type="text" id="Rek" name="norek" placeholder="no rekening" autofocus />
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="AtNa" class="form-label">Atas Nama</label>
                                     <input value="{{ old('an', $karyawan->an) }}" class="form-control" type="text"
                                         id="AtNa" name="an" placeholder="Atas Nama" autofocus />
                                 </div>
-                                <div class="mb-3 col-md-3">
-                                    @if ($karyawan->ip == '1')
-                                        <input type="hidden" id="ip" name="ip" value="0" checked>
-                                        <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
-                                            onchange="document.getElementById('ip').value = this.checked ? 1 : 0" checked>
-                                    @elseif ($karyawan->ip == '0')
-                                        <input type="hidden" id="ip" name="ip" value="0">
-                                        <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
-                                            onchange="document.getElementById('ip').value = this.checked ? 1 : 0">
-                                    @endif
-                                    <label for="ip" class="form-label">Iuran Pensiun</label>
-                                </div>
-                                <div class="mb-3 col-md-3">
+                                <div class="mb-3 col-md-4">
                                     <label for="defaultSelect" class="form-label">Status Karyawan</label>
                                     <select name="sky" id="defaultSelect" class="form-select"
                                         onChange="statuskar(this.value)">
@@ -270,12 +292,36 @@
                                         <option value="2">Non-Aktif</option>
                                     </select>
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="tb" class="form-label">Tanggal Berhenti</label>
                                     <div class="col-md-12">
                                         <input value="{{ old('tb', $karyawan->tb) }}" name="tb" class="form-control"
                                             type="date" id="tb" data-date-inline-picker="true" />
                                     </div>
+                                </div>
+                                <div class="mb-3 col-md-1 mt-4">
+                                    @if ($karyawan->ip == '1')
+                                        <input type="hidden" id="ip" name="ip" value="0" checked>
+                                        <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
+                                            onchange="document.getElementById('ip').value = this.checked ? 1 : 0" checked>
+                                    @elseif ($karyawan->ip == '0')
+                                        <input type="hidden" id="ip" name="ip" value="0">
+                                        <input value="1" type="checkbox" name="iuranpen" id="iuranpen"
+                                            onchange="document.getElementById('ip').value = this.checked ? 1 : 0">
+                                    @endif
+                                    <label for="ip" class="form-label">Iuran Pensiun</label>
+                                </div>
+                                <div class="mb-3 col-md-1 mt-4">
+                                    @if ($karyawan->is == '1')
+                                        <input type="hidden" id="is" name="is" value="0" checked>
+                                        <input value="1" type="checkbox" name="iuranshift" id="iuranshift"
+                                            onchange="document.getElementById('is').value = this.checked ? 1 : 0" checked>
+                                    @elseif ($karyawan->is == '0')
+                                        <input type="hidden" id="is" name="is" value="0">
+                                        <input value="1" type="checkbox" name="iuranshift" id="iuranshift"
+                                            onchange="document.getElementById('is').value = this.checked ? 1 : 0">
+                                    @endif
+                                    <label for="is" class="form-label">Iuran Shift</label>
                                 </div>
                                 </label>
                             </div>
@@ -352,7 +398,7 @@
                 }
             });
 
-            $('#jabatan').change(function() {
+            $('#id').change(function() {
                 $('#klp').val('');
             });
         });

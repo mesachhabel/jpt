@@ -14,7 +14,10 @@ class DataKaryawans extends Migration
     public function up()
     {
         Schema::create('data_karyawans', function (Blueprint $table) {
-            $table->integer('nik')->primary();
+            $table->string('nik')->primary();
+            //relastionship from remunerasi_id (data_karyawans) to id (data_remunerasi)
+            $table->unsignedBigInteger('remunarasi_id')->on('remunerasis')->references('id');
+            $table->unsignedBigInteger('nilaibaku_id')->on('tr_nilaibakus')->references('id');
             $table->string('nama');
             $table->string('nppi');
             $table->string('jk');
@@ -28,17 +31,16 @@ class DataKaryawans extends Migration
             $table->integer('nbpks');
             $table->string('tmk');
             $table->string('ska');
-            $table->string('jabatan');
             $table->string('klp');
+            $table->string('kelas');
             $table->bigInteger('sgp');
-            $table->string('as')->nullable();
             $table->string('uk')->nullable();
-            $table->string('auk')->nullable();
-            $table->string('so')->nullable();
-            $table->string('bank')->nullable();
-            $table->string('norek')->nullable();
-            $table->string('an')->nullable();
+            $table->string('suk')->nullable();
+            $table->string('bank');
+            $table->integer('norek');
+            $table->string('an');
             $table->boolean('ip')->default(0);
+            $table->boolean('is')->default(0);
             $table->string('sky')->nullable();
             $table->string('tb')->nullable();
             $table->string('image')->nullable();

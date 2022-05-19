@@ -20,7 +20,7 @@
                                     height="150" width="150" id="uploadedAvatar" />
                                 <div class="button-wrapper">
                                     <label for="inputImage" class="btn btn-primary me-10 mb-0" tabindex="0">
-                                        <span class="d-none d-sm-block">Upload new photo</span>
+                                        <span class="d-none d-sm-block required-field">Upload new photo</span>
                                         <i class="bx bx-upload d-block d-sm-none"></i>
                                         <input type="file" name="image" id="inputImage"
                                             class="form-control @error('image') is-invalid @enderror" required>
@@ -34,22 +34,22 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="mb-3 col-md-4">
-                                    <label for="NIK" class="form-label">NIK</label>
+                                    <label for="NIK" class="form-label required-field">NIK</label>
                                     <input class="form-control" type="text" id="NIK" name="nik" placeholder="NIK"
                                         autofocus required />
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="Nama" class="form-label">Nama Lengkap</label>
+                                    <label for="Nama" class="form-label required-field">Nama Lengkap</label>
                                     <input class="form-control" type="text" name="nama" id="Nama"
                                         placeholder="Nama Lengkap" required />
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="NPP" class="form-label">NPP Instansi</label>
+                                    <label for="NPP" class="form-label required-field">NPP Instansi</label>
                                     <input class="form-control" type="text" id="NPP" name="nppi" placeholder="NPP"
                                         required />
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="defaultSelect" class="form-label">Jenis Kelamin</label>
+                                    <label for="defaultSelect" class="form-label required-field">Jenis Kelamin</label>
                                     <select id="defaultSelect" name="jk" class="form-select" required>
                                         <option disabled selected>-- Pilih Jenis Kelamin --</option>
                                         <option value="Laki - Laki">Laki Laki</option>
@@ -58,7 +58,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="defaultSelect" class="form-label">Agama</label>
+                                    <label for="defaultSelect" class="form-label required-field">Agama</label>
                                     <select id="defaultSelect" name="agama" class="form-select" required>
                                         <option disabled selected>-- Pilih Agama --</option>
                                         @foreach ($agamas as $agama)
@@ -68,7 +68,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="defaultSelect" class="form-label">Status Keluarga</label>
+                                    <label for="defaultSelect" class="form-label required-field">Status Keluarga</label>
                                     <select name="skk" id="defaultSelect" class="form-select" required>
                                         <option disabled selected>-- Pilih Status Keluarga --</option>
                                         <option value="1">Belum Menikah</option>
@@ -105,27 +105,28 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="NPWP" class="form-label">NPWP</label>
+                                    <label for="NPWP" class="form-label required-field">NPWP</label>
                                     <input class="form-control" type="text" id="NPWP" name="npwp" placeholder="NPWP"
                                         autofocus required />
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="NoKTP" class="form-label">Nomor KTP</label>
+                                    <label for="NoKTP" class="form-label required-field">Nomor KTP</label>
                                     <input class="form-control" type="text" name="nktp" id="NoKTP" placeholder="Nomor KTP"
                                         required />
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="NoBPJST" class="form-label">Nomor BPJS Ketenagakerjaan</label>
+                                    <label for="NoBPJST" class="form-label required-field">Nomor BPJS
+                                        Ketenagakerjaan</label>
                                     <input class="form-control" type="text" id="NoBPJST" name="nbpkt"
                                         placeholder="BPJS Ketenagakerjaan" autofocus required />
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="NoBPJSK" class="form-label">Nomor BPJS Kesehatan</label>
+                                    <label for="NoBPJSK" class="form-label required-field">Nomor BPJS Kesehatan</label>
                                     <input class="form-control" type="text" name="nbpks" id="NoBPJSK"
                                         placeholder="BPJS Kesehatan" />
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="nilaibaku_id" class="form-label">Jamsostek & Potongan</label>
+                                    <label for="nilaibaku_id" class="form-label required-field">Jamsostek & Potongan</label>
                                     <select name="nilaibaku_id" id="id" class="form-select">
                                         <option disabled selected>-- Pilih JAMSPOT -- </option>
                                         @foreach ($jamspot as $js)
@@ -141,14 +142,15 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="mb-3 col-md-4">
-                                    <label for="html5-date-input" class="form-label">Tanggal Masuk Kerja</label>
+                                    <label for="html5-date-input" class="form-label required-field">Tanggal Masuk
+                                        Kerja</label>
                                     <div class="col-md-12">
                                         <input class="form-control" type="date" placeholder="Tanggal Masuk Kerja"
                                             name="tmk" id="html5-date-input" />
                                     </div>
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="defaultSelect" class="form-label">Status Karyawan</label>
+                                    <label for="defaultSelect" class="form-label required-field">Status Karyawan</label>
                                     <select name="ska" id="defaultSelect" class="form-select">
                                         <option disabled selected>-- Pilih Status Karyawan --</option>
                                         <option value="Direksi">Direksi</option>
@@ -158,7 +160,7 @@
                                 </div>
                                 {{-- Field relationship yang disimpan adalah id dari tabel remunerasi --}}
                                 <div class="mb-3 col-md-4">
-                                    <label for="remunarasi_id" class="form-label">Tunjangan</label>
+                                    <label for="remunarasi_id" class="form-label required-field">Tunjangan</label>
                                     <select name="remunarasi_id" id="id" class="form-select dynamic" data-dependent="klp">
                                         <option disabled selected>-- Pilih Jabatan -- </option>
                                         @foreach ($tunjangan as $tj)
@@ -169,12 +171,12 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="klp" class="form-label">Kelompok Jabatan</label>
+                                    <label for="klp" class="form-label required-field">Kelompok Jabatan</label>
                                     <select name="klp" id="klp" class="form-control input-lg" required readonly="readonly">
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="kelas" class="form-label">Kelas Jabatan</label>
+                                    <label for="kelas" class="form-label required-field">Kelas Jabatan</label>
                                     <select name="kelas" id="kelas" class="form-control input-lg" required>
                                         <option disabled selected> -- Pilih Kelas Jabatan -- </option>
                                         @foreach ($jabatan as $jb)
@@ -185,7 +187,7 @@
                                     </select>
                                 </div>
                                 <div class=" mb-3 col-md-4">
-                                    <label for="Barjab" class="form-label">Skala Gaji Pokok</label>
+                                    <label for="Barjab" class="form-label required-field">Skala Gaji Pokok</label>
                                     <input name="sgp" id="sgp" class="form-control"
                                         placeholder="Silahkan Masukan Skala Gaji" required />
                                 </div>

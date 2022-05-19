@@ -34,23 +34,100 @@ class slipgajicontroller extends Controller
 
     public function cetak($nik){
         //Pemanggilan Table
-            $data=data_karyawan::with(['remunerasi'])->find($nik);
-            $tunjangan = tr_nilaibaku::first();
+            $data=data_karyawan::with(['remunerasi'])->find($nik); //Pemanggilan Tabel Relasi Dari remunerasi
+            $bpjs=data_karyawan::with(['nilaibaku'])->find($nik); //Pemanggilan Tabel Relasi Dari tr_nilaibaku
+            //Keterangan Slip
+                $keterangan = Tab_KeteranganSlip::all();
         //Months And Year TOday
-            $today = Carbon::now();
-            $year = $today->year;
-            $monthName = $today->format('F');
+            $today = Carbon::now(); //Tanggal Bulan Tahun Hari Ini
+            $year = $today->year; //Pemanggilan Tahun
+            $monthName = $today->format('F'); //Pemanggilan Bulan String
 
         //Beetween Tanggal Masuk kerja
-            $beetween = Carbon::createFromDate($data->tmk)->diff(Carbon::now())->format('%y Tahun, %m Bulan');
+            $beetween = Carbon::createFromDate($data->tmk)->diff(Carbon::now())->format('%y Tahun, %m Bulan'); //Mencari Masa kerja Efektif
+
+        // Nilai Pensiun
+            if ($data->ip == 1){
+                $pensiun = 3000000;
+            }
+            else{
+                $pensiun = 0;
+            }
         
-        //Keterangan Slip
-            $keterangan = Tab_KeteranganSlip::all();
-
-        //Perhitungan Tunjangan
-            $total_tunj = $data->remunerasi->tunj_jabatan + $data->remunerasi->tunj_perumahan;
-
-        return view ('admins.PelaporanData.SlipGaji.SG.CetakSlipGaji', compact('data','total_tunj','tunjangan' ,'year', 'monthName','today','beetween','keterangan'));
+        //Penerimaan
+            //Perhitungan 
+                // Batas Maksimal BPJS Kesehatan 
+                    $limit_sgp = $data->nilaibaku->max_bpjskes;
+                    if ($data->sgp >= $limit_sgp){
+                        $sgp = $limit_sgp;
+                    }
+                    else{
+                        $sgp = $data->sgp;
+                    }
+                // Batas Maksimal JPP BPJS Ketenagakerjaan
+                    $limit_jpp = $data->nilaibaku->max_bpjskt;
+                    if ($data->sgp >= $limit_jpp){
+                        $jpp = $limit_jpp;
+                    }
+                    else{
+                        $jpp = $data->sgp;
+                    }
+                //Tunjangan
+                    $perumkom = $data->remunerasi->tunj_perumahan + $data->remunerasi->tunj_komunikasi; //Tunjangan Perumahan Dan Komunikasi 
+                    $total_tunj = $data->remunerasi->tunj_jabatan + $data->remunerasi->tunj_prestasi + $data->remunerasi->tunj_shift + $perumkom; //Total
+                $jum_penghasilan = $total_tunj + $data->sgp; //Jumlah Penghasilan Tunjangan
+                
+                //Umum
+                    //BPJS Kesehatan
+                        $bpjskes_umum = $sgp * $data->nilaibaku->jpk_prs; //BPJS Kesehatan
+                        $tambah_bpjs = $data->sgp + $bpjskes_umum; // Hasil Penjumlahan Gaji Pokok Dengan Hasil $pbjskes_umum
+                    //BPJS Ketenagakerjaan
+                        $jht = $data->sgp * $data->nilaibaku->jht; //Jaminan Hari Tua
+                        $jkk = $data->sgp * $data->nilaibaku->jkk; //Jaminan Kematian Keluarga
+                        $jkm = $data->sgp * $data->nilaibaku->jkm; //Jaminan Kematian Meninggal
+                        $jpp = $jpp * $data->nilaibaku->jpp; //Jaminan Pensiun
+                        $bpjskt_umum = $jht + $jkk + $jkm + $jpp; //BPJS Ketenagakerjaan
+                $sub_tot_umum = $bpjskes_umum + $bpjskt_umum; //Sub Total Umum
+            // Total Penerimaan
+                $total_penerimaan = $data->sgp + $total_tunj + $sub_tot_umum; //Total Penerimaan
+        // End Penerimaan
+        // Potongan
+            //Umum
+                //BPJS Kesehatan
+                    $tambah_prs_peg = $data->nilaibaku->jpk_prs + $data->nilaibaku->jpk_peg; //Penambahan Persentase dari BPJSKES_prs Dengan BPJSKES_PEG
+                    $bpjskes_pot = $sgp * $tambah_prs_peg; //Hasil Pemotongan Gaji Dengan Persentase Dari $tambah_prs_peg
+                    $potong_bpjskes = $tambah_bpjs - $bpjskes_pot; //Pemotongan Hasil bpjskes_umum Dengan Hasil bpjskes_pot
+                    $bpjskes_pot_bp = $sgp * $data->nilaibaku->jpk_prs; //Hasil Beban Beban Perusahaan
+                    $bpjskes_pot_bk = $sgp * $data->nilaibaku->jpk_peg; //Hasil Beban Pegawai
+                    $sub_tot_bpjskes = $bpjskes_pot_bp + $bpjskes_pot_bk; //Jumlah hasil Potongan BPJS Kesehatan 
+                //BPJS Ketenagakerjaan
+                    $jht_peg = $data->sgp * $data->nilaibaku->jht_peg; //JHT Pegawai
+                    $jpp_peg = $jpp * $data->nilaibaku->jpp_peg; //JPP Pegawai
+                    $jum_bebanpeg = $jht_peg + $jpp_peg; //Jumlah Beban Pegawai
+        // End Potongan
+        return view ('admins.PelaporanData.SlipGaji.SG.CetakSlipGaji', 
+        compact(
+            'data',
+            'year', 
+            'monthName',
+            'today',
+            'beetween',
+            'keterangan',
+            'total_tunj',
+            'jum_penghasilan',
+            'perumkom',
+            'bpjs',
+            'bpjskes_umum',
+            'bpjskes_pot',
+            'potong_bpjskes',
+            'bpjskes_pot_bp',
+            'bpjskes_pot_bk',
+            'sub_tot_bpjskes',
+            'bpjskt_umum',
+            'sub_tot_umum',
+            'total_penerimaan',
+            'jum_bebanpeg',
+        ));
     }
 
     // Slip Gaji Komisaris

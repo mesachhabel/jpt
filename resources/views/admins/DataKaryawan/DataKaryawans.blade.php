@@ -47,9 +47,9 @@
                                 </td>
                                 <td>
                                     @if ($post->skk == '1')
-                                        <span class="badge bg-label-primary me-1">Belum Kawin</span>
+                                        <span class="badge bg-label-primary me-1">Belum Menikah</span>
                                     @elseif ($post->skk == '2')
-                                        <span class="badge bg-label-warning me-2">Kawin</span>
+                                        <span class="badge bg-label-warning me-2">Menikah</span>
                                     @elseif ($post->skk == '3')
                                         <span class="badge bg-label-danger me-3">Janda</span>
                                     @elseif ($post->skk == '4')

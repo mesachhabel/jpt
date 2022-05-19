@@ -102,7 +102,6 @@
                                         <option value="2">02</option>
                                         <option value="3">03</option>
                                         <option value="4">04</option>
-                                        <option value="5">.....</option>
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
@@ -115,15 +114,26 @@
                                     <input class="form-control" type="text" name="nktp" id="NoKTP" placeholder="Nomor KTP"
                                         required />
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="NoBPJST" class="form-label">Nomor BPJS Ketenagakerjaan</label>
                                     <input class="form-control" type="text" id="NoBPJST" name="nbpkt"
                                         placeholder="BPJS Ketenagakerjaan" autofocus required />
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="NoBPJSK" class="form-label">Nomor BPJS Kesehatan</label>
                                     <input class="form-control" type="text" name="nbpks" id="NoBPJSK"
                                         placeholder="BPJS Kesehatan" />
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label for="nilaibaku_id" class="form-label">Jamsostek & Potongan</label>
+                                    <select name="nilaibaku_id" id="id" class="form-select">
+                                        <option disabled selected>-- Pilih JAMSPOT -- </option>
+                                        @foreach ($jamspot as $js)
+                                            <option value="{{ $js->id }}">
+                                                {{ $js->st_peg }} || {{ $js->st_tugas }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -146,6 +156,7 @@
                                         <option value="Karyawan">Karyawan</option>
                                     </select>
                                 </div>
+                                {{-- Field relationship yang disimpan adalah id dari tabel remunerasi --}}
                                 <div class="mb-3 col-md-4">
                                     <label for="remunarasi_id" class="form-label">Tunjangan</label>
                                     <select name="remunarasi_id" id="id" class="form-select dynamic" data-dependent="klp">

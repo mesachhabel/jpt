@@ -303,7 +303,7 @@
                                     </div>
                                     <div class="keterangan ii uang" style="top: 9px;" id="bloc9">
                                         <a>
-                                            {{-- {{ $perhitungan }} --}}@idr($data->sgp)
+                                            @idr($data->sgp)
                                         </a><br>
                                         <strong>@idr($data->sgp)</strong>
                                     </div>
@@ -325,12 +325,13 @@
                                         <a>:<br>:<br>:<br>:<br><strong>:<br>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 9px;" id="bloc12">
-                                        <a>@idr($data->remunerasi->tunj_perumahan)</a><br>
+                                        <a>@idr($perumkom)</a><br>
                                         <a>@idr($data->remunerasi->tunj_jabatan) </a><br>
-                                        <a>@idr($data->remunerasi->tunj_jabatan) </a><br> <!--tunj prestasi -->
-                                        <a>@idr($data->remunerasi->tunj_jabatan) </a><br> <!-- tunj shift -->
+                                        <a>@idr($data->remunerasi->tunj_prestasi) </a><br>
+                                        <!--tunj prestasi -->
+                                        <a>@idr($data->remunerasi->tunj_shift) </a><br> <!-- tunj shift -->
                                         <strong>@idr($total_tunj)</strong><br>
-                                        <strong>@idr($total_tunj)</strong>
+                                        <strong>@idr($jum_penghasilan)</strong>
                                     </div>
                                 </div>
                                 <!-- separator -->
@@ -347,9 +348,9 @@
                                         <a>:<br>:<br><strong>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 9px;" id="bloc15">
-                                        <a>3.687.599</a><br>
-                                        <a>200.001</a><br>
-                                        <strong>3.687.599</strong>
+                                        <a>@idr($bpjskes_umum)</a><br>
+                                        <a>@idr($bpjskt_umum)</a><br>
+                                        <strong>@idr($sub_tot_umum)</strong>
                                     </div>
                                 </div>
                                 <!-- separator -->
@@ -373,8 +374,16 @@
                                 <div class="block_container">
                                     <div class="sebutan" style="margin-left: 10px;" id="bloc19">
                                         <strong>Umum</strong> <br>
-                                        <a>1. Gaji Pokok</a> <br>
+                                        <a>1. Gaji Pokok</a> <br> <br>
                                         <a>2. BPJS Kesehatan</a> <br>
+                                        <div style="margin-left: 9px;">
+                                            <a> -Beban Perusahaan</a> <br>
+                                            <a> -Beban Karyawan</a> <br>
+                                        </div>
+                                        <div style="text-align: right; margin-right: 3px;">
+                                            <strong>Sub Total </strong> <br>
+                                        </div>
+                                        <br>
                                         <a>3. BPJS Ketenagakerjaan</a> <br>
                                         <div style="margin-left: 9px;">
                                             <a> -Beban Perusahaan</a> <br>
@@ -385,14 +394,28 @@
                                         </div>
                                     </div>
                                     <div class="separ ii" style="top: 9px;" id="bloc20">
-                                        <a>:<br>:<br>:<br>:<br>:<br><strong>:</strong></a>
+                                        <a>:<br><br>
+                                            :<br>
+                                            :<br>
+                                            :<br>
+                                            :<br> <br>
+                                            :<br>
+                                            :<br>
+                                            :<br>
+                                            <strong>:</strong>
+                                        </a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 9px;" id="bloc21">
-                                        <a>0</a><br>
+                                        <a>@idr($data->sgp)</a><br>
                                         <br>
-                                        <a>3.687.599</a><br>
-                                        <a>1.543.836</a><br>
-                                        <strong>5.231.435</strong>
+                                        <a>@idr($potong_bpjskes)</a><br>
+                                        <a>@idr($bpjskes_pot_bp)</a><br>
+                                        <a>@idr($bpjskes_pot_bk)</a><br>
+                                        <a>@idr($sub_tot_bpjskes)</a><br> <br>
+                                        <a>halo</a><br>
+                                        <a>@idr($bpjskt_umum)</a><br>
+                                        <a>@idr($jum_bebanpeg)</a><br>
+                                        <strong>tes</strong>
                                     </div>
                                 </div>
                                 <!-- separator -->
@@ -422,7 +445,7 @@
                                         <a><strong>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 0px;" id="bloc27">
-                                        <strong>@idr($data->sgp + $data->sgp)</strong>
+                                        <strong>@idr($total_penerimaan)</strong>
                                     </div>
                                 </div>
                             </td>

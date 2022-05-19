@@ -21,8 +21,8 @@ class Trnilaibakus extends Migration
             $table->double('jkk');
             $table->double('jht');
             $table->double('jpk');
-            $table->double('jpk_prs');
-            $table->double('jpk_peg');
+            $table->double('bpjskes_prs');
+            $table->double('bpjskes_peg');
             $table->double('jpp');
             $table->double('jpp_prs');
             $table->double('jpp_peg');

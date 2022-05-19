@@ -9,6 +9,7 @@ use App\Models\tr_agama;
 use App\Models\tr_bank;
 use App\Models\tr_kodejabatan;
 use App\Models\remunerasi;
+use App\Models\tr_nilaibaku;
 use Alert;
 use Illuminate\Support\Facades\Storage;
 
@@ -37,7 +38,8 @@ class DataKaryawanController extends Controller
         $banks = tr_bank::all();
         $tunjangan = remunerasi::all();
         $jabatan = tr_kodejabatan::all();
-        return view('admins.DataKaryawan.CreateDataKaryawans',compact('agamas','banks','tunjangan','jabatan'));
+        $jamspot = tr_nilaibaku::all();
+        return view('admins.DataKaryawan.CreateDataKaryawans',compact('agamas','banks','tunjangan','jabatan','jamspot'));
     }
     
     /**
@@ -75,6 +77,7 @@ class DataKaryawanController extends Controller
             'tmk'       => $request->tmk,
             'ska'       => $request->ska,
             'remunarasi_id'   => $request->remunarasi_id,
+            'nilaibaku_id'   => $request->nilaibaku_id,
             'klp'        => $request->klp,
             'kelas'        => $request->kelas,
             'sgp'        => $request->sgp,
@@ -147,6 +150,7 @@ class DataKaryawanController extends Controller
             'tmk'       => $request->tmk,
             'ska'       => $request->ska,
             'remunarasi_id'   => $request->remunarasi_id,
+            'nilaibaku_id'   => $request->nilaibaku_id,
             'klp'        => $request->klp,
             'kelas'        => $request->kelas,
             'sgp'        => $request->sgp,
@@ -185,6 +189,7 @@ class DataKaryawanController extends Controller
             'tmk'       => $request->tmk,
             'ska'       => $request->ska,
             'remunarasi_id'   => $request->remunarasi_id,
+            'nilaibaku_id'   => $request->nilaibaku_id,
             'klp'        => $request->klp,
             'kelas'        => $request->kelas,
             'sgp'        => $request->sgp,

@@ -40,35 +40,6 @@
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
 
-
-
-        @page {
-            size: A4;
-            margin: 0;
-        }
-
-        @media print {
-            .float {
-                visibility: hidden;
-            }
-
-            html,
-            body {
-                width: 210mm;
-                height: 297mm;
-            }
-
-            .page {
-                margin: 0;
-                border: initial;
-                border-radius: initial;
-                width: initial;
-                min-height: initial;
-                background: initial;
-                page-break-after: always;
-            }
-        }
-
         .block_container {
             text-align: left;
         }
@@ -220,6 +191,33 @@
             margin-top: 22px;
         }
 
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            .float {
+                visibility: hidden;
+            }
+
+            html,
+            body {
+                width: 210mm;
+                height: 297mm;
+            }
+
+            .page {
+                margin: 0;
+                border: initial;
+                border-radius: initial;
+                width: initial;
+                min-height: initial;
+                background: initial;
+                page-break-after: always;
+            }
+        }
+
     </style>
 </head>
 
@@ -328,7 +326,7 @@
                                         <a>@idr($data->remunerasi->tunj_perumahan)</a><br>
                                         <a>@idr($data->remunerasi->tunj_jabatan) </a><br>
                                         <strong>@idr($total_tunj)</strong><br>
-                                        <strong>66.653.015</strong>
+                                        <strong>@idr($total_tunj)</strong>
                                     </div>
                                 </div>
                                 <!-- separator -->

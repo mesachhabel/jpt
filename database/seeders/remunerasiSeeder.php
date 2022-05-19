@@ -141,5 +141,47 @@ class remunerasiSeeder extends Seeder
             'tunj_utilitas' => '0',
             'tunj_perumahan' => '0',
         ]);
+        remunerasi::create([
+            'jabatan' => 'Staff Utama',
+            'kode_mg' => 'F',
+            'klp' => 'Fungsional',
+            'tunj_jabatan' => '6000000',
+            'tunj_prestasi' => '0',
+            'tunj_shift' => '0',
+            'tunj_transport' => '0',
+            'tunj_proyek' => '0',
+            'tunj_komunikasi' => '0',
+            'tunj_pulsa' => '0',
+            'tunj_utilitas' => '0',
+            'tunj_perumahan' => '0',
+        ]);
+        remunerasi::create([
+            'jabatan' => 'Ka. Divisi/Biro/GM/Pimpro',
+            'kode_mg' => 'S',
+            'klp' => 'Struktural',
+            'tunj_jabatan' => '7800000',
+            'tunj_prestasi' => '0',
+            'tunj_shift' => '0',
+            'tunj_transport' => '0',
+            'tunj_proyek' => '0',
+            'tunj_komunikasi' => '0',
+            'tunj_pulsa' => '0',
+            'tunj_utilitas' => '0',
+            'tunj_perumahan' => '0',
+        ]);
+        remunerasi::create([
+            'jabatan' => 'Staf Madya',
+            'kode_mg' => 'F',
+            'klp' => 'Struktural',
+            'tunj_jabatan' => '7800000',
+            'tunj_prestasi' => '0',
+            'tunj_shift' => '0',
+            'tunj_transport' => '0',
+            'tunj_proyek' => '0',
+            'tunj_komunikasi' => '0',
+            'tunj_pulsa' => '0',
+            'tunj_utilitas' => '0',
+            'tunj_perumahan' => '0',
+        ]);
     }
 }

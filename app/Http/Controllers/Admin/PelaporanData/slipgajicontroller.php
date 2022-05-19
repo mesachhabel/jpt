@@ -67,10 +67,10 @@ class slipgajicontroller extends Controller
                 // Batas Maksimal JPP BPJS Ketenagakerjaan
                     $limit_jpp = $data->nilaibaku->max_bpjskt;
                     if ($data->sgp >= $limit_jpp){
-                        $jpp = $limit_jpp;
+                        $lim_jpp = $limit_jpp;
                     }
                     else{
-                        $jpp = $data->sgp;
+                        $lim_jpp = $data->sgp;
                     }
                 //Tunjangan
                     $perumkom = $data->remunerasi->tunj_perumahan + $data->remunerasi->tunj_komunikasi; //Tunjangan Perumahan Dan Komunikasi 
@@ -85,7 +85,7 @@ class slipgajicontroller extends Controller
                         $jht = $data->sgp * $data->nilaibaku->jht; //Jaminan Hari Tua
                         $jkk = $data->sgp * $data->nilaibaku->jkk; //Jaminan Kematian Keluarga
                         $jkm = $data->sgp * $data->nilaibaku->jkm; //Jaminan Kematian Meninggal
-                        $jpp = $jpp * $data->nilaibaku->jpp; //Jaminan Pensiun
+                        $jpp = $lim_jpp * $data->nilaibaku->jpp_prs; //Jaminan Pensiun
                         $bpjskt_umum = $jht + $jkk + $jkm + $jpp; //BPJS Ketenagakerjaan
                 $sub_tot_umum = $bpjskes_umum + $bpjskt_umum; //Sub Total Umum
             // Total Penerimaan
@@ -99,12 +99,18 @@ class slipgajicontroller extends Controller
                     $potong_bpjskes = $tambah_bpjs - $bpjskes_pot; //Pemotongan Hasil bpjskes_umum Dengan Hasil bpjskes_pot
                     $bpjskes_pot_bp = $sgp * $data->nilaibaku->jpk_prs; //Hasil Beban Beban Perusahaan
                     $bpjskes_pot_bk = $sgp * $data->nilaibaku->jpk_peg; //Hasil Beban Pegawai
-                    $sub_tot_bpjskes = $bpjskes_pot_bp + $bpjskes_pot_bk; //Jumlah hasil Potongan BPJS Kesehatan 
+                $sub_tot_bpjskes = $bpjskes_pot_bp + $bpjskes_pot_bk; //Jumlah hasil Potongan BPJS Kesehatan 
                 //BPJS Ketenagakerjaan
                     $jht_peg = $data->sgp * $data->nilaibaku->jht_peg; //JHT Pegawai
-                    $jpp_peg = $jpp * $data->nilaibaku->jpp_peg; //JPP Pegawai
-                    $jum_bebanpeg = $jht_peg + $jpp_peg; //Jumlah Beban Pegawai
+                    $jpp_peg = $lim_jpp * $data->nilaibaku->jpp_peg; //JPP Pegawai
+                    $jum_bebanpeg = $jpp_peg + $jht_peg; //Jumlah Beban Pegawai
+                $sub_tot_bpjskt = $jum_bebanpeg + $bpjskt_umum; //Jumlah hasil Potongan BPJS Ketenagakerjaan
+            //Total Potongan
+                $total_potongan = $sub_tot_bpjskes + $sub_tot_bpjskt; //Total Potongan
         // End Potongan
+
+        //Penerimaan Bersih
+            $penerimaan_bersih = $total_penerimaan - $total_potongan; //Penerimaan Bersih
         return view ('admins.PelaporanData.SlipGaji.SG.CetakSlipGaji', 
         compact(
             'data',
@@ -127,6 +133,9 @@ class slipgajicontroller extends Controller
             'sub_tot_umum',
             'total_penerimaan',
             'jum_bebanpeg',
+            'sub_tot_bpjskt',
+            'total_potongan',
+            'penerimaan_bersih',
         ));
     }
 

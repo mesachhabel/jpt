@@ -235,7 +235,7 @@
                 </a>
             </div>
             <div class="text-bank">
-                <a>Pembayaran : {{ Str::upper($data->bank) }}</a>
+                <a>Pembayaran : <strong>{{ Str::upper($data->bank) }}</strong></a>
             </div>
             <div class="text">
                 <table border="1" cellspacing="0" cellpadding="0" width="100%">
@@ -411,11 +411,11 @@
                                         <a>@idr($potong_bpjskes)</a><br>
                                         <a>@idr($bpjskes_pot_bp)</a><br>
                                         <a>@idr($bpjskes_pot_bk)</a><br>
-                                        <a>@idr($sub_tot_bpjskes)</a><br> <br>
+                                        <strong><a>@idr($sub_tot_bpjskes)</a></strong><br> <br>
                                         <a>halo</a><br>
                                         <a>@idr($bpjskt_umum)</a><br>
                                         <a>@idr($jum_bebanpeg)</a><br>
-                                        <strong>tes</strong>
+                                        <strong>@idr($sub_tot_bpjskt)</strong>
                                     </div>
                                 </div>
                                 <!-- separator -->
@@ -458,7 +458,7 @@
                                         <a><strong>:</strong></a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 0px;" id="bloc30">
-                                        <strong>5.231.435</strong>
+                                        <strong>@idr($total_potongan)</strong>
                                     </div>
                                 </div>
                             </td>
@@ -476,7 +476,7 @@
                                         <strong>:</strong>
                                     </div>
                                     <div class="keterangan ii uang " style="top: 0px; " id="bloc33">
-                                        <strong>65.109.179</strong>
+                                        <strong>@idr($penerimaan_bersih)</strong>
                                     </div>
                                 </div>
                             </td>
@@ -530,10 +530,10 @@
                         <tbody>
                             <tr>
                                 <td valign="top">
-                                    <strong>Rincian Penerimaan Lain-lain</strong>
+                                    <strong>&nbsp; Rincian Penerimaan Lain-lain</strong>
                                 </td>
                                 <td valign="top">
-                                    <strong>Rincian Potongan Lain-lain</strong>
+                                    <strong>&nbsp; Rincian Potongan Lain-lain</strong>
                                 </td>
                             </tr>
                         </tbody>

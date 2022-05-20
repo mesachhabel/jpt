@@ -19,11 +19,13 @@ class Trnilaibakus extends Migration
             $table->string('st_tugas');
             $table->double('jkm');
             $table->double('jkk');
-            $table->double('jht');
+            $table->double('jht_prs');
+            $table->double('jht_peg');
+            $table->bigInteger('max_bpjskes');
             $table->double('jpk');
             $table->double('bpjskes_prs');
             $table->double('bpjskes_peg');
-            $table->double('jpp');
+            $table->bigInteger('max_bpjskt');
             $table->double('jpp_prs');
             $table->double('jpp_peg');
             $table->double('pajak_jamsostek');

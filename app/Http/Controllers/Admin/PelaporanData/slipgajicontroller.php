@@ -79,10 +79,10 @@ class slipgajicontroller extends Controller
                 
                 //Umum
                     //BPJS Kesehatan
-                        $bpjskes_umum = $sgp * $data->nilaibaku->jpk_prs; //BPJS Kesehatan
+                        $bpjskes_umum = $sgp * $data->nilaibaku->bpjskes_prs; //BPJS Kesehatan
                         $tambah_bpjs = $data->sgp + $bpjskes_umum; // Hasil Penjumlahan Gaji Pokok Dengan Hasil $pbjskes_umum
                     //BPJS Ketenagakerjaan
-                        $jht = $data->sgp * $data->nilaibaku->jht; //Jaminan Hari Tua
+                        $jht = $data->sgp * $data->nilaibaku->jht_prs; //Jaminan Hari Tua
                         $jkk = $data->sgp * $data->nilaibaku->jkk; //Jaminan Kematian Keluarga
                         $jkm = $data->sgp * $data->nilaibaku->jkm; //Jaminan Kematian Meninggal
                         $jpp = $lim_jpp * $data->nilaibaku->jpp_prs; //Jaminan Pensiun
@@ -91,14 +91,15 @@ class slipgajicontroller extends Controller
             // Total Penerimaan
                 $total_penerimaan = $data->sgp + $total_tunj + $sub_tot_umum; //Total Penerimaan
         // End Penerimaan
+        
         // Potongan
             //Umum
                 //BPJS Kesehatan
-                    $tambah_prs_peg = $data->nilaibaku->jpk_prs + $data->nilaibaku->jpk_peg; //Penambahan Persentase dari BPJSKES_prs Dengan BPJSKES_PEG
+                    $tambah_prs_peg = $data->nilaibaku->bpjskes_prs + $data->nilaibaku->bpjskes_peg; //Penambahan Persentase dari BPJSKES_prs Dengan BPJSKES_PEG
                     $bpjskes_pot = $sgp * $tambah_prs_peg; //Hasil Pemotongan Gaji Dengan Persentase Dari $tambah_prs_peg
                     $potong_bpjskes = $tambah_bpjs - $bpjskes_pot; //Pemotongan Hasil bpjskes_umum Dengan Hasil bpjskes_pot
-                    $bpjskes_pot_bp = $sgp * $data->nilaibaku->jpk_prs; //Hasil Beban Beban Perusahaan
-                    $bpjskes_pot_bk = $sgp * $data->nilaibaku->jpk_peg; //Hasil Beban Pegawai
+                    $bpjskes_pot_bp = $sgp * $data->nilaibaku->bpjskes_prs; //Hasil Beban Beban Perusahaan
+                    $bpjskes_pot_bk = $sgp * $data->nilaibaku->bpjskes_peg; //Hasil Beban Pegawai
                 $sub_tot_bpjskes = $bpjskes_pot_bp + $bpjskes_pot_bk; //Jumlah hasil Potongan BPJS Kesehatan 
                 //BPJS Ketenagakerjaan
                     $jht_peg = $data->sgp * $data->nilaibaku->jht_peg; //JHT Pegawai

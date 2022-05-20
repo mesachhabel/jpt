@@ -311,25 +311,86 @@
                                 <!-- separator -->
                                 <div class="block_container">
                                     <div class="sebutan" style="margin-left: 7px; " id="bloc10">
+                                        <?php $no = 1; ?>
                                         <strong>Tunjangan</strong> <br>
-                                        <a>1. Tunjangan Perum & Kom</a> <br>
-                                        <a>2. Tunjangan Jabatan</a> <br>
-                                        <a>3. Tunjangan Prestasi</a> <br>
-                                        <a>4. Tunjangan Shift</a> <br>
+                                        {{-- Tunjangan Perum & Kom --}}
+                                        @if ($perumkom == 0)
+                                        @else
+                                            <a>{{ $no++ }}. Tunjangan Perum & Kom</a> <br>
+                                        @endif
+
+                                        {{-- Tunjangan Jabatan --}}
+                                        @if ($data->remunerasi->tunj_jabatan == 0)
+                                        @else
+                                            <a>{{ $no++ }}. Tunjangan Jabatan</a> <br>
+                                        @endif
+
+                                        {{-- Tunjangan Prestasi --}}
+                                        @if ($data->remunerasi->tunj_prestasi == 0)
+                                        @else
+                                            <a>{{ $no++ }}. Tunjangan Prestasi</a> <br>
+                                        @endif
+
+                                        {{-- Tunjangan Shift --}}
+                                        @if ($data->remunerasi->tunj_shift == 0)
+                                        @else
+                                            <a>{{ $no++ }}. Tunjangan Shift</a> <br>
+                                        @endif
+
                                         <div style="text-align: right; margin-right: 3px;">
                                             <strong>Sub Total</strong> <br>
                                             <strong>Jumlah Penghasilan</strong> <br>
                                         </div>
                                     </div>
                                     <div class="separ ii" style="top: 9px;" id="bloc11">
-                                        <a>:<br>:<br>:<br>:<br><strong>:<br>:</strong></a>
+                                        <a>
+                                            @if ($perumkom == 0)
+                                            @else
+                                                :<br>
+                                            @endif
+
+                                            @if ($data->remunerasi->tunj_jabatan == 0)
+                                            @else
+                                                :<br>
+                                            @endif
+
+                                            @if ($data->remunerasi->tunj_prestasi == 0)
+                                            @else
+                                                :<br>
+                                            @endif
+
+                                            @if ($data->remunerasi->tunj_shift == 0)
+                                            @else
+                                                :<br>
+                                            @endif
+                                            <strong>:<br>:</strong>
+                                        </a>
                                     </div>
                                     <div class="keterangan ii uang" style="top: 9px;" id="bloc12">
-                                        <a>@idr($perumkom)</a><br>
-                                        <a>@idr($data->remunerasi->tunj_jabatan) </a><br>
-                                        <a>@idr($data->remunerasi->tunj_prestasi) </a><br>
-                                        <!--tunj prestasi -->
-                                        <a>@idr($data->remunerasi->tunj_shift) </a><br> <!-- tunj shift -->
+                                        {{-- Nilai Tunjangan Perumahan & Komunikasi --}}
+                                        @if ($perumkom == 0)
+                                        @else
+                                            <a>@idr($perumkom)</a><br>
+                                        @endif
+
+                                        {{-- Nilai Tunjangan Jabatan --}}
+                                        @if ($data->remunerasi->tunj_jabatan == 0)
+                                        @else
+                                            <a>@idr($data->remunerasi->tunj_jabatan) </a><br>
+                                        @endif
+
+                                        {{-- Nilai Tunjangan Prestasi --}}
+                                        @if ($data->remunerasi->tunj_prestasi == 0)
+                                        @else
+                                            <a>@idr($data->remunerasi->tunj_prestasi) </a><br>
+                                        @endif
+
+                                        {{-- Nilai Tunjangan Shift --}}
+                                        @if ($data->remunerasi->tunj_shift == 0)
+                                        @else
+                                            <a>@idr($data->remunerasi->tunj_shift) </a><br>
+                                        @endif
+
                                         <strong>@idr($total_tunj)</strong><br>
                                         <strong>@idr($jum_penghasilan)</strong>
                                     </div>
@@ -515,8 +576,9 @@
                 <div>
                     Keterangan :
                     <ol>
+                        <?php $no = 1; ?>
                         @forelse ($keterangan as $keterangan)
-                            {{ $keterangan->id }}. {{ $keterangan->Ur_Keterangan }}<br>
+                            {{ $no++ }}. {{ $keterangan->Ur_Keterangan }}<br>
                         @empty
                             <li>Tidak Ada Catatan!</li>
                         @endforelse

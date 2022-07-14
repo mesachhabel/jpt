@@ -43,7 +43,7 @@
                                 <th>Cuti</th>
                             </tr>
                         </thead>
-                        <tbody class="text-center" style="vertical-align:middle;">
+                        <tbody class="text-center tbody" style="vertical-align:middle;">
                             <?php $no = 1; ?>
                             @forelse ($absensis as $absen)
                             @empty
@@ -61,6 +61,7 @@
     <hr class="my-5" />
     <!--/ Striped Rows -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
     <script>
         $(document).ready(function() {
 

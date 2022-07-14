@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             tab_keterangan_slipsSeeder::class,
             remunerasiSeeder::class,
+            data_karyawanSeeder::class,
         ]);
     }
 }

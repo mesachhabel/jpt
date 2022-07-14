@@ -16,23 +16,28 @@
                         <hr class="my-0" />
                         <div class="card-body">
                             <div class="row">
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-4">
                                     <label for="html5-month-input" class="form-label">Bulan - Tahun</label>
                                     <div id="datetimepicker" class="col-md-12">
                                         <input name="bulan" class="form-control" type="month" value="2022-01"
                                             id="html5-month-input" />
                                     </div>
                                 </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="nama" class="form-label">Nama</label>
-                                    <select name="nama" id="nama" class="form-select dynamic" data-dependent="nppi"
-                                        required>
-                                        <option disabled selected>Pilih Nama</option>
+                                <div class="mb-3 col-md-4">
+                                    <label for="nik" class="form-label">NIK</label>
+                                    <select name="nik" id="nik" class="form-select dynamic" data-dependent="nppi"
+                                        data-dynamic="ska" data-dynamic1="nama" required>
+                                        <option disabled selected>Pilih NIK</option>
                                         @foreach ($karyawans as $lembur)
-                                            <option value="{{ $lembur->nama }}">[{{ $lembur->nik }}]
+                                            <option value="{{ $lembur->nik }}">[{{ $lembur->nik }}]
                                                 {{ $lembur->nama }}
                                             </option>
                                         @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label for="defaultSelect" class="form-label">Nama</label>
+                                    <select name="nama" id="nama" class="form-control input-lg" readonly="readonly">
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
@@ -42,13 +47,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Jabatan</label>
-                                    <select id="defaultSelect" name="jabatan" class="form-select" required>
-                                        <option disabled selected>--- Pilih Jabatan --- </option>
-                                        @foreach ($karyawans as $lembur)
-                                            <option value="{{ $lembur->jabatan }}">
-                                                {{ $lembur->jabatan }}
-                                            </option>
-                                        @endforeach
+                                    <select id="ska" name="ska" class="form-control input-lg" readonly="readonly">
                                     </select>
                                 </div>
                             </div>
@@ -112,22 +111,22 @@
                                                             value="{{ $no++ }}" type="text" disabled />
                                                     </td>
                                                     <td><input class="form-control absen text-center" style="border:none"
-                                                            value="{{ $lembur->tanggal_lembur }}" type="text" id="tanggal"
-                                                            name="tanggal" disabled />
+                                                            value="{{ $lembur->tanggal_lembur }}" type="text"
+                                                            id="tanggal" name="tanggal" disabled />
                                                     </td>
                                                     <td><input class="form-control absen text-center" style="border:none"
-                                                            value="{{ $lembur->jumlah_jam_lembur }}" type="text" id="jam"
-                                                            name="jam" disabled />
+                                                            value="{{ $lembur->jumlah_jam_lembur }}" type="text"
+                                                            id="jam" name="jam" disabled />
                                                     </td>
                                                     <td>
                                                         @if ($lembur->jenis_hari_lembur == '1')
                                                             <input class="form-control absen text-center"
-                                                                style="border:none" value="Hari Kerja" type="text" id="jam"
-                                                                name="jam" disabled />
+                                                                style="border:none" value="Hari Kerja" type="text"
+                                                                id="jam" name="jam" disabled />
                                                         @elseif ($lembur->jenis_hari_lembur == '2')
                                                             <input class="form-control absen text-center"
-                                                                style="border:none" value="Hari Libur" type="text" id="jam"
-                                                                name="jam" disabled />
+                                                                style="border:none" value="Hari Libur" type="text"
+                                                                id="jam" name="jam" disabled />
                                                         @elseif ($lembur->jenis_hari_lembur == '3')
                                                             <input class="form-control absen text-center"
                                                                 style="border:none" value="Libur Nasional" type="text"
@@ -146,7 +145,8 @@
                             </div>
                         </div>
                     </div>
-                    <ul class="pagination justify-content-center mt-3">{{ $lemburs->links('pagination::bootstrap-4') }}
+                    <ul class="pagination justify-content-center mt-3">
+                        {{ $lemburs->links('pagination::bootstrap-4') }}
                 </div>
             </div>
             <hr class="my-4" />
@@ -168,7 +168,8 @@
                                     placeholder="Nilai PerInsentif" onchange="lembur();" required />
                             </div>
                             <div class="mb-3 col-md-12">
-                                <label for="totalinsentif" class="form-label">Total Insentif</label>
+                                <label for="totalinsentif" class="form-label">Total
+                                    Insentif</label>
                                 <input class="form-control" type="text" name="total_insentif" id="total"
                                     placeholder="Total Insentif" onchange="lembur();" readonly required />
                             </div>
@@ -207,8 +208,8 @@
                                                             value="{{ $no++ }}" type="text" disabled /></td>
                                                     <td><input class="form-control absen text-center" style="border:none"
                                                             type="text" id="jumlahinsentif"
-                                                            value="{{ $lembur->jumlah_insentif }}" name="jumlahinsentif"
-                                                            placeholder="-" disabled /></td>
+                                                            value="{{ $lembur->jumlah_insentif }}"
+                                                            name="jumlahinsentif" placeholder="-" disabled /></td>
                                                     <td><input class="form-control absen text-center" style="border:none"
                                                             type="text" id="rpinsentif"
                                                             value="{{ $lembur->nilai_insentif }}" name="rpinsentif"
@@ -241,6 +242,8 @@
     <hr class="my-5" />
     <script src="../../../assets/js/lembur.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    {{-- Ajax for table npp --}}
     <script>
         $(document).ready(function() {
             $('.dynamic').change(function() {
@@ -266,8 +269,70 @@
                 }
             });
 
-            $('#nama').change(function() {
+            $('#nik').change(function() {
                 $('#nppi').val('');
+            });
+        });
+    </script>
+
+    {{-- Ajax for table jabatan --}}
+    <script>
+        $(document).ready(function() {
+            $('.dynamic').change(function() {
+                if ($(this).val() != '') {
+                    var select = $(this).attr("id");
+                    var value = $(this).val();
+                    var dynamic = $(this).data('dynamic');
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url: "{{ route('lembur.fetch1') }}",
+                        method: "POST",
+                        data: {
+                            select: select,
+                            value: value,
+                            _token: _token,
+                            dynamic: dynamic
+                        },
+                        success: function(result) {
+                            $('#' + dynamic).html(result);
+                        }
+                    })
+                }
+            });
+
+            $('#nik').change(function() {
+                $('#ska').val('');
+            });
+        });
+    </script>
+
+    {{-- Ajax for table nama --}}
+    <script>
+        $(document).ready(function() {
+            $('.dynamic').change(function() {
+                if ($(this).val() != '') {
+                    var select = $(this).attr("id");
+                    var value = $(this).val();
+                    var dynamic1 = $(this).data('dynamic1');
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url: "{{ route('lembur.fetch2') }}",
+                        method: "POST",
+                        data: {
+                            select: select,
+                            value: value,
+                            _token: _token,
+                            dynamic1: dynamic1
+                        },
+                        success: function(result) {
+                            $('#' + dynamic1).html(result);
+                        }
+                    })
+                }
+            });
+
+            $('#nik').change(function() {
+                $('#nama').val('');
             });
         });
     </script>

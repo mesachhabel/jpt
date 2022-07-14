@@ -37,7 +37,8 @@
                                     {{ $post->nama }}
                                 </td>
                                 <td>
-                                    <img width="50" height="50" src="{{ Storage::url('public/posts/') . $post->image }}">
+                                    <img width="50" height="50"
+                                        src="{{ Storage::url('public/posts/') . $post->image }}">
                                 </td>
                                 <td>
                                     <strong>{{ $post->kelas }} / {{ $post->Remunerasi->jabatan }}</strong>

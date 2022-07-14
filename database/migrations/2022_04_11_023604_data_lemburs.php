@@ -16,8 +16,9 @@ class DataLemburs extends Migration
         schema::create('data_lemburs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('bulan');
+            $table->string('nik');
             $table->string('nama');
-            $table->string('jabatan');
+            $table->string('ska');
             $table->string('npp');
             // Input Detail Jam Lembur
             $table->string('tanggal_lembur');

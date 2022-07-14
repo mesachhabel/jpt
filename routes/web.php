@@ -35,15 +35,15 @@ Route::get('/', function () {
 //Routing Role Admin
 Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], function () {
 
-    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     //Tabel Karyawan 
     Route::resource('/karyawan', DataKaryawanController::class);
-    Route::post('fetch', [DataKaryawanController::class,'fetch'])->name('kry.fetch');
+    Route::post('/fetch', [DataKaryawanController::class,'fetch'])->name('kry.fetch');
     
     //Tabel Absensi Karyawan
     Route::resource('/absensi', AbsensiDataKaryawanController::class);
     Route::get('/absensi/{id}/delete', [AbsensiDataKaryawanController::class,'delete'])->name('absensi.delete');
-    Route::post('absensi/fetch', [AbsensiDataKaryawanController::class,'fetch'])->name('absensi.fetch');
+    Route::post('/absensi/fetch', [AbsensiDataKaryawanController::class,'fetch'])->name('absensi.fetch');
     Route::get('/absensi_search/action', [AbsensiDataKaryawanController::class, 'action'])->name('absensi.action');
     
     //Tabel Terima Potong
@@ -52,13 +52,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     
     //Tabel Data Lembur
     Route::resource('/lembur', DataLemburController::class);
-    Route::post('/lembur/fetch', [DataLemburController::class,'fetch'])->name('lembur.fetch');
+    Route::post('/lembur/fetch', [DataLemburController::class,'fetch'])->name('lembur.fetch'); //Ajax Fetch Data npp from karyawan
+    Route::post('/lembur/fetch1', [DataLemburController::class,'fetch1'])->name('lembur.fetch1'); //Ajax Fetch Data ska from karyawan
+    Route::post('/lembur/fetch2', [DataLemburController::class,'fetch2'])->name('lembur.fetch2'); //Ajax Fetch Data nama from karyawan
+    Route::get('/lembur/filter', [DataLemburController::class,'filter'])->name('lembur.filter');
 
     //--------------Tabel Refrensi-------------------------
     Route::resource('/refrensi', TabelReferensiController::class);
         //Tabel Referensi Skala Gaji
             Route::resource('/skalagaji', TRSkalaGajiController::class);
-            Route::post('skalagaji/fetch', [TRSkalaGajiController::class,'fetch'])->name('skalagaji.fetch');
+            Route::post('/skalagaji/fetch', [TRSkalaGajiController::class,'fetch'])->name('skalagaji.fetch');
         //Tabel Referensi Kode Unit Kerja
             Route::resource('/kodeunitkerja', TRKodeUnitKerjaController::class);
         //Tabel Referensi Kode Jabatan

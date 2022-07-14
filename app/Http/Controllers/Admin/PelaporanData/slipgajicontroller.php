@@ -16,26 +16,37 @@ class slipgajicontroller extends Controller
 {
     public function index()
     {
-        return view ('admins.PelaporanData.SlipGaji.SlipGaji');
-    }
-
-    //Slip Gaji Direksi
-    public function slipdireksi()
-    {
-        return view ('admins.PelaporanData.SlipGaji.SG.SlipDireksi');
-    }
-
-    public function dataslipdireksi()
-    {
+        //Jumlah Direksi
         $klp = 'BOD';
-        $dataslipdireksi = data_karyawan::where('klp', 'LIKE','%'.$klp.'%')->get();
-        return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiDireksi', compact('dataslipdireksi'));
+        $count_bod = data_karyawan::where('klp', 'LIKE','%'.$klp.'%')->count();
+
+        //Jumlah Komisaris
+        $klp = 'BOC';
+        $count_boc = data_karyawan::where('klp', 'LIKE','%'.$klp.'%')->count();
+
+        //Jumlah Golongan Kelas 1
+        $dataslipkelas1 = data_karyawan::with(['remunerasi'])->where('kelas', '1')->count();
+
+        //Jumlah Golongan Kelas 2
+        $dataslipkelas2 = data_karyawan::with(['remunerasi'])->where('kelas', '2')->count();
+
+        //Jumlah Golongan Kelas 3
+        $dataslipkelas3 = data_karyawan::with(['remunerasi'])->where('kelas', '3')->count();
+
+        //Jumlah Golongan Kelas 4
+        $dataslipkelas4 = data_karyawan::with(['remunerasi'])->where('kelas', '4')->count();
+
+        //Jumlh Golongan Kelas 5
+        $dataslipkelas5 = data_karyawan::with(['remunerasi'])->where('kelas', '5')->count();
+
+        return view ('admins.PelaporanData.SlipGaji.SlipGaji',compact('count_bod','count_boc','dataslipkelas1','dataslipkelas2','dataslipkelas3','dataslipkelas4','dataslipkelas5'));
     }
 
     public function cetak($nik){
         //Pemanggilan Table
-            $data=data_karyawan::with(['remunerasi'])->find($nik); //Pemanggilan Tabel Relasi Dari remunerasi
-            $bpjs=data_karyawan::with(['nilaibaku'])->find($nik); //Pemanggilan Tabel Relasi Dari tr_nilaibaku
+            $data = data_karyawan::with(['remunerasi'])->find($nik); //Pemanggilan Tabel Relasi Dari remunerasi
+            $bpjs = data_karyawan::with(['nilaibaku'])->find($nik); //Pemanggilan Tabel Relasi Dari tr_nilaibaku
+            $lembur = data_karyawan::with(['lembur'])->find($nik); //Pemanggilan Tabel Relasi Dari data_lembur
             //Keterangan Slip
                 $keterangan = Tab_KeteranganSlip::all();
         //Months And Year TOday
@@ -140,6 +151,19 @@ class slipgajicontroller extends Controller
         ));
     }
 
+    //Slip Gaji Direksi
+    public function slipdireksi()
+    {
+        return view ('admins.PelaporanData.SlipGaji.SG.SlipDireksi');
+    }
+
+    public function dataslipdireksi()
+    {
+        $klp = 'BOD';
+        $dataslipdireksi = data_karyawan::where('klp', 'LIKE','%'.$klp.'%')->get();
+        return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiDireksi', compact('dataslipdireksi'));
+    }
+
     // Slip Gaji Komisaris
     public function slipkomisaris()
     {
@@ -207,71 +231,5 @@ class slipgajicontroller extends Controller
     {
         $dataslipkelas5 = data_karyawan::with(['remunerasi'])->where('kelas', '5')->get();
         return view ('admins.PelaporanData.SlipGaji.SG.DataSlipGajiKelas5', compact('dataslipkelas5'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-       
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy()
-    {
-        
     }
 }

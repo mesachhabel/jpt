@@ -25,7 +25,6 @@
                                         <input type="file" name="image" id="inputImage"
                                             class="form-control @error('image') is-invalid @enderror" required>
                                     </label>
-
                                     <p class="text-muted mt-1">Allowed JPG, JPEG, GIF or PNG. Max size of 2MB</p>
                                 </div>
                             </div>
@@ -35,8 +34,8 @@
                             <div class="row">
                                 <div class="mb-3 col-md-4">
                                     <label for="NIK" class="form-label required-field">NIK</label>
-                                    <input class="form-control" type="text" id="NIK" name="nik" placeholder="NIK"
-                                        autofocus required />
+                                    <input class="form-control" type="text" id="NIK" name="nik"
+                                        placeholder="NIK" autofocus required />
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="Nama" class="form-label required-field">Nama Lengkap</label>
@@ -45,8 +44,8 @@
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="NPP" class="form-label required-field">NPP Instansi</label>
-                                    <input class="form-control" type="text" id="NPP" name="nppi" placeholder="NPP"
-                                        required />
+                                    <input class="form-control" type="text" id="NPP" name="nppi"
+                                        placeholder="NPP" required />
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="defaultSelect" class="form-label required-field">Jenis Kelamin</label>
@@ -106,13 +105,13 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="NPWP" class="form-label required-field">NPWP</label>
-                                    <input class="form-control" type="text" id="NPWP" name="npwp" placeholder="NPWP"
-                                        autofocus required />
+                                    <input class="form-control" type="text" id="NPWP" name="npwp"
+                                        placeholder="NPWP" autofocus required />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="NoKTP" class="form-label required-field">Nomor KTP</label>
-                                    <input class="form-control" type="text" name="nktp" id="NoKTP" placeholder="Nomor KTP"
-                                        required />
+                                    <input class="form-control" type="text" name="nktp" id="NoKTP"
+                                        placeholder="Nomor KTP" required />
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="NoBPJST" class="form-label required-field">Nomor BPJS
@@ -126,7 +125,8 @@
                                         placeholder="BPJS Kesehatan" />
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="nilaibaku_id" class="form-label required-field">Jamsostek & Potongan</label>
+                                    <label for="nilaibaku_id" class="form-label required-field">Jamsostek &
+                                        Potongan</label>
                                     <select name="nilaibaku_id" id="id" class="form-select">
                                         <option disabled selected>-- Pilih JAMSPOT -- </option>
                                         @foreach ($jamspot as $js)
@@ -158,10 +158,12 @@
                                         <option value="Karyawan">Karyawan</option>
                                     </select>
                                 </div>
+
                                 {{-- Field relationship yang disimpan adalah id dari tabel remunerasi --}}
                                 <div class="mb-3 col-md-4">
                                     <label for="remunarasi_id" class="form-label required-field">Tunjangan</label>
-                                    <select name="remunarasi_id" id="id" class="form-select dynamic" data-dependent="klp">
+                                    <select name="remunarasi_id" id="id" class="form-select dynamic"
+                                        data-dependent="klp">
                                         <option disabled selected>-- Pilih Jabatan -- </option>
                                         @foreach ($tunjangan as $tj)
                                             <option value="{{ $tj->id }}">
@@ -170,9 +172,11 @@
                                         @endforeach
                                     </select>
                                 </div>
+
                                 <div class="mb-3 col-md-4">
                                     <label for="klp" class="form-label required-field">Kelompok Jabatan</label>
-                                    <select name="klp" id="klp" class="form-control input-lg" required readonly="readonly">
+                                    <select name="klp" id="klp" class="form-control input-lg" required
+                                        readonly="readonly">
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
@@ -201,8 +205,8 @@
                                 </div> --}}
                                 <div class="mb-3 col-md-4">
                                     <label for="Uker" class="form-label">Unit Kerja</label>
-                                    <input class="form-control" type="text" id="Uker" name="uk" placeholder="Unit Kerja"
-                                        autofocus />
+                                    <input class="form-control" type="text" id="Uker" name="uk"
+                                        placeholder="Unit Kerja" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="SUker" class="form-label">Sub Unit Kerja</label>
@@ -223,7 +227,7 @@
                                     </select>
                                 </div> --}}
                                 <div class="mb-3 col-md-4">
-                                    <label for="defaultSelect" class="form-label">Bank</label>
+                                    <label for="defaultSelect" class="form-label required-field">Bank</label>
                                     <select name="bank" id="defaultSelect" class="form-select" required>
                                         <option disabled selected>-- Pilih Bank --</option>
                                         @foreach ($banks as $bank)
@@ -234,18 +238,18 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="Rek" class="form-label">No Rekening</label>
+                                    <label for="Rek" class="form-label required-field">No Rekening</label>
                                     <input class="form-control" type="text" id="Rek" name="norek"
                                         placeholder="no rekening" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-4">
-                                    <label for="AtNa" class="form-label">Atas Nama</label>
+                                    <label for="AtNa" class="form-label required-field">Atas Nama</label>
                                     <input class="form-control" type="text" id="AtNa" name="an"
                                         placeholder="Nama Pemegang Rekening" autofocus />
                                 </div>
 
                                 <div class="mb-3 col-md-4">
-                                    <label for="defaultSelect" class="form-label">Status Karyawan</label>
+                                    <label for="defaultSelect" class="form-label required-field">Status Karyawan</label>
                                     <select name="sky" id="defaultSelect" class="form-select"
                                         onChange="statuskar(this.value)">
                                         <option disabled selected>-- status karyawan --</option>
@@ -283,7 +287,8 @@
                             <div class="row">
                                 <div class="mb-3 col-md-3">
                                     <label for="NPP" class="form-label">NPP Instansi</label>
-                                    <input class="form-control" type="text" id="NPP" name="nppin" placeholder="NPP" />
+                                    <input class="form-control" type="text" id="NPP" name="nppin"
+                                        placeholder="NPP" />
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="Gol" class="form-label">Gol Instansi</label>
@@ -292,8 +297,8 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="PhDP" class="form-label">PhDP</label>
-                                    <input class="form-control" type="text" id="PhDP" name="phdp" placeholder="PhDP"
-                                        autofocus />
+                                    <input class="form-control" type="text" id="PhDP" name="phdp"
+                                        placeholder="PhDP" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="UpahJSMR" class="form-label">Upah JSMR</label>
@@ -302,8 +307,8 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="PhDA" class="form-label">PhDA</label>
-                                    <input class="form-control" type="text" id="PhDA" name="phda" placeholder="PhDA"
-                                        autofocus />
+                                    <input class="form-control" type="text" id="PhDA" name="phda"
+                                        placeholder="PhDA" autofocus />
                                 </div>
                                 <div class="mt-3">
                                     <button type="submit" class="btn btn-primary me-2">Save changes</button>

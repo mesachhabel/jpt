@@ -22,12 +22,14 @@ class DataLemburController extends Controller
         }
         return view('admins.DataLembur.DataLemburs', compact('lemburs'));
     }
+
     public function create()
     {
-        $karyawans = DB::table('data_karyawans')->groupBy('nama')->get();
+        $karyawans = DB::table('data_karyawans')->groupBy('nik')->get();
         $lemburs = data_lembur::latest()->paginate(3);
         return view('admins.DataLembur.CreateDataLemburs', compact('karyawans','lemburs'));
     }
+    
     public function store(Request $request)
     {
         $masuk = data_lembur::create($request->all());
@@ -40,12 +42,6 @@ class DataLemburController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(data_lembur $lembur)
     {
         $lemburs = data_lembur::latest()->paginate(3);
@@ -53,13 +49,6 @@ class DataLemburController extends Controller
         return view('admins.DataLembur.EditDataLemburs', compact('lembur','lemburs'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, data_lembur $lembur)
     {
         $lembur = data_lembur::find($lembur->id);
@@ -73,18 +62,71 @@ class DataLemburController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         
     }
+
 // FUNCTION AJAX
-    //Ajax CreateDataLemburs.blade.php
+    //Ajax Di Halaman AbsensiDataKaryawan.blade.php
+    public function filter(Request $request)
+    {
+        if($request->ajax()){
+            $output = '';
+            $query2 = $request->get('query2');
+            if($query2 != '')
+            {
+                $lembur = data_lembur::Where('bulan', 'LIKE', '%'.$query2.'%')
+                ->orderBy('bulan', 'asc')->get();
+            }
+            else
+            {
+                $lembur = data_lembur::latest()->get();
+            }
+            $total_row2 = $lembur->count();
+            if($total_row2 > 0)
+            {
+                $no = 1;
+                foreach($lembur as $row)
+                {
+                    $output .= '
+                    <tr>
+                        <td>'.$no++.'</td>
+                        <td>'.$row->bulan.'</td>
+                        <td><strong>'.$row->nik.'</strong>
+                        <i class=" fa-lg text-danger me-3"></i>
+                        </td>
+                        <td>'.$row->nama.'</td>
+                        <td>'.$row->ska.'</td>
+                        <td>'.$row->npp.'</td>
+                        <td>'.$row->tanggal_lembur.'</td>
+                        <td>'.$row->jumlah_jam_lembur.'</td>
+                        <td>'.$row->jenis_hari_lembur.'</td>
+                        <td>'.$row->jumlah_insentif.'</td>
+                        <td>'.$row->nilai_insentif.'</td>
+                        <td>'.$row->total_insentif.'</td>
+                        <td>
+                            <a href="'.route('lembur.edit', $row->id).'" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="'.route('lembur.delete', $row->id).'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
+                        </td>                 
+                    </tr>
+                    ';
+                }
+            }
+            else
+            {
+            $output = '
+            <tr>
+                <td align="center" colspan="15"><strong> No Data Found </strong></td>
+            </tr>
+            ';
+            }
+            $lembur = array('table_data2' => $output);
+            echo json_encode($lembur);
+        }
+    }
+
+    //Ajax for table npp
     function fetch(Request $request)
     {
         $select = $request->get('select');
@@ -96,6 +138,38 @@ class DataLemburController extends Controller
             ->get();
         foreach ($data as $row) {
             $output = '<option value="' . $row->$dependent . '" name="nama" selected>' . ucfirst($row->$dependent) . '</option>';
+        }
+        echo $output;
+    }
+
+    //Ajax for table jabatan
+    function fetch1(Request $request)
+    {
+        $select = $request->get('select');
+        $value = $request->get('value');
+        $dynamic = $request->get('dynamic');
+        $data = DB::table('data_karyawans')
+            ->where($select, $value)
+            ->groupBy($dynamic)
+            ->get();
+        foreach ($data as $row) {
+            $output = '<option value="' . $row->$dynamic . '" ska="ska" selected>' . ucfirst($row->$dynamic) . '</option>';
+        }
+        echo $output;
+    }
+
+    //Ajax for table nama
+    function fetch2(Request $request)
+    {
+        $select = $request->get('select');
+        $value = $request->get('value');
+        $dynamic1 = $request->get('dynamic1');
+        $data = DB::table('data_karyawans')
+            ->where($select, $value)
+            ->groupBy($dynamic1)
+            ->get();
+        foreach ($data as $row) {
+            $output = '<option value="' . $row->$dynamic1 . '" nama="nama" selected>' . ucfirst($row->$dynamic1) . '</option>';
         }
         echo $output;
     }

@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('container')
     @include('sweetalert::alert')
+    <meta name="csrf_token" content="{{ csrf_token() }}" />
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light">Transaksi Data /</span> Lembur Karyawan
@@ -29,6 +30,7 @@
                             <tr>
                                 <th rowspan="2">No</th>
                                 <th rowspan="2">Bulan & Tahun</th>
+                                <th rowspan="2">NIK</th>
                                 <th rowspan="2">Nama</th>
                                 <th rowspan="2">Jabatan</th>
                                 <th rowspan="2">Npp</th>
@@ -44,14 +46,15 @@
                                 <th>Total<br>Insentif</th>
                             </tr>
                         </thead>
-                        <tbody class="text-center" style="vertical-align:middle;">
+                        <tbody class="text-center tbody" style="vertical-align:middle;">
                             <?php $no = 1; ?>
                             @forelse ($lemburs as $lembur)
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $lembur->bulan }}</td>
+                                    <td>{{ $lembur->nik }}</td>
                                     <td>{{ $lembur->nama }}</td>
-                                    <td>{{ $lembur->jabatan }}</td>
+                                    <td>{{ $lembur->ska }}</td>
                                     <td>{{ $lembur->npp }}</td>
                                     <td>{{ $lembur->tanggal_lembur }}</td>
                                     <td>{{ $lembur->jumlah_jam_lembur }}</td>

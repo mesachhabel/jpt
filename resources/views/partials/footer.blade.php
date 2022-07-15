@@ -10,7 +10,8 @@
                 </span>
             </div>
             <div>
-                <a href="{{ route('logout') }}" class="btn btn-sm btn-outline-danger" onclick="event.preventDefault();
+                <a href="{{ route('logout') }}" class="btn btn-sm btn-outline-danger"
+                    onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                     </i> Logout</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -19,5 +20,6 @@
             </div>
         </div>
     </footer>
+
 </section>
 <!--/ Footer with components -->

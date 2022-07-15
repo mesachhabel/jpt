@@ -45,7 +45,6 @@ class slipgajicontroller extends Controller
         //Pemanggilan Table
             $data = data_karyawan::with(['remunerasi'])->find($nik); //Pemanggilan Tabel Relasi Dari remunerasi
             $bpjs = data_karyawan::with(['nilaibaku'])->find($nik); //Pemanggilan Tabel Relasi Dari tr_nilaibaku
-            $lembur = data_karyawan::with(['lembur'])->find($nik); //Pemanggilan Tabel Relasi Dari data_lembur
             //Keterangan Slip
                 $keterangan = Tab_KeteranganSlip::all();
         //Months And Year TOday

@@ -392,7 +392,7 @@
                             </tr>
                             <tr valign="top">
                                 <td>
-                                    <a>&nbsp; - Lembur  : 300,000</a>
+                                    <a>&nbsp; - Lembur : 300,000</a>
                                 </td>
                                 <td>
                                     <a>&nbsp; - Iuran Dana Pensiun : 127,253</a>
@@ -440,12 +440,34 @@
                                     <a>&nbsp; - Iuran PhDP Tambahan : 127,253</a>
                                 </td>
                             </tr>
+                            <tr valign="top">
+                                <td>
+                                    <hr>
+                                </td>
+                                <td>
+                                    <hr>
+                                </td>
+                            </tr>
                         </tbody>
+                        
+                        <!-- total -->
+                        <tbody>
+                            <tr valign="top" align="left"  border="0" >
+                                <th>
+                                <!-- penerimaan -->
+                                    <strong>&nbsp; Sub Total :</strong>
+                                </th>
+                                <th>
+                                <!-- potongan -->
+                                    <strong>&nbsp; Sub Total :</strong>
+                                </th>
+                            </tr>
+                        </tbody>
+                        
                     </table>
-                    
                 </div>
             </div>
-            <section class="footer" style="text-align: center;">
+            <section style="text-align: center;">
                 <hr> PT Jasamarga Pandaan Tol : {{ $today }}
             </section>
         </section>

@@ -380,19 +380,69 @@
                 <!-- end of keterangan -->
 
                 <div>
-                    <table width="100%" border="1" cellspacing="0" cellpadding="0"
-                        style="background-color: #AFFFFF; margin-bottom: 9rem;">
+                    <table width="100%" border="0"  cellpadding="2">
                         <tbody>
-                            <tr>
-                                <td valign="top">
+                            <tr valign="top" align="left" style="background-color: #AFFFFF;" >
+                                <th style="border: 1px solid black;">
                                     <strong>&nbsp; Rincian Penerimaan Lain-lain</strong>
-                                </td>
-                                <td valign="top">
+                                </th>
+                                <th style="border: 1px solid black;">
                                     <strong>&nbsp; Rincian Potongan Lain-lain</strong>
+                                </th>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                    <a>&nbsp; - Lembur  : 300,000</a>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Iuran Dana Pensiun : 127,253</a>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Iuran Purna Karya : 127,253</a>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Iuran SKMJ : 127,253</a>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Pot. Kop. JMB Surgem : 127,253</a>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Santunan Duka SKMJ @ Rp 3 : 127,253</a>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Santunan Duka Pensiunan @ : 127,253</a>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Iuran PhDP Tambahan : 127,253</a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    
                 </div>
             </div>
             <section class="footer" style="text-align: center;">

@@ -11,8 +11,8 @@ body {
 * {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    /* -webkit-print-color-adjust: exact !important;
-    color-adjust: exact !important; */
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
 }
 
 .page {
@@ -149,6 +149,10 @@ body {
     text-align: right;
     /* margin-right: 0px; */
     width: 60px;
+}
+
+table {
+    border-collapse: collapse;
 }
 
 

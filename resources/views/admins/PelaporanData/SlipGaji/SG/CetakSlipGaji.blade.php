@@ -9,216 +9,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/icon.png" />
     <link rel="stylesheet" href="../../../landingpage/css/fontAwesome.css">
-
-    <style>
-        body {
-            font-family: 'Times New Roman', Times, serif;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            background-color: #FAFAFA;
-            scroll-behavior: smooth;
-
-        }
-
-        * {
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            -webkit-print-color-adjust: exact !important;
-            color-adjust: exact !important;
-        }
-
-        .page {
-            width: 210mm;
-            min-height: 297mm;
-            padding: 20mm;
-            margin: 10mm auto;
-            border: 1px #D3D3D3 solid;
-            border-radius: 5px;
-            background: white;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .block_container {
-            text-align: left;
-        }
-
-        .wraptext {
-            width: 210px;
-            word-wrap: break-word;
-        }
-
-        #bloc1,
-        #bloc2,
-        #bloc3,
-        #bloc4,
-        #bloc5,
-        #bloc6,
-        #bloc7,
-        #bloc8,
-        #bloc9,
-        #bloc10,
-        #bloc11,
-        #bloc12,
-        #bloc13,
-        #bloc14,
-        #bloc15,
-        #bloc16,
-        #bloc17,
-        #bloc18,
-        #bloc19,
-        #bloc20,
-        #bloc21,
-        #bloc22,
-        #bloc23,
-        #bloc24,
-        #bloc25,
-        #bloc26,
-        #bloc27,
-        #bloc28,
-        #bloc29,
-        #bloc30,
-        #bloc31,
-        #bloc32,
-        #bloc33,
-        #bloc34,
-        #bloc35,
-        #bloc36 {
-            display: inline-block;
-        }
-
-        /* judul */
-
-
-
-
-        .logo {
-            /* position: absolute; */
-            width: 169px;
-            height: 41px;
-        }
-
-        .title {
-            /* position: absolute; */
-            text-align: center;
-            font-style: normal;
-            font-weight: 800;
-            font-size: 18px;
-            line-height: 21px;
-            /* identical to box height */
-            color: #000000;
-        }
-
-        .text-bank {
-            /* position: absolute; */
-            font-weight: 400;
-            font-size: 12px;
-            text-align: right;
-            line-height: 30px;
-        }
-
-        .text {
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 20px;
-        }
-
-        .sebutan {
-            /* position: relative; */
-            width: 50%;
-            top: 0px;
-            left: 0px;
-
-            /* top: 100px; */
-        }
-
-        .separ {
-            /* position: relative; */
-            width: 14px;
-            left: 50px;
-            top: 0px;
-        }
-
-        .keterangan {
-            /* position: flex; */
-            /* width: auto; */
-            /* left: 143px; */
-            top: 0px;
-        }
-
-        .status {
-            position: flex;
-            width: 100px;
-            height: auto;
-            left: 0px;
-            top: 30px;
-        }
-
-        .ii {
-            position: flex;
-            left: 30px;
-            height: auto;
-            /* top: p; */
-        }
-
-        .uang {
-            text-align: right;
-            /* margin-right: 0px; */
-            width: 60px;
-        }
-
-        /* button float */
-        .float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #0C9;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            box-shadow: 2px 2px 3px #999;
-            cursor: pointer;
-        }
-
-        .float:hover {
-            background-color: #0B7;
-        }
-
-        .my-float {
-            margin-top: 22px;
-        }
-
-        @page {
-            size: A4;
-            margin: 0;
-        }
-
-        @media print {
-            .float {
-                visibility: hidden;
-            }
-
-            html,
-            body {
-                width: 210mm;
-                height: 297mm;
-            }
-
-            .page {
-                margin: 0;
-                border: initial;
-                border-radius: initial;
-                width: initial;
-                min-height: initial;
-                background: initial;
-                page-break-after: always;
-            }
-        }
-
-    </style>
+    
+    <!-- CSS nya aku pindah ke path dibawah -->
+    <link rel="stylesheet" href="../../../assets/css/slipgaji.css">
 </head>
 
 <body>
@@ -587,22 +380,94 @@
                 <!-- end of keterangan -->
 
                 <div>
-                    <table width="100%" border="1" cellspacing="0" cellpadding="0"
-                        style="background-color: #AFFFFF; margin-bottom: 9rem;">
+                    <table width="100%" border="0"  cellpadding="2">
                         <tbody>
-                            <tr>
-                                <td valign="top">
+                            <tr valign="top" align="left" style="background-color: #AFFFFF;" >
+                                <th style="border: 1px solid black;">
                                     <strong>&nbsp; Rincian Penerimaan Lain-lain</strong>
-                                </td>
-                                <td valign="top">
+                                </th>
+                                <th style="border: 1px solid black;">
                                     <strong>&nbsp; Rincian Potongan Lain-lain</strong>
+                                </th>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                    <a>&nbsp; - Lembur : 300,000</a>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Iuran Dana Pensiun : 127,253</a>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Iuran Purna Karya : 127,253</a>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Iuran SKMJ : 127,253</a>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Pot. Kop. JMB Surgem : 127,253</a>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Santunan Duka SKMJ @ Rp 3 : 127,253</a>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Santunan Duka Pensiunan @ : 127,253</a>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                </td>
+                                <td>
+                                    <a>&nbsp; - Iuran PhDP Tambahan : 127,253</a>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                    <hr>
+                                </td>
+                                <td>
+                                    <hr>
                                 </td>
                             </tr>
                         </tbody>
+                        
+                        <!-- total -->
+                        <tbody>
+                            <tr valign="top" align="left"  border="0" >
+                                <th>
+                                <!-- penerimaan -->
+                                    <strong>&nbsp; Sub Total :</strong>
+                                </th>
+                                <th>
+                                <!-- potongan -->
+                                    <strong>&nbsp; Sub Total :</strong>
+                                </th>
+                            </tr>
+                        </tbody>
+                        
                     </table>
                 </div>
             </div>
-            <section class="footer" style="text-align: center;">
+            <section style="text-align: center;">
                 <hr> PT Jasamarga Pandaan Tol : {{ $today }}
             </section>
         </section>

@@ -7,7 +7,17 @@
                 <div class="d-flex align-items-end row">
                     <div class="col-sm-7">
                         <div class="card-body">
-                            <h5 class="card-title text-primary">Selamat datang <strong style="text-transform: capitalize">
+                            <h5 class="card-title text-primary">Selamat
+                                @if ($HI > '05:30' && $HI < '10:00')
+                                    Pagi
+                                @elseif ($HI >= '10:00' && $HI < '15:00')
+                                    Siang
+                                @elseif ($HI < '18:00')
+                                    Sore
+                                @else
+                                    Malam
+                                @endif
+                                <strong style="text-transform: capitalize">
                                     {{ Auth::user()->name }}</strong>!
                             </h5>
                             <p class="   mb-4">
@@ -33,8 +43,7 @@
                 <div class="card-body">
                     <div class="card-title d-flex align-items-start justify-content-between">
                         <div class="avatar flex-shrink-0">
-                            <img src="../assets/img/icons/unicons/chart-success.png" alt="chart success"
-                                class="rounded" />
+                            <img src="../assets/img/icons/unicons/chart-success.png" alt="chart success" class="rounded" />
                         </div>
                     </div>
                     <span class="fw-semibold d-block mb-1">Total Karyawan</span>

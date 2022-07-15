@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin\PelaporanData;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use PDF;
 use Carbon\Carbon;
 use DB;
 use App\Models\data_karyawan;
@@ -52,7 +51,7 @@ class slipgajicontroller extends Controller
         //Months And Year TOday
             $today = Carbon::now(); //Tanggal Bulan Tahun Hari Ini
             $year = $today->year; //Pemanggilan Tahun
-            $monthName = $today->format('F'); //Pemanggilan Bulan String
+            $monthName = $today->format('F'); //Pemanggilan Bulan dalam bentuk String
 
         //Beetween Tanggal Masuk kerja
             $beetween = Carbon::createFromDate($data->tmk)->diff(Carbon::now())->format('%y Tahun, %m Bulan'); //Mencari Masa kerja Efektif

@@ -50,17 +50,19 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../../assets/js/config.js"></script>
-    <style>
-    
-    </style>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
-        @include('partials.sidebar')
-     
+        @if (Auth::user()->role == '1')
+@include('partials.sidebar_admin')
+@elseif (Auth::user()->role == '2')
+@include('partials.sidebar_user')
+@endif
         <!-- Layout container -->
         <div class="layout-page">
           @include('partials.navbar')
@@ -106,5 +108,4 @@
 
     <script src="../../../js/jquery-3.6.0.min.js"></script>
 </body>
-
 </html>

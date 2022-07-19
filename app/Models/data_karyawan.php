@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\remunerasi;
 use App\Models\tr_nilaibaku;
+use App\Models\data_lembur;
 
 class data_karyawan extends Model
 {
@@ -20,5 +21,9 @@ class data_karyawan extends Model
     public function nilaibaku()
     {
         return $this->belongsTo(tr_nilaibaku::class, 'nilaibaku_id');
+    }
+    public function lemburs()
+    {
+        return $this->belongsTo(data_lembur::class, 'nik');
     }
 }

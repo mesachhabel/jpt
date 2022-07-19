@@ -127,15 +127,34 @@ body {
     /* position: flex; */
     /* width: auto; */
     /* left: 143px; */
-    top: 0px;
+    top: 0;
+}
+
+.keterangan_identitas1 {
+    margin-left: 14rem;
+    margin-top: -6.2rem;
+}
+
+.keterangan_identitas2 {
+    margin-left: 14rem;
+    width: 9.7rem;
+}
+
+.batas_status {
+    position: flex;
+    margin-left: 28.5rem;
+    margin-top: -2.5rem;
+}
+
+.ket_status {
+    position: flex;
+    margin-left: 29.5rem;
+    margin-top: -2.5rem;
 }
 
 .status {
-    position: flex;
-    width: 100px;
-    height: auto;
-    left: 0px;
-    top: 30px;
+    margin-left: 22rem;
+    margin-top: -2.5rem;
 }
 
 .ii {
@@ -199,7 +218,7 @@ table {
         border: initial;
         border-radius: initial;
         width: initial;
-        min-height: initial;
+        min-height: 297mm;
         background: initial;
         page-break-after: always;
     }

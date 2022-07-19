@@ -14,10 +14,14 @@ class DataKaryawans extends Migration
     public function up()
     {
         Schema::create('data_karyawans', function (Blueprint $table) {
+            //Relations
+                //relastionship from table remunerasi_id (data_karyawans) to id (data_remunerasi)
+                $table->unsignedBigInteger('remunarasi_id')->on('remunerasis')->references('id');
+                //relastionship from table tr_nilaibaku_id (data_karyawans) to id (tr_nilaibaku)
+                $table->unsignedBigInteger('nilaibaku_id')->on('tr_nilaibakus')->references('id');
+            //End of Relations
+            
             $table->string('nik')->primary();
-            //relastionship from remunerasi_id (data_karyawans) to id (data_remunerasi)
-            $table->unsignedBigInteger('remunarasi_id')->on('remunerasis')->references('id');
-            $table->unsignedBigInteger('nilaibaku_id')->on('tr_nilaibakus')->references('id');
             $table->string('nama');
             $table->string('nppi');
             $table->string('jk');

@@ -381,7 +381,7 @@
                 <!-- end of keterangan -->
 
                 <div style="margin-top: -8px;">
-                    <table width="100%" border="0" cellpadding="2">
+                    <table width="100%" border="0" cellpadding="1">
                         <tbody>
                             <tr valign="top" align="left" style="background-color: #AFFFFF;">
                                 <th style="border: 1px solid black;">
@@ -470,9 +470,9 @@
                     </table>
                 </div>
             </div>
-            <section style="text-align: center;">
+            <div style="text-align: center;">
                 <hr> PT Jasamarga Pandaan Tol : {{ $today }}
-            </section>
+            </div>
         </section>
 
         <a onclick="window.print()" class="float" style="bottom : 120px;">

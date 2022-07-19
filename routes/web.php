@@ -45,7 +45,7 @@ use App\Http\Controllers\Admin\Account\AccountController;
         
         //Tabel Karyawan 
         Route::resource('/karyawan', DataKaryawanController::class);
-        Route::post('/fetch', [DataKaryawanController::class,'fetch'])->name('kry.fetch');
+        Route::post('/fetch', [DataKaryawanController::class,'fetch'])->name('kry.fetch'); //Route fetch data karyawan
         
         //Tabel Absensi Karyawan
         Route::resource('/absensi', AbsensiDataKaryawanController::class);

@@ -9,6 +9,7 @@ use DB;
 use App\Models\data_karyawan;
 use App\Models\Tab_KeteranganSlip;
 use App\Models\tr_nilaibaku;
+use App\Models\data_lembur;
 use Illuminate\Support\Str;
 
 class slipgajicontroller extends Controller
@@ -45,17 +46,21 @@ class slipgajicontroller extends Controller
         //Pemanggilan Table
             $data = data_karyawan::with(['remunerasi'])->find($nik); //Pemanggilan Tabel Relasi Dari remunerasi
             $bpjs = data_karyawan::with(['nilaibaku'])->find($nik); //Pemanggilan Tabel Relasi Dari tr_nilaibaku
+            $lembur = data_karyawan::with(['lemburs'])->find($nik); //Pemanggilan Tabel Relasi Dari data_lembur
             //Keterangan Slip
                 $keterangan = Tab_KeteranganSlip::all();
+        //End Pemanggilan Table
+
         //Months And Year TOday
             $today = Carbon::now(); //Tanggal Bulan Tahun Hari Ini
-            $year = $today->year; //Pemanggilan Tahun
-            $monthName = $today->format('F'); //Pemanggilan Bulan dalam bentuk String
+            $monthName = $today->format('F Y'); //Pemanggilan Bulan dan Tahun dalam bentuk String
+            $format_tmk = $data->tmk; //Pemanggilan Tanggal Masuk Kerja dalam bentuk String 
 
         //Beetween Tanggal Masuk kerja
             $beetween = Carbon::createFromDate($data->tmk)->diff(Carbon::now())->format('%y Tahun, %m Bulan'); //Mencari Masa kerja Efektif
+        //End Beetween Tanggal Masuk Kerja
 
-        // Nilai Pensiun
+        // inisialisasi Nilai Pensiun
             if ($data->ip == 1){
                 $pensiun = 3000000;
             }
@@ -97,6 +102,7 @@ class slipgajicontroller extends Controller
                         $jpp = $lim_jpp * $data->nilaibaku->jpp_prs; //Jaminan Pensiun
                         $bpjskt_umum = $jht + $jkk + $jkm + $jpp; //BPJS Ketenagakerjaan
                 $sub_tot_umum = $bpjskes_umum + $bpjskt_umum; //Sub Total Umum
+            //End Perhitungan
             // Total Penerimaan
                 $total_penerimaan = $data->sgp + $total_tunj + $sub_tot_umum; //Total Penerimaan
         // End Penerimaan
@@ -124,7 +130,6 @@ class slipgajicontroller extends Controller
         return view ('admins.PelaporanData.SlipGaji.SG.CetakSlipGaji', 
         compact(
             'data',
-            'year', 
             'monthName',
             'today',
             'beetween',
@@ -146,6 +151,8 @@ class slipgajicontroller extends Controller
             'sub_tot_bpjskt',
             'total_potongan',
             'penerimaan_bersih',
+            'lembur',
+            'format_tmk',
         ));
     }
 

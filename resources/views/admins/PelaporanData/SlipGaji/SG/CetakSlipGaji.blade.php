@@ -9,7 +9,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/icon.png" />
     <link rel="stylesheet" href="../../../landingpage/css/fontAwesome.css">
-    
+
     <!-- CSS nya aku pindah ke path dibawah -->
     <link rel="stylesheet" href="../../../assets/css/slipgaji.css">
 </head>
@@ -24,11 +24,10 @@
             <div class="title">
                 <a> RINCIAN PENGHASILAN {{ Str::upper($data->remunerasi->jabatan) }} <br> BULAN :
                     {{ Str::upper($monthName) }}
-                    {{ $year }}
                 </a>
             </div>
             <div class="text-bank">
-                <a>Pembayaran : <strong>{{ Str::upper($data->bank) }}</strong></a>
+                <a>Pembayaran : <strong>{{ str::upper($data->bank) }}</strong></a>
             </div>
             <div class="text">
                 <table border="1" cellspacing="0" cellpadding="0" width="100%">
@@ -49,21 +48,23 @@
                                     <div class="separ" id="bloc2">
                                         <a>:<br>:<br>:<br>:<br>:</a>
                                     </div>
-                                    <div class="keterangan" id="bloc3" style="width:9.7rem;">
-                                        <a>{{ old('nik', $data->nik) }} - {{ old('nama', $data->nama) }}
+                                    <div class="keterangan_identitas1">
+                                        <a>{{ old('nik', $data->nik) }} - {{ str::title($data->nama) }}
                                             <br>
-                                            {{ $data->remunerasi->jabatan }}<br>
-                                            {{ old('npwp', $data->npwp) }} <br>
-                                            {{ old('tmk', $data->tmk) }}
-                                            <br>{{ $beetween }} </a>
+                                            {{ str::title($data->remunerasi->jabatan) }}<br>
                                     </div>
-                                    <div class="status" id="bloc4">
+                                    <div class="keterangan_identitas2">
+                                        {{ old('npwp', $data->npwp) }} <br>
+                                        {{ old('tmk', $format_tmk) }}
+                                        <br>{{ $beetween }} </a>
+                                    </div>
+                                    <div class="status">
                                         <a>Status Karyawan <br> Status Keluarga</a>
                                     </div>
-                                    <div class="separ ii" id="bloc5">
+                                    <div class="separ batas_status">
                                         <a>:<br>:</a>
                                     </div>
-                                    <div class="keterangan ii" id="bloc6">
+                                    <div class="keterangan ket_status">
                                         <a>{{ old('ska', $data->ska) }}<br>
                                             @if ($data->skk == '1')
                                                 <span class="badge bg-label-primary me-1">Belum Menikah</span>
@@ -368,7 +369,7 @@
                 <!-- keterangan -->
                 <div>
                     Keterangan :
-                    <ol>
+                    <ol style="margin-top: -2px">
                         <?php $no = 1; ?>
                         @forelse ($keterangan as $keterangan)
                             {{ $no++ }}. {{ $keterangan->Ur_Keterangan }}<br>
@@ -379,10 +380,10 @@
                 </div>
                 <!-- end of keterangan -->
 
-                <div>
-                    <table width="100%" border="0"  cellpadding="2">
+                <div style="margin-top: -8px;">
+                    <table width="100%" border="0" cellpadding="2">
                         <tbody>
-                            <tr valign="top" align="left" style="background-color: #AFFFFF;" >
+                            <tr valign="top" align="left" style="background-color: #AFFFFF;">
                                 <th style="border: 1px solid black;">
                                     <strong>&nbsp; Rincian Penerimaan Lain-lain</strong>
                                 </th>
@@ -392,7 +393,10 @@
                             </tr>
                             <tr valign="top">
                                 <td>
-                                    <a>&nbsp; - Lembur : 300,000</a>
+                                    @if ($lembur->lemburs->total_insentif == 0)
+                                    @else
+                                        <a>&nbsp; - Lembur : @idr($lembur->lemburs->total_insentif)</a>
+                                    @endif
                                 </td>
                                 <td>
                                     <a>&nbsp; - Iuran Dana Pensiun : 127,253</a>
@@ -449,21 +453,20 @@
                                 </td>
                             </tr>
                         </tbody>
-                        
+
                         <!-- total -->
                         <tbody>
-                            <tr valign="top" align="left"  border="0" >
+                            <tr valign="top" align="left" border="0">
                                 <th>
-                                <!-- penerimaan -->
+                                    <!-- penerimaan -->
                                     <strong>&nbsp; Sub Total :</strong>
                                 </th>
                                 <th>
-                                <!-- potongan -->
+                                    <!-- potongan -->
                                     <strong>&nbsp; Sub Total :</strong>
                                 </th>
                             </tr>
                         </tbody>
-                        
                     </table>
                 </div>
             </div>

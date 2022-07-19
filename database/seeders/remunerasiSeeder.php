@@ -16,7 +16,7 @@ class remunerasiSeeder extends Seeder
     public function run()
     {
         remunerasi::create([
-            'jabatan' => 'General Manager',
+            'jabatan' => 'DEPUTY GENERAL MANAGER HUMAN RESOURCES & GENERAL AFFAIR',
             'kode_mg' => 'A',
             'klp' => 'Struktural',
             'tunj_jabatan' => '6000000',
@@ -30,7 +30,7 @@ class remunerasiSeeder extends Seeder
             'tunj_perumahan' => '0',
         ]);
         remunerasi::create([
-            'jabatan' => 'General Manager',
+            'jabatan' => 'DEPUTY GENERAL MANAGER HUMAN RESOURCES & GENERAL AFFAIR',
             'kode_mg' => 'B',
             'klp' => 'Struktural',
             'tunj_jabatan' => '6000000',
@@ -44,7 +44,7 @@ class remunerasiSeeder extends Seeder
             'tunj_perumahan' => '0',
         ]);
         remunerasi::create([
-            'jabatan' => 'General Manager',
+            'jabatan' => 'DEPUTY GENERAL MANAGER HUMAN RESOURCES & GENERAL AFFAIR',
             'kode_mg' => 'C',
             'klp' => 'Struktural',
             'tunj_jabatan' => '6000000',

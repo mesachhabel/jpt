@@ -10,6 +10,7 @@ use App\Models\tr_bank;
 use App\Models\tr_kodejabatan;
 use App\Models\remunerasi;
 use App\Models\tr_nilaibaku;
+use App\Models\data_lembur;
 use Alert;
 use Illuminate\Support\Facades\Storage;
 
@@ -96,7 +97,7 @@ class DataKaryawanController extends Controller
             'ujsm'      => $request->ujsm,
             'phda'      => $request->phda
         ]);
-
+        
         if($masuk){
             Alert::success('Data Berhasil Ditambahkan', 'Selamat');
             return redirect()->route('karyawan.index');

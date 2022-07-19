@@ -16,17 +16,17 @@ class data_karyawanSeeder extends Seeder
     public function run()
     {
         data_karyawan::create([
-            'nik' => '123456789',
+            'nik' => '10062',
             'remunarasi_id' => 1,
             'nilaibaku_id' => 1,
-            'nama' => 'John Doe',
+            'nama' => 'Brahmo Wardhono Sudibyo',
             'nppi' => '123456789',
             'jk' => 'Laki-laki',
             'agama' => 'Islam',
             'skk' => '1',
             'ia' => 'PT. Jasamarga Pandaan Tol',
             'gi' => 1,
-            'npwp' => '123456789',
+            'npwp' => '08.862.809.4.602.000',
             'nktp' => '123456789',
             'nbpkt' => '123456789',
             'nbpks' => '123456789',

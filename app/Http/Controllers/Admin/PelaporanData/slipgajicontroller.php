@@ -55,7 +55,6 @@ class slipgajicontroller extends Controller
             $today = Carbon::now(); //Tanggal Bulan Tahun Hari Ini
             $monthName = $today->format('F Y'); //Pemanggilan Bulan dan Tahun dalam bentuk String
             $format_tmk = $data->tmk; //Pemanggilan Tanggal Masuk Kerja dalam bentuk String 
-
         //Beetween Tanggal Masuk kerja
             $beetween = Carbon::createFromDate($data->tmk)->diff(Carbon::now())->format('%y Tahun, %m Bulan'); //Mencari Masa kerja Efektif
         //End Beetween Tanggal Masuk Kerja

@@ -64,6 +64,7 @@ class DataKaryawanController extends Controller
         $masuk = data_karyawan::create([
             'image'     => $image->hashName(),
             'nik'       => $request->nik,
+            'nik_lembur'=> $request->nik, //digunakan untuk nik di table lembur
             'nama'      => $request->nama,
             'nppi'      => $request->nppi,
             'jk'        => $request->jk,
@@ -97,8 +98,25 @@ class DataKaryawanController extends Controller
             'ujsm'      => $request->ujsm,
             'phda'      => $request->phda
         ]);
+
+        $bulan = date('Y-m');
+        $tanggal = date('Y-m-d');
+        $lembur = data_lembur::create([
+            'bulan' => $bulan,
+            'nik' => $masuk->nik_lembur,
+            'nama' => $masuk->nama,
+            'ska' => $masuk->ska,
+            'npp' => $masuk->nppi,
+            'tanggal_lembur' => $tanggal,
+            'jumlah_jam_lembur' => 0,
+            'jenis_hari_lembur' => 0,
+            'jumlah_insentif' => 0,
+            'nilai_insentif' => 0,
+            'total_insentif' => 0,
+
+        ]);
         
-        if($masuk){
+        if($masuk && $lembur){
             Alert::success('Data Berhasil Ditambahkan', 'Selamat');
             return redirect()->route('karyawan.index');
         }else{
@@ -138,6 +156,7 @@ class DataKaryawanController extends Controller
             'image'     => $image->hashName(),
             'nama'      => $request->nama,
             'nik'       => $request->nik,
+            'nik_lembur'=> $request->nik, //digunakan untuk nik di table lembur
             'nppi'      => $request->nppi,
             'jk'        => $request->jk,
             'agama'     => $request->agama,
@@ -177,6 +196,7 @@ class DataKaryawanController extends Controller
             $karyawan->update([
             'nama'      => $request->nama,
             'nik'       => $request->nik,
+            'nik_lembur'=> $request->nik, //digunakan untuk nik di table lembur
             'nppi'      => $request->nppi,
             'jk'        => $request->jk,
             'agama'     => $request->agama,

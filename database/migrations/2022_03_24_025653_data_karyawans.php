@@ -22,6 +22,7 @@ class DataKaryawans extends Migration
             //End of Relations
             
             $table->string('nik')->primary();
+            $table->string('nik_lembur')->nullable();
             $table->string('nama');
             $table->string('nppi');
             $table->string('jk');
